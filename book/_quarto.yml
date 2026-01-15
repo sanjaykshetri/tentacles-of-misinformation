@@ -1,0 +1,46 @@
+project:
+  type: book
+  output-dir: _book
+
+book:
+  title: "The Tentacles of Misinformation"
+  subtitle: "Behavioral Science, NLP, and Predictive Analytics for Misinformation Susceptibility"
+  author: "Sanjay Kumar Chhetri"
+  date: today
+  chapters:
+    - index.qmd
+    - chapters/01-introduction.qmd
+    - chapters/02-literature-review.qmd
+    - chapters/03-behavioral-analysis.qmd
+    - chapters/04-nlp-pipelines.qmd
+    - chapters/05-fusion-models.qmd
+    - chapters/06-results.qmd
+    - chapters/07-discussion.qmd
+    - chapters/08-conclusion.qmd
+  
+  appendices:
+    - chapters/appendix-a.qmd
+    - chapters/appendix-b.qmd
+
+bibliography: references.bib
+csl: https://raw.githubusercontent.com/citation-style-language/styles/master/apa.csl
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+    number-sections: true
+    code-fold: true
+    code-summary: "Show code"
+    highlight-style: github
+  
+  pdf:
+    documentclass: book
+    geometry:
+      - margin=1in
+    number-sections: true
+    code-line-numbers: true
+
+execute:
+  freeze: auto

@@ -1,0 +1,53 @@
+# The Tentacles of Misinformation
+
+## A Research Monograph on Cognitive Vulnerability and Predictive Analytics
+
+::: {.callout-note}
+This research monograph presents an end-to-end study of misinformation susceptibility, integrating behavioral science, NLP, and machine learning to understand who falls for misinformation, why, and how susceptibility can be predicted and mitigated.
+:::
+
+### Overview
+
+Misinformation represents one of the most pressing challenges to informed discourse and democratic participation in the digital age. This work extends an IRB-approved Master's thesis on cognitive vulnerability to misinformation with large-scale NLP models, fusion architectures, and interactive decision support systems.
+
+### Key Contributions
+
+- **Behavioral Analysis**: Survey-based identification of cognitive and mindset features that predict susceptibility
+- **NLP Classification**: State-of-the-art transformer models for detecting misinformation narratives at scale
+- **Fusion Models**: Multimodal architectures combining behavioral and content features for improved predictions
+- **Policy Insights**: Actionable dashboards and visualizations for researchers and policymakers
+
+### Author
+
+**Sanjay Kumar Chhetri**  
+Data Scientist | Behavioral Researcher | Educator
+
+---
+
+**How to navigate this book:**
+
+1. Start with the Introduction for context and research questions
+2. Review the Literature Review for theoretical foundations
+3. Explore the Behavioral Analysis chapter for cognitive predictors
+4. Understand NLP Pipelines for content analysis methods
+5. Study Fusion Models for the integration approach
+6. Examine Results and Discussion for key findings
+7. Consult Appendices for technical details and supplementary analyses
+
+---
+
+**Citation:**
+
+```bibtex
+@book{chhetri2026tentacles,
+  title={The Tentacles of Misinformation: Behavioral Science, NLP, and Predictive Analytics},
+  author={Chhetri, Sanjay Kumar},
+  year={2026},
+  publisher={Self-published},
+  url={https://tentacles-of-misinformation.com}
+}
+```
+
+**Disclaimer:**
+
+All behavioral data used in this project is anonymized and approved for analysis under IRB protocol. Public misinformation datasets are used in accordance with their respective licenses.

@@ -1,0 +1,60 @@
+name: tentacles-misinformation
+channels:
+  - conda-forge
+  - pytorch
+  - defaults
+dependencies:
+  # Python version
+  - python=3.11
+  
+  # Core scientific stack
+  - numpy
+  - pandas
+  - scipy
+  - scikit-learn
+  - matplotlib
+  - seaborn
+  - plotly
+  
+  # NLP & ML
+  - pytorch::pytorch
+  - pytorch::pytorch-cuda=12.1
+  - pytorch::torchvision
+  - pytorch::torchaudio
+  - transformers
+  - spacy
+  
+  # Statistical analysis
+  - statsmodels
+  
+  # Jupyter & IDE
+  - jupyter
+  - jupyterlab
+  - ipython
+  - ipywidgets
+  
+  # Dashboards
+  - streamlit
+  - dash
+  
+  # Development tools
+  - pytest
+  - black
+  - flake8
+  - mypy
+  - isort
+  
+  # Quarto
+  - quarto
+  
+  # Version control & utilities
+  - git
+  - pip
+  
+  - pip:
+    - sentence-transformers
+    - pingouin
+    - python-dotenv
+    - pydantic
+    - sqlalchemy
+    - tqdm
