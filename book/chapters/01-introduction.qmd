@@ -1,0 +1,117 @@
+# Introduction
+
+## Project Overview
+
+**The Tentacles of Misinformation** is an integrated research and machine learning platform investigating cognitive and linguistic predictors of misinformation susceptibility.
+
+### Research Questions
+
+1. **Who falls for misinformation?** What behavioral traits predict vulnerability?
+2. **What makes misinformation convincing?** What linguistic patterns characterize fake news?
+3. **Can we predict susceptibility?** Can we build models that identify vulnerable individuals or content?
+4. **How do we mitigate risk?** What interventions reduce misinformation impact?
+
+---
+
+## Scope and Timeline
+
+This research expands on an **IRB-approved Master's thesis** on cognitive vulnerability to misinformation, integrating:
+
+- **Behavioral Analysis**: Survey-based cognitive features (numeracy, critical thinking, conspiracy beliefs)
+- **NLP Models**: Deep learning classifiers for misinformation detection
+- **Multimodal Fusion**: Combining human behavior with content features
+- **Interactive Dashboards**: Decision support for policymakers and platforms
+
+---
+
+## Methodology
+
+### Data Sources
+
+- **Behavioral**: Original survey data (anonymized, IRB-approved)
+- **Content**: FakeNewsNet dataset (Politifact + GossipCop)
+- **Social**: Twitter engagement metrics (where available)
+
+### Modeling Approach
+
+1. **Phase 1 (Sprint 1)**: Data exploration + baseline classification
+2. **Phase 2 (Sprint 2-3)**: Transformer-based NLP + feature fusion
+3. **Phase 3 (Sprint 4-5)**: Multi-task learning + interpretability
+4. **Phase 4**: Research publication + open-source release
+
+---
+
+## Structure of This Book
+
+Chapters are organized as follows:
+
+- **Chapter 1** (this chapter): Project overview and motivation
+- **Chapter 2**: Dataset sources, exploration, and ethical considerations
+- **Chapter 3+**: Baseline models, deep learning, fusion architectures, and results
+
+Each chapter includes:
+- Motivating questions
+- Reproducible code and results
+- Visualizations and interpretations
+- Ethical caveats and limitations
+
+---
+
+## Key Contributions
+
+By the end of this research, we contribute:
+
+✅ **Novel dataset**: Merged behavioral + content features  
+✅ **Interpretable models**: SHAP analysis of feature importance  
+✅ **Public book**: Open research narrative and code  
+✅ **Reproducibility**: Docker, notebooks, and full pipeline  
+✅ **Ethical framework**: Responsible use guidelines  
+
+---
+
+## A Note on Ethics
+
+Misinformation research sits at the intersection of **cognitive science, platform design, and information security**. This work acknowledges:
+
+- **Platform incentives**: Systems optimized for engagement often amplify misinformation
+- **Cognitive realities**: All humans have cognitive biases; vulnerability is not "stupidity"
+- **Labeling challenges**: "Fake news" is subjective; fact-checkers make judgment calls
+- **Societal complexity**: Misinformation thrives in contexts of economic inequality, social polarization, and institutional distrust
+
+We aim to **inform policy and product design** without stigmatizing individuals or groups.
+
+---
+
+## Quick Start
+
+To replicate this research:
+
+```bash
+# Clone repository
+git clone https://github.com/sanjaykshetri/tentacles-of-misinformation.git
+cd tentacles-of-misinformation
+
+# Set up environment
+conda env create -f environment/conda.yml
+conda activate misinformation
+
+# Run data pipeline
+python src/data_prep.py
+
+# Render this book
+cd book
+quarto preview
+```
+
+---
+
+## Contact and Attribution
+
+**Author**: Sanjay Kumar Chhetri  
+**Institution**: Data Science Capstone / Independent Research  
+**GitHub**: https://github.com/sanjaykshetri  
+**Website**: https://mathwithmeditation.com
+
+---
+
+> "The first casualty of misinformation is not truth—it's trust. This research aims to rebuild both."

@@ -1,0 +1,216 @@
+# Baseline NLP Models
+
+## Objective
+
+Before deploying complex deep learning models, it is critical to establish strong baselines using classical NLP techniques. This chapter documents:
+
+- **Vectorization**: TF-IDF (term frequency-inverse document frequency)
+- **Models**: Logistic Regression and Linear SVM with class weighting
+- **Evaluation**: Comprehensive metrics to assess performance and identify failure modes
+- **Insights**: What works, what doesn't, and why deeper features are needed
+
+---
+
+## Why Baselines Matter
+
+Baselines are not optional—they are essential:
+
+1. **Sanity Check**: Confirms the problem is learnable
+2. **Benchmark**: Sets a bar for deep learning models to beat
+3. **Interpretability**: Simpler models are easier to debug and understand
+4. **Efficiency**: Baselines often run in seconds; transformers take hours
+5. **Storytelling**: Shows you understand the full ML pipeline
+
+---
+
+## Methodology
+
+### Data Preparation
+
+- **Dataset**: 21,724 articles from FakeNewsNet
+- **Train/Val Split**: 80/20 with **stratification** to preserve class distribution
+- **Text Feature**: Article titles (6,422 unique terms after vectorization)
+
+### TF-IDF Vectorization
+
+```
+TfidfVectorizer(
+    stop_words="english",
+    max_features=10000,
+    ngram_range=(1, 2),           # unigrams + bigrams
+    min_df=5,                      # appear in at least 5 docs
+    max_df=0.8,                    # appear in at most 80% of docs
+    sublinear_tf=True              # scale term frequencies logarithmically
+)
+```
+
+This represents each article as a sparse 6,422-dimensional vector.
+
+### Class Balancing
+
+Since the dataset is **3.2:1 imbalanced** (76% real, 24% fake):
+
+- **Logistic Regression**: `class_weight="balanced"`
+- **Linear SVM**: `class_weight="balanced"`
+
+This ensures the model penalizes misclassifying the minority class (fake articles) appropriately.
+
+---
+
+## Results Summary
+
+| Metric | Logistic Regression | Linear SVM |
+|--------|-------------------|-----------|
+| **Accuracy** | 81.2% | 79.3% |
+| **F1 Score** | 0.644 | 0.612 |
+| **ROC-AUC** | **0.859** | 0.841 |
+| **Precision (Fake)** | 59% | 56% |
+| **Recall (Fake)** | 71% | 69% |
+
+**Winner**: Logistic Regression (highest ROC-AUC)
+
+---
+
+## Confusion Matrices
+
+### Logistic Regression
+
+|  | Predicted Real | Predicted Fake |
+|---|---|---|
+| **Actual Real** | 2,788 | 517 |
+| **Actual Fake** | 300 | 740 |
+
+- **True Negatives**: 2,788 (84% of real articles correct)
+- **False Positives**: 517 (16% of real articles misclassified as fake)
+- **False Negatives**: 300 (29% of fake articles misclassified as real)
+- **True Positives**: 740 (71% of fake articles correctly identified)
+
+### Linear SVM
+
+|  | Predicted Real | Predicted Fake |
+|---|---|---|
+| **Actual Real** | 2,733 | 572 |
+| **Actual Fake** | 325 | 715 |
+
+SVM is more conservative, producing slightly more false negatives.
+
+---
+
+## Error Analysis
+
+### False Positives (Real → Fake)
+
+Real articles that the model mistakenly classified as fake: **517 samples**
+
+**Examples**:
+- "Angelina Jolie Travels to Jordan with Daughters Shiloh and Zahara to Meet with S..."
+- "Lady Gaga's Style Is Unremarkable in 'A Star Is Born'"
+- "Britney Spears Shares Kissable Moments With Boyfriend Sam Asghari in Romantic Vi..."
+
+**Pattern**: Entertainment/celebrity content from **Politifact** with sensational phrasing.
+
+**Root Cause**: While these are *technically real* (from fact-checkers), they use emotional language ("Kissable," "Unremarkable") that overlaps with fake article linguistic patterns from GossipCop.
+
+### False Negatives (Fake → Real)
+
+Fake articles that the model mistakenly classified as real: **300 samples**
+
+**Examples**:
+- "JAY-Z – Lucifer"
+- "Ranking The Real Housewives by Net Worth"
+- "Teen Choice Awards Nominations 2017 — Full, Final List Of Nominees"
+
+**Pattern**: Listicles, music/award show titles, and neutral phrasing articles from **GossipCop**.
+
+**Root Cause**: GossipCop fake articles often mimic legitimate entertainment reporting. Simple title-based features cannot distinguish between real and fake reporting in the same domain (entertainment).
+
+---
+
+## Key Insights
+
+### ✅ What Works
+
+1. **Title-based TF-IDF captures domain differences**
+   - Politifact articles use political vocabulary (Trump, Congress, policy)
+   - GossipCop articles use entertainment vocabulary (celebrity names, awards)
+
+2. **Class weighting effectively handles imbalance**
+   - Logistic Regression achieves 71% recall on minority class (fake)
+   - Better than naive baseline (would predict majority class only)
+
+3. **ROC-AUC ~0.86 is reasonable for a baseline**
+   - Not trivial (random = 0.5)
+   - But not production-ready (need 0.90+)
+
+### ⚠️ What Doesn't Work
+
+1. **Title length alone is insufficient**
+   - Real and fake articles have similar title lengths (~11 words)
+   - Suggests content structure ≠ lexical items
+
+2. **Bag-of-words misses semantic nuance**
+   - Can't distinguish between sensational *real* and *fake*
+   - E.g., both "Shocking News About Politicians" (real) and "Shocking News About Celebrities" (fake) use similar words
+
+3. **Domain generalization is weak**
+   - 517 false positives: real entertainment articles flagged as fake
+   - Model learns domain-specific patterns, not deception signals
+
+### 💡 Implications for Sprint 3
+
+To improve beyond this baseline, we need:
+
+1. **Linguistic Features**
+   - Emotion scores (are fake articles more sensational?)
+   - Subjectivity (are fake articles more opinionated?)
+   - Readability (are fake articles simpler/more complex?)
+   - Lexical diversity (vocabulary richness)
+
+2. **Behavioral Features**
+   - Certainty/hedging words ("definitely" vs "possibly")
+   - Named entity types (political vs celebrity figures)
+   - Temporal markers (urgency signals)
+
+3. **Domain-Aware Modeling**
+   - Separate models for Politifact and GossipCop
+   - Or domain adaptation techniques
+
+---
+
+## Conclusion
+
+This baseline establishes a **functional, interpretable model** that correctly classifies 81% of articles and achieves 0.859 ROC-AUC. However, the systematic failure modes—especially difficulty distinguishing sensational real articles from fake ones—reveal that **linguistic style alone is insufficient for robust misinformation detection**.
+
+The next phase (Sprint 3) will add richer features grounded in behavioral science and cognitive psychology, leveraging the insights from this error analysis.
+
+---
+
+## Reproducibility
+
+### Run the Baseline
+
+```bash
+python src/train_baseline.py
+```
+
+Output:
+- Models saved to `models/` directory
+- Metrics and visualizations to `results/` directory
+
+### Load Pre-trained Models
+
+```python
+import joblib
+
+vectorizer = joblib.load("models/tfidf_vectorizer.joblib")
+model = joblib.load("models/logistic_regression.joblib")
+
+# Predict on new titles
+new_title = ["Breaking: New Policy Announced"]
+X_new = vectorizer.transform(new_title)
+prediction = model.predict(X_new)
+```
+
+### Reproduce This Chapter
+
+See notebook: `behavioral_analysis/notebooks/02_baseline_models.ipynb`

@@ -1,0 +1,136 @@
+# Data Sources and Ethics
+
+## Dataset Overview
+
+This project uses **FakeNewsNet**, a comprehensive dataset of labeled news articles collected from two authoritative fact-checking sources:
+
+- **Politifact**: Political news and claims (983 articles)
+- **GossipCop**: Entertainment/celebrity gossip (20,741 articles)
+
+The dataset provides:
+
+- Article **titles** and **URLs**
+- **Labels**: Real vs Fake
+- **Source metadata**
+
+### Dataset Composition
+
+**Key observations:**
+
+- **Total articles**: 21,724
+- **Real articles**: 16,523 (76.1%)
+- **Fake articles**: 5,201 (23.9%)
+- **Class imbalance**: 3.2:1 (Real:Fake)
+- **Primary source**: GossipCop (95.5%)
+
+| Label | Count | Percentage |
+|-------|-------|-----------|
+| Real | 16,523 | 76.1% |
+| Fake | 5,201 | 23.9% |
+| **Total** | **21,724** | **100%** |
+
+**By Dataset:**
+
+| Dataset | Politifact | GossipCop | Total |
+|---------|-----------|----------|-------|
+| Real | 654 | 15,869 | 16,523 |
+| Fake | 329 | 4,872 | 5,201 |
+| **Total** | **983** | **20,741** | **21,724** |
+
+---
+
+## Class Distribution
+
+The dataset exhibits **moderate class imbalance** (3.2:1 ratio). This reflects real-world misinformation prevalence—not all published articles are fake, but a non-trivial percentage are. Modeling will account for this through:
+
+- Stratified cross-validation
+- Weighted loss functions
+- Balanced metrics (F1, precision-recall)
+
+---
+
+## Title Length Patterns
+
+From our EDA notebook analysis:
+
+**Title Length Statistics by Label:**
+
+| Metric | Real | Fake |
+|--------|------|------|
+| Mean (words) | 11.35 | 10.82 |
+| Std (words) | 3.97 | 3.42 |
+| Min (words) | 1 | 1 |
+| Max (words) | 53 | 46 |
+| Mean (chars) | 69.5 | 67.1 |
+| Max (chars) | 340 | 337 |
+
+**Finding**: Real and fake articles have **similar title lengths** (mean ~11 words). This suggests linguistic complexity alone is insufficient for classification—deeper semantic analysis is needed.
+
+---
+
+## Most Common Words by Label
+
+From CountVectorizer analysis in our EDA notebook:
+
+**Top 15 Words in REAL Articles:**
+news, said, new, trump, people, would, clinton, time, obama, state, congress, year, president, country, government
+
+**Top 15 Words in FAKE Articles:**
+love, one, like, new, time, said, day, get, just, make, know, thing, think, come, got
+
+**Linguistic insight**: 
+- **Fake articles** emphasize **sensational topics** (love, drama, emotions)
+- **Real articles** focus on **political/policy content** (Trump, Clinton, Congress, government)
+
+This domain difference is expected given Politifact (political) vs GossipCop (entertainment) sources.
+
+---
+
+## Ethical Considerations
+
+### Data Limitations
+
+1. **Source bias**: GossipCop dominates the dataset (95%), introducing entertainment domain bias
+2. **Temporal scope**: Snapshots from specific time periods; not longitudinal
+3. **Labeling subjectivity**: "Fake" ≠ universally deceptive; includes disputed/satirical content
+4. **Platform effects**: Dataset doesn't capture social media dynamics (shares, engagement, bot amplification)
+
+### Responsible Use
+
+This dataset should **not** be interpreted as:
+
+- Universal indicators of deception across all news domains
+- Proof of partisan bias
+- Ground truth for individual claims
+
+Rather, it reflects:
+
+- **Domain-specific patterns** (entertainment vs politics)
+- **Labeling choices** by fact-checkers (methodology matters)
+- **Historical snapshots** of misinformation prevalence
+
+### Bias Mitigation in Modeling
+
+- Test on multiple domains separately
+- Avoid overgeneralizing to unknown distributions
+- Report uncertainty and failure modes
+- Engage domain experts and fact-checkers
+
+---
+
+## Summary Statistics
+
+**FakeNewsNet Dataset Summary:**
+
+- **Total articles**: 21,724
+- **Real articles**: 16,523 (76.1%)
+- **Fake articles**: 5,201 (23.9%)
+- **Politifact**: 983 articles (4.5%)
+- **GossipCop**: 20,741 articles (95.5%)
+- **Title length range**: 1–53 words
+- **Title character range**: 10–340 characters
+
+The dataset is now **cleaned, explored, and ready for feature engineering and modeling**.
+
+**Next phase (Sprint 2)**: Baseline models with TF-IDF + Logistic Regression and SVM.
+

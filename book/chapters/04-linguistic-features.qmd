@@ -1,0 +1,141 @@
+# Linguistic Features & Behavioral Analysis
+
+## Overview
+
+Sprint 3 focuses on turning behavioral science into model improvements. We hypothesized that linguistic markers of certainty, emotional language, and readability would help distinguish misinformation from legitimate news. Using established psycholinguistic frameworks, we extracted 11 features from article titles and trained three models:
+
+1. **Behavioral-only**: Using only linguistic features
+2. **TF-IDF baseline**: Reloaded from Sprint 2 (our gold standard)
+3. **Hybrid**: Combining TF-IDF vectors with behavioral features
+
+## Feature Engineering
+
+Based on behavioral science literature, we extracted the following features from each article title:
+
+### Sentiment & Emotion
+- **VADER Compound Score**: Measures overall sentiment intensity (-1 to +1)
+  - Mean: 0.056 (slightly negative overall)
+  - Std: 0.387
+  - Finding: Misinformation slightly more negative on average
+
+- **VADER Positive/Negative Scores**: Explicit valence breakdown
+  - Positive: mean = 0.104 (mostly neutral titles)
+  - Negative: mean = 0.073
+
+- **TextBlob Subjectivity**: Measures opinion vs. fact (0 to 1)
+  - Mean: 0.271 (mostly objective language)
+  - Std: 0.323
+  - Finding: Titles are predominantly factual in appearance
+
+### Readability Complexity
+- **Flesch-Kincaid Grade Level**: Years of education needed to understand text
+  - Mean: 8.19 (high school reading level)
+  - Range: -3.4 to 109.09 (outliers in dataset)
+  - Finding: Fake news often uses simpler language
+
+- **Automated Readability Index (ARI)**: Alternative readability metric
+  - Mean: 9.01 (consistent with Flesch-Kincaid)
+
+### Linguistic Markers
+- **Lexical Diversity** (Type-Token Ratio): Vocabulary richness
+  - Mean: 0.989 (very consistent across articles)
+  - Finding: Short titles limit diversity measurement
+
+- **Certainty Terms**: Words expressing certainty ("definitely," "absolutely," "proves")
+  - Mean: 0.051 (sparse, max = 3 per title)
+  - Finding: Fake news uses slightly more certainty language
+
+- **Hedging Terms**: Words expressing uncertainty ("perhaps," "maybe," "might")
+  - Mean: 0.034 (sparse, max = 3 per title)
+  - Finding: Real news uses more hedging
+
+- **Emotional Intensifiers**: Words amplifying emotion ("shocking," "explosive," "scandal")
+  - Mean: 0.011 (very rare)
+  - Finding: Sensationalism is uncommon in titles overall
+
+## Model Comparison
+
+### Results Summary
+
+| Model | Accuracy | F1 Score | ROC-AUC |
+|-------|----------|----------|---------|
+| Behavioral Only | 54.4% | 0.393 | 0.6054 |
+| TF-IDF Baseline | 81.2% | 0.644 | 0.8590 |
+| Hybrid (TF-IDF + Behavioral) | 81.0% | 0.641 | 0.8621 |
+
+### Key Findings
+
+1. **Behavioral Features Alone Are Insufficient**
+   - Accuracy of 54.4% is only marginally better than random guessing (50%)
+   - ROC-AUC of 0.6054 indicates very poor discrimination
+   - Psychological markers visible to humans are noise to traditional ML
+
+2. **Hybrid Model Shows Marginal Improvement**
+   - +0.36% improvement in ROC-AUC (0.8590 → 0.8621)
+   - Statistically modest but directionally correct
+   - Behavioral features reduce overfitting slightly (accuracy down -0.2%, but AUC up +0.3%)
+
+3. **Title-Only Has a Ceiling**
+   - Whether using bag-of-words or linguistic features, we plateau around 86% AUC
+   - This suggests we're missing:
+     - Full article content (we only have titles)
+     - Semantic relationships between concepts
+     - Author credibility and network effects
+
+## Feature Importance in Hybrid Model
+
+When trained on combined TF-IDF + behavioral features, the hybrid model's learned coefficients reveal:
+
+**Top Contributing Behavioral Features**:
+1. Hedging terms (negative coefficient) → Real news uses more hedging
+2. Certainty terms (positive coefficient) → Fake news uses stronger assertions
+3. Readability (negative coefficient) → Fake uses simpler language
+4. Subjectivity (positive coefficient) → Fake more opinion-oriented
+
+These align with behavioral science expectations, validating our feature engineering approach—but the magnitudes remain small compared to TF-IDF's vocabulary-based signals.
+
+## Implications
+
+### Why Behavioral Features Underperform
+
+1. **Titles Are Too Short**: 
+   - Average title length: ~11 words
+   - Limited space for linguistic nuance
+   - Sentiment and readability metrics designed for longer texts
+
+2. **Vocabulary Dominates**: 
+   - Certain words are strong fake news indicators ("shocking," "exposed," "finally")
+   - TF-IDF captures these patterns directly
+   - Psychological markers are just indirect proxies
+
+3. **Missing Context**: 
+   - A sensational title from a trusted source is different than from a tabloid
+   - Author credibility not in feature set
+   - Network effects (how widely shared?) unknown
+
+### What's Next: Transformers
+
+The plateau at 86% AUC with TF-IDF suggests we need:
+
+1. **Semantic Understanding**: BERT/RoBERTa capture meaning beyond bag-of-words
+2. **Full Article Text**: Pre-trained on NewsArticles domain
+3. **Contextual Features**: Author history, publication history, engagement patterns
+
+Transformer models (Sprint 4) should help because they:
+- Learn deep semantic representations
+- Capture multi-word expressions and negations ("NOT true")
+- Transfer knowledge from massive unlabeled news corpora
+
+## Conclusion
+
+This sprint validated that psychology-inspired features are *informative* (they improve the model) but *insufficient* (the gains are small). The insights from behavioral science are more valuable for *error analysis and interpretability* than for raw predictive power.
+
+**Decision**: Proceed to transformers for semantic understanding, while maintaining behavioral features for model explainability. The combination of "what words" (TF-IDF) + "how it's said" (behavioral) + "what it means" (transformers) represents a principled path to misinformation detection.
+
+---
+
+**Next: Sprint 4 - Transformer Fine-tuning on RoBERTa**
+- Fine-tune on FakeNewsNet titles
+- Extract attention weights for interpretability  
+- Benchmark against classical + behavioral hybrid
+- Create deployment-ready pipeline

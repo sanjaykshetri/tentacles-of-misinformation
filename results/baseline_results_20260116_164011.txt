@@ -1,0 +1,25 @@
+FAKENEWSNET BASELINE MODEL RESULTS
+============================================================
+
+Model: Logistic Regression
+ROC-AUC: 0.8590
+
+Confusion Matrix:
+[[2788  517]
+ [ 300  740]]
+
+Classification Report:
+{'0': {'precision': 0.9028497409326425, 'recall': 0.84357034795764, 'f1-score': 0.8722039730955733, 'support': 3305.0}, '1': {'precision': 0.588703261734288, 'recall': 0.7115384615384616, 'f1-score': 0.6443186765346104, 'support': 1040.0}, 'accuracy': 0.8119677790563866, 'macro avg': {'precision': 0.7457765013334652, 'recall': 0.7775544047480507, 'f1-score': 0.7582613248150918, 'support': 4345.0}, 'weighted avg': {'precision': 0.827657027844889, 'recall': 0.8119677790563866, 'f1-score': 0.8176583555067582, 'support': 4345.0}}
+============================================================
+
+Model: Linear SVM
+ROC-AUC: 0.8413
+
+Confusion Matrix:
+[[2733  572]
+ [ 325  715]]
+
+Classification Report:
+{'0': {'precision': 0.893721386527142, 'recall': 0.826928895612708, 'f1-score': 0.8590287600188591, 'support': 3305.0}, '1': {'precision': 0.5555555555555556, 'recall': 0.6875, 'f1-score': 0.6145251396648045, 'support': 1040.0}, 'accuracy': 0.7935558112773302, 'macro avg': {'precision': 0.7246384710413487, 'recall': 0.757214447806354, 'f1-score': 0.7367769498418317, 'support': 4345.0}, 'weighted avg': {'precision': 0.8127795075373951, 'recall': 0.7935558112773302, 'f1-score': 0.8005054538811798, 'support': 4345.0}}
+============================================================
+

@@ -10,17 +10,10 @@ book:
   chapters:
     - index.qmd
     - chapters/01-introduction.qmd
-    - chapters/02-literature-review.qmd
-    - chapters/03-behavioral-analysis.qmd
-    - chapters/04-nlp-pipelines.qmd
-    - chapters/05-fusion-models.qmd
-    - chapters/06-results.qmd
-    - chapters/07-discussion.qmd
-    - chapters/08-conclusion.qmd
-  
-  appendices:
-    - chapters/appendix-a.qmd
-    - chapters/appendix-b.qmd
+    - chapters/02-data.qmd
+    - chapters/03-baseline-models.qmd
+    - chapters/04-linguistic-features.qmd
+    - chapters/05-transformers.qmd
 
 bibliography: references.bib
 csl: https://raw.githubusercontent.com/citation-style-language/styles/master/apa.csl
