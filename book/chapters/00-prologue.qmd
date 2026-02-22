@@ -1,0 +1,42 @@
+# Prologue — When a False Story Wins
+
+## A Concrete Case
+
+Every day, misinformation spreads faster than truth. But why? And who falls for it?
+
+This prologue opens with a concrete anecdote—a false story that captured public attention and reshaped beliefs—and asks: *What psychological, social, and algorithmic forces allowed this narrative to prevail?*
+
+---
+
+## The Tentacles: A Metaphor for Complexity
+
+Misinformation doesn't spread through a single mechanism. Instead, it exploits multiple psychological and social vulnerabilities:
+
+- **Cognitive Biases**: Confirmation bias, motivated reasoning, pattern recognition gone awry
+- **Emotions**: Fear, outrage, and tribalism override critical thinking
+- **Algorithms**: Social media platforms amplify what engages, regardless of truth
+- **Social Dynamics**: Trust networks and authority figures shape belief
+
+---
+
+## What This Book Will Explore
+
+This book is structured around a simple question: **Can we measure, model, and mitigate misinformation susceptibility?**
+
+Across eight chapters, we'll build:
+
+1. **Behavioral models** that predict who is vulnerableto misinformation
+2. **NLP systems** that detect and characterize false narratives
+3. **Fusion models** combining human cognition with content analysis
+4. **Dashboards** to visualize risk and spread
+5. **Ethical frameworks** for responsible intervention
+
+---
+
+## A Portfolio in Data Science
+
+More than research, this book is a **portfolio project**—a story of how data science integrates behavioral science, machine learning, and ethical reasoning.
+
+Each chapter demonstrates not just *what can be done*, but *how to do it reproducibly, rigorously, and responsibly*.
+
+Let's begin.

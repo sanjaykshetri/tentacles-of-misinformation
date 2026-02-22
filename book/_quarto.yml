@@ -9,11 +9,15 @@ book:
   date: today
   chapters:
     - index.qmd
-    - chapters/01-introduction.qmd
-    - chapters/02-data.qmd
-    - chapters/03-baseline-models.qmd
-    - chapters/04-linguistic-features.qmd
-    - chapters/05-transformers.qmd
+    - chapters/00-prologue.qmd
+    - chapters/01-thesis-as-code.qmd
+    - chapters/02-spss-to-python.qmd
+    - chapters/03-sharing-decision.qmd
+    - chapters/04-pseudo-profound.qmd
+    - chapters/05-infodemic-simulation.qmd
+    - chapters/06-interactive-dashboards.qmd
+    - chapters/07-ethics-responsible-ds.qmd
+    - chapters/08-epilogue.qmd
 
 bibliography: references.bib
 csl: https://raw.githubusercontent.com/citation-style-language/styles/master/apa.csl
@@ -21,19 +25,11 @@ csl: https://raw.githubusercontent.com/citation-style-language/styles/master/apa
 format:
   html:
     theme: cosmo
-    css: styles.css
     toc: true
     number-sections: true
     code-fold: true
     code-summary: "Show code"
     highlight-style: github
-  
-  pdf:
-    documentclass: book
-    geometry:
-      - margin=1in
-    number-sections: true
-    code-line-numbers: true
 
 execute:
   freeze: auto

@@ -1,2 +1,12 @@
 /.quarto/
+**/*.quarto_ipynb_book/
+*.log
+*.tex
+index_files/
+site_libs/
+.DS_Store
+*.swp
+*.swo
+*~
+Thumbs.db
 **/*.quarto_ipynb

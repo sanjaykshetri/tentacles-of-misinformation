@@ -1,0 +1,64 @@
+# Chapter 1: Measuring Vulnerability — Rebuilding My Thesis as Code
+
+## From Survey to Science
+
+My Master's thesis investigated a deceptively simple question: *Who is cognitively vulnerable to misinformation?*
+
+Using a survey of 194 participants, I measured four cognitive constructs:
+
+- **CRT**: Cognitive Reflection Test (numeracy and analytical thinking)
+- **VOI-7**: Openness to information and epistemic curiosity  
+- **CMQ-5**: Conspiracy mentality and mistrust
+- **BSR-10**: Bullshit receptivity (susceptibility to pseudo-profound language)
+
+---
+
+## Why Rebuild as Code?
+
+The original analysis lived in SPSS—proprietary, point-and-click, difficult to reproduce or extend.
+
+This chapter reconstructs the entire thesis **as reproducible Python and R code**, making it:
+
+- **Transparent**: Every step documented and auditable
+- **Reusable**: Code can be adapted for new data or questions
+- **Verifiable**: Hiring managers, academics, and collaborators can validate findings
+- **Extensible**: Foundation for multimodal models later in this book
+
+---
+
+## Analysis Pipeline
+
+### 1. Data Cleaning & EDA
+- Missing data imputation
+- Outlier detection and handling
+- Descriptive statistics and distributions
+
+### 2. Measurement Validation
+- Cronbach's α (internal consistency)
+- Normality testing (Shapiro-Wilk)
+- Correlation matrices (Pearson and Spearman)
+
+### 3. Path Modeling & Mediation
+- Structural equation modeling (lavaan in R)
+- Testing direct and indirect effects
+- Bootstrap confidence intervals
+
+### 4. Effect Interpretation
+- Effect sizes for academic publication
+- Practical implications for practitioners
+
+---
+
+## Key Findings
+
+[Placeholder: Insert findings from thesis]
+
+---
+
+## Reproducibility Note
+
+All code, data, and results for this chapter live in:
+- `behavioral_analysis/notebooks/01_exploratory_analysis.ipynb`
+- `src/data_prep.py` and `src/features.py`
+
+Run the scripts to regenerate all tables and figures.

@@ -1,0 +1,85 @@
+# Chapter 2: From SPSS to Reproducible Analytics
+
+## The Migration Challenge
+
+Most social science research lives in a proprietary workflow:
+- **SPSS or Stata** for data cleaning and analysis
+- **Manual** figure creation and table reporting
+- **Point-and-click** interfaces that leave no audit trail
+
+This chapter documents my migration from SPSS to a fully **reproducible analytics pipeline** in Python and R.
+
+---
+
+## Lessons Learned
+
+### 1. Version Control Everything
+- All scripts in Git
+- Tracked changes and collaboration enabled
+- Reproducible from any checkpoint
+
+### 2. Automate Table & Figure Generation
+- Dynamic reports via Quarto
+- Tables generated directly from models, not manually typed
+- Plots sync with underlying data automatically
+
+### 3. Modular Code Structure
+- Separate concerns: data prep, feature engineering, modeling, reporting
+- Reusable components across projects
+- Easier testing and debugging
+
+### 4. Embrace Open-Source Tools
+- R (tidyverse, lavaan) for statistical modeling
+- Python (scikit-learn, transformers) for ML and NLP
+- Quarto for narrative + code integration
+
+---
+
+## Project Structure
+
+```
+behavioral_analysis/
+├── notebooks/          # EDA and exploratory analysis
+├── scripts/           # Reproducible pipelines
+└── results/           # Generated outputs
+
+src/
+├── data_prep.py       # Data cleaning and validation
+├── features.py        # Feature engineering
+└── train_baseline.py  # Model training
+
+book/
+├── chapters/          # This narrative
+└── _book/            # Rendered HTML
+```
+
+---
+
+## Key Tooling Decisions
+
+| Task | Tool | Why |
+|------|------|-----|
+| Version control | Git + GitHub | Collaboration and reproducibility |
+| EDA | Jupyter + pandas | Interactive exploration |
+| Statistical modeling | R + lavaan | SEM and mediation |
+| ML modeling | Python + scikit-learn | Production-ready pipelines |
+| Narrative | Quarto | Code + markdown in one document |
+| Deployment | GitHub Pages / Netlify | Free, static hosting |
+
+---
+
+## Benefits of This Approach
+
+1. **Audit trail**: Every decision is documented in code
+2. **Reproducibility**: Anyone can run the script and get identical results
+3. **Collaboration**: Easy to share, review, and extend
+4. **Portfolio value**: Shows mastery of modern data science tooling
+
+---
+
+## For Data Science Practitioners
+
+Whether you're migrating legacy analyses or building new projects, this chapter showcases:
+- Best practices for reproducible analytics
+- How to structure a project for collaboration and deployment
+- Tools and workflows hiring teams recognize and value

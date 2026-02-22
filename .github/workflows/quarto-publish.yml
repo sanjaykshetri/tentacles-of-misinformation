@@ -1,0 +1,54 @@
+name: Publish Quarto Book
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'book/**'
+      - '.github/workflows/quarto-publish.yml'
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'book/**'
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    
+    defaults:
+      run:
+        working-directory: ./book
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: |
+          # Install Python dependencies if requirements.txt exists
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+
+      - name: Render Quarto book
+        run: quarto render
+
+      - name: Deploy to GitHub Pages
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./book/_book
+          cname: tentacles-of-misinformation.com
+          force_orphan: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
