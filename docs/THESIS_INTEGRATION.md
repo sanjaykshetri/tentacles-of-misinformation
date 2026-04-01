@@ -2,63 +2,94 @@
 
 ## Your Master's Thesis
 
-**File:** `Chhetri_Masters_Thesis_Misinformation_Vulnerability.pdf`
+**Title:** Cognitive Vulnerability to Misinformation  
+**Institution:** Montclair State University, 2023  
+**Ethics:** IRB-approved  
+**Sample:** N=194 with behavioral assessment
 
-This is the **foundation** of your capstone project. Your thesis contains:
+Your thesis is the **foundation** of this research project. It provides the behavioral data, theoretical framework, and initial findings that are now extended through NLP and epidemiological modeling.
 
-### Key Data & Findings
-- Original behavioral survey data (N=194 subjects)
+---
+
+## How Thesis Research Maps to 4 Units
+
+### **Unit 1: Measuring Vulnerability** ← Thesis Core
+Your thesis research becomes Unit 1, with enhancements:
+
+**Original Thesis Content:**
+- Behavioral survey design and instrument validation
 - Cognitive features: CRT, NFC, conspiracy mentality, BS receptivity
-- Correlation analyses and statistical findings
-- Vulnerability profiles and behavioral patterns
+- Statistical tests: factor analysis, correlations, regression
+- Key finding: CRT correlates with verification behavior (β=0.149, p=.031)
 
-### How to Use in Capstone
-
-#### 1. **Behavioral Analysis Pipeline**
-   - Extract and re-analyze thesis data with modern ML frameworks
-   - Reproduce statistical findings with Python (statsmodels, scipy)
-   - Create publication-quality visualizations
-   - **Reference notebook:** `behavioral_analysis/notebooks/01_exploratory_analysis.ipynb`
-
-#### 2. **Literature Review & Theory**
-   - Cite thesis findings in book chapter 2 (Literature Review)
-   - Reference your own theoretical framework
-   - Build on conclusions for novel contributions
-   - **Reference file:** `book/references.bib`
-
-#### 3. **Feature Engineering**
-   - Use thesis feature definitions for consistency
-   - Validate scales and composite scores
-   - Ensure replicability in Python pipeline
-   - **Reference notebook:** `behavioral_analysis/notebooks/02_feature_engineering.ipynb`
-
-#### 4. **Publication Strategy**
-   - Extend thesis analysis with NLP + fusion modeling
-   - Write journal manuscript with new findings
-   - Include thesis data as foundational benchmark
-   - **Target:** Research monograph + journal paper
+**Unit 1 Enhancements:**
+- Reproduced in Python (statsmodels, scipy) for reproducibility
+- Publication-quality visualizations (seaborn, matplotlib)
+- Expanded feature engineering and composite scoring
+- Path models and mediation analysis
+- Distribution analysis and demographic breakdowns
+- **See:** `book/chapters/01-measuring-vulnerability.qmd`
 
 ---
 
-## Next Steps
+### **Unit 2: Detecting Narratives** ← Thesis Extension
+Use behavioral insights to improve NLP models:
 
-1. **Extract thesis data:** Load raw survey responses into `data/raw/thesis_data.csv`
-2. **Validate features:** Ensure Python pipeline matches original analyses
-3. **Extend methods:** Add modern ML techniques (transformers, multimodal fusion)
-4. **Publication:** Build journal manuscript section by section
+**Connection to Thesis:**
+- Thesis identified that *individual differences* drive susceptibility
+- Unit 2 asks: What *content characteristics* interact with these differences?
+- Bridge: Use behavioral profiles to improve text classification
+
+**How It Works:**
+- Train NLP classifiers on FakeNewsNet (which types do vulnerable people share?)
+- High performers: RoBERTa (87% AUC)
+- Analyze errors: What content fools both people and models?
+- **See:** `book/chapters/02-detecting-narratives.qmd`, `nlp_models/README.md`
 
 ---
 
-## Thesis Citation
+### **Unit 3: Modeling Spread** ← Thesis Application
+Apply behavioral insights to population-level dynamics:
 
-```bibtex
-@mastersthesis{chhetri2023,
-  title={Cognitive Vulnerability to Misinformation},
-  author={Chhetri, Sanjay Kumar},
-  school={Montclair State University},
-  year={2023}
-}
-```
+**Connection to Thesis:**
+- Thesis measured *individual susceptibility*
+- Unit 3 scales up: If X% of population has high CRT, what infection rate emerges?
+- SEIR model adapts epidemiology to misinformation
+
+**How It Works:**
+- Calibrate transmission rate (β) from behavioral correlations
+- Calibrate recovery rate (γ) from fact-checking dynamics
+- Simulate: Heterogeneous population with varying CRT, NFC, conspiracy beliefs
+- Intervention targets: education, friction, content labels
+- **See:** `book/chapters/03-modeling-spread.qmd`, `fusion_models/experiments/`
+
+---
+
+### **Unit 4: Fusion & Scale** ← Thesis Deployment
+Build production systems using all insights:
+
+**Connection to Thesis:**
+- Thesis: Behavioral features predict susceptibility *in sample*
+- Unit 4: Deploy hybrid model (behavioral + NLP) at scale
+- Ethical governance: How to use individual-level predictions responsibly?
+
+**How It Works:**
+- Ensemble: Combine behavioral signals + content signals + user history
+- Dashboards: Interactive visualization for policy and product decisions
+- Ethics framework: Address privacy, fairness, consent, accountability
+- Monitoring: Track model drift, demographic parity, false positive rates
+- **See:** `book/chapters/04-fusion-scale.qmd`, `dashboards/README.md`
+
+---
+
+## Source Code Organization
+
+| Unit | Primary Directory | Key Files |
+|------|-------------------|-----------|
+| **Unit 1** | `behavioral_analysis/` | `notebooks/01_exploratory_analysis.ipynb` |
+| **Unit 2** | `nlp_models/` | `notebooks/02_baseline_models.ipynb` |
+| **Unit 3** | `fusion_models/experiments/` | SEIR calibration & simulation |
+| **Unit 4** | `dashboards/` + `src/` | Streamlit apps, API serving |
 
 ---
 
@@ -73,13 +104,34 @@ This is the **foundation** of your capstone project. Your thesis contains:
 
 ---
 
-## Capstone Alignment
+## Next Steps
 
-Your capstone extends the thesis by:
+- [ ] Confirm thesis data access and IRB status
+- [ ] Validate Python pipeline reproduces original statistical findings
+- [ ] Cross-validate behavioral features with NLP classifiers
+- [ ] Calibrate SEIR model with empirical estimates
+- [ ] Build dashboard with ethical safeguards
+- [ ] Write and submit paper drafts
+- [ ] Publish research monograph on GitHub Pages
 
-✅ Moving from **descriptive statistics** → **predictive modeling**  
-✅ Adding **NLP for content analysis** → **behavioral-content fusion**  
-✅ Building **interactive dashboards** → **decision support tools**  
-✅ Creating **research monograph** → **publication-ready narrative**
+---
 
-This is not "redoing" your thesis. It's **scaling and extending** it into a full research platform.
+**Thesis Citation:**
+```bibtex
+@mastersthesis{chhetri2023,
+  title={Cognitive Vulnerability to Misinformation},
+  author={Chhetri, Sanjay Kumar},
+  school={Montclair State University},
+  year={2023}
+}
+```
+
+**Current Project Citation:**
+```bibtex
+@online{chhetri2026,
+  title={The Tentacles of Misinformation: Behavioral, NLP, and Epidemiological Perspectives},
+  author={Chhetri, Sanjay Kumar},
+  url={https://sanjaykshetri.github.io/tentacles-of-misinformation/},
+  year={2026}
+}
+```

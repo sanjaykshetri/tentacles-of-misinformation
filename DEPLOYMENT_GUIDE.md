@@ -33,9 +33,8 @@ This starts a local development server at `http://localhost:3000`.
 The workflow file `.github/workflows/quarto-publish.yml` automatically:
 
 1. **Checks** for changes in the `book/` directory
-2. **Renders** the Quarto book using the latest Quarto
-3. **Deploys** the output to GitHub Pages on the `gh-pages` branch
-4. **Maps custom domain** `tentacles-of-misinformation.com` (if configured)
+2. **Deploys** pre-rendered HTML from `_book/` to GitHub Pages on the `gh-pages` branch
+3. **Serves** live at GitHub Pages
 
 ### Requirements
 
@@ -45,17 +44,12 @@ The workflow file `.github/workflows/quarto-publish.yml` automatically:
    - Branch: `gh-pages`
    - Folder: `/ (root)`
 
-2. **Custom domain** (optional):
-   - Update `.github/workflows/quarto-publish.yml` line 53 with your domain
-   - Configure DNS records to point to GitHub Pages
-
 ### How It Works
 
 Every time you push to `main`:
-- GitHub Actions runs the workflow
-- Quarto renders the book to `_book/`
-- Output is deployed to `gh-pages` branch
-- Live at: `https://<your-domain>/` or `https://<username>.github.io/tentacles-of-misinformation/`
+- GitHub Actions runs the deployment workflow
+- Pre-rendered HTML from `book/_book/` is deployed to `gh-pages` branch
+- Live at: `https://sanjaykshetri.github.io/tentacles-of-misinformation/`
 
 ---
 
