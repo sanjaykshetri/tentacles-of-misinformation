@@ -14,7 +14,7 @@ book:
     - chapters/02-detecting-narratives.qmd
     - chapters/03-modeling-spread.qmd
     - chapters/04-fusion-scale.qmd
-    - chapters/08-epilogue.qmd
+    - chapters/05-epilogue.qmd
 
 bibliography: references.bib
 csl: https://raw.githubusercontent.com/citation-style-language/styles/master/apa.csl
