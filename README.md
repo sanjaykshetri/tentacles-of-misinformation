@@ -41,26 +41,25 @@ Public research narrative built with Quarto and deployed as a website.
 
 This repository is under active development as part of a data science capstone and research publication effort.
 
-**Current Phase**: Quarto book skeleton complete with 10 chapters. Deploying to GitHub Pages for live publication.
+**Current Phase**: Quarto book completed with 4 comprehensive research units. Live publication at GitHub Pages.
 
-**Next**: Populating chapters with code, results, and narrative from existing notebooks.
+**Book Structure**: Prologue + 4 Units (Behavioral Science, NLP, Epidemiology, Fusion & Scale) + Epilogue
 
 ---
 
 ## 📚 Quarto Book
 
-The complete research narrative is being published as an interactive web book. See [DEPLOYMENT_GUIDE.md](DEPLOYMENT_GUIDE.md) for setup and deployment instructions.
+The complete research narrative is published as an interactive web book at: **[Live Site](https://sanjaykshetri.github.io/tentacles-of-misinformation/)**
 
-**Book chapters**:
-1. Prologue — When a False Story Wins
-2. Chapter 1 — Measuring Vulnerability: Rebuilding My Thesis as Code
-3. Chapter 2 — From SPSS to Reproducible Analytics
-4. Chapter 3 — The Sharing Decision: Modeling Who Clicks "Share"
-5. Chapter 4 — Spotting Pseudo-Profound Bullshit: A Gentle NLP Project
-6. Chapter 5 — Age, Emotion, and Susceptibility: Simulating an Infodemic
-7. Chapter 6 — Visualizing the Tentacles: Interactive Views of Misinformation
-8. Chapter 7 — Ethics, Limits, and Responsible Data Science
-9. Epilogue — My Path into Data Science
+See [DEPLOYMENT_GUIDE.md](DEPLOYMENT_GUIDE.md) for development and deployment details.
+
+**Book Structure**:
+- **Prologue** — When a False Story Wins
+- **Unit 1** — Measuring Vulnerability: Behavioral Predictors of Misinformation Susceptibility
+- **Unit 2** — Detecting Narratives: NLP Pipeline from Baselines to Transformers
+- **Unit 3** — Modeling Spread: Epidemiological Simulation of Misinformation Cascades
+- **Unit 4** — Fusion & Scale: Production Deployment and Ethical Governance
+- **Epilogue** — Frontier Challenges and Research Roadmap
 
 ---
 
@@ -75,8 +74,7 @@ The complete research narrative is being published as an interactive web book. S
 
 **Sanjay Kumar Chhetri**  
 Data Scientist | Behavioral Researcher | Educator  
-GitHub: https://github.com/sanjaykshetri  
-Website: https://mathwithmeditation.com
+GitHub: https://github.com/sanjaykshetri
 
 ---
 
