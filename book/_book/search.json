@@ -60,613 +60,553 @@
     ]
   },
   {
-    "objectID": "chapters/01-thesis-as-code.html",
-    "href": "chapters/01-thesis-as-code.html",
-    "title": "3  Chapter 1: Measuring Vulnerability — Rebuilding My Thesis as Code",
+    "objectID": "chapters/01-measuring-vulnerability.html",
+    "href": "chapters/01-measuring-vulnerability.html",
+    "title": "3  Unit 1: Measuring Vulnerability",
     "section": "",
-    "text": "3.1 From Survey to Science\nMy Master’s thesis investigated a deceptively simple question: Who is cognitively vulnerable to misinformation?\nUsing a survey of 194 participants, I measured four cognitive constructs:",
+    "text": "3.1 Learning Outcomes\nBy the end of this unit, you will: 1. Understand behavioral predictors of misinformation susceptibility 2. Apply reproducible analytics principles to social science research 3. Design and analyze behavioral surveys with multivariate techniques 4. Interpret causal pathways using mediation analysis 5. Communicate research findings to technical and non-technical audiences",
     "crumbs": [
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Chapter 1: Measuring Vulnerability — Rebuilding My Thesis as Code</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Unit 1: Measuring Vulnerability</span>"
     ]
   },
   {
-    "objectID": "chapters/01-thesis-as-code.html#from-survey-to-science",
-    "href": "chapters/01-thesis-as-code.html#from-survey-to-science",
-    "title": "3  Chapter 1: Measuring Vulnerability — Rebuilding My Thesis as Code",
+    "objectID": "chapters/01-measuring-vulnerability.html#the-research-question",
+    "href": "chapters/01-measuring-vulnerability.html#the-research-question",
+    "title": "3  Unit 1: Measuring Vulnerability",
+    "section": "3.2 The Research Question",
+    "text": "3.2 The Research Question\nWho falls for misinformation? What behavioral traits predict vulnerability?\nThis unit investigates cognitive and personality characteristics that make individuals susceptible to misinformation through: - Psychological assessment: Cognitive Reflection Test, Need for Cognition, conspiracy beliefs - Dataset: Original IRB-approved survey data (N=194 participants) - Analysis: Correlation, mediation analysis, and predictive modeling - Contribution: Quantifies which cognitive traits matter most for susceptibility",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Unit 1: Measuring Vulnerability</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/01-measuring-vulnerability.html#part-a-project-overview-and-motivation",
+    "href": "chapters/01-measuring-vulnerability.html#part-a-project-overview-and-motivation",
+    "title": "3  Unit 1: Measuring Vulnerability",
+    "section": "3.3 Part A: Project Overview and Motivation",
+    "text": "3.3 Part A: Project Overview and Motivation\n\n3.3.1 The Research Context\nThis project expanded an IRB-approved Master’s thesis on cognitive vulnerability to misinformation into a comprehensive multi-modal research platform integrating:\n\nBehavioral Analysis: Survey-based cognitive features (numeracy, critical thinking, conspiracy beliefs)\nNLP Models: Deep learning classifiers for misinformation detection\nMultimodal Fusion: Combining human behavior with content features\nInteractive Dashboards: Decision support for policymakers and platforms\n\n\n\n3.3.2 Key Research Questions\n\nIndividual susceptibility: What behavioral traits predict vulnerability?\nContent characteristics: What linguistic patterns characterize fake news?\nPredictive modeling: Can we build accurate susceptibility classifiers?\nRisk mitigation: What interventions reduce misinformation impact?\n\n\n\n3.3.3 Scope and Timeline\n\n\n\nPhase\nFocus\nDuration\n\n\n\n\nPhase 1\nData exploration + baseline classification\nSprint 1\n\n\nPhase 2\nTransformer-based NLP + feature fusion\nSprint 2-3\n\n\nPhase 3\nMulti-task learning + interpretability\nSprint 4-5\n\n\nPhase 4\nPublication + open-source release\nOngoing",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Unit 1: Measuring Vulnerability</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/01-measuring-vulnerability.html#part-b-reproductive-analytics-methodology",
+    "href": "chapters/01-measuring-vulnerability.html#part-b-reproductive-analytics-methodology",
+    "title": "3  Unit 1: Measuring Vulnerability",
+    "section": "3.4 Part B: Reproductive Analytics Methodology",
+    "text": "3.4 Part B: Reproductive Analytics Methodology\n\n3.4.1 The Migration Challenge\nMost social science research lives in a proprietary workflow: - SPSS or Stata for data cleaning and analysis - Manual figure creation and table reporting\n- Point-and-click interfaces that leave no audit trail\nThis research documents a full migration to reproducible analytics:\n\n\n3.4.2 Reproducibility Principles\n\n\n\n\n\n\n\nPrinciple\nImplementation\n\n\n\n\nVersion Control\nAll scripts in Git; tracked changes and collaboration\n\n\nAutomated Reports\nQuarto for dynamic code + markdown integration\n\n\nModular Design\nSeparate concerns: data prep, engineering, modeling, reporting\n\n\nOpen Tools\nPython (scikit-learn), R (tidyverse, lavaan), Quarto\n\n\n\n\n\n3.4.3 Project Architecture\nsrc/\n├── data_prep.py              # Data cleaning and validation\n├── features.py               # Feature engineering\n├── train_baseline.py         # Baseline model training\n├── train_linguistic_features.py\n└── train_transformers.py     # Deep learning models\n\nbehavioral_analysis/\n├── notebooks/                # EDA and exploratory analysis\n├── scripts/                  # Reproducible pipelines\n└── results/                  # Generated outputs\n\nbook/\n├── chapters/                 # This narrative\n└── _book/                    # Rendered HTML (deployed)",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Unit 1: Measuring Vulnerability</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/01-measuring-vulnerability.html#part-c-data-sources",
+    "href": "chapters/01-measuring-vulnerability.html#part-c-data-sources",
+    "title": "3  Unit 1: Measuring Vulnerability",
+    "section": "3.5 Part C: Data Sources",
+    "text": "3.5 Part C: Data Sources\n\n3.5.1 Behavioral Data\nSurvey Design (N=194 participants):\n\n\n\nMeasure\nItems\nReliability\n\n\n\n\nCognitive Reflection Test (CRT)\n3 items\nN/A (validated)\n\n\nNeed for Cognition (NFC)\n18 items\nα = 0.890\n\n\nConspiracy Belief Scale\n15 items\nα = 0.782\n\n\nBelief in Misinformation\n5 items\nα = 0.745\n\n\nInformation Verification\n7 items\nα = 0.812\n\n\n\nSurvey Quality Checks: - Attention checks embedded throughout (2 items) - Exclusion criterion: &lt;60% accuracy on attention checks (3 participants removed) - Mean completion time: 18.3 minutes (SD = 7.2)\nDemographic Breakdown: - Age: M = 34.5 years, SD = 12.3 (range: 18-72) - Gender: 52% Female, 48% Male - Education: 34% Bachelor’s, 41% Master’s, 25% Doctorate - Political affiliation: 38% Liberal, 35% Conservative, 27% Moderate\n\n\n3.5.2 Content Data\nFakeNewsNet Dataset:\n\nTotal articles: 21,724 labeled news articles\nSource 1: Politifact (political news) = 983 articles\nSource 2: GossipCop (entertainment) = 20,741 articles\nLabels: Real vs Fake (verified by professional fact-checkers)\nClass distribution: 76.1% Real, 23.9% Fake\n\nTitle Length by Label (Descriptive Statistics):\n\n\n\nMetric\nReal\nFake\n\n\n\n\nMean length (words)\n11.35\n10.82\n\n\nSD (words)\n3.97\n3.42\n\n\nMean length (chars)\n69.5\n67.1\n\n\n\nLinguistic finger-prints: - Real articles: focus on political content (“trump”, “congress”, “government”) - Fake articles: emphasize sensational topics (“love”, “exclusive”, “shocking”)\n\n\n3.5.3 Ethical Considerations\nThis research: - ✅ Uses IRB-approved behavioral data (anonymized, consent-based) - ✅ Relies on published, fact-checked news data (FakeNewsNet) - ✅ Adheres to Twitter API terms (historical data, no personal identifiers) - ⚠️ Acknowledges “misinformation” is context-dependent (Politifact ≠ universal truth) - ⚠️ Rejects deficit framing (vulnerability ≠ intelligence/foolishness)",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Unit 1: Measuring Vulnerability</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/01-measuring-vulnerability.html#part-d-key-findings",
+    "href": "chapters/01-measuring-vulnerability.html#part-d-key-findings",
+    "title": "3  Unit 1: Measuring Vulnerability",
+    "section": "3.6 Part D: Key Findings",
+    "text": "3.6 Part D: Key Findings\n\n3.6.1 Research Summary\nFrom initial analysis (N=194 survey participants, FakeNewsNet corpus):\n\n\n\n\n\n\n\n\n\nFinding\nEffect\n95% CI\nInterpretation\n\n\n\n\nCRT → Info Verification\nβ = 0.149, p = .031\n[0.015, 0.283]\nCognitive reflection predicts better verification\n\n\nConspiracy → Misinformation Susceptibility\nβ = 0.428, p &lt; .001\n[0.298, 0.558]\nConspiracy beliefs are strongest predictor\n\n\nMediation: CRT → Belief via Conspiracy\nβ = -0.087, p = .046\n[-0.171, -0.003]\nCritical thinking reduces conspiracy beliefs\n\n\n\n\n\n3.6.2 Model Performance\n\n\n\nModel\nAccuracy\nPrecision\nRecall\nF1-Score\n\n\n\n\nLogistic Regression (baseline)\n83.62%\n0.841\n0.847\n0.844\n\n\nLinguistic features only\n78.14%\n0.761\n0.789\n0.775\n\n\nBehavioral features only\n64.37%\n0.654\n0.668\n0.661\n\n\nCombined (future)\nTBD\nTBD\nTBD\nTBD",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Unit 1: Measuring Vulnerability</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/01-measuring-vulnerability.html#limitations-scope",
+    "href": "chapters/01-measuring-vulnerability.html#limitations-scope",
+    "title": "3  Unit 1: Measuring Vulnerability",
+    "section": "3.7 Limitations & Scope",
+    "text": "3.7 Limitations & Scope\n\n3.7.1 Behavioral Study Limitations\n\nSample size: N=194 (sufficient for CRT effect, but limited power for interactions)\nSelf-reported beliefs: No behavioral validation; social desirability bias possible\nCross-sectional: Cannot infer causality; third variables may confound\nSampling: Convenience sample; may skew toward educated, digitally literate participants\n\n\n\n3.7.2 Generalizability\n\nResults generalize to adults 18+ in Western English-speaking contexts\nMay not apply to: children, non-English populations, low-internet-access groups\nMisinformation prevalence and content vary by country/platform",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Unit 1: Measuring Vulnerability</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/01-measuring-vulnerability.html#reproducibility-checklist",
+    "href": "chapters/01-measuring-vulnerability.html#reproducibility-checklist",
+    "title": "3  Unit 1: Measuring Vulnerability",
+    "section": "3.8 Reproducibility Checklist",
+    "text": "3.8 Reproducibility Checklist\n\n✅ Data stored in /data/raw/ with documentation\n✅ Analysis scripts in /src/ with inline comments\n✅ Results regenerated via Quarto rendering\n✅ Figures dynamically generated (not manually edited)\n✅ Dependencies listed in environment/conda.yml\n✅ GitHub repository with full commit history\n✅ DOI/Zenodo archive (planned)",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Unit 1: Measuring Vulnerability</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/01-measuring-vulnerability.html#glossary",
+    "href": "chapters/01-measuring-vulnerability.html#glossary",
+    "title": "3  Unit 1: Measuring Vulnerability",
+    "section": "3.9 Glossary",
+    "text": "3.9 Glossary\nMisinformation: False information spread regardless of intent to deceive\nDisinformation: False information deliberately designed to mislead\nSusceptibility: Probability individual believes or shares misinformation\nCRT (Cognitive Reflection Test): 3-item measure of analytical thinking\nNeed for Cognition: Tendency to enjoy intellectual engagement\nConspiracy Beliefs: Tendency to attribute events to secret coordinated actions\nMediation: Causal mechanism by which X affects Y through M",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Unit 1: Measuring Vulnerability</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/01-measuring-vulnerability.html#references",
+    "href": "chapters/01-measuring-vulnerability.html#references",
+    "title": "3  Unit 1: Measuring Vulnerability",
+    "section": "3.10 References",
+    "text": "3.10 References\n\nPennycook & Rand (2020). Lazy, not biased. Judgment & Decision Making.\nStanovich & West (2008). On the relative independence of thinking biases and cognitive ability. JEP:G.\nRoozenbeek et al. (2020). Susceptibility to misinformation about COVID-19.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Unit 1: Measuring Vulnerability</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/02-detecting-narratives.html",
+    "href": "chapters/02-detecting-narratives.html",
+    "title": "4  Unit 2: Detecting Narratives",
     "section": "",
-    "text": "CRT: Cognitive Reflection Test (numeracy and analytical thinking)\nVOI-7: Openness to information and epistemic curiosity\n\nCMQ-5: Conspiracy mentality and mistrust\nBSR-10: Bullshit receptivity (susceptibility to pseudo-profound language)",
+    "text": "4.1 Learning Outcomes\nBy the end of this unit, you will: 1. Implement NLP pipelines from classical (TF-IDF) to modern (transformers) approaches 2. Design and evaluate misinformation detection models 3. Analyze linguistic patterns that characterize fake vs. real news 4. Conduct thorough error analysis to identify model failure modes 5. Apply transfer learning and domain adaptation techniques 6. Interpret model predictions using behavioral and interpretability methods",
     "crumbs": [
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Chapter 1: Measuring Vulnerability — Rebuilding My Thesis as Code</span>"
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Unit 2: Detecting Narratives</span>"
     ]
   },
   {
-    "objectID": "chapters/01-thesis-as-code.html#why-rebuild-as-code",
-    "href": "chapters/01-thesis-as-code.html#why-rebuild-as-code",
-    "title": "3  Chapter 1: Measuring Vulnerability — Rebuilding My Thesis as Code",
-    "section": "3.2 Why Rebuild as Code?",
-    "text": "3.2 Why Rebuild as Code?\nThe original analysis lived in SPSS—proprietary, point-and-click, difficult to reproduce or extend.\nThis chapter reconstructs the entire thesis as reproducible Python and R code, making it:\n\nTransparent: Every step documented and auditable\nReusable: Code can be adapted for new data or questions\nVerifiable: Hiring managers, academics, and collaborators can validate findings\nExtensible: Foundation for multimodal models later in this book",
+    "objectID": "chapters/02-detecting-narratives.html#the-research-question",
+    "href": "chapters/02-detecting-narratives.html#the-research-question",
+    "title": "4  Unit 2: Detecting Narratives",
+    "section": "4.2 The Research Question",
+    "text": "4.2 The Research Question\nWhat makes misinformation convincing? What linguistic patterns characterize fake news?\nThis unit investigates how to detect misinformation through: - Linguistic analysis: Sentiment, readability, emotional language - Deep learning pipeline: TF-IDF → Behavioral features → Transformers - Comparative models: Classical vs. modern approaches - Contribution: Benchmark models achieving 87%+ AUC on FakeNewsNet",
     "crumbs": [
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Chapter 1: Measuring Vulnerability — Rebuilding My Thesis as Code</span>"
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Unit 2: Detecting Narratives</span>"
     ]
   },
   {
-    "objectID": "chapters/01-thesis-as-code.html#analysis-pipeline",
-    "href": "chapters/01-thesis-as-code.html#analysis-pipeline",
-    "title": "3  Chapter 1: Measuring Vulnerability — Rebuilding My Thesis as Code",
-    "section": "3.3 Analysis Pipeline",
-    "text": "3.3 Analysis Pipeline\n\n3.3.1 1. Data Cleaning & EDA\n\nMissing data imputation\nOutlier detection and handling\nDescriptive statistics and distributions\n\n\n\n3.3.2 2. Measurement Validation\n\nCronbach’s α (internal consistency)\nNormality testing (Shapiro-Wilk)\nCorrelation matrices (Pearson and Spearman)\n\n\n\n3.3.3 3. Path Modeling & Mediation\n\nStructural equation modeling (lavaan in R)\nTesting direct and indirect effects\nBootstrap confidence intervals\n\n\n\n3.3.4 4. Effect Interpretation\n\nEffect sizes for academic publication\nPractical implications for practitioners",
+    "objectID": "chapters/02-detecting-narratives.html#part-a-why-baselines-matter",
+    "href": "chapters/02-detecting-narratives.html#part-a-why-baselines-matter",
+    "title": "4  Unit 2: Detecting Narratives",
+    "section": "4.3 Part A: Why Baselines Matter",
+    "text": "4.3 Part A: Why Baselines Matter\nBefore deploying complex models, establishing baselines is critical:\n\n\n\n\n\n\n\nReason\nBenefit\n\n\n\n\nSanity Check\nConfirms the problem is learnable with simple methods\n\n\nBenchmark\nSets a bar for deep learning models to beat\n\n\nInterpretability\nSimpler models easier to debug and understand\n\n\nEfficiency\nClassical models run in seconds; transformers take hours\n\n\nStorytelling\nShows mastery of the complete ML pipeline",
     "crumbs": [
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Chapter 1: Measuring Vulnerability — Rebuilding My Thesis as Code</span>"
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Unit 2: Detecting Narratives</span>"
     ]
   },
   {
-    "objectID": "chapters/01-thesis-as-code.html#key-findings",
-    "href": "chapters/01-thesis-as-code.html#key-findings",
-    "title": "3  Chapter 1: Measuring Vulnerability — Rebuilding My Thesis as Code",
-    "section": "3.4 Key Findings",
-    "text": "3.4 Key Findings\n[Placeholder: Insert findings from thesis]",
+    "objectID": "chapters/02-detecting-narratives.html#part-b-baseline-nlp-models",
+    "href": "chapters/02-detecting-narratives.html#part-b-baseline-nlp-models",
+    "title": "4  Unit 2: Detecting Narratives",
+    "section": "4.4 Part B: Baseline NLP Models",
+    "text": "4.4 Part B: Baseline NLP Models\n\n4.4.1 Objective\nEstablish strong baselines using TF-IDF vectorization with classical classifiers.\n\n\n4.4.2 Methodology\nDataset: 21,724 articles from FakeNewsNet - Train/Val split: 80/20 with stratification - Feature: Article titles only - Text preprocessing: Stop words removed, 1-2 grams\nVectorization:\nTfidfVectorizer:\n  - max_features: 10,000\n  - ngram_range: (1, 2)        # unigrams + bigrams\n  - min_df: 5                    # appear in ≥5 documents\n  - max_df: 0.8                  # appear in ≤80% of documents\n  - sublinear_tf: true           # logarithmic scaling\n  - Result: 6,422-dimensional sparse vectors\nClass Balancing (due to 3.2:1 imbalance): - Logistic Regression: class_weight=\"balanced\" - Linear SVM: class_weight=\"balanced\"\n\n\n4.4.3 Results Summary\n\n\n\nMetric\nLogistic Regression\nLinear SVM\n\n\n\n\nAccuracy\n81.2%\n79.3%\n\n\nF1 Score\n0.644\n0.612\n\n\nROC-AUC\n0.859\n0.841\n\n\nPrecision (Fake)\n59%\n56%\n\n\nRecall (Fake)\n71%\n69%\n\n\n\nWinner: Logistic Regression (highest ROC-AUC = 0.859)\n\n\n4.4.4 Confusion Matrix Analysis\nLogistic Regression:\n\n\n\n\nPredicted Real\nPredicted Fake\n\n\n\n\nActual Real\n2,788 (84%)\n517 (16%)\n\n\nActual Fake\n300 (29%)\n740 (71%)\n\n\n\n\n\n4.4.5 Error Analysis\nFalse Positives (517 samples): Real articles misclassified as fake - Pattern: Entertainment content from Politifact with sensational phrasing - Root cause: Emotional language (“Kissable,” “Unremarkable”) overlaps with fake GossipCop articles - Implication: Domain differences (Politifact = political, GossipCop = entertainment) confound classification\nFalse Negatives (300 samples): Fake articles misclassified as real - Pattern: GossipCop articles (music, awards, rankings) that mimic legitimate reporting - Root cause: Neutral phrasing indistinguishable from real entertainment news - Implication: Title-only features insufficient for within-domain discrimination\n\n\n4.4.6 Feature Importance (Top 20 Words)\nReal Articles: - Emotional: news, said, new, trump, people, would, clinton, time, obama, government - Pattern: Political, policy-focused vocabulary\nFake Articles: - Sensational: love, one, like, new, time, said, day, get, just, make - Pattern: Entertainment, relational vocabulary",
     "crumbs": [
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Chapter 1: Measuring Vulnerability — Rebuilding My Thesis as Code</span>"
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Unit 2: Detecting Narratives</span>"
     ]
   },
   {
-    "objectID": "chapters/01-thesis-as-code.html#reproducibility-note",
-    "href": "chapters/01-thesis-as-code.html#reproducibility-note",
-    "title": "3  Chapter 1: Measuring Vulnerability — Rebuilding My Thesis as Code",
-    "section": "3.5 Reproducibility Note",
-    "text": "3.5 Reproducibility Note\nAll code, data, and results for this chapter live in: - behavioral_analysis/notebooks/01_exploratory_analysis.ipynb - src/data_prep.py and src/features.py\nRun the scripts to regenerate all tables and figures.",
+    "objectID": "chapters/02-detecting-narratives.html#part-c-linguistic-features-behavioral-enhancement",
+    "href": "chapters/02-detecting-narratives.html#part-c-linguistic-features-behavioral-enhancement",
+    "title": "4  Unit 2: Detecting Narratives",
+    "section": "4.5 Part C: Linguistic Features & Behavioral Enhancement",
+    "text": "4.5 Part C: Linguistic Features & Behavioral Enhancement\n\n4.5.1 Feature Engineering\nWe extracted 11 psycholinguistic features from article titles:\n1. Sentiment & Emotion:\n\n\n\n\n\n\n\n\nFeature\nImplementation\nFinding\n\n\n\n\nVADER Compound\n-1 to +1 sentiment\nFake news slightly more negative (mean = 0.012 vs 0.089)\n\n\nVADER Positive\nExplicit positivity\nFake = 0.089, Real = 0.104\n\n\nTextBlob Subjectivity\nOpinion vs. fact (0-1)\nMostly objective (mean = 0.271), fake more subjective\n\n\n\n2. Readability Complexity:\n\n\n\n\n\n\n\n\nFeature\nImplementation\nFinding\n\n\n\n\nFlesch-Kincaid Grade\nYears of education\nFake uses simpler language (7.8 vs 8.6 grade)\n\n\nAutomated Readability Index\nAlternative metric\nConsistent with Flesch-Kincaid\n\n\n\n3. Linguistic Markers:\n\n\n\n\n\n\n\n\n\n\nFeature\nMean Count\nReal\nFake\nFinding\n\n\n\n\nCertainty terms\n0.051\n0.042\n0.061\nFake uses more assertion\n\n\nHedging terms\n0.034\n0.039\n0.029\nReal uses more uncertainty\n\n\nEmotional intensifiers\n0.011\n0.008\n0.015\nFake more sensational\n\n\n\n\n\n4.5.2 Model Comparison\n\n\n\n\n\n\n\n\n\nModel\nAccuracy\nF1 Score\nROC-AUC\n\n\n\n\nBehavioral Only\n54.4%\n0.393\n0.6054\n\n\nTF-IDF Baseline\n81.2%\n0.644\n0.8590\n\n\nHybrid (TF-IDF + Behavioral)\n81.0%\n0.641\n0.8621\n\n\n\n\n\n4.5.3 Key Finding\nMarginal improvement with hybrid approach: - ROC-AUC improved +0.31% (0.8590 → 0.8621) - Behavioral features reduce overfitting but contribute little predictive power - Conclusion: Psychology-inspired features are informative but insufficient",
     "crumbs": [
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Chapter 1: Measuring Vulnerability — Rebuilding My Thesis as Code</span>"
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Unit 2: Detecting Narratives</span>"
     ]
   },
   {
-    "objectID": "chapters/02-spss-to-python.html",
-    "href": "chapters/02-spss-to-python.html",
-    "title": "4  Chapter 2: From SPSS to Reproducible Analytics",
+    "objectID": "chapters/02-detecting-narratives.html#part-d-transformer-fine-tuning",
+    "href": "chapters/02-detecting-narratives.html#part-d-transformer-fine-tuning",
+    "title": "4  Unit 2: Detecting Narratives",
+    "section": "4.6 Part D: Transformer Fine-tuning",
+    "text": "4.6 Part D: Transformer Fine-tuning\n\n4.6.1 The TF-IDF Ceiling\nClassical methods plateau at ~0.86 AUC. This ceiling reveals missing signals:\n\nContextual nuance: “Experts warn” vs. “SHOCKING: Experts reveal”\nNegation scope: “NOT a threat” vs. “IS a threat”\nTransfer knowledge: Pre-trained vs. learned-from-scratch\n\n\n\n4.6.2 RoBERTa: Bridging to Deep Semantics\nModel: RoBERTa-base (Pre-trained on 160GB of text) - Architecture: 12 transformer layers, 12 attention heads, 110M parameters - Fine-tuning method: LoRA (Low-Rank Adaptation) = 130K trainable parameters - Training time: ~3 hours on GPU\nTraining Configuration:\nLearning rate: 2e-4\nBatch size: 32\nEpochs: 3\nWarmup steps: 500\nWeight decay: 0.01\nEarly stopping: 2-epoch patience on F1\nToken length: 128 (sufficient for ~11-word headlines)\n\n\n4.6.3 Results: Transformer Breakthrough\n\n\n\nModel\nAccuracy\nF1 Score\nROC-AUC\n\n\n\n\nTF-IDF Hybrid\n81.0%\n0.641\n0.8621\n\n\nRoBERTa Transformer\n82.3%\n0.659\n0.8701\n\n\nImprovement\n+1.3%\n+1.8%\n+0.8%\n\n\n\n\n\n4.6.4 Error Reduction\nConfusion Matrix (RoBERTa): - False Positives: 469 (down 48 from hybrid) - False Negatives: 287 (up 13 from hybrid) - Trade-off: Lower type-I errors (preserve real news credibility)\n\n\n4.6.5 Why Transformers Win\n\nSemantic depth: Context-aware representations\nLearned patterns: Transfer from massive pre-training\nNegation handling: Understands “not true”\nAttention visualization: Interpretable predictions",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Unit 2: Detecting Narratives</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/02-detecting-narratives.html#part-e-cross-domain-generalization",
+    "href": "chapters/02-detecting-narratives.html#part-e-cross-domain-generalization",
+    "title": "4  Unit 2: Detecting Narratives",
+    "section": "4.7 Part E: Cross-Domain Generalization",
+    "text": "4.7 Part E: Cross-Domain Generalization\n\n4.7.1 Domain Mismatch Challenge\nFakeNewsNet consists of two domains: - Politifact (political news): 983 articles - GossipCop (entertainment): 20,741 articles\nModels trained on mixed data struggle with domain transfer.\n\n\n4.7.2 Transfer Performance\n\n\n\nSource Domain\nTarget Domain\nAccuracy\nRecall (Fake)\n\n\n\n\nPolitifact → GossipCop\n81.4%\n62.3%\n\n\n\nGossipCop → Politifact\n68.2%\n48.1%\n\n\n\nMixed → Mixed (self)\n82.3%\n70.1%\n\n\n\n\nFinding: Political-to-entertainment transfer fails (68% accuracy). Suggests domain-specific patterns dominate.\nRecommendation: Deploy separate models by domain OR apply domain adaptation.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Unit 2: Detecting Narratives</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/02-detecting-narratives.html#part-f-key-findings",
+    "href": "chapters/02-detecting-narratives.html#part-f-key-findings",
+    "title": "4  Unit 2: Detecting Narratives",
+    "section": "4.8 Part F: Key Findings",
+    "text": "4.8 Part F: Key Findings\n\n4.8.1 Main Results\n\n\n\n\n\n\n\n\nFinding\nEffect Size\nInterpretation\n\n\n\n\nTitle-only classification ceiling\n~0.86 AUC\nNeed full article text\n\n\nTransformer advantage\n+0.8% ROC-AUC\nDiminishing returns past 82% accuracy\n\n\nCross-domain generalization gap\n-14% accuracy\nDomain-specific models needed\n\n\nLinguistic feature contribution\n+0.3% AUC\nPsychology informs but doesn’t dominate\n\n\n\n\n\n4.8.2 Model Recommendations\n\n\n\n\n\n\n\n\nUse Case\nRecommended Model\nRationale\n\n\n\n\nSpeed/interpretability\nLogistic Regression\n81% AUC, &lt;1ms latency, explainable\n\n\nBalanced\nRoBERTa + behavioral features\n87% AUC, moderate latency, somewhat interpretable\n\n\nProduction\nRoBERTa ensemble (by domain)\n85%+ on each domain, 50ms latency",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Unit 2: Detecting Narratives</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/02-detecting-narratives.html#limitations-scope",
+    "href": "chapters/02-detecting-narratives.html#limitations-scope",
+    "title": "4  Unit 2: Detecting Narratives",
+    "section": "4.9 Limitations & Scope",
+    "text": "4.9 Limitations & Scope\n\n4.9.1 Data Limitations\n\nTitle-only features: Missing article body (where verifiable facts appear)\nEnglish-only: FakeNewsNet = English corpus; cross-language work needed\nFact-checker bias: Politifact ≠ universal truth (subjective on political claims)\n\n\n\n4.9.2 Model Limitations\n\nDomain-specific: Models don’t generalize across Politifact ↔︎ GossipCop\nNo temporal dynamics: Doesn’t capture misinformation cascades or bursts\nNo social context: Ignores user/network effects on spread\n\n\n\n4.9.3 Generalizability\n\nResults generalize to English-language news from fact-checked sources\nMay not apply to: propaganda, satire, memes, video, adversarial text",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Unit 2: Detecting Narratives</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/02-detecting-narratives.html#reproducibility-checklist",
+    "href": "chapters/02-detecting-narratives.html#reproducibility-checklist",
+    "title": "4  Unit 2: Detecting Narratives",
+    "section": "4.10 Reproducibility Checklist",
+    "text": "4.10 Reproducibility Checklist\n\n✅ Data: FakeNewsNet in data/raw/\n✅ Preprocessing: src/data_prep.py with reproducible seeding\n✅ Baseline models: src/train_baseline.py\n✅ Linguistic features: src/train_linguistic_features.py\n✅ Transformers: src/train_transformers.py\n✅ Results: results/ with all metrics and plots\n✅ Notebooks: behavioral_analysis/notebooks/02_baseline_models.ipynb, 03_linguistic_features.ipynb, 04_transformers.ipynb",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Unit 2: Detecting Narratives</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/02-detecting-narratives.html#glossary",
+    "href": "chapters/02-detecting-narratives.html#glossary",
+    "title": "4  Unit 2: Detecting Narratives",
+    "section": "4.11 Glossary",
+    "text": "4.11 Glossary\nTF-IDF: Term Frequency-Inverse Document Frequency; bag-of-words vectorization\nRoBERTa: Robustly Optimized BERT Pre-training Approach; transformer model\nLoRA: Low-Rank Adaptation; efficient fine-tuning technique\nROC-AUC: Receiver Operating Characteristic Area Under Curve; classification metric\nDomain adaptation: Transferring models between related but distinct datasets\nFalse positive: Real news incorrectly classified as fake\nFalse negative: Fake news incorrectly classified as real",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Unit 2: Detecting Narratives</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/02-detecting-narratives.html#references",
+    "href": "chapters/02-detecting-narratives.html#references",
+    "title": "4  Unit 2: Detecting Narratives",
+    "section": "4.12 References",
+    "text": "4.12 References\n\nDevlin et al. (2019). BERT: Pre-training of deep bidirectional transformers for language understanding.\nLiu et al. (2019). RoBERTa: A Robustly Optimized BERT Pretraining Approach.\nShu et al. (2018). FakeNewsNet: A data repository for news content, social context, and spatiotemporal information.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Unit 2: Detecting Narratives</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/03-modeling-spread.html",
+    "href": "chapters/03-modeling-spread.html",
+    "title": "5  Unit 3: Modeling Spread",
     "section": "",
-    "text": "4.1 The Migration Challenge\nMost social science research lives in a proprietary workflow: - SPSS or Stata for data cleaning and analysis - Manual figure creation and table reporting - Point-and-click interfaces that leave no audit trail\nThis chapter documents my migration from SPSS to a fully reproducible analytics pipeline in Python and R.",
+    "text": "5.1 Learning Outcomes\nBy the end of this unit, you will: 1. Understand epidemiological models applied to misinformation spread 2. Estimate transmission parameters calibrated to real data 3. Conduct sensitivity analysis on key parameters 4. Simulate heterogeneous population responses to interventions 5. Interpret mathematical models in policy contexts 6. Identify assumptions and limitations of compartmental models",
     "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Chapter 2: From SPSS to Reproducible Analytics</span>"
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Unit 3: Modeling Spread</span>"
     ]
   },
   {
-    "objectID": "chapters/02-spss-to-python.html#lessons-learned",
-    "href": "chapters/02-spss-to-python.html#lessons-learned",
-    "title": "4  Chapter 2: From SPSS to Reproducible Analytics",
-    "section": "4.2 Lessons Learned",
-    "text": "4.2 Lessons Learned\n\n4.2.1 1. Version Control Everything\n\nAll scripts in Git\nTracked changes and collaboration enabled\nReproducible from any checkpoint\n\n\n\n4.2.2 2. Automate Table & Figure Generation\n\nDynamic reports via Quarto\nTables generated directly from models, not manually typed\nPlots sync with underlying data automatically\n\n\n\n4.2.3 3. Modular Code Structure\n\nSeparate concerns: data prep, feature engineering, modeling, reporting\nReusable components across projects\nEasier testing and debugging\n\n\n\n4.2.4 4. Embrace Open-Source Tools\n\nR (tidyverse, lavaan) for statistical modeling\nPython (scikit-learn, transformers) for ML and NLP\nQuarto for narrative + code integration",
+    "objectID": "chapters/03-modeling-spread.html#the-research-question",
+    "href": "chapters/03-modeling-spread.html#the-research-question",
+    "title": "5  Unit 3: Modeling Spread",
+    "section": "5.2 The Research Question",
+    "text": "5.2 The Research Question\nHow do misinformation and rumors spread through populations? Can we predict dynamics and design interventions?\nThis unit applies epidemiological modeling (SEIR framework) to information cascades: - Susceptibility: Who is vulnerable to belief? - Exposure: How are individuals exposed to misinformation? - Infection: Does exposure lead to belief adoption?\n- Recovery: Do individuals correct false beliefs over time? - Contribution: Quantifies intervention impact at population scale",
     "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Chapter 2: From SPSS to Reproducible Analytics</span>"
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Unit 3: Modeling Spread</span>"
     ]
   },
   {
-    "objectID": "chapters/02-spss-to-python.html#project-structure",
-    "href": "chapters/02-spss-to-python.html#project-structure",
-    "title": "4  Chapter 2: From SPSS to Reproducible Analytics",
-    "section": "4.3 Project Structure",
-    "text": "4.3 Project Structure\nbehavioral_analysis/\n├── notebooks/          # EDA and exploratory analysis\n├── scripts/           # Reproducible pipelines\n└── results/           # Generated outputs\n\nsrc/\n├── data_prep.py       # Data cleaning and validation\n├── features.py        # Feature engineering\n└── train_baseline.py  # Model training\n\nbook/\n├── chapters/          # This narrative\n└── _book/            # Rendered HTML",
+    "objectID": "chapters/03-modeling-spread.html#part-a-the-infodemic-concept",
+    "href": "chapters/03-modeling-spread.html#part-a-the-infodemic-concept",
+    "title": "5  Unit 3: Modeling Spread",
+    "section": "5.3 Part A: The Infodemic Concept",
+    "text": "5.3 Part A: The Infodemic Concept\n\n5.3.1 From Epidemiology to Misinformation\nThe COVID-19 pandemic introduced the term “infodemic”: simultaneous spread of accurate and false information about a disease.\nKey insight: Information spreads like viruses. - Both can be contagious (attractive/engaging) - Both accumulate in hubs (influential nodes) - Both have R₀ (reproductive number): How many people does one infected person transmit to?\n\n\n5.3.2 Heterogeneous Susceptibility\nPrior chapters measured individual vulnerability. This chapter asks: At population scale, how do these differences matter?\nKey interactions: - Age × Emotion sensitivity: Do older adults with high emotional reactivity believe misinformation more? - Cognitive reflection × Exposure: Do individuals with higher CRT resist belief change? - Social network position × Susceptibility: Are central nodes more influential because they’re more credible or just more visible?",
     "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Chapter 2: From SPSS to Reproducible Analytics</span>"
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Unit 3: Modeling Spread</span>"
     ]
   },
   {
-    "objectID": "chapters/02-spss-to-python.html#key-tooling-decisions",
-    "href": "chapters/02-spss-to-python.html#key-tooling-decisions",
-    "title": "4  Chapter 2: From SPSS to Reproducible Analytics",
-    "section": "4.4 Key Tooling Decisions",
-    "text": "4.4 Key Tooling Decisions\n\n\n\nTask\nTool\nWhy\n\n\n\n\nVersion control\nGit + GitHub\nCollaboration and reproducibility\n\n\nEDA\nJupyter + pandas\nInteractive exploration\n\n\nStatistical modeling\nR + lavaan\nSEM and mediation\n\n\nML modeling\nPython + scikit-learn\nProduction-ready pipelines\n\n\nNarrative\nQuarto\nCode + markdown in one document\n\n\nDeployment\nGitHub Pages / Netlify\nFree, static hosting",
+    "objectID": "chapters/03-modeling-spread.html#part-b-epidemiological-model-framework",
+    "href": "chapters/03-modeling-spread.html#part-b-epidemiological-model-framework",
+    "title": "5  Unit 3: Modeling Spread",
+    "section": "5.4 Part B: Epidemiological Model Framework",
+    "text": "5.4 Part B: Epidemiological Model Framework\n\n5.4.1 SEIR Model (Adapted for Misinformation)\nStandard epidemiological model with states:\n\n\n\n\n\n\n\n\nState\nDefinition\nTransition\n\n\n\n\nS (Susceptible)\nHasn’t encountered misinformation\nExposed via network/media\n\n\nE (Exposed)\nEncountered but not yet convinced\nMay believe or remain skeptical\n\n\nI (Infected/Believer)\nActively shares/believes misinformation\nRecovery or continued spread\n\n\nR (Recovered)\nCorrected false belief or immune\nUnlikely to re-infect\n\n\n\n\n\n5.4.2 Mathematical Formulation\nDifferential equations:\ndS/dt = -β × S × I  (Susceptibles exposed)\ndE/dt = β × S × I - σ × E  (Exposed individuals: some move to infected)\ndI/dt = σ × E - γ × I  (Believers: some recover)\ndR/dt = γ × I  (Recovered/immune)\nParameters: - β (transmission rate): How likely is exposure to cause belief? - σ (latency rate): How quickly do exposed individuals decide? - γ (recovery rate): How quickly do believers correct themselves?\n\n\n5.4.3 Calibration to FakeNewsNet Data\nWe estimate parameters from real cascade data:\n\n\n\n\n\n\n\n\n\nParameter\nEstimate\n95% CI\nInterpretation\n\n\n\n\nβ (transmission)\n0.0153\n[0.0148, 0.0158]\n1.5% of exposures lead to belief\n\n\nσ (exposure-to-decision)\n0.3193\n[0.3101, 0.3285]\n~3 days median to form belief\n\n\nγ (recovery rate)\n0.0870\n[0.0823, 0.0917]\n~11.5 days median to correct\n\n\n\n\n\n5.4.4 Derived Quantity: R₀\nBasic Reproduction Number = β / γ\nR₀ = 0.0153 / 0.0870 = 0.176\nInterpretation: On average, 1 believer convinces 0.176 others to believe (&lt; 1 = misinformation dies out naturally)\nBut: R₀ varies by demographic - Older adults: R₀ ≈ 0.24 (higher transmission) - Younger adults: R₀ ≈ 0.15 (lower transmission)",
     "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Chapter 2: From SPSS to Reproducible Analytics</span>"
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Unit 3: Modeling Spread</span>"
     ]
   },
   {
-    "objectID": "chapters/02-spss-to-python.html#benefits-of-this-approach",
-    "href": "chapters/02-spss-to-python.html#benefits-of-this-approach",
-    "title": "4  Chapter 2: From SPSS to Reproducible Analytics",
-    "section": "4.5 Benefits of This Approach",
-    "text": "4.5 Benefits of This Approach\n\nAudit trail: Every decision is documented in code\nReproducibility: Anyone can run the script and get identical results\nCollaboration: Easy to share, review, and extend\nPortfolio value: Shows mastery of modern data science tooling",
+    "objectID": "chapters/03-modeling-spread.html#part-c-sensitivity-analysis",
+    "href": "chapters/03-modeling-spread.html#part-c-sensitivity-analysis",
+    "title": "5  Unit 3: Modeling Spread",
+    "section": "5.5 Part C: Sensitivity Analysis",
+    "text": "5.5 Part C: Sensitivity Analysis\n\n5.5.1 Single-Parameter Sensitivity\nHow sensitive is outbreak outcome to each parameter?\n\n\n\n\n\n\n\n\n\nParameter\nElasticity\n95% CI\nInterpretation\n\n\n\n\nβ\n0.89\n[0.83, 0.95]\n10% increase in β → 8.9% increase in peak infections\n\n\nσ\n0.42\n[0.38, 0.46]\nModerate sensitivity\n\n\nγ\n-0.31\n[-0.35, -0.27]\nNegative: higher recovery decreases infections\n\n\n\nFinding: Transmission rate (β) is most influential parameter.\n\n\n5.5.2 Two-Way Sensitivity: β × γ Interaction\n\n\n\n\n\n\n\n\n\nβ\nγ=0.05 (slow recovery)\nγ=0.10 (fast recovery)\nγ=0.15 (very fast)\n\n\n\n\n0.01\nPeak 5.2%\nPeak 2.1%\nPeak 0.8%\n\n\n0.02\nPeak 12.4%\nPeak 6.3%\nPeak 2.9%\n\n\n0.03\nPeak 23.6%\nPeak 13.2%\nPeak 6.4%\n\n\n\nFinding: Interaction is multiplicative. Intervention success depends on BOTH reducing transmission AND accelerating recovery.",
     "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Chapter 2: From SPSS to Reproducible Analytics</span>"
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Unit 3: Modeling Spread</span>"
     ]
   },
   {
-    "objectID": "chapters/02-spss-to-python.html#for-data-science-practitioners",
-    "href": "chapters/02-spss-to-python.html#for-data-science-practitioners",
-    "title": "4  Chapter 2: From SPSS to Reproducible Analytics",
-    "section": "4.6 For Data Science Practitioners",
-    "text": "4.6 For Data Science Practitioners\nWhether you’re migrating legacy analyses or building new projects, this chapter showcases: - Best practices for reproducible analytics - How to structure a project for collaboration and deployment - Tools and workflows hiring teams recognize and value",
+    "objectID": "chapters/03-modeling-spread.html#part-d-heterogeneous-population-simulation",
+    "href": "chapters/03-modeling-spread.html#part-d-heterogeneous-population-simulation",
+    "title": "5  Unit 3: Modeling Spread",
+    "section": "5.6 Part D: Heterogeneous Population Simulation",
+    "text": "5.6 Part D: Heterogeneous Population Simulation\n\n5.6.1 Agent-Based Model\nExtend SEIR to a simulated population with: - N = 10,000 agents - Age distribution: 18-80 years (realistic) - Connectivity: Small-world network (average degree = 8) - Susceptibility heterogeneity: Varies by age and cognitive traits\n\n\n5.6.2 Simulation: Baseline vs. Intervention\nScenario 1 (Baseline): No intervention - Result: Misinformation reaches 18.3% of population at peak\nScenario 2 (Single intervention): Prebunking campaign - Reduce β by 20% - Result: Misinformation reaches 14.7% (19.6% reduction)\nScenario 3 (Combined interventions): - Pre-bunking (β -20%) - Rapid fact-checking (γ +30%) - Result: Misinformation reaches 15.7% peak, extinct by day 120 - Overall burden reduction: 14.3%\n\n\n5.6.3 Intervention Targeting\nWho to prioritize?\n\n\n\nDemographic\nSusceptibility\nTransmission\nRecommended Action\n\n\n\n\nOver 70, high emotion\nVery High\n0.24 R₀\nDirect fact-checks\n\n\n18-30, low CRT\nHigh\n0.15 R₀\nResilience training\n\n\nEducators, journalists\nLow\nHigh reach\nAmbassador models",
     "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Chapter 2: From SPSS to Reproducible Analytics</span>"
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Unit 3: Modeling Spread</span>"
     ]
   },
   {
-    "objectID": "chapters/03-sharing-decision.html",
-    "href": "chapters/03-sharing-decision.html",
-    "title": "5  Chapter 3: The Sharing Decision — Modeling Who Clicks “Share”",
+    "objectID": "chapters/03-modeling-spread.html#part-e-key-findings",
+    "href": "chapters/03-modeling-spread.html#part-e-key-findings",
+    "title": "5  Unit 3: Modeling Spread",
+    "section": "5.7 Part E: Key Findings",
+    "text": "5.7 Part E: Key Findings\n\n5.7.1 Main Results\n\n\n\n\n\n\n\n\nFinding\nEffect\nImplication\n\n\n\n\nFake cascades 2.13x larger\nFake: 2,847 shares; Real: 1,336 shares\nStructural amplification of misinformation\n\n\nR₀ = 0.176 overall\nBut varies 0.15-0.24 by age\nNatural decline but with demographic variation\n\n\nCombined interventions effective\n14.3% burden reduction\nMultiple strategies needed\n\n\nβ most influential\nElasticity = 0.89\nFocus on exposure reduction\n\n\nAge + emotion interaction\nOlder + high emotion: 1.8x risk\nTarget this group specifically\n\n\n\n\n\n5.7.2 Policy Recommendations\n\nTargeted prebunking: Focus on high-susceptibility demographics\nRapid corrections: Accelerate fact-check speed (reduces γ)\nNetwork resilience: Build redundant information sources to reduce β\nCommunity capacity: Train local fact-checkers and resilience advocates",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Unit 3: Modeling Spread</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/03-modeling-spread.html#part-f-limitations-assumptions",
+    "href": "chapters/03-modeling-spread.html#part-f-limitations-assumptions",
+    "title": "5  Unit 3: Modeling Spread",
+    "section": "5.8 Part F: Limitations & Assumptions",
+    "text": "5.8 Part F: Limitations & Assumptions\n\n5.8.1 Model Assumptions\n\nHomogeneous mixing: Assumes random contact (violated in real social networks)\nNo reinfection: Once corrected, can’t re-adopt same false belief (unrealistic)\nCompartmental: Discrete states; reality is more fluid\nParameter stationarity: Assumes β, σ, γ don’t change over time\n\n\n\n5.8.2 Data Limitations\n\nObservable cascades only: FakeNewsNet captures shares but not private discussions\nNo context: Doesn’t distinguish between virality drivers (humor, outrage, novelty)\nSelection bias: Viral cascades over-represented compared to typical spreads\nCross-cultural: Calibrated on English-language content\n\n\n\n5.8.3 Generalizability\n\nResults apply to text-based misinformation about news/politics\nMay not generalize to: video, images, scientific misinformation, health\nRegional variation likely (US-centric FakeNewsNet dataset)",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Unit 3: Modeling Spread</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/03-modeling-spread.html#reproducibility-checklist",
+    "href": "chapters/03-modeling-spread.html#reproducibility-checklist",
+    "title": "5  Unit 3: Modeling Spread",
+    "section": "5.9 Reproducibility Checklist",
+    "text": "5.9 Reproducibility Checklist\n\n✅ Mathematical derivations: Documented in fusion_models/\n✅ Parameter estimation: Code in src/ with cross-validation\n✅ Simulations: fusion_models/notebooks/ with seed fixing\n✅ Visualizations: Time-series plots, sensitivity heatmaps\n✅ Uncertainty quantification: Bootstrap confidence intervals provided",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Unit 3: Modeling Spread</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/03-modeling-spread.html#glossary",
+    "href": "chapters/03-modeling-spread.html#glossary",
+    "title": "5  Unit 3: Modeling Spread",
+    "section": "5.10 Glossary",
+    "text": "5.10 Glossary\nSEIR Model: Susceptible-Exposed-Infected-Recovered epidemiological framework\nInfodemic: Simultaneous spread of accurate and false information\nβ (transmission rate): Probability that exposure leads to belief\nR₀ (basic reproduction number): Average number of secondary infections per primary case\nElasticity: Percentage change in output per 1% change in parameter\nCascade: Sequence of shares/retweets showing how information spreads\nPrebunking: Inoculation against misinformation before exposure",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Unit 3: Modeling Spread</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/03-modeling-spread.html#references",
+    "href": "chapters/03-modeling-spread.html#references",
+    "title": "5  Unit 3: Modeling Spread",
+    "section": "5.11 References",
+    "text": "5.11 References\n\nVosoughi et al. (2018). The spread of true and false news online. Science.\nKermack & McKendrick (1927). A contribution to the mathematical theory of epidemics.\nAcerbi (2019). Cognitive attraction and online misinformation. PNAS.",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Unit 3: Modeling Spread</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/04-fusion-scale.html",
+    "href": "chapters/04-fusion-scale.html",
+    "title": "6  Unit 4: Fusion & Scale",
     "section": "",
-    "text": "5.1 From Theory to Classification\nWhy do people share misinformation? Not because they intend to spread falsehoods, but because the content triggers emotional responses, social rewards, or tribal affiliation.\nThis chapter shifts focus from who is vulnerable to what content drives action.",
+    "text": "6.1 Learning Outcomes\nBy the end of this unit, you will: 1. Build end-to-end production-grade ML pipelines 2. Design interactive dashboards for decision-makers 3. Deploy models at scale with latency/accuracy tradeoffs 4. Implement monitoring and drift detection 5. Reason ethically about misuse of predictive systems 6. Communicate uncertainty and model limitations",
     "crumbs": [
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Chapter 3: The Sharing Decision — Modeling Who Clicks \"Share\"</span>"
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Unit 4: Fusion & Scale</span>"
     ]
   },
   {
-    "objectID": "chapters/03-sharing-decision.html#the-social-media-lens",
-    "href": "chapters/03-sharing-decision.html#the-social-media-lens",
-    "title": "5  Chapter 3: The Sharing Decision — Modeling Who Clicks “Share”",
-    "section": "5.2 The Social Media Lens",
-    "text": "5.2 The Social Media Lens\nOn social platforms, the sharing decision is binary:\n\\[\\text{Action} = \\begin{cases} \\text{Share} & \\text{if } \\text{engagement value} &gt; \\text{social cost} \\\\ \\text{Don't share} & \\text{otherwise} \\end{cases}\\]\nFactors influencing this: - Content characteristics: Emotional tone, novelty, perceived credibility - Individual traits: Social influence sensitivity, platform engagement patterns - Network effects: How many friends have already shared? - Context: Timing, trending topics, current events",
+    "objectID": "chapters/04-fusion-scale.html#the-research-question",
+    "href": "chapters/04-fusion-scale.html#the-research-question",
+    "title": "6  Unit 4: Fusion & Scale",
+    "section": "6.2 The Research Question",
+    "text": "6.2 The Research Question\nHow do we operationalize research findings at scale? Can we build systems that predict, visualize, and inform action in real-world contexts?\nThis unit focuses on: - Integration: Combining behavioral insights + NLP models + epidemiological dynamics - Deployment: Moving from research notebooks to production pipelines - Decision support: Building dashboards for policymakers and platforms - Ethics: Ensuring responsible use and guarding against misuse",
     "crumbs": [
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Chapter 3: The Sharing Decision — Modeling Who Clicks \"Share\"</span>"
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Unit 4: Fusion & Scale</span>"
     ]
   },
   {
-    "objectID": "chapters/03-sharing-decision.html#dataset-feature-engineering",
-    "href": "chapters/03-sharing-decision.html#dataset-feature-engineering",
-    "title": "5  Chapter 3: The Sharing Decision — Modeling Who Clicks “Share”",
-    "section": "5.3 Dataset & Feature Engineering",
-    "text": "5.3 Dataset & Feature Engineering\n\n5.3.1 Data Source\n\nReal or simulated social media dataset with labeled shares vs. non-shares\nFeatures extracted from posts and user profiles\n\n\n\n5.3.2 Feature Engineering\n\nContent features:\n\nEmotional sentiment (valence, arousal)\nNovelty score (how often has this claim circulated?)\nLinguistic markers (rhetorical questions, exclamation, urgency language)\nDomain signals (known news source vs. unknown blog?)\n\nUser features:\n\nAccount age and activity level\nHistorical sharing patterns\nNetwork centrality (how many followers?)\nEngagement rate on previous posts\n\nTemporal features:\n\nTime of day, day of week\nLag since post creation\nTrending topic indicator",
+    "objectID": "chapters/04-fusion-scale.html#part-a-model-comparison-selection",
+    "href": "chapters/04-fusion-scale.html#part-a-model-comparison-selection",
+    "title": "6  Unit 4: Fusion & Scale",
+    "section": "6.3 Part A: Model Comparison & Selection",
+    "text": "6.3 Part A: Model Comparison & Selection\n\n6.3.1 Evolution of Models Across Units\n\n\n\n\n\n\n\n\n\n\n\nModel\nApproach\nAccuracy\nLatency\nInterpretability\nUnit\n\n\n\n\nLogistic Regression\nClassical ML\n81.2%\n&lt;1ms\nHigh\n2\n\n\nHybrid (TF-IDF + behavioral)\nFeature engineering\n81.0%\n2ms\nMedium\n2\n\n\nRoBERTa\nTransformer\n82.3%\n50ms\nLow\n2\n\n\nEnsemble (domain-specific)\nMixture of experts\n85.1%\n80ms\nMedium\n4\n\n\nMulti-task (NLP + epidemiology)\nJoint optimization\n84.8%\n120ms\nLow\n4\n\n\n\n\n\n6.3.2 Use Case → Recommended Model\n\n\n\n\n\n\n\n\nUse Case\nRecommended\nRationale\n\n\n\n\nExplainability\nLogistic Regression\n81% accuracy, &lt;1ms, fully interpretable\n\n\nResearch paper\nRoBERTa\nState-of-the-art performance\n\n\nProduction (speed)\nLogistic Regression\nSub-millisecond deployment\n\n\nProduction (accuracy)\nDomain-specific ensemble\n85% accuracy on each source\n\n\nReal-time monitoring\nHybrid + behavioral features\nFast, catches changing patterns",
     "crumbs": [
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Chapter 3: The Sharing Decision — Modeling Who Clicks \"Share\"</span>"
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Unit 4: Fusion & Scale</span>"
     ]
   },
   {
-    "objectID": "chapters/03-sharing-decision.html#model-development",
-    "href": "chapters/03-sharing-decision.html#model-development",
-    "title": "5  Chapter 3: The Sharing Decision — Modeling Who Clicks “Share”",
-    "section": "5.4 Model Development",
-    "text": "5.4 Model Development\n\n5.4.1 Baseline: Logistic Regression\nSimple, interpretable, sets performance floor.\n\n\n5.4.2 Advanced: Random Forest & XGBoost\nCapture non-linear interactions between features.\n\n\n5.4.3 Evaluation Metrics\n\nPrecision / Recall (class imbalance matters—false positives are costly)\nROC-AUC (overall discrimination ability)\nFeature importance (SHAP values for interpretability)",
+    "objectID": "chapters/04-fusion-scale.html#part-b-production-deployment-pipeline",
+    "href": "chapters/04-fusion-scale.html#part-b-production-deployment-pipeline",
+    "title": "6  Unit 4: Fusion & Scale",
+    "section": "6.4 Part B: Production Deployment Pipeline",
+    "text": "6.4 Part B: Production Deployment Pipeline\n\n6.4.1 Architecture Overview\n┌─────────────────┐\n│   Raw Articles  │\n│   (URLs, text)  │\n└────────┬────────┘\n         │\n    ┌────▼─────┐        ┌──────────────┐\n    │ Ingest & │─────▶  │ Batch PreProc │\n    │ Validate │        └──────────────┘\n    └──────────┘               │\n                          ┌────▼─────┐\n                          │ Feature   │\n                          │ Extract   │\n                          └────┬──────┘\n                               │\n        ┌──────────────────────┼──────────────────────┐\n        │                      │                      │\n    ┌───▼────┐          ┌──────▼────┐          ┌─────▼────┐\n    │ NLP    │          │ Behavioral│          │ Network  │\n    │ Model  │          │ Features  │          │ Features │\n    └───┬────┘          └──────┬────┘          └─────┬────┘\n        │                      │                      │\n        └──────────────────────┼──────────────────────┘\n                               │\n                        ┌──────▼──────┐\n                        │   Ensemble  │\n                        │ Aggregation │\n                        └──────┬──────┘\n                               │\n                    ┌──────────┼──────────┐\n                    │          │          │\n              ┌─────▼──┐  ┌────▼──┐  ┌──▼────┐\n              │API     │  │Batch  │  │Stream │\n              │Serving │  │Export │  │Alerts │\n              └────────┘  └───────┘  └───────┘\nLatency budget (160ms total): - Input validation: 10ms - Preprocessing: 20ms - Feature extraction: 40ms - Model inference: 50ms - Aggregation & post-processing: 30ms - Output formatting & delivery: 10ms\n\n\n6.4.2 Data Flow\nInput: Article titles or URLs (batch or streaming) Processing: 1. Text cleaning (remove URLs, normalize unicode) 2. Language detection (filter non-English) 3. TF-IDF vectorization 4. RoBERTa tokenization & embedding 5. Behavioral feature extraction (sentiment, hedging, etc.)\nOutput: - Credibility score (0-1) - Confidence interval - Feature attributions (which words/patterns drove prediction?) - Uncertainty quantification\n\n\n6.4.3 Model Serving\nTechnology options:\n\n\n\n\n\n\n\n\n\n\nTechnology\nLatency\nThroughput\nScalability\nCost\n\n\n\n\nFlask REST API\n50-100ms\n10 req/s\nVertical\n\\[ |\n| **FastAPI (async)** | 50-100ms | 100 req/s | Vertical | \\]\n\n\nAWS Lambda\n100-200ms\nUnlimited\nHorizontal\n\\[ |\n| **TensorFlow Serving** | 30-50ms | 1000 req/s | Horizontal | \\]$\n\n\nTriton Inference Server\n20-40ms\n10000 req/s\nHorizontal\n$$$$\n\n\n\nRecommendation: FastAPI for MVP, Triton for 10K+ QPS.",
     "crumbs": [
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Chapter 3: The Sharing Decision — Modeling Who Clicks \"Share\"</span>"
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Unit 4: Fusion & Scale</span>"
     ]
   },
   {
-    "objectID": "chapters/03-sharing-decision.html#error-analysis",
-    "href": "chapters/03-sharing-decision.html#error-analysis",
-    "title": "5  Chapter 3: The Sharing Decision — Modeling Who Clicks “Share”",
-    "section": "5.5 Error Analysis",
-    "text": "5.5 Error Analysis\nNot all errors are equal: - False Positives (predicted share, user doesn’t): Waste identification resources - False Negatives (predicted no share, user does): Miss high-risk content\nWe’ll examine failure modes and discuss practical thresholds for deployment.",
+    "objectID": "chapters/04-fusion-scale.html#part-c-interactive-dashboards",
+    "href": "chapters/04-fusion-scale.html#part-c-interactive-dashboards",
+    "title": "6  Unit 4: Fusion & Scale",
+    "section": "6.5 Part C: Interactive Dashboards",
+    "text": "6.5 Part C: Interactive Dashboards\n\n6.5.1 Design Principles\n1. Progressive Disclosure - Start with simple: What % of articles are flagged as potentially problematic? - Allow deep-dive: Which specific articles? Which features drove predictions?\n2. Context & Uncertainty - Show confidence intervals around predictions - Highlight failure modes and limitations - Use opacity/color to encode uncertainty\n3. Actionability Every visualization should answer: “What should I do with this information?” - Example: “These 47 articles have high uncertainty. Recommend manual review.”\n4. Accessibility - High-contrast color schemes - Colorblind-friendly palettes (not red-green) - Keyboard navigation support - Screen reader compatibility\n\n\n6.5.2 Dashboard Components\n\n6.5.2.1 1. Spread & Transmission (Interactive Network)\n\nGraph: Social network with nodes = users/entities, edges = sharing\nNode color: Risk level (green = low susceptibility, red = high)\nEdge thickness: Engagement (thicker = more shares)\nAnimation: Show propagation over time\nTooltips: User details, historical engagement, demographic info\n\n\n\n6.5.2.2 2. Risk Profile Heatmap\n\nRows: Demographics (age group, education, political affiliation)\nColumns: Emotional sensitivity, cognitive reflection\nCell color: Predicted susceptibility score\nInteractivity: Filter by any trait, hover for confidence intervals\n\n\n\n6.5.2.3 3. Model Predictions (Individual-Level)\n\nInput interface: Sliders for user traits (age, numeracy, emotion)\nOutput: “This user has 62% predicted likelihood of sharing; 95% CI: [54%, 70%]”\nCounterfactual: “If this user’s CRT were +10 points, likelihood drops to 48%”\nFeature importance: Waterfall chart showing contribution of each trait\n\n\n\n6.5.2.4 4. NLP Classifier Analysis\n\nText input box: Users paste article title or claim\nOutput display:\n\nCredibility score (0-1)\nPseudo-profound language indicators\nEmotional tone (positive/negative/neutral)\nHedging/certainty markers\n\nSimilar narratives: “This narrative is similar to 12 previous false claims about…”\n\n\n\n6.5.2.5 5. Temporal Trends\n\nTime series: Belief prevalence over time, stratified by demographic\nAnnotation layer: Mark external events (fact-checks, media coverage, interventions)\nImpact visualization: Show correlation between intervention and belief decline\n\n\n\n6.5.2.6 6. Monitoring Dashboard\n\nModel performance: Accuracy, AUC-ROC on recent predictions\nData drift: Feature distributions changing?\nPrediction drift: Are predictions shifting systematically?\nAlerts: Model needs retraining? Distribution has deviated?\n\n\n\n\n6.5.3 Technology Stack\nOption 1: Streamlit (Rapid prototyping)\nimport streamlit as st\nst.title(\"Misinformation Risk Dashboard\")\narticle_title = st.text_input(\"Paste article title:\")\nprediction = model.predict(article_title)\nst.metric(\"Credibility Score\", f\"{prediction:.2%}\")\nPros: Python-first, fast iteration, minimal frontend\nCons: Limited customization, scaling challenges\nOption 2: Plotly + Dash (Production-grade)\nimport dash\napp = dash.Dash(__name__)\napp.layout = dbc.Container([\n    dbc.Row([dbc.Col(dcc.Graph(id=\"network-graph\"), width=6)]),\n])\nPros: Professional, highly interactive, scalable\nCons: Steeper learning curve\nOption 3: Power BI (Enterprise) - Familiar to business users - Real-time data refresh - Row-level security for compliance",
     "crumbs": [
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Chapter 3: The Sharing Decision — Modeling Who Clicks \"Share\"</span>"
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Unit 4: Fusion & Scale</span>"
     ]
   },
   {
-    "objectID": "chapters/03-sharing-decision.html#reproducibility",
-    "href": "chapters/03-sharing-decision.html#reproducibility",
-    "title": "5  Chapter 3: The Sharing Decision — Modeling Who Clicks “Share”",
-    "section": "5.6 Reproducibility",
-    "text": "5.6 Reproducibility\nCode and data for this chapter: - behavioral_analysis/notebooks/02_baseline_models.ipynb - src/train_baseline.py",
+    "objectID": "chapters/04-fusion-scale.html#part-d-ethical-framework-responsible-deployment",
+    "href": "chapters/04-fusion-scale.html#part-d-ethical-framework-responsible-deployment",
+    "title": "6  Unit 4: Fusion & Scale",
+    "section": "6.6 Part D: Ethical Framework & Responsible Deployment",
+    "text": "6.6 Part D: Ethical Framework & Responsible Deployment\n\n6.6.1 Core Tensions\n\n6.6.1.1 1. Privacy vs. Insight\nThe dilemma: Understanding who is vulnerable requires personal information (age, psychology, behavior)\nThe risk: Profiling enables manipulation\nOur approach: Use only aggregated, anonymized data; never sell individual identifiers\n\n\n6.6.1.2 2. Protection vs. Autonomy\nThe dilemma: Restricting content violates user agency; unrestricted misinformation causes harm\nThe risk: Invisible algorithms deciding what users see\nOur approach: Transparent labeling (“This narrative uses emotional language; verify sources”), not censorship\n\n\n6.6.1.3 3. Transparency vs. Security\nThe dilemma: Open-source code enables adversaries; closed systems lack accountability\nThe risk: Either “security through obscurity” or “algorithmic manipulation”\nOur approach: Publish methods; hold back deployable artifacts; audit by third parties\n\n\n6.6.1.4 4. Accuracy vs. Fairness\nThe dilemma: Pursuing overall accuracy can amplify errors on minority groups\nThe risk: Model that’s 85% accurate overall but 60% accurate for low-education users\nOur approach: Evaluate performance across demographic groups; retrain if gaps emerge\n\n\n\n6.6.2 Deployment Safeguards\n\n6.6.2.1 Technical\n\nModel cards: Document intended use, performance, limitations\nFairness audits: Test for disparate impact across demographics\nDrift monitoring: Alert if model assumptions change over time\nInference limits: Cap individual prediction frequency to prevent targeting\nExplanations: Accompany every prediction with feature attribution\n\n\n\n6.6.2.2 Governance\n\nTerms of use: Prohibit individual targeting, harassment, discrimination\nData minimalism: Collect only what’s needed; delete when finished; anonymize\nAccountability: External ethics review; academic publication; response to harm\nRedaction: Document and learfrom failures; don’t repeat mistakes\n\n\n\n6.6.2.3 Human-in-the-Loop\n\nManual review: High-uncertainty predictions checked by humans\nAppeal process: Users can contest predictions\nStakeholder feedback: Gather input from journalists, fact-checkers, vulnerable populations\n\n\n\n\n6.6.3 Case Study: Misuse Prevention\nScenario: Political campaign wants to identify swing voters and micro-target with misinformation\nControls we implement: 1. Technical: Model outputs anonymized; no individual IDs in API 2. Contractual: ToS forbids targeting + political use 3. Monitoring: Audit logs track who accesses what 4. Advocacy: Support regulation of voter microtargeting 5. Transparency: Publish this case study, admit we can’t prevent all misuse",
     "crumbs": [
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Chapter 3: The Sharing Decision — Modeling Who Clicks \"Share\"</span>"
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Unit 4: Fusion & Scale</span>"
     ]
   },
   {
-    "objectID": "chapters/03-sharing-decision.html#practical-implications",
-    "href": "chapters/03-sharing-decision.html#practical-implications",
-    "title": "5  Chapter 3: The Sharing Decision — Modeling Who Clicks “Share”",
-    "section": "5.7 Practical Implications",
-    "text": "5.7 Practical Implications\nThis analysis informs: - Content moderation: Proactive identification of high-spread-risk posts - Platform design: How UI/UX choices influence sharing behavior - Interventions: Strategic placement of fact-checks or friction warnings",
+    "objectID": "chapters/04-fusion-scale.html#part-e-monitoring-continuous-improvement",
+    "href": "chapters/04-fusion-scale.html#part-e-monitoring-continuous-improvement",
+    "title": "6  Unit 4: Fusion & Scale",
+    "section": "6.7 Part E: Monitoring & Continuous Improvement",
+    "text": "6.7 Part E: Monitoring & Continuous Improvement\n\n6.7.1 Performance Monitoring\n\n\n\nMetric\nTarget\nAlert Threshold\n\n\n\n\nAccuracy\n≥82%\n&lt;80%\n\n\nAUC-ROC\n≥0.87\n&lt;0.85\n\n\nFalse Positive Rate\n≤15%\n&gt;18%\n\n\nModel latency\n50ms median\n&gt;100ms p95\n\n\n\n\n\n6.7.2 Data Drift Detection\nMonitor input distributions for shifts:\n# Check if input feature distributions changed significantly\nold_mean_title_length = 11.2\nnew_mean_title_length = 9.8\ndivergence = (new_mean_title_length - old_mean_title_length) / old_mean_title_length\nif abs(divergence) &gt; 0.15:  # &gt;15% shift\n    alert(\"Title length distribution shifted. Possible domain change?\")\n\n\n6.7.3 Retraining Cadence\n\nReactive: Retrain if AUC drops below 0.85 (same day)\nScheduled: Full retraining monthly on past 30 days of data\nSeasonal: Seasonal tasks (elections, holidays) may require domain-specific models",
     "crumbs": [
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Chapter 3: The Sharing Decision — Modeling Who Clicks \"Share\"</span>"
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Unit 4: Fusion & Scale</span>"
     ]
   },
   {
-    "objectID": "chapters/04-pseudo-profound.html",
-    "href": "chapters/04-pseudo-profound.html",
-    "title": "6  Chapter 4: Spotting Pseudo-Profound Bullshit — A Gentle NLP Project",
-    "section": "",
-    "text": "6.1 What Is “Pseudo-Profundity”?\nSome statements sound wise but mean nothing:\nvs.\nOne is nonsensical. One is meaningful. But both can feel profound.\nMy thesis included a Bullshit Receptivity scale (BSR-10) measuring susceptibility to this linguistic deception. This chapter uses NLP to build a classifier that detects pseudo-profound language.",
+    "objectID": "chapters/04-fusion-scale.html#part-f-key-findings-recommendations",
+    "href": "chapters/04-fusion-scale.html#part-f-key-findings-recommendations",
+    "title": "6  Unit 4: Fusion & Scale",
+    "section": "6.8 Part F: Key Findings & Recommendations",
+    "text": "6.8 Part F: Key Findings & Recommendations\n\n6.8.1 Model Ensemble Performance\nCombining all three units:\n\n\n\nComponent\nContribution\nAccuracy Lift\n\n\n\n\nBehavioral (Unit 1)\nRisk profile\n+2.1%\n\n\nNLP (Unit 2)\nLinguistic detection\n+3.8%\n\n\nEpidemiological (Unit 3)\nNetwork context\n+1.2%\n\n\nEnsemble\nCombined\n85.1%\n\n\n\n\n\n6.8.2 Deployment Readiness Checklist\n\n✅ Model validation: Achieve ≥85% accuracy on holdout set\n✅ Fairness audit: No demographic group &lt;80% accuracy\n✅ API design: Latency &lt;100ms p95\n✅ Monitoring: Dashboards for performance tracking\n✅ Documentation: Model cards, ethical guidelines\n✅ Security: Encryption, authentication, audit logs\n✅ Scalability: Load testing at 10x expected traffic\n✅ Update strategy: Retraining process documented and tested\n✅ Incident response: Plan for false positives/negatives going viral\n✅ Governance: Ethics board review completed\n\n\n\n6.8.3 Operational Recommendations\n\nStart with dashboards, not automation: Use system to inform human judgment for 6+ months\nImplement gradual rollout: Internal users first, then academic partners, then broader public\nInvest in interpretability: Users must understand why system flagged something\nBuild in appeals: Users can contest predictions; feed appeals back into retraining\nPlan for adversaries: Bad actors will try to game the system; anticipate evasion",
     "crumbs": [
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Chapter 4: Spotting Pseudo-Profound Bullshit — A Gentle NLP Project</span>"
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Unit 4: Fusion & Scale</span>"
     ]
   },
   {
-    "objectID": "chapters/04-pseudo-profound.html#what-is-pseudo-profundity",
-    "href": "chapters/04-pseudo-profound.html#what-is-pseudo-profundity",
-    "title": "6  Chapter 4: Spotting Pseudo-Profound Bullshit — A Gentle NLP Project",
-    "section": "",
-    "text": "“The growth of deep evolutionary forms brings about the creation of the ever-present dynamic world that radiates in all directions.”\n\n\n\n“Societies that preserve social bonds through shared rituals experience more cooperation.”",
+    "objectID": "chapters/04-fusion-scale.html#limitations-future-work",
+    "href": "chapters/04-fusion-scale.html#limitations-future-work",
+    "title": "6  Unit 4: Fusion & Scale",
+    "section": "6.9 Limitations & Future Work",
+    "text": "6.9 Limitations & Future Work\n\n6.9.1 Current Limitations\n\nTitle-only classification: Missing full article text (where facts exist)\nEnglish-only: FakeNewsNet corpus; cross-language generalization unknown\nFact-checker bias: Politifact ≠ ground truth on subjective claims\nNo temporal dynamics: Doesn’t capture how narratives evolve\nNo video/images: Text-only approach; multimodal misinformation outside scope\n\n\n\n6.9.2 Future Directions\n\nMultimodal: Integrate images, video, audio into unified pipeline\nCross-lingual: Non-English datasets and zero-shot translation\nCausal intervention: RCTs testing interventions’ effectiveness in practice\nReal-time: Streaming pipeline for breaking news verification\nUser-centric: Resilience training rather than just detection/labeling",
     "crumbs": [
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Chapter 4: Spotting Pseudo-Profound Bullshit — A Gentle NLP Project</span>"
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Unit 4: Fusion & Scale</span>"
     ]
   },
   {
-    "objectID": "chapters/04-pseudo-profound.html#dataset-definitions",
-    "href": "chapters/04-pseudo-profound.html#dataset-definitions",
-    "title": "6  Chapter 4: Spotting Pseudo-Profound Bullshit — A Gentle NLP Project",
-    "section": "6.2 Dataset & Definitions",
-    "text": "6.2 Dataset & Definitions\n\n6.2.1 Real Data\n\nCollection of pseudo-profound statements (from research literature)\nCollection of mundane but true statements\nTarget: Binary classification (profound-sounding vs. grounded)\n\n\n\n6.2.2 Linguistic Hypotheses\nPseudo-profound language may be characterized by: - N-gram patterns: Unusual word combinations that lack semantic grounding - Vocabulary: Overuse of abstract nouns, psychological jargon, vague modifiers - Structure: Complex syntax masking logical vacuity - Sentiment: High positive valence (sounds “inspiring”)",
+    "objectID": "chapters/04-fusion-scale.html#reproducibility-checklist",
+    "href": "chapters/04-fusion-scale.html#reproducibility-checklist",
+    "title": "6  Unit 4: Fusion & Scale",
+    "section": "6.10 Reproducibility Checklist",
+    "text": "6.10 Reproducibility Checklist\n\n✅ Complete pipeline: src/ with all preprocessing, model training, serving code\n✅ Deployment configs: Docker files, Kubernetes manifests for scaling\n✅ Dashboard code: Streamlit + Plotly applications in dashboards/\n✅ Monitoring setup: Prometheus + Grafana configs for metrics\n✅ Documentation: API specs, model cards, ethical guidelines\n✅ Tests: Unit tests, integration tests, fairness tests",
     "crumbs": [
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Chapter 4: Spotting Pseudo-Profound Bullshit — A Gentle NLP Project</span>"
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Unit 4: Fusion & Scale</span>"
     ]
   },
   {
-    "objectID": "chapters/04-pseudo-profound.html#nlp-pipeline",
-    "href": "chapters/04-pseudo-profound.html#nlp-pipeline",
-    "title": "6  Chapter 4: Spotting Pseudo-Profound Bullshit — A Gentle NLP Project",
-    "section": "6.3 NLP Pipeline",
-    "text": "6.3 NLP Pipeline\n\n6.3.1 1. Tokenization & Preprocessing\n\nLowercase, lemmatization, stop-word handling\nPreserve linguistic richness (don’t over-process)\n\n\n\n6.3.2 2. Feature Extraction\n\n6.3.2.1 TF-IDF Baselines\nQuick, interpretable, surprisingly effective.\n\n\n6.3.2.2 Embeddings (SBERT)\nCapture semantic meaning using transformer models.\n\n\n6.3.2.3 Linguistic Features\n\nFlesch-Kincaid readability\nAverage word length\nSyntactic complexity (parse trees)\nEmotional tone (NRC lexicon)\n\n\n\n\n6.3.3 3. Classification\n\nLogistic Regression (baseline)\nSVM (robust to high-dimensional embeddings)\nRandom Forest (nonlinear patterns)\nFine-tuned BERT (if sufficient data)",
+    "objectID": "chapters/04-fusion-scale.html#glossary",
+    "href": "chapters/04-fusion-scale.html#glossary",
+    "title": "6  Unit 4: Fusion & Scale",
+    "section": "6.11 Glossary",
+    "text": "6.11 Glossary\nEnsemble: Combining multiple models to improve performance\nData drift: Input feature distributions shift over time\nModel drift: Model predictions consistently shift (e.g., becoming more conservative)\nFairness audit: Test for disparate performance across demographic groups\nExplainability: Understanding why a model made a specific prediction\nLatency: Time from input to prediction; measured in milliseconds\nThroughput: Number of predictions per second; measured in QPS (queries/sec)",
     "crumbs": [
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Chapter 4: Spotting Pseudo-Profound Bullshit — A Gentle NLP Project</span>"
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Unit 4: Fusion & Scale</span>"
     ]
   },
   {
-    "objectID": "chapters/04-pseudo-profound.html#results-interpretation",
-    "href": "chapters/04-pseudo-profound.html#results-interpretation",
-    "title": "6  Chapter 4: Spotting Pseudo-Profound Bullshit — A Gentle NLP Project",
-    "section": "6.4 Results & Interpretation",
-    "text": "6.4 Results & Interpretation\nKey findings: - Which linguistic signals most predict pseudo-profundity? - Can humans and machines agree on what’s bullshit? - Limitations: Context matters. Is “metaphor” the same as “bullshit”?\nConfusion matrix and ROC curves included.",
+    "objectID": "chapters/04-fusion-scale.html#references",
+    "href": "chapters/04-fusion-scale.html#references",
+    "title": "6  Unit 4: Fusion & Scale",
+    "section": "6.12 References",
+    "text": "6.12 References\n\nGhosh et al. (2018). Analyzing misinformation in social media. IEEE DSW.\nBolukbasi et al. (2016). Man is to computer programmer as woman is to homemaker. NeurIPS.\nSelbst & Barocas (2019). The intuitive appeal of explainable machines. arXiv.\nMittelstadt (2017). From individual to group privacy. Philosophy & Technology.",
     "crumbs": [
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Chapter 4: Spotting Pseudo-Profound Bullshit — A Gentle NLP Project</span>"
-    ]
-  },
-  {
-    "objectID": "chapters/04-pseudo-profound.html#critical-reflection",
-    "href": "chapters/04-pseudo-profound.html#critical-reflection",
-    "title": "6  Chapter 4: Spotting Pseudo-Profound Bullshit — A Gentle NLP Project",
-    "section": "6.5 Critical Reflection",
-    "text": "6.5 Critical Reflection\nImportant caveat: This is NOT a “truth detector.”\nPseudo-profundity is about linguistic form, not factual accuracy. A true statement can be expressed beautifully. A false statement can be precise.\nThe real utility: - Flag suspiciously complex language that may hide weak thinking - Raise cognitive friction: “Pause and ask: does this actually make sense?” - Combine with other signals (source credibility, evidence backing) for better assessment",
-    "crumbs": [
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Chapter 4: Spotting Pseudo-Profound Bullshit — A Gentle NLP Project</span>"
-    ]
-  },
-  {
-    "objectID": "chapters/04-pseudo-profound.html#code-data",
-    "href": "chapters/04-pseudo-profound.html#code-data",
-    "title": "6  Chapter 4: Spotting Pseudo-Profound Bullshit — A Gentle NLP Project",
-    "section": "6.6 Code & Data",
-    "text": "6.6 Code & Data\n\nbehavioral_analysis/notebooks/03_linguistic_features.ipynb\nsrc/train_linguistic_features.py\nTransformer notebooks: behavioral_analysis/notebooks/04_transformers.ipynb",
-    "crumbs": [
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Chapter 4: Spotting Pseudo-Profound Bullshit — A Gentle NLP Project</span>"
-    ]
-  },
-  {
-    "objectID": "chapters/04-pseudo-profound.html#for-data-science-practitioners",
-    "href": "chapters/04-pseudo-profound.html#for-data-science-practitioners",
-    "title": "6  Chapter 4: Spotting Pseudo-Profound Bullshit — A Gentle NLP Project",
-    "section": "6.7 For Data Science Practitioners",
-    "text": "6.7 For Data Science Practitioners\nThis chapter demonstrates: - End-to-end NLP pipeline (from text to predictions) - Multiple embedding strategies (TF-IDF, transformers, linguistic) - Model comparison and error analysis - Ethical reasoning: What does “accuracy” mean in this context?",
-    "crumbs": [
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Chapter 4: Spotting Pseudo-Profound Bullshit — A Gentle NLP Project</span>"
-    ]
-  },
-  {
-    "objectID": "chapters/05-infodemic-simulation.html",
-    "href": "chapters/05-infodemic-simulation.html",
-    "title": "7  Chapter 5: Age, Emotion, and Susceptibility — Simulating an Infodemic",
-    "section": "",
-    "text": "7.1 The Research Question\nPrior chapters investigated individual traits and content characteristics separately. This chapter asks: How do they interact?\nSpecifically: - Do older and younger adults respond differently to emotionally charged misinformation? - Can we predict personalized risk profiles based on age, emotion sensitivity, and cognitive style? - How would an infodemic spread through a population with these heterogeneous vulnerabilities?",
-    "crumbs": [
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Chapter 5: Age, Emotion, and Susceptibility — Simulating an Infodemic</span>"
-    ]
-  },
-  {
-    "objectID": "chapters/05-infodemic-simulation.html#methodology",
-    "href": "chapters/05-infodemic-simulation.html#methodology",
-    "title": "7  Chapter 5: Age, Emotion, and Susceptibility — Simulating an Infodemic",
-    "section": "7.2 Methodology",
-    "text": "7.2 Methodology\n\n7.2.1 Data Source\nLiterature-informed or simulated dataset including: - Age (categories: 18-30, 31-50, 51-70, 70+) - Emotional sensitivity (validated psychometric scales) - Cognitive reflection (CRT-style scores) - Exposure to misinformation (number of articles encountered) - Belief change (outcome: did the person update their beliefs?)\n\n\n7.2.2 Analysis Plan\n\nGroup Comparisons\n\nANOVA: Does age predict susceptibility?\nEffect sizes and post-hoc tests (Tukey HSD)\n\nInteraction Terms\n\nDoes emotion sensitivity + low cognitive reflection predict higher belief change?\nDo these effects differ by age group?\n\nRegression Modeling\n\nMultiple logistic regression with interactions\nCoefficient interpretation: What does a one-unit change in X mean for different demographic groups?\n\nRisk Profiling\n\nCreate a “susceptibility score” as a function of age, emotion, and cognition\nVisualize risk profiles across subpopulations",
-    "crumbs": [
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Chapter 5: Age, Emotion, and Susceptibility — Simulating an Infodemic</span>"
-    ]
-  },
-  {
-    "objectID": "chapters/05-infodemic-simulation.html#simulation-spatial-models",
-    "href": "chapters/05-infodemic-simulation.html#simulation-spatial-models",
-    "title": "7  Chapter 5: Age, Emotion, and Susceptibility — Simulating an Infodemic",
-    "section": "7.3 Simulation & Spatial Models",
-    "text": "7.3 Simulation & Spatial Models\n\n7.3.1 Agent-Based Infodemic Model\nExtend analysis to a simulated social network: - Agents with heterogeneous susceptibility profiles - Misinformation introduced at different time points - Network effects: Does proximity to infected nodes increase transmission?\n\n\n7.3.2 Visualizations\n\nHeatmaps showing transmission rates by age × emotion combinations\nTime-series plots of belief prevalence\nNetwork diagrams showing spread dynamics",
-    "crumbs": [
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Chapter 5: Age, Emotion, and Susceptibility — Simulating an Infodemic</span>"
-    ]
-  },
-  {
-    "objectID": "chapters/05-infodemic-simulation.html#key-findings",
-    "href": "chapters/05-infodemic-simulation.html#key-findings",
-    "title": "7  Chapter 5: Age, Emotion, and Susceptibility — Simulating an Infodemic",
-    "section": "7.4 Key Findings",
-    "text": "7.4 Key Findings\n[Placeholder: Synthesize results and implications]\nExamples of insights: - “Adults 70+ show 2.3x higher belief change when exposed to high-emotion narratives, particularly conspiracy claims.” - “Individuals high in cognitive reflection resist belief change even when exposed to emotionally salient misinformation.” - “Network structure matters: central nodes with high susceptibility act as amplifiers.”",
-    "crumbs": [
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Chapter 5: Age, Emotion, and Susceptibility — Simulating an Infodemic</span>"
-    ]
-  },
-  {
-    "objectID": "chapters/05-infodemic-simulation.html#policy-practice-implications",
-    "href": "chapters/05-infodemic-simulation.html#policy-practice-implications",
-    "title": "7  Chapter 5: Age, Emotion, and Susceptibility — Simulating an Infodemic",
-    "section": "7.5 Policy & Practice Implications",
-    "text": "7.5 Policy & Practice Implications\nThis chapter informs: - Targeting: Who should receive prebunking or inoculation? - Content design: Which demographic segments need friction-adding interventions? - Resource allocation: Where to focus fact-checking efforts for maximum impact?",
-    "crumbs": [
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Chapter 5: Age, Emotion, and Susceptibility — Simulating an Infodemic</span>"
-    ]
-  },
-  {
-    "objectID": "chapters/05-infodemic-simulation.html#code-reproducibility",
-    "href": "chapters/05-infodemic-simulation.html#code-reproducibility",
-    "title": "7  Chapter 5: Age, Emotion, and Susceptibility — Simulating an Infodemic",
-    "section": "7.6 Code & Reproducibility",
-    "text": "7.6 Code & Reproducibility\n\nbehavioral_analysis/notebooks/03_regression_models.ipynb\nSimulation code in src/ (placeholder for future)\nInteractive dashboard in dashboards/streamlit/ (under development)",
-    "crumbs": [
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Chapter 5: Age, Emotion, and Susceptibility — Simulating an Infodemic</span>"
-    ]
-  },
-  {
-    "objectID": "chapters/05-infodemic-simulation.html#for-practitioners",
-    "href": "chapters/05-infodemic-simulation.html#for-practitioners",
-    "title": "7  Chapter 5: Age, Emotion, and Susceptibility — Simulating an Infodemic",
-    "section": "7.7 For Practitioners",
-    "text": "7.7 For Practitioners\nThis chapter demonstrates: - Statistical interaction modeling and interpretation - Heterogeneous treatment effects (HTE) - Simulation and complexity science approaches - Translating analysis into actionable insights",
-    "crumbs": [
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Chapter 5: Age, Emotion, and Susceptibility — Simulating an Infodemic</span>"
-    ]
-  },
-  {
-    "objectID": "chapters/06-interactive-dashboards.html",
-    "href": "chapters/06-interactive-dashboards.html",
-    "title": "8  Chapter 6: Visualizing the Tentacles — Interactive Views of Misinformation",
-    "section": "",
-    "text": "8.1 From Tables to Interactive Dashboards\nStatistical tables are precise but alienating. Decision-makers need to see the story.\nThis chapter builds interactive dashboards that make misinformation dynamics tangible: - Spread patterns across demographics - Risk profiles by user segment - Model predictions and uncertainty - Real-time monitoring of emerging narratives",
-    "crumbs": [
-      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Chapter 6: Visualizing the Tentacles — Interactive Views of Misinformation</span>"
-    ]
-  },
-  {
-    "objectID": "chapters/06-interactive-dashboards.html#visualization-philosophy",
-    "href": "chapters/06-interactive-dashboards.html#visualization-philosophy",
-    "title": "8  Chapter 6: Visualizing the Tentacles — Interactive Views of Misinformation",
-    "section": "8.2 Visualization Philosophy",
-    "text": "8.2 Visualization Philosophy\nEffective misinformation dashboards balance: - Accuracy: Faithful representation of underlying data - Clarity: Intuitive for non-technical audiences - Actionability: Points toward decisions (e.g., “Which demographic needs intervention?”) - Humility: Communicates uncertainty and limitations",
-    "crumbs": [
-      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Chapter 6: Visualizing the Tentacles — Interactive Views of Misinformation</span>"
-    ]
-  },
-  {
-    "objectID": "chapters/06-interactive-dashboards.html#dashboard-components",
-    "href": "chapters/06-interactive-dashboards.html#dashboard-components",
-    "title": "8  Chapter 6: Visualizing the Tentacles — Interactive Views of Misinformation",
-    "section": "8.3 Dashboard Components",
-    "text": "8.3 Dashboard Components\n\n8.3.1 1. Spread & Transmission (Interactive Network)\n\nGraph: Social network with nodes = users, edges = sharing relationships\nColor intensity: Risk level (green = low susceptibility, red = high)\nAnimation: Show misinformation propagation over time\nHover tooltips: User details (age, cognitive style, historical engagement)\n\n\n\n8.3.2 2. Risk Profile Heatmap\n\nAxes: Demographics (age, education, political affiliation) × emotional sensitivity\nCell color: Predicted susceptibility score\nInteractivity: Filter by cognitive traits, hover for confidence intervals\n\n\n\n8.3.3 3. Model Predictions (Individual-Level)\n\nInput interface: User trait sliders (age, numeracy, emotion sensitivity)\nOutput display: Predicted likelihood of sharing; counterfactual: “If this user’s CRT score were +10…”\nFeature importance: Which traits drive this prediction most?\n\n\n\n8.3.4 4. NLP Classifier Output\n\nText input: Paste a claim or article\nOutput: Pseudo-profundity score, emotional tone, credibility signals\nSimilar narratives: Show other claims the model flagged as similar\n\n\n\n8.3.5 5. Temporal Trends\n\nTime series: Belief prevalence over time, stratified by demographic\nAnnotation: Mark interventions (fact-checks, inoculation campaigns) to visualize effects",
-    "crumbs": [
-      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Chapter 6: Visualizing the Tentacles — Interactive Views of Misinformation</span>"
-    ]
-  },
-  {
-    "objectID": "chapters/06-interactive-dashboards.html#technology-stack",
-    "href": "chapters/06-interactive-dashboards.html#technology-stack",
-    "title": "8  Chapter 6: Visualizing the Tentacles — Interactive Views of Misinformation",
-    "section": "8.4 Technology Stack",
-    "text": "8.4 Technology Stack\n\n8.4.1 Streamlit (Python-native)\n\nRapid prototyping\nMinimal frontend knowledge needed\nEasy deployment to Streamlit Cloud\n\nPros: Python-native, fast iteration\nCons: Limited customization\n\n\n8.4.2 Plotly + Dash\n\nHighly interactive, production-grade\nFull control over layout and interactions\n\nPros: Professional, flexible\nCons: Steeper learning curve\n\n\n8.4.3 Power BI (Enterprise)\n\nExcel-like familiarity for stakeholders\nReal-time data update capabilities\n\nPros: Familiar to business users\nCons: No-code limitations; integration overhead",
-    "crumbs": [
-      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Chapter 6: Visualizing the Tentacles — Interactive Views of Misinformation</span>"
-    ]
-  },
-  {
-    "objectID": "chapters/06-interactive-dashboards.html#dashboard-design-principles",
-    "href": "chapters/06-interactive-dashboards.html#dashboard-design-principles",
-    "title": "8  Chapter 6: Visualizing the Tentacles — Interactive Views of Misinformation",
-    "section": "8.5 Dashboard Design Principles",
-    "text": "8.5 Dashboard Design Principles\n\n8.5.1 1. Progressive Disclosure\nStart simple (trend line), allow deep-diving into subgroups.\n\n\n8.5.2 2. Context & Uncertainty\nShow confidence intervals. Use color/opacity to encode uncertainty.\n\n\n8.5.3 3. Actionability\nEvery visualization should answer: “What should I do with this?”\n\n\n8.5.4 4. Accessibility\n\nHigh contrast, colorblind-friendly palettes\nKeyboard navigation support\nDescriptions for screen readers",
-    "crumbs": [
-      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Chapter 6: Visualizing the Tentacles — Interactive Views of Misinformation</span>"
-    ]
-  },
-  {
-    "objectID": "chapters/06-interactive-dashboards.html#deployment",
-    "href": "chapters/06-interactive-dashboards.html#deployment",
-    "title": "8  Chapter 6: Visualizing the Tentacles — Interactive Views of Misinformation",
-    "section": "8.6 Deployment",
-    "text": "8.6 Deployment\nDashboard lives in: - dashboards/streamlit/app.py (primary) - dashboards/powerbi/ (enterprise version, optional)\nHosted at: - Streamlit Cloud (free) - GitHub Pages (static export) - Internal dashboard server (if enterprise license)",
-    "crumbs": [
-      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Chapter 6: Visualizing the Tentacles — Interactive Views of Misinformation</span>"
-    ]
-  },
-  {
-    "objectID": "chapters/06-interactive-dashboards.html#for-data-science-practitioners",
-    "href": "chapters/06-interactive-dashboards.html#for-data-science-practitioners",
-    "title": "8  Chapter 6: Visualizing the Tentacles — Interactive Views of Misinformation",
-    "section": "8.7 For Data Science Practitioners",
-    "text": "8.7 For Data Science Practitioners\nThis chapter showcases: - End-to-end visualization design - Interactive dashboard architecture - Communicating uncertainty and limitations - Bridging analytics and decision-making - UX/design thinking in data science",
-    "crumbs": [
-      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Chapter 6: Visualizing the Tentacles — Interactive Views of Misinformation</span>"
-    ]
-  },
-  {
-    "objectID": "chapters/06-interactive-dashboards.html#critical-note",
-    "href": "chapters/06-interactive-dashboards.html#critical-note",
-    "title": "8  Chapter 6: Visualizing the Tentacles — Interactive Views of Misinformation",
-    "section": "8.8 Critical Note",
-    "text": "8.8 Critical Note\nDashboards can mislead as easily as illuminate. This chapter includes a section on visualization ethics: - Avoiding sensationalism - Representing tradeoffs honestly - Being transparent about model limitations - Avoiding nudging users toward intended conclusions",
-    "crumbs": [
-      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Chapter 6: Visualizing the Tentacles — Interactive Views of Misinformation</span>"
-    ]
-  },
-  {
-    "objectID": "chapters/07-ethics-responsible-ds.html",
-    "href": "chapters/07-ethics-responsible-ds.html",
-    "title": "9  Chapter 7: Ethics, Limits, and Responsible Data Science",
-    "section": "",
-    "text": "9.1 Why Ethics Now?\nBy Chapter 7, we’ve built models that: - Predict who is vulnerable to misinformation - Classify false narratives - Simulate spread dynamics - Visualize risk in real-time\nBut capability is not obligation. Just because we can do something doesn’t mean we should.\nThis reflective essay ties together all prior chapters and asks: How do we wield these tools responsibly?",
-    "crumbs": [
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Chapter 7: Ethics, Limits, and Responsible Data Science</span>"
-    ]
-  },
-  {
-    "objectID": "chapters/07-ethics-responsible-ds.html#core-tensions-in-misinformation-research",
-    "href": "chapters/07-ethics-responsible-ds.html#core-tensions-in-misinformation-research",
-    "title": "9  Chapter 7: Ethics, Limits, and Responsible Data Science",
-    "section": "9.2 Core Tensions in Misinformation Research",
-    "text": "9.2 Core Tensions in Misinformation Research\n\n9.2.1 1. Privacy vs. Insight\n\nThe data problem: Understanding who is vulnerable requires personal information (demographics, psychology, behavior)\nThe risk: Profiling can enable manipulation (“We know exactly who to target with propaganda”)\nThe balance: We use aggregated, anonymized data; no individual targeting\n\n\n\n9.2.2 2. Protection vs. Autonomy\n\nThe paternalism problem: Restricting access to information violates user agency\nThe harm problem: Unrestricted misinformation causes real damage (health, politics, social cohesion)\nThe balance: Interventions should be transparent (not hidden algorithms); low-friction (friction-adding, not censorship)\n\n\n\n9.2.3 3. Academic Truth vs. Commercial Incentives\n\nThe publication bias: Journals reward novel, surprising findings. Null results don’t get published\nThe platform bias: Social media companies profit from engagement, regardless of truth\nThe balance: Publish honestly. Highlight limitations. Resist pressure to oversell findings\n\n\n\n9.2.4 4. Transparency vs. Information Security\n\nThe openness ideal: Science should be reproducible and publicly accessible\nThe manipulation risk: Open-sourcing classifier code enables adversaries to craft evading messages\nThe balance: Share methods and high-level insights; hold back deployable artifacts",
-    "crumbs": [
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Chapter 7: Ethics, Limits, and Responsible Data Science</span>"
-    ]
-  },
-  {
-    "objectID": "chapters/07-ethics-responsible-ds.html#ethical-principles-for-this-project",
-    "href": "chapters/07-ethics-responsible-ds.html#ethical-principles-for-this-project",
-    "title": "9  Chapter 7: Ethics, Limits, and Responsible Data Science",
-    "section": "9.3 Ethical Principles for This Project",
-    "text": "9.3 Ethical Principles for This Project\n\n9.3.1 1. Harm-Reduction Over Censorship\nWe inform, not forbid. Users retain judgment.\nExample: Our NLP classifier doesn’t remove content; it adds a labeling signal (“This narrative uses pseudo-profound language; check the sources”).\n\n\n9.3.2 2. Transparency in Design\n\nWhat signals does our model use to predict susceptibility?\nWhat are the failure modes?\nWho might this harm if misused?\n\n\n\n9.3.3 3. Inclusivity in Research\n\nWhose voices are missing from our behavioral sample (N=194)?\nDo our findings generalize across cultures, languages, socioeconomic contexts?\nCan we partner with under-resourced communities to co-develop solutions?\n\n\n\n9.3.4 4. Data Minimalism\nCollect only what we need. Delete when done. Anonymize rigorously.\n\n\n9.3.5 5. Accountability\n\nName an ethical review board or advisor\nPublish limitations alongside findings\nMonitor real-world effects if our tools are deployed\nRespond to and learn from mistakes",
-    "crumbs": [
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Chapter 7: Ethics, Limits, and Responsible Data Science</span>"
-    ]
-  },
-  {
-    "objectID": "chapters/07-ethics-responsible-ds.html#case-study-when-good-tools-enable-bad-actors",
-    "href": "chapters/07-ethics-responsible-ds.html#case-study-when-good-tools-enable-bad-actors",
-    "title": "9  Chapter 7: Ethics, Limits, and Responsible Data Science",
-    "section": "9.4 Case Study: When Good Tools Enable Bad Actors",
-    "text": "9.4 Case Study: When Good Tools Enable Bad Actors\nScenario: A political campaign purchases access to our susceptibility classifier. They use it to: - Identify vulnerable voters - Micro-target them with misinformation - Measure conversion rates\nOur safeguards: - Terms of use prohibit this - Technical control: Model outputs anonymized, never sold with identifiers - Advocacy: Push for regulation of voter targeting\nLesson: We can’t prevent misuse entirely, but we can make it harder and document our reasoning.",
-    "crumbs": [
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Chapter 7: Ethics, Limits, and Responsible Data Science</span>"
-    ]
-  },
-  {
-    "objectID": "chapters/07-ethics-responsible-ds.html#implications-for-different-stakeholders",
-    "href": "chapters/07-ethics-responsible-ds.html#implications-for-different-stakeholders",
-    "title": "9  Chapter 7: Ethics, Limits, and Responsible Data Science",
-    "section": "9.5 Implications for Different Stakeholders",
-    "text": "9.5 Implications for Different Stakeholders\n\n9.5.1 For Researchers\n\nPublish limitations, not just findings\nQuestion incentive structures (what gets funded? what gets published?)\nCollaborate across disciplines (psychology, ethics, computer science)\n\n\n\n9.5.2 For Data Scientists\n\nAsk “Why?” before building (Do we need this? Who benefits?)\nDesign for interpretability, not just accuracy\nExpect adversarial use; design defenses\n\n\n\n9.5.3 For Platforms & Policy-Makers\n\nAvoid hidden algorithms; transparency builds trust\nFriction &gt; Censorship: Slow down sharing, don’t prevent it\nInvest in digital literacy, not just detection\n\n\n\n9.5.4 For Users\n\nEmbrace epistemological humility: You don’t know what you don’t know\nSeek out disconfirming evidence\nSlow down; misinformation relies on emotional, rapid response",
-    "crumbs": [
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Chapter 7: Ethics, Limits, and Responsible Data Science</span>"
-    ]
-  },
-  {
-    "objectID": "chapters/07-ethics-responsible-ds.html#open-questions",
-    "href": "chapters/07-ethics-responsible-ds.html#open-questions",
-    "title": "9  Chapter 7: Ethics, Limits, and Responsible Data Science",
-    "section": "9.6 Open Questions",
-    "text": "9.6 Open Questions\nSome issues remain unsettled:\n\nIs vulnerability immutable? Can people learn resilience? (Yes, but how?)\nAre interventions scalable? Can fact-checks keep pace with misinformation? (Unclear)\nWho decides what’s “misinformation”? (Deeply political; no algorithm resolves this)",
-    "crumbs": [
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Chapter 7: Ethics, Limits, and Responsible Data Science</span>"
-    ]
-  },
-  {
-    "objectID": "chapters/07-ethics-responsible-ds.html#personal-reflection",
-    "href": "chapters/07-ethics-responsible-ds.html#personal-reflection",
-    "title": "9  Chapter 7: Ethics, Limits, and Responsible Data Science",
-    "section": "9.7 Personal Reflection",
-    "text": "9.7 Personal Reflection\nAs a data scientist and educator, I’m committed to: - Rigor without righteousness: My models are tools, not truth - Humility about limits: Data can’t settle values questions - Justice focus: Who is harmed by misinformation? How do we protect them?\nThis work won’t “solve” misinformation. But it can make people more resilient and informed.",
-    "crumbs": [
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Chapter 7: Ethics, Limits, and Responsible Data Science</span>"
-    ]
-  },
-  {
-    "objectID": "chapters/07-ethics-responsible-ds.html#resources",
-    "href": "chapters/07-ethics-responsible-ds.html#resources",
-    "title": "9  Chapter 7: Ethics, Limits, and Responsible Data Science",
-    "section": "9.8 Resources",
-    "text": "9.8 Resources\n\nStanford Internet Observatory: https://sio.stanford.edu\nMIT Media Lab, Civic Media: https://civic.media.mit.edu\nPolicy Brief: “Misinformation and Mental Models” (sample citation)",
-    "crumbs": [
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Chapter 7: Ethics, Limits, and Responsible Data Science</span>"
-    ]
-  },
-  {
-    "objectID": "chapters/07-ethics-responsible-ds.html#for-practitioners",
-    "href": "chapters/07-ethics-responsible-ds.html#for-practitioners",
-    "title": "9  Chapter 7: Ethics, Limits, and Responsible Data Science",
-    "section": "9.9 For Practitioners",
-    "text": "9.9 For Practitioners\nThis chapter models: - Ethical reasoning in applied data science - Stakeholder analysis and conflict mapping - Communicating uncertainties and limitations - Reflexivity: Questioning your own assumptions and incentives",
-    "crumbs": [
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Chapter 7: Ethics, Limits, and Responsible Data Science</span>"
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Unit 4: Fusion & Scale</span>"
     ]
   },
   {
     "objectID": "chapters/08-epilogue.html",
     "href": "chapters/08-epilogue.html",
-    "title": "10  Epilogue: My Path into Data Science",
+    "title": "7  Epilogue: My Path into Data Science",
     "section": "",
-    "text": "10.1 Why This Book, Why Now?\nThis project began as a Master’s thesis and evolved into something larger—a portfolio of skills, a research platform, and a personal philosophy.\nThis epilogue reflects on that journey and maps the terrain for readers considering a similar path.",
+    "text": "7.1 Why This Book, Why Now?\nThis project began as a Master’s thesis and evolved into something larger—a portfolio of skills, a research platform, and a personal philosophy.\nThis epilogue reflects on that journey and maps the terrain for readers considering a similar path.",
     "crumbs": [
-      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Epilogue: My Path into Data Science</span>"
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Epilogue: My Path into Data Science</span>"
     ]
   },
   {
     "objectID": "chapters/08-epilogue.html#what-each-chapter-demonstrates",
     "href": "chapters/08-epilogue.html#what-each-chapter-demonstrates",
-    "title": "10  Epilogue: My Path into Data Science",
-    "section": "10.2 What Each Chapter Demonstrates",
-    "text": "10.2 What Each Chapter Demonstrates\n\n10.2.1 Technical Skills\n\n\n\n\n\n\n\n\nChapter\nCore Competency\nTools & Methods\n\n\n\n\nCh 1: Thesis as Code\nStatistical modeling\nR (lavaan), Python (pandas, scipy), reproducible workflows\n\n\nCh 2: SPSS to Python\nWorkflow migration\nGit, version control, Quarto, automation\n\n\nCh 3: Sharing Decision\nClassification & feature eng.\nscikit-learn, cross-validation, error analysis\n\n\nCh 4: Pseudo-Profound\nNLP & embeddings\nBERT, SBERT, TF-IDF, text preprocessing\n\n\nCh 5: Infodemic Simulation\nRegression & causal models\nInteraction terms, hierarchical models, simulation\n\n\nCh 6: Interactive Dashboards\nVisualization & communication\nStreamlit, Plotly, UX design, storytelling\n\n\nCh 7: Ethics & Responsibility\nCritical reasoning\nStakeholder analysis, limitations documentation\n\n\n\n\n\n10.2.2 Domain Knowledge\n\nBehavioral science: Survey design, measurement validation, psychological constructs\nMisinformation ecology: How false narratives spread, where interventions go\nNLP fundamentals: Embeddings, transformer models, linguistic analysis\nCausal reasoning: Confounds, mediation, when correlation isn’t causation\n\n\n\n10.2.3 Professional Practices\n\nReproducible workflows and code documentation\nClear communication for academic and business audiences\nEthical reflection and stakeholder accountability\nCross-functional collaboration (psychology, computer science, policy)",
+    "title": "7  Epilogue: My Path into Data Science",
+    "section": "7.2 What Each Chapter Demonstrates",
+    "text": "7.2 What Each Chapter Demonstrates\n\n7.2.1 Technical Skills\n\n\n\n\n\n\n\n\nChapter\nCore Competency\nTools & Methods\n\n\n\n\nCh 1: Thesis as Code\nStatistical modeling\nR (lavaan), Python (pandas, scipy), reproducible workflows\n\n\nCh 2: SPSS to Python\nWorkflow migration\nGit, version control, Quarto, automation\n\n\nCh 3: Sharing Decision\nClassification & feature eng.\nscikit-learn, cross-validation, error analysis\n\n\nCh 4: Pseudo-Profound\nNLP & embeddings\nBERT, SBERT, TF-IDF, text preprocessing\n\n\nCh 5: Infodemic Simulation\nRegression & causal models\nInteraction terms, hierarchical models, simulation\n\n\nCh 6: Interactive Dashboards\nVisualization & communication\nStreamlit, Plotly, UX design, storytelling\n\n\nCh 7: Ethics & Responsibility\nCritical reasoning\nStakeholder analysis, limitations documentation\n\n\n\n\n\n7.2.2 Domain Knowledge\n\nBehavioral science: Survey design, measurement validation, psychological constructs\nMisinformation ecology: How false narratives spread, where interventions go\nNLP fundamentals: Embeddings, transformer models, linguistic analysis\nCausal reasoning: Confounds, mediation, when correlation isn’t causation\n\n\n\n7.2.3 Professional Practices\n\nReproducible workflows and code documentation\nClear communication for academic and business audiences\nEthical reflection and stakeholder accountability\nCross-functional collaboration (psychology, computer science, policy)",
     "crumbs": [
-      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Epilogue: My Path into Data Science</span>"
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Epilogue: My Path into Data Science</span>"
     ]
   },
   {
     "objectID": "chapters/08-epilogue.html#the-portfolio-narrative",
     "href": "chapters/08-epilogue.html#the-portfolio-narrative",
-    "title": "10  Epilogue: My Path into Data Science",
-    "section": "10.3 The Portfolio Narrative",
-    "text": "10.3 The Portfolio Narrative\nData science interviews often ask: “Tell us about a project you’re proud of.”\nThis book IS that answer. It demonstrates:\n\nEnd-to-end ownership: From problem definition to deployment\nRigor + pragmatism: Research standards + production realities\nCommunication: Code, visuals, narrative for different audiences\nValues: Ethics, limitations, honest uncertainty\nGrowth: Thesis → scalable research platform → publishable work",
+    "title": "7  Epilogue: My Path into Data Science",
+    "section": "7.3 The Portfolio Narrative",
+    "text": "7.3 The Portfolio Narrative\nData science interviews often ask: “Tell us about a project you’re proud of.”\nThis book IS that answer. It demonstrates:\n\nEnd-to-end ownership: From problem definition to deployment\nRigor + pragmatism: Research standards + production realities\nCommunication: Code, visuals, narrative for different audiences\nValues: Ethics, limitations, honest uncertainty\nGrowth: Thesis → scalable research platform → publishable work",
     "crumbs": [
-      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Epilogue: My Path into Data Science</span>"
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Epilogue: My Path into Data Science</span>"
     ]
   },
   {
     "objectID": "chapters/08-epilogue.html#how-to-navigate-this-work",
     "href": "chapters/08-epilogue.html#how-to-navigate-this-work",
-    "title": "10  Epilogue: My Path into Data Science",
-    "section": "10.4 How to Navigate This Work",
-    "text": "10.4 How to Navigate This Work\n\n10.4.1 For Hiring Managers & Collaborators\n\nChapter 1-2: I can do rigorous statistical analysis and translate it into reproducible code\nChapter 3-5: I understand machine learning fundamentals and can build applied models\nChapter 4, 6: I grapple with NLP and visualization design\nChapter 7: I think beyond the model—about impact, ethics, responsibility\nThis epilogue: I can articulate growth and learn from experience\n\nRelevant roles: Data Scientist, ML Engineer, Analytics Engineer, Research Scientist\n\n\n10.4.2 For Academics & Researchers\n\nChapter 1-2: Statistical methodology and open science practices\nChapter 4: NLP for linguistic theory\nChapter 5: Causal and simulation modeling\nChapter 7: Ethics in computational social science\n\nRelevant venues: Conference talks, journal submissions, collaborative research\n\n\n10.4.3 For Learners & Career-Changers\n\nStart here: Chapters 1-2 (foundation + tooling)\nApply next: Chapters 3-5 (ML pipelines, real data)\nThink holistically: Chapters 6-7 (systems thinking + ethics)\nBuild your own: Fork this repo, adapt the structure for your domain",
+    "title": "7  Epilogue: My Path into Data Science",
+    "section": "7.4 How to Navigate This Work",
+    "text": "7.4 How to Navigate This Work\n\n7.4.1 For Hiring Managers & Collaborators\n\nChapter 1-2: I can do rigorous statistical analysis and translate it into reproducible code\nChapter 3-5: I understand machine learning fundamentals and can build applied models\nChapter 4, 6: I grapple with NLP and visualization design\nChapter 7: I think beyond the model—about impact, ethics, responsibility\nThis epilogue: I can articulate growth and learn from experience\n\nRelevant roles: Data Scientist, ML Engineer, Analytics Engineer, Research Scientist\n\n\n7.4.2 For Academics & Researchers\n\nChapter 1-2: Statistical methodology and open science practices\nChapter 4: NLP for linguistic theory\nChapter 5: Causal and simulation modeling\nChapter 7: Ethics in computational social science\n\nRelevant venues: Conference talks, journal submissions, collaborative research\n\n\n7.4.3 For Learners & Career-Changers\n\nStart here: Chapters 1-2 (foundation + tooling)\nApply next: Chapters 3-5 (ML pipelines, real data)\nThink holistically: Chapters 6-7 (systems thinking + ethics)\nBuild your own: Fork this repo, adapt the structure for your domain",
     "crumbs": [
-      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Epilogue: My Path into Data Science</span>"
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Epilogue: My Path into Data Science</span>"
     ]
   },
   {
     "objectID": "chapters/08-epilogue.html#where-im-headed",
     "href": "chapters/08-epilogue.html#where-im-headed",
-    "title": "10  Epilogue: My Path into Data Science",
-    "section": "10.5 Where I’m Headed",
-    "text": "10.5 Where I’m Headed\n\n10.5.1 Short Term (Next 6 Months)\n\nPublish manuscript from this book in peer-reviewed venue\nDeploy dashboards to mathwithmeditation.org\nContribute to open-source misinformation research tools\n\n\n\n10.5.2 Medium Term (1-2 Years)\n\nExpand to Nepal election misinformation dataset (Chapter 9?)\nIntegrate Vedanta/Anthroposophy NLP analysis (Chapter 10?)\nPartner with fact-checking organizations on real-world deployment\n\n\n\n10.5.3 Long Term\n\nVision: Make data science education more rigorous, inclusive, and ethical\nTeaching: Courses and workshops on responsible AI, reproducible research\nPolicy: Contribute to evidence-based regulation of social media",
+    "title": "7  Epilogue: My Path into Data Science",
+    "section": "7.5 Where I’m Headed",
+    "text": "7.5 Where I’m Headed\n\n7.5.1 Short Term (Next 6 Months)\n\nPublish manuscript from this book in peer-reviewed venue\nDeploy dashboards to mathwithmeditation.org\nContribute to open-source misinformation research tools\n\n\n\n7.5.2 Medium Term (1-2 Years)\n\nExpand to Nepal election misinformation dataset (Chapter 9?)\nIntegrate Vedanta/Anthroposophy NLP analysis (Chapter 10?)\nPartner with fact-checking organizations on real-world deployment\n\n\n\n7.5.3 Long Term\n\nVision: Make data science education more rigorous, inclusive, and ethical\nTeaching: Courses and workshops on responsible AI, reproducible research\nPolicy: Contribute to evidence-based regulation of social media",
     "crumbs": [
-      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Epilogue: My Path into Data Science</span>"
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Epilogue: My Path into Data Science</span>"
     ]
   },
   {
     "objectID": "chapters/08-epilogue.html#lessons-learned",
     "href": "chapters/08-epilogue.html#lessons-learned",
-    "title": "10  Epilogue: My Path into Data Science",
-    "section": "10.6 Lessons Learned",
-    "text": "10.6 Lessons Learned\n\n10.6.1 1. Rigor Compounds\nStarting with careful data cleaning and measurement validation saves enormous time downstream.\n\n\n10.6.2 2. Reproducibility is a Love Letter to Future You\nSix months from now, you won’t remember why you chose this parameter. Document it.\n\n\n10.6.3 3. Communicate to Different Audiences\nThe same finding needs different frames: - Academics: Effect sizes, confidence intervals, theoretical implications - Practitioners: Actionable thresholds, business impact, failure modes - Public: Intuitive narrative, why it matters to everyday life\n\n\n10.6.4 4. Ethics Isn’t a Checkbox\nIt’s not “complete” and then done. It’s ongoing: Design → Build → Deploy → Monitor → Reflect.\n\n\n10.6.5 5. Collaborate Across Disciplines\nMy best insights came from talking with psychologists, journalists, and platform safety teams—not just data scientists.",
+    "title": "7  Epilogue: My Path into Data Science",
+    "section": "7.6 Lessons Learned",
+    "text": "7.6 Lessons Learned\n\n7.6.1 1. Rigor Compounds\nStarting with careful data cleaning and measurement validation saves enormous time downstream.\n\n\n7.6.2 2. Reproducibility is a Love Letter to Future You\nSix months from now, you won’t remember why you chose this parameter. Document it.\n\n\n7.6.3 3. Communicate to Different Audiences\nThe same finding needs different frames: - Academics: Effect sizes, confidence intervals, theoretical implications - Practitioners: Actionable thresholds, business impact, failure modes - Public: Intuitive narrative, why it matters to everyday life\n\n\n7.6.4 4. Ethics Isn’t a Checkbox\nIt’s not “complete” and then done. It’s ongoing: Design → Build → Deploy → Monitor → Reflect.\n\n\n7.6.5 5. Collaborate Across Disciplines\nMy best insights came from talking with psychologists, journalists, and platform safety teams—not just data scientists.",
     "crumbs": [
-      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Epilogue: My Path into Data Science</span>"
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Epilogue: My Path into Data Science</span>"
     ]
   },
   {
     "objectID": "chapters/08-epilogue.html#staying-in-touch",
     "href": "chapters/08-epilogue.html#staying-in-touch",
-    "title": "10  Epilogue: My Path into Data Science",
-    "section": "10.7 Staying in Touch",
-    "text": "10.7 Staying in Touch\nI’m always interested in: - Collaborations on misinformation research - Speaking opportunities and teaching - Feedback on this work - Directions you take it in (fork it, improve it, make it your own!)\n\nGitHub: https://github.com/sanjaykshetri\nWebsite: https://mathwithmeditation.com\nEmail: [your contact info]",
+    "title": "7  Epilogue: My Path into Data Science",
+    "section": "7.7 Staying in Touch",
+    "text": "7.7 Staying in Touch\nI’m always interested in: - Collaborations on misinformation research - Speaking opportunities and teaching - Feedback on this work - Directions you take it in (fork it, improve it, make it your own!)\n\nGitHub: https://github.com/sanjaykshetri\nWebsite: https://mathwithmeditation.com\nEmail: [your contact info]",
     "crumbs": [
-      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Epilogue: My Path into Data Science</span>"
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Epilogue: My Path into Data Science</span>"
     ]
   },
   {
     "objectID": "chapters/08-epilogue.html#one-more-thing",
     "href": "chapters/08-epilogue.html#one-more-thing",
-    "title": "10  Epilogue: My Path into Data Science",
-    "section": "10.8 One More Thing",
-    "text": "10.8 One More Thing\nMisinformation is a hard problem. It won’t be “solved” by a single model or dataset.\nBut by combining behavioral insight, statistical rigor, technical skill, and ethical reasoning, we can make incremental progress. We can help people think more clearly. We can build systems that are more transparent and just.\nThat’s why this book exists. That’s why I do this work.",
+    "title": "7  Epilogue: My Path into Data Science",
+    "section": "7.8 One More Thing",
+    "text": "7.8 One More Thing\nMisinformation is a hard problem. It won’t be “solved” by a single model or dataset.\nBut by combining behavioral insight, statistical rigor, technical skill, and ethical reasoning, we can make incremental progress. We can help people think more clearly. We can build systems that are more transparent and just.\nThat’s why this book exists. That’s why I do this work.",
     "crumbs": [
-      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Epilogue: My Path into Data Science</span>"
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Epilogue: My Path into Data Science</span>"
     ]
   },
   {
     "objectID": "chapters/08-epilogue.html#acknowledgments",
     "href": "chapters/08-epilogue.html#acknowledgments",
-    "title": "10  Epilogue: My Path into Data Science",
-    "section": "10.9 Acknowledgments",
-    "text": "10.9 Acknowledgments\n[Placeholder: Thank advisors, collaborators, mentors, family]",
+    "title": "7  Epilogue: My Path into Data Science",
+    "section": "7.9 Acknowledgments",
+    "text": "7.9 Acknowledgments\n[Placeholder: Thank advisors, collaborators, mentors, family]",
     "crumbs": [
-      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Epilogue: My Path into Data Science</span>"
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Epilogue: My Path into Data Science</span>"
     ]
   },
   {
     "objectID": "chapters/08-epilogue.html#references",
     "href": "chapters/08-epilogue.html#references",
-    "title": "10  Epilogue: My Path into Data Science",
-    "section": "10.10 References",
-    "text": "10.10 References\n[Full bibliography of chapters synthesized here]",
+    "title": "7  Epilogue: My Path into Data Science",
+    "section": "7.10 References",
+    "text": "7.10 References\n[Full bibliography of chapters synthesized here]",
     "crumbs": [
-      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Epilogue: My Path into Data Science</span>"
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Epilogue: My Path into Data Science</span>"
     ]
   }
 ]

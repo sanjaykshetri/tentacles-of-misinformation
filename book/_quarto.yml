@@ -10,13 +10,10 @@ book:
   chapters:
     - index.qmd
     - chapters/00-prologue.qmd
-    - chapters/01-thesis-as-code.qmd
-    - chapters/02-spss-to-python.qmd
-    - chapters/03-sharing-decision.qmd
-    - chapters/04-pseudo-profound.qmd
-    - chapters/05-infodemic-simulation.qmd
-    - chapters/06-interactive-dashboards.qmd
-    - chapters/07-ethics-responsible-ds.qmd
+    - chapters/01-measuring-vulnerability.qmd
+    - chapters/02-detecting-narratives.qmd
+    - chapters/03-modeling-spread.qmd
+    - chapters/04-fusion-scale.qmd
     - chapters/08-epilogue.qmd
 
 bibliography: references.bib
