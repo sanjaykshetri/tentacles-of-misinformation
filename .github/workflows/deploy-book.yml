@@ -4,22 +4,15 @@ on:
   push:
     branches: [main]
 
-permissions:
-  contents: write
-  pages: write
-  id-token: write
-
 jobs:
-  build-deploy:
+  build-and-deploy:
     runs-on: ubuntu-latest
     
     steps:
-      - name: Check out repository
+      - name: Checkout code
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
         
-      - name: Set up Python
+      - name: Setup Python
         uses: actions/setup-python@v4
         with:
           python-version: '3.11'
@@ -27,23 +20,20 @@ jobs:
       - name: Install Quarto
         uses: quarto-dev/quarto-actions/setup@v2
         
-      - name: Install Python dependencies
+      - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           pip install jupyter ipykernel
           
       - name: Render book
-        run: cd book && quarto render . --no-execute
-        
-      - name: Configure git
         run: |
-          git config --global user.email "actions@github.com"
-          git config --global user.name "GitHub Actions"
+          cd book
+          quarto render . --no-execute
           
-      - name: Deploy to gh-pages branch
-        run: |
-          cd book/_book
-          git init
-          git add -A
-          git commit -m "Deploy rendered book [skip ci]"
-          git push -f https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git HEAD:gh-pages
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        if: github.ref == 'refs/heads/main'
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./book/_book
+          cname: false
