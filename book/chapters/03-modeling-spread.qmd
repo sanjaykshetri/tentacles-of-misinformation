@@ -12,6 +12,29 @@ By the end of this unit, you will:
 
 ---
 
+## 🔗 Source Repository
+
+> **This chapter showcases research from:** [misinformation-epidemic-model](https://github.com/sanjaykshetri/misinformation-epidemic-model)
+
+**Key artifacts in the external repository:**
+- 🧬 SEIR compartmental model implementation
+- 📊 Calibration to FakeNewsNet cascade data
+- 📓 Quick-start notebooks:
+  - `notebooks/quick_start_academic.ipynb` - 5-minute overview
+  - `notebooks/baseline_vs_interventions.ipynb` - Full scenario analysis
+- ✅ 46 unit tests + mypy strict type checking (production-grade code quality)
+- 📋 Complete methodology documentation (METHODOLOGY.md, MODEL_ASSUMPTIONS.md)
+
+**To run locally:**
+```bash
+git clone https://github.com/sanjaykshetri/misinformation-epidemic-model.git
+cd misinformation-epidemic-model
+pip install -e .
+jupyter notebook notebooks/quick_start_academic.ipynb
+```
+
+---
+
 ## The Research Question
 
 **How do misinformation and rumors spread through populations?** Can we predict dynamics and design interventions?

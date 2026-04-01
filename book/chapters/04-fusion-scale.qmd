@@ -12,6 +12,35 @@ By the end of this unit, you will:
 
 ---
 
+## 🔗 Source Repository
+
+> **This chapter showcases research from:** [misinformation-at-scale](https://github.com/sanjaykshetri/misinformation-at-scale)
+
+**Key artifacts in the external repository:**
+- 🚀 Production-grade inference pipeline + Streamlit dashboards
+- 🤖 DistilBERT fine-tuning implementation (85.75% accuracy)
+- 📊 Performance comparison: Baseline (83.62%) vs. Deep Learning (85.75%)
+- 📓 Comprehensive notebooks:
+  - `notebooks/04_deep_learning_model.ipynb` - Model training & evaluation
+  - `dashboards/streamlit/app.py` - Interactive real-time predictions
+- ⚖️ Model cards and ethical framework documentation
+- ☁️ Google Colab GPU support + deployment guides
+
+**To run locally:**
+```bash
+git clone https://github.com/sanjaykshetri/misinformation-at-scale.git
+cd misinformation-at-scale
+
+# Run Streamlit dashboard
+pip install -r requirements.txt
+streamlit run dashboards/streamlit/app.py
+
+# Or use interactive notebook with Google Colab GPU
+jupyter notebook notebooks/04_deep_learning_model.ipynb
+```
+
+---
+
 ## The Research Question
 
 **How do we operationalize research findings at scale?** Can we build systems that predict, visualize, and inform action in real-world contexts?

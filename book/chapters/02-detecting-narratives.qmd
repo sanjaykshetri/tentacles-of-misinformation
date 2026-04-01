@@ -12,6 +12,35 @@ By the end of this unit, you will:
 
 ---
 
+## 🔗 Source Repositories
+
+> **This chapter showcases research from two external repositories:**
+
+**Baseline Models (Unit 2):**
+- 📊 [Misinformation-Detection-ML-Model2](https://github.com/sanjaykshetri/Misinformation-Detection-ML-Model2)
+- Notebook: `misinformation_analysis.ipynb` - Complete EDA → baseline models pipeline
+- Methods: TF-IDF + Logistic Regression (83.62% accuracy)
+- Dataset: FakeNewsNet (23,196 real fact-checked articles)
+
+**Deep Learning (Unit 4 Intro):**
+- 🤖 [misinformation-at-scale](https://github.com/sanjaykshetri/misinformation-at-scale)
+- Notebook: `notebooks/04_deep_learning_model.ipynb` - DistilBERT fine-tuning
+- Methods: Transformer models (85.75% accuracy, +2.13% improvement)
+- Deployment: Google Colab ready, Streamlit dashboard included
+
+**To explore locally:**
+```bash
+# Baseline models
+git clone https://github.com/sanjaykshetri/Misinformation-Detection-ML-Model2.git
+jupyter notebook misinformation_analysis.ipynb
+
+# Deep learning approach
+git clone https://github.com/sanjaykshetri/misinformation-at-scale.git
+jupyter notebook notebooks/04_deep_learning_model.ipynb
+```
+
+---
+
 ## The Research Question
 
 **What makes misinformation convincing?** What linguistic patterns characterize fake news?
