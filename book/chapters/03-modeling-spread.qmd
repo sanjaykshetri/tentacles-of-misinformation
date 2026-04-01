@@ -147,6 +147,31 @@ How sensitive is outbreak outcome to each parameter?
 
 **Finding**: Interaction is multiplicative. Intervention success depends on BOTH reducing transmission AND accelerating recovery.
 
+### Visualizations
+
+**Interactive plots and comprehensive analysis available in the external repository:**
+
+```bash
+git clone https://github.com/sanjaykshetri/misinformation-epidemic-model.git
+cd misinformation-epidemic-model
+jupyter notebook notebooks/baseline_vs_interventions.ipynb
+```
+
+**Key visualizations you can generate:**
+- **Baseline dynamics**: SEIR compartments over time with population trajectories
+- **Sensitivity heatmap**: β × γ parameter space colored by peak infection rate
+- **Intervention scenarios**: 4 plots showing baseline vs. 3 intervention strategies
+- **Confidence bands**: Parameter uncertainty visualization with credible intervals
+- **Cascade distributions**: Real FakeNewsNet cascade structure histograms (cascade depths, widths)
+- **Model diagnostics**: Residual plots and goodness-of-fit checks
+
+**Run locally:**
+```python
+from seir_model import calibrate_from_cascades, plot_dynamics
+params = calibrate_from_cascades('fakenewsnet.csv')
+plot_dynamics(params)  # Creates baseline trajectory
+```
+
 ---
 
 ## Part D: Heterogeneous Population Simulation

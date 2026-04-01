@@ -251,6 +251,41 @@ app.layout = dbc.Container([
 - Real-time data refresh
 - Row-level security for compliance
 
+### Live Dashboards & Visualizations
+
+**Access interactive Streamlit dashboards and production visualizations:**
+
+```bash
+git clone https://github.com/sanjaykshetri/misinformation-at-scale.git
+cd misinformation-at-scale
+
+# Option 1: Run Streamlit dashboard locally
+pip install -r requirements.txt
+streamlit run dashboards/streamlit/app.py
+
+# Option 2: Use Google Colab with GPU (no installation needed)
+# Open: notebooks/04_deep_learning_model.ipynb
+# Runtime → Change runtime type → GPU
+# Experiment with model predictions in a browser
+```
+
+**Available in external repo:**
+- **Real-time predictions**: Paste article → credibility score + explanation
+- **Model comparison**: Accuracy, ROC-AUC, F1 plots (baseline vs. DistilBERT)
+- **Network visualization**: Misinformation cascade structures
+- **Risk heatmaps**: Demographic × content-type susceptibility matrix
+- **Performance monitoring**: Dashboard with accuracy trends and data drift alerts
+- **Feature attribution**: SHAP plots explaining individual predictions
+
+**Dashboard components available:**
+```
+dashboards/streamlit/
+├── app.py                   # Main entry point
+├── behavioral_explorer.py   # Interactive trait analysis  
+├── nlp_model_demo.py        # Article credibility checker
+└── risk_predictor.py        # Individual vulnerability estimator
+```
+
 ---
 
 ## Part D: Ethical Framework & Responsible Deployment

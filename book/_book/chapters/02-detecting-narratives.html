@@ -393,6 +393,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tbody>
 </table>
 <p><strong>Winner</strong>: Logistic Regression (highest ROC-AUC = 0.859)</p>
+<section id="roc-curve-comparison" class="level4" data-number="4.5.3.1">
+<h4 data-number="4.5.3.1" class="anchored" data-anchor-id="roc-curve-comparison"><span class="header-section-number">4.5.3.1</span> ROC Curve Comparison</h4>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../../results/roc_comparison.png" class="img-fluid figure-img" style="width:80.0%" alt="ROC curves for Logistic Regression and Linear SVM, showing Logistic Regression achieves 0.859 AUC compared to SVM's 0.841 AUC"></p>
+<figcaption>ROC Curve: Baseline Models Comparison</figcaption>
+</figure>
+</div>
+<p><strong>Individual ROC Curves:</strong></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../../results/roc_logistic_regression.png" class="img-fluid figure-img" style="width:70.0%" alt="ROC curve showing Logistic Regression performance with 0.859 AUC"></p>
+<figcaption>ROC Curve: Logistic Regression (AUC=0.859)</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../../results/roc_linear_svm.png" class="img-fluid figure-img" style="width:70.0%" alt="ROC curve showing Linear SVM performance with 0.841 AUC"></p>
+<figcaption>ROC Curve: Linear SVM (AUC=0.841)</figcaption>
+</figure>
+</div>
+</section>
 </section>
 <section id="confusion-matrix-analysis" class="level3" data-number="4.5.4">
 <h3 data-number="4.5.4" class="anchored" data-anchor-id="confusion-matrix-analysis"><span class="header-section-number">4.5.4</span> Confusion Matrix Analysis</h3>
@@ -418,6 +440,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 </tbody>
 </table>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../../results/cm_logistic_regression.png" class="img-fluid figure-img" style="width:70.0%" alt="Confusion matrix showing 2788 true negatives, 517 false positives, 300 false negatives, and 740 true positives"></p>
+<figcaption>Confusion Matrix: Logistic Regression</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../../results/cm_linear_svm.png" class="img-fluid figure-img" style="width:70.0%" alt="Confusion matrix for Linear SVM showing performance comparison with Logistic Regression"></p>
+<figcaption>Confusion Matrix: Linear SVM</figcaption>
+</figure>
+</div>
 </section>
 <section id="error-analysis" class="level3" data-number="4.5.5">
 <h3 data-number="4.5.5" class="anchored" data-anchor-id="error-analysis"><span class="header-section-number">4.5.5</span> Error Analysis</h3>
@@ -576,6 +610,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 </tbody>
 </table>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../../results/model_comparison.png" class="img-fluid figure-img" style="width:85.0%" alt="Bar chart comparing three models (Behavioral, TF-IDF Baseline, Hybrid) across three metrics, showing TF-IDF achieves 81.2% accuracy and 0.859 ROC-AUC"></p>
+<figcaption>Model Comparison: Accuracy, F1, and ROC-AUC Across Approaches</figcaption>
+</figure>
+</div>
 </section>
 <section id="key-finding" class="level3" data-number="4.6.3">
 <h3 data-number="4.6.3" class="anchored" data-anchor-id="key-finding"><span class="header-section-number">4.6.3</span> Key Finding</h3>
@@ -642,6 +682,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="error-reduction" class="level3" data-number="4.7.4">
 <h3 data-number="4.7.4" class="anchored" data-anchor-id="error-reduction"><span class="header-section-number">4.7.4</span> Error Reduction</h3>
 <p><strong>Confusion Matrix</strong> (RoBERTa): - False Positives: 469 (down 48 from hybrid) - False Negatives: 287 (up 13 from hybrid) - <strong>Trade-off</strong>: Lower type-I errors (preserve real news credibility)</p>
+<section id="precision-recall-curves" class="level4" data-number="4.7.4.1">
+<h4 data-number="4.7.4.1" class="anchored" data-anchor-id="precision-recall-curves"><span class="header-section-number">4.7.4.1</span> Precision-Recall Curves</h4>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../../results/pr_logistic_regression.png" class="img-fluid figure-img" style="width:70.0%" alt="Precision-recall curve for Logistic Regression model showing area under curve"></p>
+<figcaption>Precision-Recall Curve: Logistic Regression</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../../results/pr_linear_svm.png" class="img-fluid figure-img" style="width:70.0%" alt="Precision-recall curve for Linear SVM model"></p>
+<figcaption>Precision-Recall Curve: Linear SVM</figcaption>
+</figure>
+</div>
+</section>
 </section>
 <section id="why-transformers-win" class="level3" data-number="4.7.5">
 <h3 data-number="4.7.5" class="anchored" data-anchor-id="why-transformers-win"><span class="header-section-number">4.7.5</span> Why Transformers Win</h3>

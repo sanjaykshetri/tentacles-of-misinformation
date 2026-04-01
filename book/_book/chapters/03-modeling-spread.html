@@ -216,6 +216,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#single-parameter-sensitivity" id="toc-single-parameter-sensitivity" class="nav-link" data-scroll-target="#single-parameter-sensitivity"><span class="header-section-number">5.6.1</span> Single-Parameter Sensitivity</a></li>
   <li><a href="#two-way-sensitivity-β-γ-interaction" id="toc-two-way-sensitivity-β-γ-interaction" class="nav-link" data-scroll-target="#two-way-sensitivity-β-γ-interaction"><span class="header-section-number">5.6.2</span> Two-Way Sensitivity: β × γ Interaction</a></li>
+  <li><a href="#visualizations" id="toc-visualizations" class="nav-link" data-scroll-target="#visualizations"><span class="header-section-number">5.6.3</span> Visualizations</a></li>
   </ul></li>
   <li><a href="#part-d-heterogeneous-population-simulation" id="toc-part-d-heterogeneous-population-simulation" class="nav-link" data-scroll-target="#part-d-heterogeneous-population-simulation"><span class="header-section-number">5.7</span> Part D: Heterogeneous Population Simulation</a>
   <ul class="collapse">
@@ -483,6 +484,18 @@ dR/dt = γ × I  (Recovered/immune)</code></pre>
 </tbody>
 </table>
 <p><strong>Finding</strong>: Interaction is multiplicative. Intervention success depends on BOTH reducing transmission AND accelerating recovery.</p>
+</section>
+<section id="visualizations" class="level3" data-number="5.6.3">
+<h3 data-number="5.6.3" class="anchored" data-anchor-id="visualizations"><span class="header-section-number">5.6.3</span> Visualizations</h3>
+<p><strong>Interactive plots and comprehensive analysis available in the external repository:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/sanjaykshetri/misinformation-epidemic-model.git</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> misinformation-epidemic-model</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="ex">jupyter</span> notebook notebooks/baseline_vs_interventions.ipynb</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Key visualizations you can generate:</strong> - <strong>Baseline dynamics</strong>: SEIR compartments over time with population trajectories - <strong>Sensitivity heatmap</strong>: β × γ parameter space colored by peak infection rate - <strong>Intervention scenarios</strong>: 4 plots showing baseline vs.&nbsp;3 intervention strategies - <strong>Confidence bands</strong>: Parameter uncertainty visualization with credible intervals - <strong>Cascade distributions</strong>: Real FakeNewsNet cascade structure histograms (cascade depths, widths) - <strong>Model diagnostics</strong>: Residual plots and goodness-of-fit checks</p>
+<p><strong>Run locally:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> seir_model <span class="im">import</span> calibrate_from_cascades, plot_dynamics</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>params <span class="op">=</span> calibrate_from_cascades(<span class="st">'fakenewsnet.csv'</span>)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>plot_dynamics(params)  <span class="co"># Creates baseline trajectory</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <hr>
 </section>
 </section>

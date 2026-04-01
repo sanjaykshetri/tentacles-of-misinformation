@@ -245,6 +245,7 @@ window.Quarto = {
   <li><a href="#design-principles" id="toc-design-principles" class="nav-link" data-scroll-target="#design-principles"><span class="header-section-number">6.6.1</span> Design Principles</a></li>
   <li><a href="#dashboard-components" id="toc-dashboard-components" class="nav-link" data-scroll-target="#dashboard-components"><span class="header-section-number">6.6.2</span> Dashboard Components</a></li>
   <li><a href="#technology-stack" id="toc-technology-stack" class="nav-link" data-scroll-target="#technology-stack"><span class="header-section-number">6.6.3</span> Technology Stack</a></li>
+  <li><a href="#live-dashboards-visualizations" id="toc-live-dashboards-visualizations" class="nav-link" data-scroll-target="#live-dashboards-visualizations"><span class="header-section-number">6.6.4</span> Live Dashboards &amp; Visualizations</a></li>
   </ul></li>
   <li><a href="#part-d-ethical-framework-responsible-deployment" id="toc-part-d-ethical-framework-responsible-deployment" class="nav-link" data-scroll-target="#part-d-ethical-framework-responsible-deployment"><span class="header-section-number">6.7</span> Part D: Ethical Framework &amp; Responsible Deployment</a>
   <ul class="collapse">
@@ -624,6 +625,28 @@ window.Quarto = {
 <p><strong>Pros</strong>: Professional, highly interactive, scalable<br>
 <strong>Cons</strong>: Steeper learning curve</p>
 <p><strong>Option 3: Power BI (Enterprise)</strong> - Familiar to business users - Real-time data refresh - Row-level security for compliance</p>
+</section>
+<section id="live-dashboards-visualizations" class="level3" data-number="6.6.4">
+<h3 data-number="6.6.4" class="anchored" data-anchor-id="live-dashboards-visualizations"><span class="header-section-number">6.6.4</span> Live Dashboards &amp; Visualizations</h3>
+<p><strong>Access interactive Streamlit dashboards and production visualizations:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/sanjaykshetri/misinformation-at-scale.git</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> misinformation-at-scale</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Option 1: Run Streamlit dashboard locally</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install <span class="at">-r</span> requirements.txt</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="ex">streamlit</span> run dashboards/streamlit/app.py</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Option 2: Use Google Colab with GPU (no installation needed)</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Open: notebooks/04_deep_learning_model.ipynb</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Runtime → Change runtime type → GPU</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Experiment with model predictions in a browser</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Available in external repo:</strong> - <strong>Real-time predictions</strong>: Paste article → credibility score + explanation - <strong>Model comparison</strong>: Accuracy, ROC-AUC, F1 plots (baseline vs.&nbsp;DistilBERT) - <strong>Network visualization</strong>: Misinformation cascade structures - <strong>Risk heatmaps</strong>: Demographic × content-type susceptibility matrix - <strong>Performance monitoring</strong>: Dashboard with accuracy trends and data drift alerts - <strong>Feature attribution</strong>: SHAP plots explaining individual predictions</p>
+<p><strong>Dashboard components available:</strong></p>
+<pre><code>dashboards/streamlit/
+├── app.py                   # Main entry point
+├── behavioral_explorer.py   # Interactive trait analysis  
+├── nlp_model_demo.py        # Article credibility checker
+└── risk_predictor.py        # Individual vulnerability estimator</code></pre>
 <hr>
 </section>
 </section>
@@ -732,12 +755,12 @@ window.Quarto = {
 <section id="data-drift-detection" class="level3" data-number="6.8.2">
 <h3 data-number="6.8.2" class="anchored" data-anchor-id="data-drift-detection"><span class="header-section-number">6.8.2</span> Data Drift Detection</h3>
 <p>Monitor input distributions for shifts:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Check if input feature distributions changed significantly</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>old_mean_title_length <span class="op">=</span> <span class="fl">11.2</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>new_mean_title_length <span class="op">=</span> <span class="fl">9.8</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>divergence <span class="op">=</span> (new_mean_title_length <span class="op">-</span> old_mean_title_length) <span class="op">/</span> old_mean_title_length</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="bu">abs</span>(divergence) <span class="op">&gt;</span> <span class="fl">0.15</span>:  <span class="co"># &gt;15% shift</span></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    alert(<span class="st">"Title length distribution shifted. Possible domain change?"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Check if input feature distributions changed significantly</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>old_mean_title_length <span class="op">=</span> <span class="fl">11.2</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>new_mean_title_length <span class="op">=</span> <span class="fl">9.8</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>divergence <span class="op">=</span> (new_mean_title_length <span class="op">-</span> old_mean_title_length) <span class="op">/</span> old_mean_title_length</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="bu">abs</span>(divergence) <span class="op">&gt;</span> <span class="fl">0.15</span>:  <span class="co"># &gt;15% shift</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    alert(<span class="st">"Title length distribution shifted. Possible domain change?"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="retraining-cadence" class="level3" data-number="6.8.3">
 <h3 data-number="6.8.3" class="anchored" data-anchor-id="retraining-cadence"><span class="header-section-number">6.8.3</span> Retraining Cadence</h3>

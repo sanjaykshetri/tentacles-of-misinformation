@@ -107,6 +107,16 @@ TfidfVectorizer:
 
 **Winner**: Logistic Regression (highest ROC-AUC = 0.859)
 
+#### ROC Curve Comparison
+
+![ROC Curve: Baseline Models Comparison](../../results/roc_comparison.png){width=80% fig-alt="ROC curves for Logistic Regression and Linear SVM, showing Logistic Regression achieves 0.859 AUC compared to SVM's 0.841 AUC"}
+
+**Individual ROC Curves:**
+
+![ROC Curve: Logistic Regression (AUC=0.859)](../../results/roc_logistic_regression.png){width=70% fig-alt="ROC curve showing Logistic Regression performance with 0.859 AUC"}
+
+![ROC Curve: Linear SVM (AUC=0.841)](../../results/roc_linear_svm.png){width=70% fig-alt="ROC curve showing Linear SVM performance with 0.841 AUC"}
+
 ### Confusion Matrix Analysis
 
 **Logistic Regression**:
@@ -115,6 +125,10 @@ TfidfVectorizer:
 |---|---|---|
 | **Actual Real** | 2,788 (84%) | 517 (16%) |
 | **Actual Fake** | 300 (29%) | 740 (71%) |
+
+![Confusion Matrix: Logistic Regression](../../results/cm_logistic_regression.png){width=70% fig-alt="Confusion matrix showing 2788 true negatives, 517 false positives, 300 false negatives, and 740 true positives"}
+
+![Confusion Matrix: Linear SVM](../../results/cm_linear_svm.png){width=70% fig-alt="Confusion matrix for Linear SVM showing performance comparison with Logistic Regression"}
 
 ### Error Analysis
 
@@ -177,6 +191,8 @@ We extracted 11 psycholinguistic features from article titles:
 | TF-IDF Baseline | 81.2% | 0.644 | 0.8590 |
 | **Hybrid (TF-IDF + Behavioral)** | **81.0%** | **0.641** | **0.8621** |
 
+![Model Comparison: Accuracy, F1, and ROC-AUC Across Approaches](../../results/model_comparison.png){width=85% fig-alt="Bar chart comparing three models (Behavioral, TF-IDF Baseline, Hybrid) across three metrics, showing TF-IDF achieves 81.2% accuracy and 0.859 ROC-AUC"}
+
 ### Key Finding
 
 **Marginal improvement** with hybrid approach:
@@ -228,6 +244,12 @@ Token length: 128 (sufficient for ~11-word headlines)
 - False Positives: 469 (down 48 from hybrid)
 - False Negatives: 287 (up 13 from hybrid)
 - **Trade-off**: Lower type-I errors (preserve real news credibility)
+
+#### Precision-Recall Curves
+
+![Precision-Recall Curve: Logistic Regression](../../results/pr_logistic_regression.png){width=70% fig-alt="Precision-recall curve for Logistic Regression model showing area under curve"}
+
+![Precision-Recall Curve: Linear SVM](../../results/pr_linear_svm.png){width=70% fig-alt="Precision-recall curve for Linear SVM model"}
 
 ###  Why Transformers Win
 
