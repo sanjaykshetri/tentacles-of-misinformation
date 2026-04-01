@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Sanjay Kumar Chhetri">
-<meta name="dcterms.date" content="2026-02-22">
 
-<title>The Tentacles of Misinformation</title>
+<title>8&nbsp; Chapter 6: Visualizing the Tentacles — Interactive Views of Misinformation – The Tentacles of Misinformation</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,63 +20,29 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./chapters/00-prologue.html" rel="next">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-065a5179aebd64318d7ea99d77b64a9e.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-edaf08ed7d27d62012077beed0893dcb.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../chapters/07-ethics-responsible-ds.html" rel="next">
+<link href="../chapters/05-infodemic-simulation.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-065a5179aebd64318d7ea99d77b64a9e.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-edaf08ed7d27d62012077beed0893dcb.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -119,7 +83,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">The Tentacles of Misinformation</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/06-interactive-dashboards.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Chapter 6: Visualizing the Tentacles — Interactive Views of Misinformation</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -133,10 +97,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
-      <a href="./index.html" class="sidebar-logo-link">
+      <a href="../index.html" class="sidebar-logo-link">
       </a>
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">The Tentacles of Misinformation</a> 
+      <a href="../">The Tentacles of Misinformation</a> 
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -148,61 +112,61 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">The Tentacles of Misinformation</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/00-prologue.html" class="sidebar-item-text sidebar-link">
+  <a href="../chapters/00-prologue.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Prologue — When a False Story Wins</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/01-thesis-as-code.html" class="sidebar-item-text sidebar-link">
+  <a href="../chapters/01-thesis-as-code.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Chapter 1: Measuring Vulnerability — Rebuilding My Thesis as Code</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/02-spss-to-python.html" class="sidebar-item-text sidebar-link">
+  <a href="../chapters/02-spss-to-python.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Chapter 2: From SPSS to Reproducible Analytics</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/03-sharing-decision.html" class="sidebar-item-text sidebar-link">
+  <a href="../chapters/03-sharing-decision.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Chapter 3: The Sharing Decision — Modeling Who Clicks “Share”</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/04-pseudo-profound.html" class="sidebar-item-text sidebar-link">
+  <a href="../chapters/04-pseudo-profound.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Chapter 4: Spotting Pseudo-Profound Bullshit — A Gentle NLP Project</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/05-infodemic-simulation.html" class="sidebar-item-text sidebar-link">
+  <a href="../chapters/05-infodemic-simulation.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Chapter 5: Age, Emotion, and Susceptibility — Simulating an Infodemic</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/06-interactive-dashboards.html" class="sidebar-item-text sidebar-link">
+  <a href="../chapters/06-interactive-dashboards.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Chapter 6: Visualizing the Tentacles — Interactive Views of Misinformation</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/07-ethics-responsible-ds.html" class="sidebar-item-text sidebar-link">
+  <a href="../chapters/07-ethics-responsible-ds.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Chapter 7: Ethics, Limits, and Responsible Data Science</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/08-epilogue.html" class="sidebar-item-text sidebar-link">
+  <a href="../chapters/08-epilogue.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Epilogue: My Path into Data Science</span></span></a>
   </div>
 </li>
@@ -216,15 +180,32 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#the-tentacles-of-misinformation" id="toc-the-tentacles-of-misinformation" class="nav-link active" data-scroll-target="#the-tentacles-of-misinformation"><span class="header-section-number">1</span> The Tentacles of Misinformation</a>
+  <li><a href="#from-tables-to-interactive-dashboards" id="toc-from-tables-to-interactive-dashboards" class="nav-link active" data-scroll-target="#from-tables-to-interactive-dashboards"><span class="header-section-number">8.1</span> From Tables to Interactive Dashboards</a></li>
+  <li><a href="#visualization-philosophy" id="toc-visualization-philosophy" class="nav-link" data-scroll-target="#visualization-philosophy"><span class="header-section-number">8.2</span> Visualization Philosophy</a></li>
+  <li><a href="#dashboard-components" id="toc-dashboard-components" class="nav-link" data-scroll-target="#dashboard-components"><span class="header-section-number">8.3</span> Dashboard Components</a>
   <ul class="collapse">
-  <li><a href="#a-research-monograph-on-cognitive-vulnerability-and-predictive-analytics" id="toc-a-research-monograph-on-cognitive-vulnerability-and-predictive-analytics" class="nav-link" data-scroll-target="#a-research-monograph-on-cognitive-vulnerability-and-predictive-analytics"><span class="header-section-number">1.1</span> A Research Monograph on Cognitive Vulnerability and Predictive Analytics</a>
+  <li><a href="#spread-transmission-interactive-network" id="toc-spread-transmission-interactive-network" class="nav-link" data-scroll-target="#spread-transmission-interactive-network"><span class="header-section-number">8.3.1</span> 1. Spread &amp; Transmission (Interactive Network)</a></li>
+  <li><a href="#risk-profile-heatmap" id="toc-risk-profile-heatmap" class="nav-link" data-scroll-target="#risk-profile-heatmap"><span class="header-section-number">8.3.2</span> 2. Risk Profile Heatmap</a></li>
+  <li><a href="#model-predictions-individual-level" id="toc-model-predictions-individual-level" class="nav-link" data-scroll-target="#model-predictions-individual-level"><span class="header-section-number">8.3.3</span> 3. Model Predictions (Individual-Level)</a></li>
+  <li><a href="#nlp-classifier-output" id="toc-nlp-classifier-output" class="nav-link" data-scroll-target="#nlp-classifier-output"><span class="header-section-number">8.3.4</span> 4. NLP Classifier Output</a></li>
+  <li><a href="#temporal-trends" id="toc-temporal-trends" class="nav-link" data-scroll-target="#temporal-trends"><span class="header-section-number">8.3.5</span> 5. Temporal Trends</a></li>
+  </ul></li>
+  <li><a href="#technology-stack" id="toc-technology-stack" class="nav-link" data-scroll-target="#technology-stack"><span class="header-section-number">8.4</span> Technology Stack</a>
   <ul class="collapse">
-  <li><a href="#overview" id="toc-overview" class="nav-link" data-scroll-target="#overview"><span class="header-section-number">1.1.1</span> Overview</a></li>
-  <li><a href="#key-contributions" id="toc-key-contributions" class="nav-link" data-scroll-target="#key-contributions"><span class="header-section-number">1.1.2</span> Key Contributions</a></li>
-  <li><a href="#author" id="toc-author" class="nav-link" data-scroll-target="#author"><span class="header-section-number">1.1.3</span> Author</a></li>
+  <li><a href="#streamlit-python-native" id="toc-streamlit-python-native" class="nav-link" data-scroll-target="#streamlit-python-native"><span class="header-section-number">8.4.1</span> Streamlit (Python-native)</a></li>
+  <li><a href="#plotly-dash" id="toc-plotly-dash" class="nav-link" data-scroll-target="#plotly-dash"><span class="header-section-number">8.4.2</span> Plotly + Dash</a></li>
+  <li><a href="#power-bi-enterprise" id="toc-power-bi-enterprise" class="nav-link" data-scroll-target="#power-bi-enterprise"><span class="header-section-number">8.4.3</span> Power BI (Enterprise)</a></li>
   </ul></li>
+  <li><a href="#dashboard-design-principles" id="toc-dashboard-design-principles" class="nav-link" data-scroll-target="#dashboard-design-principles"><span class="header-section-number">8.5</span> Dashboard Design Principles</a>
+  <ul class="collapse">
+  <li><a href="#progressive-disclosure" id="toc-progressive-disclosure" class="nav-link" data-scroll-target="#progressive-disclosure"><span class="header-section-number">8.5.1</span> 1. Progressive Disclosure</a></li>
+  <li><a href="#context-uncertainty" id="toc-context-uncertainty" class="nav-link" data-scroll-target="#context-uncertainty"><span class="header-section-number">8.5.2</span> 2. Context &amp; Uncertainty</a></li>
+  <li><a href="#actionability" id="toc-actionability" class="nav-link" data-scroll-target="#actionability"><span class="header-section-number">8.5.3</span> 3. Actionability</a></li>
+  <li><a href="#accessibility" id="toc-accessibility" class="nav-link" data-scroll-target="#accessibility"><span class="header-section-number">8.5.4</span> 4. Accessibility</a></li>
   </ul></li>
+  <li><a href="#deployment" id="toc-deployment" class="nav-link" data-scroll-target="#deployment"><span class="header-section-number">8.6</span> Deployment</a></li>
+  <li><a href="#for-data-science-practitioners" id="toc-for-data-science-practitioners" class="nav-link" data-scroll-target="#for-data-science-practitioners"><span class="header-section-number">8.7</span> For Data Science Practitioners</a></li>
+  <li><a href="#critical-note" id="toc-critical-note" class="nav-link" data-scroll-target="#critical-note"><span class="header-section-number">8.8</span> Critical Note</a></li>
   </ul>
 </nav>
     </div>
@@ -233,27 +214,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">The Tentacles of Misinformation</h1>
-<p class="subtitle lead">Behavioral Science, NLP, and Predictive Analytics for Misinformation Susceptibility</p>
+<h1 class="title"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Chapter 6: Visualizing the Tentacles — Interactive Views of Misinformation</span></h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Sanjay Kumar Chhetri </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">February 22, 2026</p>
-    </div>
-  </div>
   
     
   </div>
@@ -263,66 +231,133 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="the-tentacles-of-misinformation" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> The Tentacles of Misinformation</h1>
-<section id="a-research-monograph-on-cognitive-vulnerability-and-predictive-analytics" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="a-research-monograph-on-cognitive-vulnerability-and-predictive-analytics"><span class="header-section-number">1.1</span> A Research Monograph on Cognitive Vulnerability and Predictive Analytics</h2>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>This research monograph presents an end-to-end study of misinformation susceptibility, integrating behavioral science, NLP, and machine learning to understand who falls for misinformation, why, and how susceptibility can be predicted and mitigated.</p>
-</div>
-</div>
-<section id="overview" class="level3" data-number="1.1.1">
-<h3 data-number="1.1.1" class="anchored" data-anchor-id="overview"><span class="header-section-number">1.1.1</span> Overview</h3>
-<p>Misinformation represents one of the most pressing challenges to informed discourse and democratic participation in the digital age. This work extends an IRB-approved Master’s thesis on cognitive vulnerability to misinformation with large-scale NLP models, fusion architectures, and interactive decision support systems.</p>
+<section id="from-tables-to-interactive-dashboards" class="level2" data-number="8.1">
+<h2 data-number="8.1" class="anchored" data-anchor-id="from-tables-to-interactive-dashboards"><span class="header-section-number">8.1</span> From Tables to Interactive Dashboards</h2>
+<p>Statistical tables are precise but alienating. Decision-makers need to <em>see</em> the story.</p>
+<p>This chapter builds <strong>interactive dashboards</strong> that make misinformation dynamics tangible: - Spread patterns across demographics - Risk profiles by user segment - Model predictions and uncertainty - Real-time monitoring of emerging narratives</p>
+<hr>
 </section>
-<section id="key-contributions" class="level3" data-number="1.1.2">
-<h3 data-number="1.1.2" class="anchored" data-anchor-id="key-contributions"><span class="header-section-number">1.1.2</span> Key Contributions</h3>
+<section id="visualization-philosophy" class="level2" data-number="8.2">
+<h2 data-number="8.2" class="anchored" data-anchor-id="visualization-philosophy"><span class="header-section-number">8.2</span> Visualization Philosophy</h2>
+<p>Effective misinformation dashboards balance: - <strong>Accuracy</strong>: Faithful representation of underlying data - <strong>Clarity</strong>: Intuitive for non-technical audiences - <strong>Actionability</strong>: Points toward decisions (e.g., “Which demographic needs intervention?”) - <strong>Humility</strong>: Communicates uncertainty and limitations</p>
+<hr>
+</section>
+<section id="dashboard-components" class="level2" data-number="8.3">
+<h2 data-number="8.3" class="anchored" data-anchor-id="dashboard-components"><span class="header-section-number">8.3</span> Dashboard Components</h2>
+<section id="spread-transmission-interactive-network" class="level3" data-number="8.3.1">
+<h3 data-number="8.3.1" class="anchored" data-anchor-id="spread-transmission-interactive-network"><span class="header-section-number">8.3.1</span> 1. Spread &amp; Transmission (Interactive Network)</h3>
 <ul>
-<li><strong>Behavioral Analysis</strong>: Survey-based identification of cognitive and mindset features that predict susceptibility</li>
-<li><strong>NLP Classification</strong>: State-of-the-art transformer models for detecting misinformation narratives at scale</li>
-<li><strong>Fusion Models</strong>: Multimodal architectures combining behavioral and content features for improved predictions</li>
-<li><strong>Policy Insights</strong>: Actionable dashboards and visualizations for researchers and policymakers</li>
+<li><strong>Graph</strong>: Social network with nodes = users, edges = sharing relationships</li>
+<li><strong>Color intensity</strong>: Risk level (green = low susceptibility, red = high)</li>
+<li><strong>Animation</strong>: Show misinformation propagation over time</li>
+<li><strong>Hover tooltips</strong>: User details (age, cognitive style, historical engagement)</li>
 </ul>
 </section>
-<section id="author" class="level3" data-number="1.1.3">
-<h3 data-number="1.1.3" class="anchored" data-anchor-id="author"><span class="header-section-number">1.1.3</span> Author</h3>
-<p><strong>Sanjay Kumar Chhetri</strong><br>
-Data Scientist | Behavioral Researcher | Educator</p>
+<section id="risk-profile-heatmap" class="level3" data-number="8.3.2">
+<h3 data-number="8.3.2" class="anchored" data-anchor-id="risk-profile-heatmap"><span class="header-section-number">8.3.2</span> 2. Risk Profile Heatmap</h3>
+<ul>
+<li><strong>Axes</strong>: Demographics (age, education, political affiliation) × emotional sensitivity</li>
+<li><strong>Cell color</strong>: Predicted susceptibility score</li>
+<li><strong>Interactivity</strong>: Filter by cognitive traits, hover for confidence intervals</li>
+</ul>
+</section>
+<section id="model-predictions-individual-level" class="level3" data-number="8.3.3">
+<h3 data-number="8.3.3" class="anchored" data-anchor-id="model-predictions-individual-level"><span class="header-section-number">8.3.3</span> 3. Model Predictions (Individual-Level)</h3>
+<ul>
+<li><strong>Input interface</strong>: User trait sliders (age, numeracy, emotion sensitivity)</li>
+<li><strong>Output display</strong>: Predicted likelihood of sharing; counterfactual: “If this user’s CRT score were +10…”</li>
+<li><strong>Feature importance</strong>: Which traits drive this prediction most?</li>
+</ul>
+</section>
+<section id="nlp-classifier-output" class="level3" data-number="8.3.4">
+<h3 data-number="8.3.4" class="anchored" data-anchor-id="nlp-classifier-output"><span class="header-section-number">8.3.4</span> 4. NLP Classifier Output</h3>
+<ul>
+<li><strong>Text input</strong>: Paste a claim or article</li>
+<li><strong>Output</strong>: Pseudo-profundity score, emotional tone, credibility signals</li>
+<li><strong>Similar narratives</strong>: Show other claims the model flagged as similar</li>
+</ul>
+</section>
+<section id="temporal-trends" class="level3" data-number="8.3.5">
+<h3 data-number="8.3.5" class="anchored" data-anchor-id="temporal-trends"><span class="header-section-number">8.3.5</span> 5. Temporal Trends</h3>
+<ul>
+<li><strong>Time series</strong>: Belief prevalence over time, stratified by demographic</li>
+<li><strong>Annotation</strong>: Mark interventions (fact-checks, inoculation campaigns) to visualize effects</li>
+</ul>
 <hr>
-<p><strong>How to navigate this book:</strong></p>
-<ol type="1">
-<li>Start with the Introduction for context and research questions</li>
-<li>Review the Literature Review for theoretical foundations</li>
-<li>Explore the Behavioral Analysis chapter for cognitive predictors</li>
-<li>Understand NLP Pipelines for content analysis methods</li>
-<li>Study Fusion Models for the integration approach</li>
-<li>Examine Results and Discussion for key findings</li>
-<li>Consult Appendices for technical details and supplementary analyses</li>
-</ol>
-<hr>
-<p><strong>Citation:</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bibtex code-with-copy"><code class="sourceCode bibtex"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="va">@book</span>{<span class="ot">chhetri2026tentacles</span>,</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">title</span>={The Tentacles of Misinformation: Behavioral Science, NLP, and Predictive Analytics},</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">author</span>={Chhetri, Sanjay Kumar},</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">year</span>={2026},</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">publisher</span>={Self-published},</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">url</span>={https://tentacles-of-misinformation.com}</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><strong>Disclaimer:</strong></p>
-<p>All behavioral data used in this project is anonymized and approved for analysis under IRB protocol. Public misinformation datasets are used in accordance with their respective licenses.</p>
-
-
 </section>
 </section>
+<section id="technology-stack" class="level2" data-number="8.4">
+<h2 data-number="8.4" class="anchored" data-anchor-id="technology-stack"><span class="header-section-number">8.4</span> Technology Stack</h2>
+<section id="streamlit-python-native" class="level3" data-number="8.4.1">
+<h3 data-number="8.4.1" class="anchored" data-anchor-id="streamlit-python-native"><span class="header-section-number">8.4.1</span> Streamlit (Python-native)</h3>
+<ul>
+<li>Rapid prototyping</li>
+<li>Minimal frontend knowledge needed</li>
+<li>Easy deployment to Streamlit Cloud</li>
+</ul>
+<p><strong>Pros</strong>: Python-native, fast iteration<br>
+<strong>Cons</strong>: Limited customization</p>
+</section>
+<section id="plotly-dash" class="level3" data-number="8.4.2">
+<h3 data-number="8.4.2" class="anchored" data-anchor-id="plotly-dash"><span class="header-section-number">8.4.2</span> Plotly + Dash</h3>
+<ul>
+<li>Highly interactive, production-grade</li>
+<li>Full control over layout and interactions</li>
+</ul>
+<p><strong>Pros</strong>: Professional, flexible<br>
+<strong>Cons</strong>: Steeper learning curve</p>
+</section>
+<section id="power-bi-enterprise" class="level3" data-number="8.4.3">
+<h3 data-number="8.4.3" class="anchored" data-anchor-id="power-bi-enterprise"><span class="header-section-number">8.4.3</span> Power BI (Enterprise)</h3>
+<ul>
+<li>Excel-like familiarity for stakeholders</li>
+<li>Real-time data update capabilities</li>
+</ul>
+<p><strong>Pros</strong>: Familiar to business users<br>
+<strong>Cons</strong>: No-code limitations; integration overhead</p>
+<hr>
+</section>
+</section>
+<section id="dashboard-design-principles" class="level2" data-number="8.5">
+<h2 data-number="8.5" class="anchored" data-anchor-id="dashboard-design-principles"><span class="header-section-number">8.5</span> Dashboard Design Principles</h2>
+<section id="progressive-disclosure" class="level3" data-number="8.5.1">
+<h3 data-number="8.5.1" class="anchored" data-anchor-id="progressive-disclosure"><span class="header-section-number">8.5.1</span> 1. Progressive Disclosure</h3>
+<p>Start simple (trend line), allow deep-diving into subgroups.</p>
+</section>
+<section id="context-uncertainty" class="level3" data-number="8.5.2">
+<h3 data-number="8.5.2" class="anchored" data-anchor-id="context-uncertainty"><span class="header-section-number">8.5.2</span> 2. Context &amp; Uncertainty</h3>
+<p>Show confidence intervals. Use color/opacity to encode uncertainty.</p>
+</section>
+<section id="actionability" class="level3" data-number="8.5.3">
+<h3 data-number="8.5.3" class="anchored" data-anchor-id="actionability"><span class="header-section-number">8.5.3</span> 3. Actionability</h3>
+<p>Every visualization should answer: “What should I do with this?”</p>
+</section>
+<section id="accessibility" class="level3" data-number="8.5.4">
+<h3 data-number="8.5.4" class="anchored" data-anchor-id="accessibility"><span class="header-section-number">8.5.4</span> 4. Accessibility</h3>
+<ul>
+<li>High contrast, colorblind-friendly palettes</li>
+<li>Keyboard navigation support</li>
+<li>Descriptions for screen readers</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="deployment" class="level2" data-number="8.6">
+<h2 data-number="8.6" class="anchored" data-anchor-id="deployment"><span class="header-section-number">8.6</span> Deployment</h2>
+<p>Dashboard lives in: - <code>dashboards/streamlit/app.py</code> (primary) - <code>dashboards/powerbi/</code> (enterprise version, optional)</p>
+<p>Hosted at: - Streamlit Cloud (free) - GitHub Pages (static export) - Internal dashboard server (if enterprise license)</p>
+<hr>
+</section>
+<section id="for-data-science-practitioners" class="level2" data-number="8.7">
+<h2 data-number="8.7" class="anchored" data-anchor-id="for-data-science-practitioners"><span class="header-section-number">8.7</span> For Data Science Practitioners</h2>
+<p>This chapter showcases: - End-to-end visualization design - Interactive dashboard architecture - Communicating uncertainty and limitations - Bridging analytics and decision-making - UX/design thinking in data science</p>
+<hr>
+</section>
+<section id="critical-note" class="level2" data-number="8.8">
+<h2 data-number="8.8" class="anchored" data-anchor-id="critical-note"><span class="header-section-number">8.8</span> Critical Note</h2>
+<p><strong>Dashboards can mislead as easily as illuminate.</strong> This chapter includes a section on visualization ethics: - Avoiding sensationalism - Representing tradeoffs honestly - Being transparent about model limitations - Avoiding nudging users toward intended conclusions</p>
+
+
 </section>
 
 </main> <!-- /main -->
@@ -728,10 +763,13 @@ Data Scientist | Behavioral Researcher | Educator</p>
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="../chapters/05-infodemic-simulation.html" class="pagination-link" aria-label="Chapter 5: Age, Emotion, and Susceptibility — Simulating an Infodemic">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Chapter 5: Age, Emotion, and Susceptibility — Simulating an Infodemic</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./chapters/00-prologue.html" class="pagination-link" aria-label="Prologue — When a False Story Wins">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Prologue — When a False Story Wins</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../chapters/07-ethics-responsible-ds.html" class="pagination-link" aria-label="Chapter 7: Ethics, Limits, and Responsible Data Science">
+        <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Chapter 7: Ethics, Limits, and Responsible Data Science</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

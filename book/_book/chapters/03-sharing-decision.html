@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>3&nbsp; Data Sources and Ethics – The Tentacles of Misinformation</title>
+<title>5&nbsp; Chapter 3: The Sharing Decision — Modeling Who Clicks “Share” – The Tentacles of Misinformation</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../chapters/03-baseline-models.html" rel="next">
-<link href="../chapters/01-introduction.html" rel="prev">
+<link href="../chapters/04-pseudo-profound.html" rel="next">
+<link href="../chapters/02-spss-to-python.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -71,8 +71,36 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<link rel="stylesheet" href="styles.css">
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
 </head>
 
 <body class="nav-sidebar floating quarto-light">
@@ -84,7 +112,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/02-data.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data Sources and Ethics</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/03-sharing-decision.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Chapter 3: The Sharing Decision — Modeling Who Clicks “Share”</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -119,32 +147,56 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapters/01-introduction.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
+  <a href="../chapters/00-prologue.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Prologue — When a False Story Wins</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapters/02-data.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data Sources and Ethics</span></span></a>
+  <a href="../chapters/01-thesis-as-code.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Chapter 1: Measuring Vulnerability — Rebuilding My Thesis as Code</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapters/03-baseline-models.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Baseline NLP Models</span></span></a>
+  <a href="../chapters/02-spss-to-python.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Chapter 2: From SPSS to Reproducible Analytics</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapters/04-linguistic-features.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Linguistic Features &amp; Behavioral Analysis</span></span></a>
+  <a href="../chapters/03-sharing-decision.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Chapter 3: The Sharing Decision — Modeling Who Clicks “Share”</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapters/05-transformers.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Transformer Fine-tuning: RoBERTa for Semantic Understanding</span></span></a>
+  <a href="../chapters/04-pseudo-profound.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Chapter 4: Spotting Pseudo-Profound Bullshit — A Gentle NLP Project</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/05-infodemic-simulation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Chapter 5: Age, Emotion, and Susceptibility — Simulating an Infodemic</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/06-interactive-dashboards.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Chapter 6: Visualizing the Tentacles — Interactive Views of Misinformation</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/07-ethics-responsible-ds.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Chapter 7: Ethics, Limits, and Responsible Data Science</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/08-epilogue.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Epilogue: My Path into Data Science</span></span></a>
   </div>
 </li>
     </ul>
@@ -157,20 +209,22 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#dataset-overview" id="toc-dataset-overview" class="nav-link active" data-scroll-target="#dataset-overview"><span class="header-section-number">3.1</span> Dataset Overview</a>
+  <li><a href="#from-theory-to-classification" id="toc-from-theory-to-classification" class="nav-link active" data-scroll-target="#from-theory-to-classification"><span class="header-section-number">5.1</span> From Theory to Classification</a></li>
+  <li><a href="#the-social-media-lens" id="toc-the-social-media-lens" class="nav-link" data-scroll-target="#the-social-media-lens"><span class="header-section-number">5.2</span> The Social Media Lens</a></li>
+  <li><a href="#dataset-feature-engineering" id="toc-dataset-feature-engineering" class="nav-link" data-scroll-target="#dataset-feature-engineering"><span class="header-section-number">5.3</span> Dataset &amp; Feature Engineering</a>
   <ul class="collapse">
-  <li><a href="#dataset-composition" id="toc-dataset-composition" class="nav-link" data-scroll-target="#dataset-composition"><span class="header-section-number">3.1.1</span> Dataset Composition</a></li>
+  <li><a href="#data-source" id="toc-data-source" class="nav-link" data-scroll-target="#data-source"><span class="header-section-number">5.3.1</span> Data Source</a></li>
+  <li><a href="#feature-engineering" id="toc-feature-engineering" class="nav-link" data-scroll-target="#feature-engineering"><span class="header-section-number">5.3.2</span> Feature Engineering</a></li>
   </ul></li>
-  <li><a href="#class-distribution" id="toc-class-distribution" class="nav-link" data-scroll-target="#class-distribution"><span class="header-section-number">3.2</span> Class Distribution</a></li>
-  <li><a href="#title-length-patterns" id="toc-title-length-patterns" class="nav-link" data-scroll-target="#title-length-patterns"><span class="header-section-number">3.3</span> Title Length Patterns</a></li>
-  <li><a href="#most-common-words-by-label" id="toc-most-common-words-by-label" class="nav-link" data-scroll-target="#most-common-words-by-label"><span class="header-section-number">3.4</span> Most Common Words by Label</a></li>
-  <li><a href="#ethical-considerations" id="toc-ethical-considerations" class="nav-link" data-scroll-target="#ethical-considerations"><span class="header-section-number">3.5</span> Ethical Considerations</a>
+  <li><a href="#model-development" id="toc-model-development" class="nav-link" data-scroll-target="#model-development"><span class="header-section-number">5.4</span> Model Development</a>
   <ul class="collapse">
-  <li><a href="#data-limitations" id="toc-data-limitations" class="nav-link" data-scroll-target="#data-limitations"><span class="header-section-number">3.5.1</span> Data Limitations</a></li>
-  <li><a href="#responsible-use" id="toc-responsible-use" class="nav-link" data-scroll-target="#responsible-use"><span class="header-section-number">3.5.2</span> Responsible Use</a></li>
-  <li><a href="#bias-mitigation-in-modeling" id="toc-bias-mitigation-in-modeling" class="nav-link" data-scroll-target="#bias-mitigation-in-modeling"><span class="header-section-number">3.5.3</span> Bias Mitigation in Modeling</a></li>
+  <li><a href="#baseline-logistic-regression" id="toc-baseline-logistic-regression" class="nav-link" data-scroll-target="#baseline-logistic-regression"><span class="header-section-number">5.4.1</span> Baseline: Logistic Regression</a></li>
+  <li><a href="#advanced-random-forest-xgboost" id="toc-advanced-random-forest-xgboost" class="nav-link" data-scroll-target="#advanced-random-forest-xgboost"><span class="header-section-number">5.4.2</span> Advanced: Random Forest &amp; XGBoost</a></li>
+  <li><a href="#evaluation-metrics" id="toc-evaluation-metrics" class="nav-link" data-scroll-target="#evaluation-metrics"><span class="header-section-number">5.4.3</span> Evaluation Metrics</a></li>
   </ul></li>
-  <li><a href="#summary-statistics" id="toc-summary-statistics" class="nav-link" data-scroll-target="#summary-statistics"><span class="header-section-number">3.6</span> Summary Statistics</a></li>
+  <li><a href="#error-analysis" id="toc-error-analysis" class="nav-link" data-scroll-target="#error-analysis"><span class="header-section-number">5.5</span> Error Analysis</a></li>
+  <li><a href="#reproducibility" id="toc-reproducibility" class="nav-link" data-scroll-target="#reproducibility"><span class="header-section-number">5.6</span> Reproducibility</a></li>
+  <li><a href="#practical-implications" id="toc-practical-implications" class="nav-link" data-scroll-target="#practical-implications"><span class="header-section-number">5.7</span> Practical Implications</a></li>
   </ul>
 </nav>
     </div>
@@ -179,7 +233,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data Sources and Ethics</span></h1>
+<h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Chapter 3: The Sharing Decision — Modeling Who Clicks “Share”</span></h1>
 </div>
 
 
@@ -196,207 +250,89 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="dataset-overview" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="dataset-overview"><span class="header-section-number">3.1</span> Dataset Overview</h2>
-<p>This project uses <strong>FakeNewsNet</strong>, a comprehensive dataset of labeled news articles collected from two authoritative fact-checking sources:</p>
-<ul>
-<li><strong>Politifact</strong>: Political news and claims (983 articles)</li>
-<li><strong>GossipCop</strong>: Entertainment/celebrity gossip (20,741 articles)</li>
-</ul>
-<p>The dataset provides:</p>
-<ul>
-<li>Article <strong>titles</strong> and <strong>URLs</strong></li>
-<li><strong>Labels</strong>: Real vs Fake</li>
-<li><strong>Source metadata</strong></li>
-</ul>
-<section id="dataset-composition" class="level3" data-number="3.1.1">
-<h3 data-number="3.1.1" class="anchored" data-anchor-id="dataset-composition"><span class="header-section-number">3.1.1</span> Dataset Composition</h3>
-<p><strong>Key observations:</strong></p>
-<ul>
-<li><strong>Total articles</strong>: 21,724</li>
-<li><strong>Real articles</strong>: 16,523 (76.1%)</li>
-<li><strong>Fake articles</strong>: 5,201 (23.9%)</li>
-<li><strong>Class imbalance</strong>: 3.2:1 (Real:Fake)</li>
-<li><strong>Primary source</strong>: GossipCop (95.5%)</li>
-</ul>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Label</th>
-<th>Count</th>
-<th>Percentage</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Real</td>
-<td>16,523</td>
-<td>76.1%</td>
-</tr>
-<tr class="even">
-<td>Fake</td>
-<td>5,201</td>
-<td>23.9%</td>
-</tr>
-<tr class="odd">
-<td><strong>Total</strong></td>
-<td><strong>21,724</strong></td>
-<td><strong>100%</strong></td>
-</tr>
-</tbody>
-</table>
-<p><strong>By Dataset:</strong></p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Dataset</th>
-<th>Politifact</th>
-<th>GossipCop</th>
-<th>Total</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Real</td>
-<td>654</td>
-<td>15,869</td>
-<td>16,523</td>
-</tr>
-<tr class="even">
-<td>Fake</td>
-<td>329</td>
-<td>4,872</td>
-<td>5,201</td>
-</tr>
-<tr class="odd">
-<td><strong>Total</strong></td>
-<td><strong>983</strong></td>
-<td><strong>20,741</strong></td>
-<td><strong>21,724</strong></td>
-</tr>
-</tbody>
-</table>
+<section id="from-theory-to-classification" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="from-theory-to-classification"><span class="header-section-number">5.1</span> From Theory to Classification</h2>
+<p>Why do people share misinformation? Not because they intend to spread falsehoods, but because the content triggers emotional responses, social rewards, or tribal affiliation.</p>
+<p>This chapter shifts focus from <em>who is vulnerable</em> to <em>what content drives action</em>.</p>
 <hr>
 </section>
+<section id="the-social-media-lens" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="the-social-media-lens"><span class="header-section-number">5.2</span> The Social Media Lens</h2>
+<p>On social platforms, the sharing decision is binary:</p>
+<p><span class="math display">\[\text{Action} = \begin{cases} \text{Share} &amp; \text{if } \text{engagement value} &gt; \text{social cost} \\ \text{Don't share} &amp; \text{otherwise} \end{cases}\]</span></p>
+<p>Factors influencing this: - <strong>Content characteristics</strong>: Emotional tone, novelty, perceived credibility - <strong>Individual traits</strong>: Social influence sensitivity, platform engagement patterns - <strong>Network effects</strong>: How many friends have already shared? - <strong>Context</strong>: Timing, trending topics, current events</p>
+<hr>
 </section>
-<section id="class-distribution" class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="class-distribution"><span class="header-section-number">3.2</span> Class Distribution</h2>
-<p>The dataset exhibits <strong>moderate class imbalance</strong> (3.2:1 ratio). This reflects real-world misinformation prevalence—not all published articles are fake, but a non-trivial percentage are. Modeling will account for this through:</p>
+<section id="dataset-feature-engineering" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="dataset-feature-engineering"><span class="header-section-number">5.3</span> Dataset &amp; Feature Engineering</h2>
+<section id="data-source" class="level3" data-number="5.3.1">
+<h3 data-number="5.3.1" class="anchored" data-anchor-id="data-source"><span class="header-section-number">5.3.1</span> Data Source</h3>
 <ul>
-<li>Stratified cross-validation</li>
-<li>Weighted loss functions</li>
-<li>Balanced metrics (F1, precision-recall)</li>
+<li><strong>Real or simulated</strong> social media dataset with labeled shares vs.&nbsp;non-shares</li>
+<li>Features extracted from posts and user profiles</li>
 </ul>
-<hr>
 </section>
-<section id="title-length-patterns" class="level2" data-number="3.3">
-<h2 data-number="3.3" class="anchored" data-anchor-id="title-length-patterns"><span class="header-section-number">3.3</span> Title Length Patterns</h2>
-<p>From our EDA notebook analysis:</p>
-<p><strong>Title Length Statistics by Label:</strong></p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Metric</th>
-<th>Real</th>
-<th>Fake</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Mean (words)</td>
-<td>11.35</td>
-<td>10.82</td>
-</tr>
-<tr class="even">
-<td>Std (words)</td>
-<td>3.97</td>
-<td>3.42</td>
-</tr>
-<tr class="odd">
-<td>Min (words)</td>
-<td>1</td>
-<td>1</td>
-</tr>
-<tr class="even">
-<td>Max (words)</td>
-<td>53</td>
-<td>46</td>
-</tr>
-<tr class="odd">
-<td>Mean (chars)</td>
-<td>69.5</td>
-<td>67.1</td>
-</tr>
-<tr class="even">
-<td>Max (chars)</td>
-<td>340</td>
-<td>337</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Finding</strong>: Real and fake articles have <strong>similar title lengths</strong> (mean ~11 words). This suggests linguistic complexity alone is insufficient for classification—deeper semantic analysis is needed.</p>
-<hr>
-</section>
-<section id="most-common-words-by-label" class="level2" data-number="3.4">
-<h2 data-number="3.4" class="anchored" data-anchor-id="most-common-words-by-label"><span class="header-section-number">3.4</span> Most Common Words by Label</h2>
-<p>From CountVectorizer analysis in our EDA notebook:</p>
-<p><strong>Top 15 Words in REAL Articles:</strong> news, said, new, trump, people, would, clinton, time, obama, state, congress, year, president, country, government</p>
-<p><strong>Top 15 Words in FAKE Articles:</strong> love, one, like, new, time, said, day, get, just, make, know, thing, think, come, got</p>
-<p><strong>Linguistic insight</strong>: - <strong>Fake articles</strong> emphasize <strong>sensational topics</strong> (love, drama, emotions) - <strong>Real articles</strong> focus on <strong>political/policy content</strong> (Trump, Clinton, Congress, government)</p>
-<p>This domain difference is expected given Politifact (political) vs GossipCop (entertainment) sources.</p>
-<hr>
-</section>
-<section id="ethical-considerations" class="level2" data-number="3.5">
-<h2 data-number="3.5" class="anchored" data-anchor-id="ethical-considerations"><span class="header-section-number">3.5</span> Ethical Considerations</h2>
-<section id="data-limitations" class="level3" data-number="3.5.1">
-<h3 data-number="3.5.1" class="anchored" data-anchor-id="data-limitations"><span class="header-section-number">3.5.1</span> Data Limitations</h3>
+<section id="feature-engineering" class="level3" data-number="5.3.2">
+<h3 data-number="5.3.2" class="anchored" data-anchor-id="feature-engineering"><span class="header-section-number">5.3.2</span> Feature Engineering</h3>
 <ol type="1">
-<li><strong>Source bias</strong>: GossipCop dominates the dataset (95%), introducing entertainment domain bias</li>
-<li><strong>Temporal scope</strong>: Snapshots from specific time periods; not longitudinal</li>
-<li><strong>Labeling subjectivity</strong>: “Fake” ≠ universally deceptive; includes disputed/satirical content</li>
-<li><strong>Platform effects</strong>: Dataset doesn’t capture social media dynamics (shares, engagement, bot amplification)</li>
+<li><strong>Content features</strong>:
+<ul>
+<li>Emotional sentiment (valence, arousal)</li>
+<li>Novelty score (how often has this claim circulated?)</li>
+<li>Linguistic markers (rhetorical questions, exclamation, urgency language)</li>
+<li>Domain signals (known news source vs.&nbsp;unknown blog?)</li>
+</ul></li>
+<li><strong>User features</strong>:
+<ul>
+<li>Account age and activity level</li>
+<li>Historical sharing patterns</li>
+<li>Network centrality (how many followers?)</li>
+<li>Engagement rate on previous posts</li>
+</ul></li>
+<li><strong>Temporal features</strong>:
+<ul>
+<li>Time of day, day of week</li>
+<li>Lag since post creation</li>
+<li>Trending topic indicator</li>
+</ul></li>
 </ol>
+<hr>
 </section>
-<section id="responsible-use" class="level3" data-number="3.5.2">
-<h3 data-number="3.5.2" class="anchored" data-anchor-id="responsible-use"><span class="header-section-number">3.5.2</span> Responsible Use</h3>
-<p>This dataset should <strong>not</strong> be interpreted as:</p>
-<ul>
-<li>Universal indicators of deception across all news domains</li>
-<li>Proof of partisan bias</li>
-<li>Ground truth for individual claims</li>
-</ul>
-<p>Rather, it reflects:</p>
-<ul>
-<li><strong>Domain-specific patterns</strong> (entertainment vs politics)</li>
-<li><strong>Labeling choices</strong> by fact-checkers (methodology matters)</li>
-<li><strong>Historical snapshots</strong> of misinformation prevalence</li>
-</ul>
 </section>
-<section id="bias-mitigation-in-modeling" class="level3" data-number="3.5.3">
-<h3 data-number="3.5.3" class="anchored" data-anchor-id="bias-mitigation-in-modeling"><span class="header-section-number">3.5.3</span> Bias Mitigation in Modeling</h3>
+<section id="model-development" class="level2" data-number="5.4">
+<h2 data-number="5.4" class="anchored" data-anchor-id="model-development"><span class="header-section-number">5.4</span> Model Development</h2>
+<section id="baseline-logistic-regression" class="level3" data-number="5.4.1">
+<h3 data-number="5.4.1" class="anchored" data-anchor-id="baseline-logistic-regression"><span class="header-section-number">5.4.1</span> Baseline: Logistic Regression</h3>
+<p>Simple, interpretable, sets performance floor.</p>
+</section>
+<section id="advanced-random-forest-xgboost" class="level3" data-number="5.4.2">
+<h3 data-number="5.4.2" class="anchored" data-anchor-id="advanced-random-forest-xgboost"><span class="header-section-number">5.4.2</span> Advanced: Random Forest &amp; XGBoost</h3>
+<p>Capture non-linear interactions between features.</p>
+</section>
+<section id="evaluation-metrics" class="level3" data-number="5.4.3">
+<h3 data-number="5.4.3" class="anchored" data-anchor-id="evaluation-metrics"><span class="header-section-number">5.4.3</span> Evaluation Metrics</h3>
 <ul>
-<li>Test on multiple domains separately</li>
-<li>Avoid overgeneralizing to unknown distributions</li>
-<li>Report uncertainty and failure modes</li>
-<li>Engage domain experts and fact-checkers</li>
+<li>Precision / Recall (class imbalance matters—false positives are costly)</li>
+<li>ROC-AUC (overall discrimination ability)</li>
+<li>Feature importance (SHAP values for interpretability)</li>
 </ul>
 <hr>
 </section>
 </section>
-<section id="summary-statistics" class="level2" data-number="3.6">
-<h2 data-number="3.6" class="anchored" data-anchor-id="summary-statistics"><span class="header-section-number">3.6</span> Summary Statistics</h2>
-<p><strong>FakeNewsNet Dataset Summary:</strong></p>
-<ul>
-<li><strong>Total articles</strong>: 21,724</li>
-<li><strong>Real articles</strong>: 16,523 (76.1%)</li>
-<li><strong>Fake articles</strong>: 5,201 (23.9%)</li>
-<li><strong>Politifact</strong>: 983 articles (4.5%)</li>
-<li><strong>GossipCop</strong>: 20,741 articles (95.5%)</li>
-<li><strong>Title length range</strong>: 1–53 words</li>
-<li><strong>Title character range</strong>: 10–340 characters</li>
-</ul>
-<p>The dataset is now <strong>cleaned, explored, and ready for feature engineering and modeling</strong>.</p>
-<p><strong>Next phase (Sprint 2)</strong>: Baseline models with TF-IDF + Logistic Regression and SVM.</p>
+<section id="error-analysis" class="level2" data-number="5.5">
+<h2 data-number="5.5" class="anchored" data-anchor-id="error-analysis"><span class="header-section-number">5.5</span> Error Analysis</h2>
+<p>Not all errors are equal: - <strong>False Positives</strong> (predicted share, user doesn’t): Waste identification resources - <strong>False Negatives</strong> (predicted no share, user does): Miss high-risk content</p>
+<p>We’ll examine failure modes and discuss practical thresholds for deployment.</p>
+<hr>
+</section>
+<section id="reproducibility" class="level2" data-number="5.6">
+<h2 data-number="5.6" class="anchored" data-anchor-id="reproducibility"><span class="header-section-number">5.6</span> Reproducibility</h2>
+<p>Code and data for this chapter: - <code>behavioral_analysis/notebooks/02_baseline_models.ipynb</code> - <code>src/train_baseline.py</code></p>
+<hr>
+</section>
+<section id="practical-implications" class="level2" data-number="5.7">
+<h2 data-number="5.7" class="anchored" data-anchor-id="practical-implications"><span class="header-section-number">5.7</span> Practical Implications</h2>
+<p>This analysis informs: - <strong>Content moderation</strong>: Proactive identification of high-spread-risk posts - <strong>Platform design</strong>: How UI/UX choices influence sharing behavior - <strong>Interventions</strong>: Strategic placement of fact-checks or friction warnings</p>
 
 
 </section>
@@ -804,13 +740,13 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../chapters/01-introduction.html" class="pagination-link" aria-label="Introduction">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduction</span></span>
+      <a href="../chapters/02-spss-to-python.html" class="pagination-link" aria-label="Chapter 2: From SPSS to Reproducible Analytics">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Chapter 2: From SPSS to Reproducible Analytics</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../chapters/03-baseline-models.html" class="pagination-link" aria-label="Baseline NLP Models">
-        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Baseline NLP Models</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../chapters/04-pseudo-profound.html" class="pagination-link" aria-label="Chapter 4: Spotting Pseudo-Profound Bullshit — A Gentle NLP Project">
+        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Chapter 4: Spotting Pseudo-Profound Bullshit — A Gentle NLP Project</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

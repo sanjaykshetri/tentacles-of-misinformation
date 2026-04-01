@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Sanjay Kumar Chhetri">
-<meta name="dcterms.date" content="2026-02-22">
 
-<title>The Tentacles of Misinformation</title>
+<title>4&nbsp; Chapter 2: From SPSS to Reproducible Analytics – The Tentacles of Misinformation</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,63 +20,29 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./chapters/00-prologue.html" rel="next">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-065a5179aebd64318d7ea99d77b64a9e.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-edaf08ed7d27d62012077beed0893dcb.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../chapters/03-sharing-decision.html" rel="next">
+<link href="../chapters/01-thesis-as-code.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-065a5179aebd64318d7ea99d77b64a9e.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-edaf08ed7d27d62012077beed0893dcb.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -119,7 +83,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">The Tentacles of Misinformation</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/02-spss-to-python.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Chapter 2: From SPSS to Reproducible Analytics</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -133,10 +97,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
-      <a href="./index.html" class="sidebar-logo-link">
+      <a href="../index.html" class="sidebar-logo-link">
       </a>
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">The Tentacles of Misinformation</a> 
+      <a href="../">The Tentacles of Misinformation</a> 
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -148,61 +112,61 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">The Tentacles of Misinformation</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/00-prologue.html" class="sidebar-item-text sidebar-link">
+  <a href="../chapters/00-prologue.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Prologue — When a False Story Wins</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/01-thesis-as-code.html" class="sidebar-item-text sidebar-link">
+  <a href="../chapters/01-thesis-as-code.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Chapter 1: Measuring Vulnerability — Rebuilding My Thesis as Code</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/02-spss-to-python.html" class="sidebar-item-text sidebar-link">
+  <a href="../chapters/02-spss-to-python.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Chapter 2: From SPSS to Reproducible Analytics</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/03-sharing-decision.html" class="sidebar-item-text sidebar-link">
+  <a href="../chapters/03-sharing-decision.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Chapter 3: The Sharing Decision — Modeling Who Clicks “Share”</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/04-pseudo-profound.html" class="sidebar-item-text sidebar-link">
+  <a href="../chapters/04-pseudo-profound.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Chapter 4: Spotting Pseudo-Profound Bullshit — A Gentle NLP Project</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/05-infodemic-simulation.html" class="sidebar-item-text sidebar-link">
+  <a href="../chapters/05-infodemic-simulation.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Chapter 5: Age, Emotion, and Susceptibility — Simulating an Infodemic</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/06-interactive-dashboards.html" class="sidebar-item-text sidebar-link">
+  <a href="../chapters/06-interactive-dashboards.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Chapter 6: Visualizing the Tentacles — Interactive Views of Misinformation</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/07-ethics-responsible-ds.html" class="sidebar-item-text sidebar-link">
+  <a href="../chapters/07-ethics-responsible-ds.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Chapter 7: Ethics, Limits, and Responsible Data Science</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/08-epilogue.html" class="sidebar-item-text sidebar-link">
+  <a href="../chapters/08-epilogue.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Epilogue: My Path into Data Science</span></span></a>
   </div>
 </li>
@@ -216,15 +180,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#the-tentacles-of-misinformation" id="toc-the-tentacles-of-misinformation" class="nav-link active" data-scroll-target="#the-tentacles-of-misinformation"><span class="header-section-number">1</span> The Tentacles of Misinformation</a>
+  <li><a href="#the-migration-challenge" id="toc-the-migration-challenge" class="nav-link active" data-scroll-target="#the-migration-challenge"><span class="header-section-number">4.1</span> The Migration Challenge</a></li>
+  <li><a href="#lessons-learned" id="toc-lessons-learned" class="nav-link" data-scroll-target="#lessons-learned"><span class="header-section-number">4.2</span> Lessons Learned</a>
   <ul class="collapse">
-  <li><a href="#a-research-monograph-on-cognitive-vulnerability-and-predictive-analytics" id="toc-a-research-monograph-on-cognitive-vulnerability-and-predictive-analytics" class="nav-link" data-scroll-target="#a-research-monograph-on-cognitive-vulnerability-and-predictive-analytics"><span class="header-section-number">1.1</span> A Research Monograph on Cognitive Vulnerability and Predictive Analytics</a>
-  <ul class="collapse">
-  <li><a href="#overview" id="toc-overview" class="nav-link" data-scroll-target="#overview"><span class="header-section-number">1.1.1</span> Overview</a></li>
-  <li><a href="#key-contributions" id="toc-key-contributions" class="nav-link" data-scroll-target="#key-contributions"><span class="header-section-number">1.1.2</span> Key Contributions</a></li>
-  <li><a href="#author" id="toc-author" class="nav-link" data-scroll-target="#author"><span class="header-section-number">1.1.3</span> Author</a></li>
+  <li><a href="#version-control-everything" id="toc-version-control-everything" class="nav-link" data-scroll-target="#version-control-everything"><span class="header-section-number">4.2.1</span> 1. Version Control Everything</a></li>
+  <li><a href="#automate-table-figure-generation" id="toc-automate-table-figure-generation" class="nav-link" data-scroll-target="#automate-table-figure-generation"><span class="header-section-number">4.2.2</span> 2. Automate Table &amp; Figure Generation</a></li>
+  <li><a href="#modular-code-structure" id="toc-modular-code-structure" class="nav-link" data-scroll-target="#modular-code-structure"><span class="header-section-number">4.2.3</span> 3. Modular Code Structure</a></li>
+  <li><a href="#embrace-open-source-tools" id="toc-embrace-open-source-tools" class="nav-link" data-scroll-target="#embrace-open-source-tools"><span class="header-section-number">4.2.4</span> 4. Embrace Open-Source Tools</a></li>
   </ul></li>
-  </ul></li>
+  <li><a href="#project-structure" id="toc-project-structure" class="nav-link" data-scroll-target="#project-structure"><span class="header-section-number">4.3</span> Project Structure</a></li>
+  <li><a href="#key-tooling-decisions" id="toc-key-tooling-decisions" class="nav-link" data-scroll-target="#key-tooling-decisions"><span class="header-section-number">4.4</span> Key Tooling Decisions</a></li>
+  <li><a href="#benefits-of-this-approach" id="toc-benefits-of-this-approach" class="nav-link" data-scroll-target="#benefits-of-this-approach"><span class="header-section-number">4.5</span> Benefits of This Approach</a></li>
+  <li><a href="#for-data-science-practitioners" id="toc-for-data-science-practitioners" class="nav-link" data-scroll-target="#for-data-science-practitioners"><span class="header-section-number">4.6</span> For Data Science Practitioners</a></li>
   </ul>
 </nav>
     </div>
@@ -233,27 +200,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">The Tentacles of Misinformation</h1>
-<p class="subtitle lead">Behavioral Science, NLP, and Predictive Analytics for Misinformation Susceptibility</p>
+<h1 class="title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Chapter 2: From SPSS to Reproducible Analytics</span></h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Sanjay Kumar Chhetri </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">February 22, 2026</p>
-    </div>
-  </div>
   
     
   </div>
@@ -263,66 +217,125 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="the-tentacles-of-misinformation" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> The Tentacles of Misinformation</h1>
-<section id="a-research-monograph-on-cognitive-vulnerability-and-predictive-analytics" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="a-research-monograph-on-cognitive-vulnerability-and-predictive-analytics"><span class="header-section-number">1.1</span> A Research Monograph on Cognitive Vulnerability and Predictive Analytics</h2>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>This research monograph presents an end-to-end study of misinformation susceptibility, integrating behavioral science, NLP, and machine learning to understand who falls for misinformation, why, and how susceptibility can be predicted and mitigated.</p>
-</div>
-</div>
-<section id="overview" class="level3" data-number="1.1.1">
-<h3 data-number="1.1.1" class="anchored" data-anchor-id="overview"><span class="header-section-number">1.1.1</span> Overview</h3>
-<p>Misinformation represents one of the most pressing challenges to informed discourse and democratic participation in the digital age. This work extends an IRB-approved Master’s thesis on cognitive vulnerability to misinformation with large-scale NLP models, fusion architectures, and interactive decision support systems.</p>
+<section id="the-migration-challenge" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="the-migration-challenge"><span class="header-section-number">4.1</span> The Migration Challenge</h2>
+<p>Most social science research lives in a proprietary workflow: - <strong>SPSS or Stata</strong> for data cleaning and analysis - <strong>Manual</strong> figure creation and table reporting - <strong>Point-and-click</strong> interfaces that leave no audit trail</p>
+<p>This chapter documents my migration from SPSS to a fully <strong>reproducible analytics pipeline</strong> in Python and R.</p>
+<hr>
 </section>
-<section id="key-contributions" class="level3" data-number="1.1.2">
-<h3 data-number="1.1.2" class="anchored" data-anchor-id="key-contributions"><span class="header-section-number">1.1.2</span> Key Contributions</h3>
+<section id="lessons-learned" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="lessons-learned"><span class="header-section-number">4.2</span> Lessons Learned</h2>
+<section id="version-control-everything" class="level3" data-number="4.2.1">
+<h3 data-number="4.2.1" class="anchored" data-anchor-id="version-control-everything"><span class="header-section-number">4.2.1</span> 1. Version Control Everything</h3>
 <ul>
-<li><strong>Behavioral Analysis</strong>: Survey-based identification of cognitive and mindset features that predict susceptibility</li>
-<li><strong>NLP Classification</strong>: State-of-the-art transformer models for detecting misinformation narratives at scale</li>
-<li><strong>Fusion Models</strong>: Multimodal architectures combining behavioral and content features for improved predictions</li>
-<li><strong>Policy Insights</strong>: Actionable dashboards and visualizations for researchers and policymakers</li>
+<li>All scripts in Git</li>
+<li>Tracked changes and collaboration enabled</li>
+<li>Reproducible from any checkpoint</li>
 </ul>
 </section>
-<section id="author" class="level3" data-number="1.1.3">
-<h3 data-number="1.1.3" class="anchored" data-anchor-id="author"><span class="header-section-number">1.1.3</span> Author</h3>
-<p><strong>Sanjay Kumar Chhetri</strong><br>
-Data Scientist | Behavioral Researcher | Educator</p>
+<section id="automate-table-figure-generation" class="level3" data-number="4.2.2">
+<h3 data-number="4.2.2" class="anchored" data-anchor-id="automate-table-figure-generation"><span class="header-section-number">4.2.2</span> 2. Automate Table &amp; Figure Generation</h3>
+<ul>
+<li>Dynamic reports via Quarto</li>
+<li>Tables generated directly from models, not manually typed</li>
+<li>Plots sync with underlying data automatically</li>
+</ul>
+</section>
+<section id="modular-code-structure" class="level3" data-number="4.2.3">
+<h3 data-number="4.2.3" class="anchored" data-anchor-id="modular-code-structure"><span class="header-section-number">4.2.3</span> 3. Modular Code Structure</h3>
+<ul>
+<li>Separate concerns: data prep, feature engineering, modeling, reporting</li>
+<li>Reusable components across projects</li>
+<li>Easier testing and debugging</li>
+</ul>
+</section>
+<section id="embrace-open-source-tools" class="level3" data-number="4.2.4">
+<h3 data-number="4.2.4" class="anchored" data-anchor-id="embrace-open-source-tools"><span class="header-section-number">4.2.4</span> 4. Embrace Open-Source Tools</h3>
+<ul>
+<li>R (tidyverse, lavaan) for statistical modeling</li>
+<li>Python (scikit-learn, transformers) for ML and NLP</li>
+<li>Quarto for narrative + code integration</li>
+</ul>
 <hr>
-<p><strong>How to navigate this book:</strong></p>
+</section>
+</section>
+<section id="project-structure" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="project-structure"><span class="header-section-number">4.3</span> Project Structure</h2>
+<pre><code>behavioral_analysis/
+├── notebooks/          # EDA and exploratory analysis
+├── scripts/           # Reproducible pipelines
+└── results/           # Generated outputs
+
+src/
+├── data_prep.py       # Data cleaning and validation
+├── features.py        # Feature engineering
+└── train_baseline.py  # Model training
+
+book/
+├── chapters/          # This narrative
+└── _book/            # Rendered HTML</code></pre>
+<hr>
+</section>
+<section id="key-tooling-decisions" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="key-tooling-decisions"><span class="header-section-number">4.4</span> Key Tooling Decisions</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Task</th>
+<th>Tool</th>
+<th>Why</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Version control</td>
+<td>Git + GitHub</td>
+<td>Collaboration and reproducibility</td>
+</tr>
+<tr class="even">
+<td>EDA</td>
+<td>Jupyter + pandas</td>
+<td>Interactive exploration</td>
+</tr>
+<tr class="odd">
+<td>Statistical modeling</td>
+<td>R + lavaan</td>
+<td>SEM and mediation</td>
+</tr>
+<tr class="even">
+<td>ML modeling</td>
+<td>Python + scikit-learn</td>
+<td>Production-ready pipelines</td>
+</tr>
+<tr class="odd">
+<td>Narrative</td>
+<td>Quarto</td>
+<td>Code + markdown in one document</td>
+</tr>
+<tr class="even">
+<td>Deployment</td>
+<td>GitHub Pages / Netlify</td>
+<td>Free, static hosting</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+<section id="benefits-of-this-approach" class="level2" data-number="4.5">
+<h2 data-number="4.5" class="anchored" data-anchor-id="benefits-of-this-approach"><span class="header-section-number">4.5</span> Benefits of This Approach</h2>
 <ol type="1">
-<li>Start with the Introduction for context and research questions</li>
-<li>Review the Literature Review for theoretical foundations</li>
-<li>Explore the Behavioral Analysis chapter for cognitive predictors</li>
-<li>Understand NLP Pipelines for content analysis methods</li>
-<li>Study Fusion Models for the integration approach</li>
-<li>Examine Results and Discussion for key findings</li>
-<li>Consult Appendices for technical details and supplementary analyses</li>
+<li><strong>Audit trail</strong>: Every decision is documented in code</li>
+<li><strong>Reproducibility</strong>: Anyone can run the script and get identical results</li>
+<li><strong>Collaboration</strong>: Easy to share, review, and extend</li>
+<li><strong>Portfolio value</strong>: Shows mastery of modern data science tooling</li>
 </ol>
 <hr>
-<p><strong>Citation:</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bibtex code-with-copy"><code class="sourceCode bibtex"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="va">@book</span>{<span class="ot">chhetri2026tentacles</span>,</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">title</span>={The Tentacles of Misinformation: Behavioral Science, NLP, and Predictive Analytics},</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">author</span>={Chhetri, Sanjay Kumar},</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">year</span>={2026},</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">publisher</span>={Self-published},</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">url</span>={https://tentacles-of-misinformation.com}</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><strong>Disclaimer:</strong></p>
-<p>All behavioral data used in this project is anonymized and approved for analysis under IRB protocol. Public misinformation datasets are used in accordance with their respective licenses.</p>
+</section>
+<section id="for-data-science-practitioners" class="level2" data-number="4.6">
+<h2 data-number="4.6" class="anchored" data-anchor-id="for-data-science-practitioners"><span class="header-section-number">4.6</span> For Data Science Practitioners</h2>
+<p>Whether you’re migrating legacy analyses or building new projects, this chapter showcases: - Best practices for reproducible analytics - How to structure a project for collaboration and deployment - Tools and workflows hiring teams recognize and value</p>
 
 
-</section>
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -728,10 +741,13 @@ Data Scientist | Behavioral Researcher | Educator</p>
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="../chapters/01-thesis-as-code.html" class="pagination-link" aria-label="Chapter 1: Measuring Vulnerability — Rebuilding My Thesis as Code">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Chapter 1: Measuring Vulnerability — Rebuilding My Thesis as Code</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./chapters/00-prologue.html" class="pagination-link" aria-label="Prologue — When a False Story Wins">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Prologue — When a False Story Wins</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../chapters/03-sharing-decision.html" class="pagination-link" aria-label="Chapter 3: The Sharing Decision — Modeling Who Clicks &quot;Share&quot;">
+        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Chapter 3: The Sharing Decision — Modeling Who Clicks “Share”</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
