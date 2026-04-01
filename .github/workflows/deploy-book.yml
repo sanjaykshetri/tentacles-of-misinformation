@@ -1,8 +1,11 @@
-name: Render and Deploy Book to GitHub Pages
+name: Deploy Book to GitHub Pages
 
 on:
   push:
     branches: [main]
+    paths:
+      - 'book/_book/**'
+      - '.github/workflows/deploy-book.yml'
 
 permissions:
   contents: read
@@ -14,36 +17,24 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  build:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
         
-      - name: Set up Quarto
-        uses: quarto-dev/quarto-actions/setup@v2
-        with:
-          tinytex: true
-          
-      - name: Render book with Quarto
-        run: |
-          cd book
-          quarto render . --no-execute
-          
-      - name: Upload Pages artifact
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+        
+      - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./book/_book
+          path: './book/_book'
 
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    needs: build
-    
-    steps:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
