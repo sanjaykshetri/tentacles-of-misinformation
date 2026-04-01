@@ -30,6 +30,11 @@ jobs:
           cd book
           quarto render . --no-execute
           
+      - name: Clean up deployment files
+        run: |
+          rm -f ./book/_book/CNAME
+          rm -f ./book/_book/.gitignore
+          
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         if: github.ref == 'refs/heads/main'
