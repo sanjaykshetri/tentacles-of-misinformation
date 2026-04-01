@@ -1,4 +1,4 @@
-# Epilogue: My Path into Data Science
+# Epilogue: Frontier Challenges & Future Directions
 
 ## Why This Book, Why Now?
 
@@ -8,26 +8,23 @@ This epilogue reflects on that journey and maps the terrain for readers consider
 
 ---
 
-## What Each Chapter Demonstrates
+## What Each Unit Demonstrates
 
 ### Technical Skills
 
-| Chapter | Core Competency | Tools & Methods |
-|---------|-----------------|-----------------|
-| Ch 1: Thesis as Code | Statistical modeling | R (lavaan), Python (pandas, scipy), reproducible workflows |
-| Ch 2: SPSS to Python | Workflow migration | Git, version control, Quarto, automation |
-| Ch 3: Sharing Decision | Classification & feature eng. | scikit-learn, cross-validation, error analysis |
-| Ch 4: Pseudo-Profound | NLP & embeddings | BERT, SBERT, TF-IDF, text preprocessing |
-| Ch 5: Infodemic Simulation | Regression & causal models | Interaction terms, hierarchical models, simulation |
-| Ch 6: Interactive Dashboards | Visualization & communication | Streamlit, Plotly, UX design, storytelling |
-| Ch 7: Ethics & Responsibility | Critical reasoning | Stakeholder analysis, limitations documentation |
+| Unit | Title | Core Competency | Tools & Methods |
+|------|-------|-----------------|-----------------|
+| **Unit 1** | Measuring Vulnerability | Behavioral Analysis & Survey Methods | R (lavaan, SEM), Qualtrics, IRB protocols, mediation analysis |
+| **Unit 2** | Detecting Narratives | Classical NLP & Machine Learning | TF-IDF, scikit-learn, RoBERTa, cross-validation, error analysis |
+| **Unit 3** | Modeling Spread | Epidemiological & Simulation Modeling | ODE solvers, parameter calibration, sensitivity analysis, scenario planning |
+| **Unit 4** | Fusion & Scale | Production ML & Ethical Deployment | DistilBERT fine-tuning, Streamlit dashboards, model monitoring, responsible AI |
 
 ### Domain Knowledge
 
-- **Behavioral science**: Survey design, measurement validation, psychological constructs
-- **Misinformation ecology**: How false narratives spread, where interventions go
+- **Behavioral science**: Survey design, measurement validation, psychological constructs (CRT, conspiracy beliefs)
+- **Misinformation ecology**: How false narratives spread, where interventions go, demographic heterogeneity
 - **NLP fundamentals**: Embeddings, transformer models, linguistic analysis
-- **Causal reasoning**: Confounds, mediation, when correlation isn't causation
+- **Epidemiological reasoning**: SEIR framework, causal mechanisms, intervention design
 
 ### Professional Practices
 
@@ -82,22 +79,94 @@ This book IS that answer. It demonstrates:
 
 ---
 
-## Where I'm Headed
+Data science interviews often ask: "Tell us about a project you're proud of."
 
-### Short Term (Next 6 Months)
-- [ ] Publish manuscript from this book in peer-reviewed venue
-- [ ] Deploy dashboards to mathwithmeditation.org
-- [ ] Contribute to open-source misinformation research tools
+This book IS that answer. It demonstrates:
 
-### Medium Term (1-2 Years)
-- [ ] Expand to Nepal election misinformation dataset (Chapter 9?)
-- [ ] Integrate Vedanta/Anthroposophy NLP analysis (Chapter 10?)
-- [ ] Partner with fact-checking organizations on real-world deployment
+1. **End-to-end ownership**: From behavioral research to production deployment
+2. **Methodological rigor**: Research standards across psychology, CS, and epidemiology
+3. **Communication**: Code, visuals, narrative for different audiences
+4. **Values**: Ethics, limitations, responsible AI practices
+5. **Growth**: Masters thesis → scalable research platform → publishable portfolio
 
-### Long Term
-- **Vision**: Make data science education more rigorous, inclusive, and ethical
-- **Teaching**: Courses and workshops on responsible AI, reproducible research
-- **Policy**: Contribute to evidence-based regulation of social media
+---
+
+## How to Navigate This Work
+
+### For Hiring Managers & Collaborators
+
+- **Unit 1**: I can design rigorous behavioral studies and analyze causal mechanisms
+- **Unit 2**: I implement ML pipelines from classical to transformer-based methods
+- **Unit 3**: I build mathematical models and reason about population-level dynamics
+- **Unit 4**: I deploy models responsibly, monitor in production, and think about ethics
+- **This epilogue**: I can articulate growth and learn from iterating on complex problems
+
+**Relevant roles**: Data Scientist, ML Engineer, Analytics Engineer, Research Scientist
+
+### For Academics & Researchers
+
+- **Unit 1**: Behavioral survey methodology, mediation analysis, measurement theory
+- **Unit 2**: NLP baselines and deep learning for text classification
+- **Unit 3**: Epidemiological modeling applied to information diffusion
+- **Unit 4**: Responsible AI, model cards, ethical frameworks for deployment
+
+**Relevant venues**: Conference talks, journal submissions, collaborative research
+
+### For Learners & Career-Changers
+
+- **Start here**: Unit 1 (behavioral foundations + research design)
+- **Build skill next**: Units 2-3 (ML pipelines, mathematical modeling)
+- **Think systemically**: Unit 4 (ethics, production, stakeholders)
+- **Build your own**: Fork this repo, adapt the structure for your domain
+
+---
+
+## Frontier Challenges
+
+Misinformation research is evolving rapidly. This book represents one approach; the next frontier challenges include:
+
+### Unit 1 Extensions: Measuring Vulnerability
+- **Cross-cultural psychology**: Do CRT, need for cognition, conspiracy beliefs predict susceptibility similarly across cultures?
+- **Longitudinal dynamics**: How do susceptibility factors change over time? Life-course developments?
+- **Neurobiological foundations**: Can we use fMRI or eye-tracking to validate psychological measures?
+
+### Unit 2 Extensions: Detecting Narratives
+- **Multimodal detection**: Images + text + video (not just text titles)
+- **Real-time detection**: Current models operate on historical FakeNewsNet; can they catch emerging misinformation before it spreads?
+- **Adversarial robustness**: Can models withstand intentional attacks (rewording, paraphrasing)?
+- **Cross-lingual transfer**: German, Arabic, Hindi detection from English training data?
+
+### Unit 3 Extensions: Modeling Spread
+- **Network heterogeneity**: Real cascades aren't well-mixed; explicit social graphs needed
+- **Temporal resolution**: Current model uses aggregate parameters; can we model day-by-day dynamics?
+- **Intervention evaluation**: What interventions actually work? Education, friction, counter-narratives?
+
+### Unit 4 Extensions: Fusion & Scale
+- **Real-world deployment**: Move from research dashboards to production systems at platform scale
+- **Fairness & bias**: Ensure models don't disproportionately label marginalized groups' content as misinformation
+- **Explainability**: SHAP plots for research; what explanations do end-users understand?
+- **Regulatory alignment**: GDPR, DSA, and emerging AI regulations—how to comply while maintaining effectiveness?
+
+---
+
+## Short-Term Roadmap (Next 12 Months)
+
+| Goal | Unit(s) | Status |
+|------|---------|--------|
+| Publish Unit 1 findings | Unit 1 | 🟡 In progress |
+| Cross-validate Units 2-3 | Units 2, 3 | 🟡 In progress |
+| Deploy Unit 4 dashboard | Unit 4 | ✅ Complete (external repo) |
+| Expand to Nepal 2024 election data | All units | 🔴 Not started |
+| Document API for external researchers | Unit 4 | 🔴 Not started |
+
+---
+
+## Long-Term Vision
+
+Make data science education more rigorous, inclusive, and ethical through:
+- **Teaching**: Courses on responsible AI, reproducible research, research design
+- **Collaboration**: Partner with fact-checking orgs, academic labs, policy makers
+- **Policy**: Contribute evidence to inform regulation of social media and AI systems
 
 ---
 
