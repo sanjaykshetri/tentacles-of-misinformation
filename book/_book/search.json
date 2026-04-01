@@ -552,101 +552,131 @@
   {
     "objectID": "chapters/05-epilogue.html",
     "href": "chapters/05-epilogue.html",
-    "title": "7  Epilogue: My Path into Data Science",
+    "title": "7  Epilogue: Frontier Challenges & Future Directions",
     "section": "",
     "text": "7.1 Why This Book, Why Now?\nThis project began as a Master’s thesis and evolved into something larger—a portfolio of skills, a research platform, and a personal philosophy.\nThis epilogue reflects on that journey and maps the terrain for readers considering a similar path.",
     "crumbs": [
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Epilogue: My Path into Data Science</span>"
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Epilogue: Frontier Challenges & Future Directions</span>"
     ]
   },
   {
-    "objectID": "chapters/05-epilogue.html#what-each-chapter-demonstrates",
-    "href": "chapters/05-epilogue.html#what-each-chapter-demonstrates",
-    "title": "7  Epilogue: My Path into Data Science",
-    "section": "7.2 What Each Chapter Demonstrates",
-    "text": "7.2 What Each Chapter Demonstrates\n\n7.2.1 Technical Skills\n\n\n\n\n\n\n\n\nChapter\nCore Competency\nTools & Methods\n\n\n\n\nCh 1: Thesis as Code\nStatistical modeling\nR (lavaan), Python (pandas, scipy), reproducible workflows\n\n\nCh 2: SPSS to Python\nWorkflow migration\nGit, version control, Quarto, automation\n\n\nCh 3: Sharing Decision\nClassification & feature eng.\nscikit-learn, cross-validation, error analysis\n\n\nCh 4: Pseudo-Profound\nNLP & embeddings\nBERT, SBERT, TF-IDF, text preprocessing\n\n\nCh 5: Infodemic Simulation\nRegression & causal models\nInteraction terms, hierarchical models, simulation\n\n\nCh 6: Interactive Dashboards\nVisualization & communication\nStreamlit, Plotly, UX design, storytelling\n\n\nCh 7: Ethics & Responsibility\nCritical reasoning\nStakeholder analysis, limitations documentation\n\n\n\n\n\n7.2.2 Domain Knowledge\n\nBehavioral science: Survey design, measurement validation, psychological constructs\nMisinformation ecology: How false narratives spread, where interventions go\nNLP fundamentals: Embeddings, transformer models, linguistic analysis\nCausal reasoning: Confounds, mediation, when correlation isn’t causation\n\n\n\n7.2.3 Professional Practices\n\nReproducible workflows and code documentation\nClear communication for academic and business audiences\nEthical reflection and stakeholder accountability\nCross-functional collaboration (psychology, computer science, policy)",
+    "objectID": "chapters/05-epilogue.html#what-each-unit-demonstrates",
+    "href": "chapters/05-epilogue.html#what-each-unit-demonstrates",
+    "title": "7  Epilogue: Frontier Challenges & Future Directions",
+    "section": "7.2 What Each Unit Demonstrates",
+    "text": "7.2 What Each Unit Demonstrates\n\n7.2.1 Technical Skills\n\n\n\n\n\n\n\n\n\nUnit\nTitle\nCore Competency\nTools & Methods\n\n\n\n\nUnit 1\nMeasuring Vulnerability\nBehavioral Analysis & Survey Methods\nR (lavaan, SEM), Qualtrics, IRB protocols, mediation analysis\n\n\nUnit 2\nDetecting Narratives\nClassical NLP & Machine Learning\nTF-IDF, scikit-learn, RoBERTa, cross-validation, error analysis\n\n\nUnit 3\nModeling Spread\nEpidemiological & Simulation Modeling\nODE solvers, parameter calibration, sensitivity analysis, scenario planning\n\n\nUnit 4\nFusion & Scale\nProduction ML & Ethical Deployment\nDistilBERT fine-tuning, Streamlit dashboards, model monitoring, responsible AI\n\n\n\n\n\n7.2.2 Domain Knowledge\n\nBehavioral science: Survey design, measurement validation, psychological constructs (CRT, conspiracy beliefs)\nMisinformation ecology: How false narratives spread, where interventions go, demographic heterogeneity\nNLP fundamentals: Embeddings, transformer models, linguistic analysis\nEpidemiological reasoning: SEIR framework, causal mechanisms, intervention design\n\n\n\n7.2.3 Professional Practices\n\nReproducible workflows and code documentation\nClear communication for academic and business audiences\nEthical reflection and stakeholder accountability\nCross-functional collaboration (psychology, computer science, policy)",
     "crumbs": [
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Epilogue: My Path into Data Science</span>"
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Epilogue: Frontier Challenges & Future Directions</span>"
     ]
   },
   {
     "objectID": "chapters/05-epilogue.html#the-portfolio-narrative",
     "href": "chapters/05-epilogue.html#the-portfolio-narrative",
-    "title": "7  Epilogue: My Path into Data Science",
+    "title": "7  Epilogue: Frontier Challenges & Future Directions",
     "section": "7.3 The Portfolio Narrative",
     "text": "7.3 The Portfolio Narrative\nData science interviews often ask: “Tell us about a project you’re proud of.”\nThis book IS that answer. It demonstrates:\n\nEnd-to-end ownership: From problem definition to deployment\nRigor + pragmatism: Research standards + production realities\nCommunication: Code, visuals, narrative for different audiences\nValues: Ethics, limitations, honest uncertainty\nGrowth: Thesis → scalable research platform → publishable work",
     "crumbs": [
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Epilogue: My Path into Data Science</span>"
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Epilogue: Frontier Challenges & Future Directions</span>"
     ]
   },
   {
     "objectID": "chapters/05-epilogue.html#how-to-navigate-this-work",
     "href": "chapters/05-epilogue.html#how-to-navigate-this-work",
-    "title": "7  Epilogue: My Path into Data Science",
+    "title": "7  Epilogue: Frontier Challenges & Future Directions",
     "section": "7.4 How to Navigate This Work",
-    "text": "7.4 How to Navigate This Work\n\n7.4.1 For Hiring Managers & Collaborators\n\nChapter 1-2: I can do rigorous statistical analysis and translate it into reproducible code\nChapter 3-5: I understand machine learning fundamentals and can build applied models\nChapter 4, 6: I grapple with NLP and visualization design\nChapter 7: I think beyond the model—about impact, ethics, responsibility\nThis epilogue: I can articulate growth and learn from experience\n\nRelevant roles: Data Scientist, ML Engineer, Analytics Engineer, Research Scientist\n\n\n7.4.2 For Academics & Researchers\n\nChapter 1-2: Statistical methodology and open science practices\nChapter 4: NLP for linguistic theory\nChapter 5: Causal and simulation modeling\nChapter 7: Ethics in computational social science\n\nRelevant venues: Conference talks, journal submissions, collaborative research\n\n\n7.4.3 For Learners & Career-Changers\n\nStart here: Chapters 1-2 (foundation + tooling)\nApply next: Chapters 3-5 (ML pipelines, real data)\nThink holistically: Chapters 6-7 (systems thinking + ethics)\nBuild your own: Fork this repo, adapt the structure for your domain",
+    "text": "7.4 How to Navigate This Work\n\n7.4.1 For Hiring Managers & Collaborators\n\nChapter 1-2: I can do rigorous statistical analysis and translate it into reproducible code\nChapter 3-5: I understand machine learning fundamentals and can build applied models\nChapter 4, 6: I grapple with NLP and visualization design\nChapter 7: I think beyond the model—about impact, ethics, responsibility\nThis epilogue: I can articulate growth and learn from experience\n\nRelevant roles: Data Scientist, ML Engineer, Analytics Engineer, Research Scientist\n\n\n7.4.2 For Academics & Researchers\n\nChapter 1-2: Statistical methodology and open science practices\nChapter 4: NLP for linguistic theory\nChapter 5: Causal and simulation modeling\nChapter 7: Ethics in computational social science\n\nRelevant venues: Conference talks, journal submissions, collaborative research\n\n\n7.4.3 For Learners & Career-Changers\n\nStart here: Chapters 1-2 (foundation + tooling)\nApply next: Chapters 3-5 (ML pipelines, real data)\nThink holistically: Chapters 6-7 (systems thinking + ethics)\nBuild your own: Fork this repo, adapt the structure for your domain\n\n\nData science interviews often ask: “Tell us about a project you’re proud of.”\nThis book IS that answer. It demonstrates:\n\nEnd-to-end ownership: From behavioral research to production deployment\nMethodological rigor: Research standards across psychology, CS, and epidemiology\nCommunication: Code, visuals, narrative for different audiences\nValues: Ethics, limitations, responsible AI practices\nGrowth: Masters thesis → scalable research platform → publishable portfolio",
     "crumbs": [
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Epilogue: My Path into Data Science</span>"
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Epilogue: Frontier Challenges & Future Directions</span>"
     ]
   },
   {
-    "objectID": "chapters/05-epilogue.html#where-im-headed",
-    "href": "chapters/05-epilogue.html#where-im-headed",
-    "title": "7  Epilogue: My Path into Data Science",
-    "section": "7.5 Where I’m Headed",
-    "text": "7.5 Where I’m Headed\n\n7.5.1 Short Term (Next 6 Months)\n\nPublish manuscript from this book in peer-reviewed venue\nDeploy dashboards to mathwithmeditation.org\nContribute to open-source misinformation research tools\n\n\n\n7.5.2 Medium Term (1-2 Years)\n\nExpand to Nepal election misinformation dataset (Chapter 9?)\nIntegrate Vedanta/Anthroposophy NLP analysis (Chapter 10?)\nPartner with fact-checking organizations on real-world deployment\n\n\n\n7.5.3 Long Term\n\nVision: Make data science education more rigorous, inclusive, and ethical\nTeaching: Courses and workshops on responsible AI, reproducible research\nPolicy: Contribute to evidence-based regulation of social media",
+    "objectID": "chapters/05-epilogue.html#how-to-navigate-this-work-1",
+    "href": "chapters/05-epilogue.html#how-to-navigate-this-work-1",
+    "title": "7  Epilogue: Frontier Challenges & Future Directions",
+    "section": "7.5 How to Navigate This Work",
+    "text": "7.5 How to Navigate This Work\n\n7.5.1 For Hiring Managers & Collaborators\n\nUnit 1: I can design rigorous behavioral studies and analyze causal mechanisms\nUnit 2: I implement ML pipelines from classical to transformer-based methods\nUnit 3: I build mathematical models and reason about population-level dynamics\nUnit 4: I deploy models responsibly, monitor in production, and think about ethics\nThis epilogue: I can articulate growth and learn from iterating on complex problems\n\nRelevant roles: Data Scientist, ML Engineer, Analytics Engineer, Research Scientist\n\n\n7.5.2 For Academics & Researchers\n\nUnit 1: Behavioral survey methodology, mediation analysis, measurement theory\nUnit 2: NLP baselines and deep learning for text classification\nUnit 3: Epidemiological modeling applied to information diffusion\nUnit 4: Responsible AI, model cards, ethical frameworks for deployment\n\nRelevant venues: Conference talks, journal submissions, collaborative research\n\n\n7.5.3 For Learners & Career-Changers\n\nStart here: Unit 1 (behavioral foundations + research design)\nBuild skill next: Units 2-3 (ML pipelines, mathematical modeling)\nThink systemically: Unit 4 (ethics, production, stakeholders)\nBuild your own: Fork this repo, adapt the structure for your domain",
     "crumbs": [
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Epilogue: My Path into Data Science</span>"
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Epilogue: Frontier Challenges & Future Directions</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/05-epilogue.html#frontier-challenges",
+    "href": "chapters/05-epilogue.html#frontier-challenges",
+    "title": "7  Epilogue: Frontier Challenges & Future Directions",
+    "section": "7.6 Frontier Challenges",
+    "text": "7.6 Frontier Challenges\nMisinformation research is evolving rapidly. This book represents one approach; the next frontier challenges include:\n\n7.6.1 Unit 1 Extensions: Measuring Vulnerability\n\nCross-cultural psychology: Do CRT, need for cognition, conspiracy beliefs predict susceptibility similarly across cultures?\nLongitudinal dynamics: How do susceptibility factors change over time? Life-course developments?\nNeurobiological foundations: Can we use fMRI or eye-tracking to validate psychological measures?\n\n\n\n7.6.2 Unit 2 Extensions: Detecting Narratives\n\nMultimodal detection: Images + text + video (not just text titles)\nReal-time detection: Current models operate on historical FakeNewsNet; can they catch emerging misinformation before it spreads?\nAdversarial robustness: Can models withstand intentional attacks (rewording, paraphrasing)?\nCross-lingual transfer: German, Arabic, Hindi detection from English training data?\n\n\n\n7.6.3 Unit 3 Extensions: Modeling Spread\n\nNetwork heterogeneity: Real cascades aren’t well-mixed; explicit social graphs needed\nTemporal resolution: Current model uses aggregate parameters; can we model day-by-day dynamics?\nIntervention evaluation: What interventions actually work? Education, friction, counter-narratives?\n\n\n\n7.6.4 Unit 4 Extensions: Fusion & Scale\n\nReal-world deployment: Move from research dashboards to production systems at platform scale\nFairness & bias: Ensure models don’t disproportionately label marginalized groups’ content as misinformation\nExplainability: SHAP plots for research; what explanations do end-users understand?\nRegulatory alignment: GDPR, DSA, and emerging AI regulations—how to comply while maintaining effectiveness?",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Epilogue: Frontier Challenges & Future Directions</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/05-epilogue.html#short-term-roadmap-next-12-months",
+    "href": "chapters/05-epilogue.html#short-term-roadmap-next-12-months",
+    "title": "7  Epilogue: Frontier Challenges & Future Directions",
+    "section": "7.7 Short-Term Roadmap (Next 12 Months)",
+    "text": "7.7 Short-Term Roadmap (Next 12 Months)\n\n\n\nGoal\nUnit(s)\nStatus\n\n\n\n\nPublish Unit 1 findings\nUnit 1\n🟡 In progress\n\n\nCross-validate Units 2-3\nUnits 2, 3\n🟡 In progress\n\n\nDeploy Unit 4 dashboard\nUnit 4\n✅ Complete (external repo)\n\n\nExpand to Nepal 2024 election data\nAll units\n🔴 Not started\n\n\nDocument API for external researchers\nUnit 4\n🔴 Not started",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Epilogue: Frontier Challenges & Future Directions</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/05-epilogue.html#long-term-vision",
+    "href": "chapters/05-epilogue.html#long-term-vision",
+    "title": "7  Epilogue: Frontier Challenges & Future Directions",
+    "section": "7.8 Long-Term Vision",
+    "text": "7.8 Long-Term Vision\nMake data science education more rigorous, inclusive, and ethical through: - Teaching: Courses on responsible AI, reproducible research, research design - Collaboration: Partner with fact-checking orgs, academic labs, policy makers - Policy: Contribute evidence to inform regulation of social media and AI systems",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Epilogue: Frontier Challenges & Future Directions</span>"
     ]
   },
   {
     "objectID": "chapters/05-epilogue.html#lessons-learned",
     "href": "chapters/05-epilogue.html#lessons-learned",
-    "title": "7  Epilogue: My Path into Data Science",
-    "section": "7.6 Lessons Learned",
-    "text": "7.6 Lessons Learned\n\n7.6.1 1. Rigor Compounds\nStarting with careful data cleaning and measurement validation saves enormous time downstream.\n\n\n7.6.2 2. Reproducibility is a Love Letter to Future You\nSix months from now, you won’t remember why you chose this parameter. Document it.\n\n\n7.6.3 3. Communicate to Different Audiences\nThe same finding needs different frames: - Academics: Effect sizes, confidence intervals, theoretical implications - Practitioners: Actionable thresholds, business impact, failure modes - Public: Intuitive narrative, why it matters to everyday life\n\n\n7.6.4 4. Ethics Isn’t a Checkbox\nIt’s not “complete” and then done. It’s ongoing: Design → Build → Deploy → Monitor → Reflect.\n\n\n7.6.5 5. Collaborate Across Disciplines\nMy best insights came from talking with psychologists, journalists, and platform safety teams—not just data scientists.",
+    "title": "7  Epilogue: Frontier Challenges & Future Directions",
+    "section": "7.9 Lessons Learned",
+    "text": "7.9 Lessons Learned\n\n7.9.1 1. Rigor Compounds\nStarting with careful data cleaning and measurement validation saves enormous time downstream.\n\n\n7.9.2 2. Reproducibility is a Love Letter to Future You\nSix months from now, you won’t remember why you chose this parameter. Document it.\n\n\n7.9.3 3. Communicate to Different Audiences\nThe same finding needs different frames: - Academics: Effect sizes, confidence intervals, theoretical implications - Practitioners: Actionable thresholds, business impact, failure modes - Public: Intuitive narrative, why it matters to everyday life\n\n\n7.9.4 4. Ethics Isn’t a Checkbox\nIt’s not “complete” and then done. It’s ongoing: Design → Build → Deploy → Monitor → Reflect.\n\n\n7.9.5 5. Collaborate Across Disciplines\nMy best insights came from talking with psychologists, journalists, and platform safety teams—not just data scientists.",
     "crumbs": [
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Epilogue: My Path into Data Science</span>"
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Epilogue: Frontier Challenges & Future Directions</span>"
     ]
   },
   {
     "objectID": "chapters/05-epilogue.html#staying-in-touch",
     "href": "chapters/05-epilogue.html#staying-in-touch",
-    "title": "7  Epilogue: My Path into Data Science",
-    "section": "7.7 Staying in Touch",
-    "text": "7.7 Staying in Touch\nI’m always interested in: - Collaborations on misinformation research - Speaking opportunities and teaching - Feedback on this work - Directions you take it in (fork it, improve it, make it your own!)\n\nGitHub: https://github.com/sanjaykshetri\nWebsite: https://mathwithmeditation.com\nEmail: [your contact info]",
+    "title": "7  Epilogue: Frontier Challenges & Future Directions",
+    "section": "7.10 Staying in Touch",
+    "text": "7.10 Staying in Touch\nI’m always interested in: - Collaborations on misinformation research - Speaking opportunities and teaching - Feedback on this work - Directions you take it in (fork it, improve it, make it your own!)\n\nGitHub: https://github.com/sanjaykshetri\nWebsite: https://mathwithmeditation.com\nEmail: [your contact info]",
     "crumbs": [
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Epilogue: My Path into Data Science</span>"
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Epilogue: Frontier Challenges & Future Directions</span>"
     ]
   },
   {
     "objectID": "chapters/05-epilogue.html#one-more-thing",
     "href": "chapters/05-epilogue.html#one-more-thing",
-    "title": "7  Epilogue: My Path into Data Science",
-    "section": "7.8 One More Thing",
-    "text": "7.8 One More Thing\nMisinformation is a hard problem. It won’t be “solved” by a single model or dataset.\nBut by combining behavioral insight, statistical rigor, technical skill, and ethical reasoning, we can make incremental progress. We can help people think more clearly. We can build systems that are more transparent and just.\nThat’s why this book exists. That’s why I do this work.",
+    "title": "7  Epilogue: Frontier Challenges & Future Directions",
+    "section": "7.11 One More Thing",
+    "text": "7.11 One More Thing\nMisinformation is a hard problem. It won’t be “solved” by a single model or dataset.\nBut by combining behavioral insight, statistical rigor, technical skill, and ethical reasoning, we can make incremental progress. We can help people think more clearly. We can build systems that are more transparent and just.\nThat’s why this book exists. That’s why I do this work.",
     "crumbs": [
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Epilogue: My Path into Data Science</span>"
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Epilogue: Frontier Challenges & Future Directions</span>"
     ]
   },
   {
     "objectID": "chapters/05-epilogue.html#acknowledgments",
     "href": "chapters/05-epilogue.html#acknowledgments",
-    "title": "7  Epilogue: My Path into Data Science",
-    "section": "7.9 Acknowledgments",
-    "text": "7.9 Acknowledgments\n[Placeholder: Thank advisors, collaborators, mentors, family]",
+    "title": "7  Epilogue: Frontier Challenges & Future Directions",
+    "section": "7.12 Acknowledgments",
+    "text": "7.12 Acknowledgments\n[Placeholder: Thank advisors, collaborators, mentors, family]",
     "crumbs": [
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Epilogue: My Path into Data Science</span>"
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Epilogue: Frontier Challenges & Future Directions</span>"
     ]
   },
   {
     "objectID": "chapters/05-epilogue.html#references",
     "href": "chapters/05-epilogue.html#references",
-    "title": "7  Epilogue: My Path into Data Science",
-    "section": "7.10 References",
-    "text": "7.10 References\n[Full bibliography of chapters synthesized here]",
+    "title": "7  Epilogue: Frontier Challenges & Future Directions",
+    "section": "7.13 References",
+    "text": "7.13 References\n[Full bibliography of chapters synthesized here]",
     "crumbs": [
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Epilogue: My Path into Data Science</span>"
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Epilogue: Frontier Challenges & Future Directions</span>"
     ]
   }
 ]
