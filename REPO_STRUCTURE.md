@@ -1,103 +1,91 @@
-# Repository Structure — 4-Unit Framework
+# Repository Structure — Hub & Spoke Model
 
-This document describes the current repository structure aligned with the 4-unit research framework for "The Tentacles of Misinformation" book project.
+This **monograph** (hub) integrates four specialized, independent repositories (spokes) into a cohesive research narrative published as an interactive Quarto book.
 
----
-
-## 📖 Book (Primary Deliverable)
-
-```
-book/
-├── _quarto.yml                    # Configuration: 6 chapters (prologue + 4 units + epilogue)
-├── chapters/
-│   ├── 00-prologue.qmd           # When a False Story Wins
-│   ├── 01-measuring-vulnerability.qmd     # Unit 1: Behavioral Science
-│   ├── 02-detecting-narratives.qmd        # Unit 2: NLP Pipeline
-│   ├── 03-modeling-spread.qmd             # Unit 3: Epidemiology
-│   ├── 04-fusion-scale.qmd                # Unit 4: Production & Ethics
-│   └── 05-epilogue.qmd           # Frontier Challenges & Roadmap
-├── index.qmd                      # Book homepage
-├── references.bib                 # Bibliography
-├── _book/                         # Generated HTML output (do not commit edits here)
-├── CHAPTER_ROADMAP.md            # What each unit needs (visualization, code references)
-└── render_output.txt              # Latest render log
-```
-
-**Live Site:** https://sanjaykshetri.github.io/tentacles-of-misinformation/
+The hub coordinates, links, and showcases work from four dedicated external repos—each repository is self-contained and can be used independently.
 
 ---
 
-## 🧠 Unit 1: Behavioral Analysis
-```
-behavioral_analysis/
-├── README.md                     # Overview of behavioral module
-├── notebooks/
-│   ├── 01_exploratory_analysis.ipynb       # EDA, feature validation
-│   ├── 02_baseline_models.ipynb            # Logistic regression, SVM
-│   ├── 03_linguistic_features.ipynb        # NLP-behavioral interaction
-│   ├── 03_regression_models.ipynb          # Statistical modeling
-│   └── 04_tree_models_shap.ipynb           # SHAP feature importance
-├── scripts/                      # Reusable Python modules
-└── results/                      # Analysis outputs
-```
+## 🌐 Hub Architecture
 
-**Maps to:** `book/chapters/01-measuring-vulnerability.qmd`
+```
+        ┌─────────────────────────────────────────┐
+        │  tentacles-of-misinformation (Hub)     │
+        │    Published Quarto Research Book       │
+        │  https://sanjaykshetri.github.io/...   │
+        └──────────────┬──────────────────────────┘
+                       │
+        ┌──────────────┼──────────────┬──────────────┐
+        │              │              │              │
+        ↓              ↓              ↓              ↓
+    ┌────────┐    ┌────────┐    ┌────────┐    ┌──────────┐
+    │Unit 1  │    │Unit 2  │    │Unit 3  │    │Unit 4    │
+    │(Spoke) │    │(Spoke) │    │(Spoke) │    │(Spoke)   │
+    └────────┘    └────────┘    └────────┘    └──────────┘
+        │              │              │              │
+        ↓              ↓              ↓              ↓
+   Misinform-    Detection ML    Epidemic      At Scale
+   ation Study    Models          Model
+   Masters Thesis
+```
 
 ---
 
-## 🤖 Unit 2: NLP Models
-```
-nlp_models/
-├── README.md                     # Overview of NLP module
-├── preprocessing/                # Text cleaning, tokenization
-├── embeddings/                   # SBERT, transformer embeddings
-├── classification/               # BERT, RoBERTa, DistilBERT classifiers
-├── evaluation/                   # Metrics, cross-validation
-└── notebooks/
-    ├── 02_baseline_models.ipynb  # TF-IDF → Logistic Regression, SVM
-    ├── 03_linguistic_features.ipynb
-    └── 04_transformers.ipynb     # RoBERTa fine-tuning
-```
+## 🔗 External Source Repositories (Spokes)
 
-**Maps to:** `book/chapters/02-detecting-narratives.qmd`
+> **Key Principle:** Each spoke repository is a complete, independent project. The hub book coordinates and showcases their outputs.
+
+### **Spoke 1: Behavioral-Cognitive Foundation**
+**Repository:** [Misinformation-study-Masters-Thesis](https://github.com/sanjaykshetri/Misinformation-study-Masters-Thesis)
+
+- **Language:** R (statistical analysis)
+- **Data:** N=194 behavioral survey (Qualtrics), IRB-approved
+- **Methods:** Mediation analysis, SEM (lavaan), measurement theory
+- **Key Finding:** CRT predicts verification behavior (β=0.149, p=.031)
+- **Deliverables:** Masters thesis PDF, analysis scripts, data dictionary, raw datasets
+- **Maps to:** `book/chapters/01-measuring-vulnerability.qmd`
+- **How to use:** Run `data_analysis1.R` for full reproducible pipeline
+
+### **Spoke 2: NLP Baseline Models**
+**Repository:** [Misinformation-Detection-ML-Model2](https://github.com/sanjaykshetri/Misinformation-Detection-ML-Model2)
+
+- **Language:** Python (Jupyter)
+- **Dataset:** FakeNewsNet (23,196 real fact-checked articles)
+- **Methods:** TF-IDF + 3 classifiers (Logistic Regression, Random Forest, Gradient Boosting)
+- **Results:** 83.62% accuracy (LR best), 87.83% ROC-AUC, rigorous statistical validation
+- **Key Notebook:** `misinformation_analysis.ipynb` (complete pipeline)
+- **Maps to:** `book/chapters/02-detecting-narratives.qmd` (Unit 2: Baseline)
+- **How to use:** Open notebook, run cell-by-cell (includes EDA, training, evaluation)
+
+### **Spoke 3: Epidemiological SEIR Modeling**
+**Repository:** [misinformation-epidemic-model](https://github.com/sanjaykshetri/misinformation-epidemic-model)
+
+- **Language:** Python (ODE-based simulation)
+- **Model:** SEIR compartmental model (Susceptible→Exposed→Infected→Recovered)
+- **Calibration:** FakeNewsNet cascade data (β=0.0153, σ=0.3193, γ=0.10)
+- **Quality:** 46 unit tests, mypy strict type checking, CI/CD pipeline
+- **Key Notebooks:** 
+  - `notebooks/quick_start_academic.ipynb` (5-minute overview)
+  - `notebooks/baseline_vs_interventions.ipynb` (full analysis)
+- **Maps to:** `book/chapters/03-modeling-spread.qmd`
+- **How to use:** Run `quick_start_academic.ipynb` for immediate results
+
+### **Spoke 4: Production-Scale Deep Learning**
+**Repository:** [misinformation-at-scale](https://github.com/sanjaykshetri/misinformation-at-scale)
+
+- **Language:** Python (deep learning + Streamlit)
+- **Dataset:** FakeNewsNet + verified data integrity (0 leakage)
+- **Models:** DistilBERT fine-tuning (85.75% accuracy, +2.13% vs baseline)
+- **Infrastructure:** Google Colab ready, Streamlit dashboards, Docker deployment
+- **Comparison:** Baseline LR (83.62%) vs. DistilBERT (85.75%)
+- **Key Notebook:** `notebooks/04_deep_learning_model.ipynb`
+- **Deliverables:** Model cards (MODEL_CARD.md), deployment guides, ethical frameworks
+- **Maps to:** `book/chapters/04-fusion-scale.qmd`
+- **How to use:** Open notebook with Google Colab GPU or run locally
 
 ---
 
-## 🔗 Unit 3 & 4: Fusion & Scale
-```
-fusion_models/
-├── README.md                     # Overview of fusion module  
-├── feature_engineering/          # Behavioral + NLP feature fusion
-├── multimodal_models/            # Early/late fusion architectures
-├── experiments/                  # SEIR simulations, hyperparameter tuning
-└── notebooks/
-    ├── 03_modeling_spread.ipynb  # SEIR calibration
-    └── 04_ensemble.ipynb         # Fusion architecture
-
-dashboards/
-├── README.md                     # Overview of dashboards
-├── streamlit/                    # Interactive Python dashboards
-│   ├── app.py                    # Main dashboard entry point
-│   ├── behavioral_explorer.py
-│   ├── nlp_model_demo.py
-│   └── risk_predictor.py
-└── powerbi/                      # Business intelligence dashboards
-
-src/
-├── data_prep.py                  # Data loading and preprocessing
-├── features.py                   # Feature extraction
-├── train_baseline.py             # Train baseline models
-├── train_linguistic_features.py  # Train NLP-behavioral models
-└── train_transformers.py         # Train transformer models
-```
-
-**Maps to:**
-- `book/chapters/03-modeling-spread.qmd` (Unit 3: SEIR simulations)
-- `book/chapters/04-fusion-scale.qmd` (Unit 4: Dashboards & ethics)
-
----
-
-## 📊 Data
+## 📊 Data (Local Copies)
 ```
 data/
 ├── README.md                     # Data documentation
@@ -112,19 +100,44 @@ data/
 
 ---
 
-## 📈 Results & Models
+## � Hub Book Structure (Primary Deliverable)
+
+```
+book/
+├── _quarto.yml                               # Configuration (6 chapters)
+├── chapters/
+│   ├── 00-prologue.qmd                      # When a False Story Wins
+│   ├── 01-measuring-vulnerability.qmd       # Unit 1: Behavioral Science (links to Spoke 1)
+│   ├── 02-detecting-narratives.qmd          # Unit 2: NLP Models (links to Spoke 2)
+│   ├── 03-modeling-spread.qmd               # Unit 3: SEIR Modeling (links to Spoke 3)
+│   ├── 04-fusion-scale.qmd                  # Unit 4: Production & Ethics (links to Spoke 4)
+│   └── 05-epilogue.qmd                      # Frontier Challenges & Future Directions
+├── index.qmd                                 # Book homepage and TOC
+├── references.bib                            # Bibliography
+├── _book/                                    # Generated HTML (deployed to GitHub Pages)
+├── CHAPTER_ROADMAP.md                        # Development status per unit
+└── render_output.txt                         # Latest Quarto render log
+```
+
+**Live Site:** https://sanjaykshetri.github.io/tentacles-of-misinformation/
+
+**Rendering:** Locally with Quarto v1.8.25, pre-rendered HTML committed to `_book/`
+
+---
+
+## 📈 Results & Models (Reference Cache)
 ```
 results/
-├── baseline_results_*.txt        # Model performance summaries
+├── baseline_results_*.txt        # Performance summaries (from spoke repos)
 ├── transformer_results_*.txt
-├── model_comparison.png          # Ensemble performance chart
-├── roc_*.png                     # ROC curves
-├── cm_*.png                      # Confusion matrices
-├── pr_*.png                      # Precision-recall curves
-└── [other visualizations]
+├── model_comparison.png          # Visual reference artifacts
+├── roc_*.png
+├── cm_*.png
+├── pr_*.png
+└── [other benchmark outputs]
 
 models/
-├── behavioral_model.joblib
+├── behavioral_model.joblib       # Serialized models (from spoke repos)
 ├── feature_scaler.joblib
 ├── hybrid_model.joblib
 ├── linear_svm.joblib
@@ -132,89 +145,111 @@ models/
 └── tfidf_vectorizer.joblib
 ```
 
+**Note:** These are reference caches; primary versions live in respective spoke repositories.
+
 ---
 
-## 📚 Documentation
+## 📚 Hub Documentation Files
+
 ```
 docs/
 ├── README.md                     # Overview of 4-unit framework
 ├── CAPSTONE_PROPOSAL.md          # Original project proposal
 ├── THESIS_INTEGRATION.md         # How thesis maps to 4 units
 ├── TECHNICAL_ROADMAP.md          # Development phases
-├── figures/                      # Publication-ready plots (empty - generate from results/)
-└── architecture_diagrams/        # System diagrams (empty - to be created)
+├── figures/                      # Publication-ready plots (reference)
+└── architecture_diagrams/        # System architecture diagrams
+
+REPO_STRUCTURE.md                 # This file — hub & spoke layout
+DEPLOYMENT_GUIDE.md               # How to render and deploy book
+book/CHAPTER_ROADMAP.md           # Per-unit development status
+LICENSE                           # MIT License
+README.md                         # Main project overview (portfolio hub)
 ```
 
 ---
 
-## 🔧 Configuration & Deployment
+## 🔧 Environment & Deployment
+
 ```
 environment/
 ├── conda.yml                     # Conda environment spec
 ├── requirements.txt              # Pip dependencies
-└── README.md                     # Setup instructions
+└── README.md                     # Setup instructions (for local book rendering)
 
 .github/
 └── workflows/
-    └── quarto-publish.yml        # Auto-deploy to GitHub Pages
+    └── quarto-publish.yml        # GitHub Actions: Auto-deploy to Pages on push
 
-LICENSE                           # MIT License
-README.md                         # Main project overview
-DEPLOYMENT_GUIDE.md               # How to render and deploy book
+book/_book/                       # Generated HTML output (committed, deployed to GitHub Pages)
 ```
 
 ---
 
-## 📦 Data Sources
+## 📊 Data (Local References)
 
-| Dataset | Files | Records | Source |
-|---------|-------|---------|--------|
-| **FakeNewsNet** | 4 CSV | ~5K articles | `data/raw/fakenewsnet/` |
-| **Behavioral Survey** | Python pickle | ~194 subjects | `behavioral_analysis/` |
-| **LIAR** | (linkedfrom code) | ~13K statements | External (Hugging Face) |
+| Dataset | Location | Purpose |
+|---------|----------|---------|
+| **FakeNewsNet** | `data/raw/fakenewsnet/` | Local copy (4 CSV files) — shared across Units 2, 3, 4 |
+| **Behavioral Survey** | `behavioral_analysis/` | Survey data cache (Unit 1 origin) |
+| **Models** | `models/` | Serialized model artifacts (references) |
 
----
-
-## 🚀 Key Directories by Research Unit
-
-### Unit 1 (Behavioral Science)
-- **Source:** `behavioral_analysis/`
-- **Output:** `book/chapters/01-measuring-vulnerability.qmd`
-- **Visualization:** Descriptive stats, feature correlations, path diagrams
-
-### Unit 2 (NLP Pipeline)
-- **Source:** `nlp_models/`, `results/` (PNG files)
-- **Output:** `book/chapters/02-detecting-narratives.qmd`
-- **Visualization:** ROC curves, confusion matrices, model comparisons
-
-### Unit 3 (Epidemiology)
-- **Source:** `fusion_models/experiments/`
-- **Output:** `book/chapters/03-modeling-spread.qmd`
-- **Visualization:** SEIR dynamics, sensitivity heatmaps
-
-### Unit 4 (Fusion & Scale)
-- **Source:** `dashboards/`, `src/`, `fusion_models/`
-- **Output:** `book/chapters/04-fusion-scale.qmd`
-- **Visualization:** Architecture diagrams, dashboard screenshots, monitoring plots
+**Primary Sources:**
+- Unit 1 behavioral data → [Spoke 1 repo](https://github.com/sanjaykshetri/Misinformation-study-Masters-Thesis)
+- Units 2, 3, 4 datasets → Live in respective spoke repos
 
 ---
 
-## ✅ Repository Consistency Checklist
+## ✅ Repository Architecture Summary
 
-- [x] Book structure: 6 chapters (prologue + 4 units + epilogue)
-- [x] Chapter files named sequentially: 00-prologue, 01-04 units, 05-epilogue
-- [x] GitHub Pages deployed and live
-- [x] Documentation aligned with 4-unit framework
-- [x] README.md updated (no outdated chapter references)
-- [x] CHAPTER_ROADMAP.md updated with visualization priorities
-- [x] THESIS_INTEGRATION.md mapped to 4-unit model
-- [x] Old chapter files (10-chapter structure) removed
-- [ ] (Optional) Empty directories cleaned up (`nlp_pipelines/`, `research_book/`)
-- [ ] (Optional) Architecture diagrams generated in `docs/architecture_diagrams/`
+### **Hub Responsibilities:**
+- ✅ Render and publish Quarto book to GitHub Pages
+- ✅ Link to and showcase 4 spoke repositories
+- ✅ Provide narrative coherence across distributed work
+- ✅ Serve as portfolio entry point and SEO landing page
+
+### **Spoke Repositories (Independent):**
+- ✅ Unit 1 (Spoke): Behavioral study — fully independent R project
+- ✅ Unit 2 (Spoke): NLP baseline — fully independent Python project
+- ✅ Unit 3 (Spoke): SEIR modeling — fully independent Python project
+- ✅ Unit 4 (Spoke): Production at scale — fully independent Python project
+
+### **Data Flow:**
+```
+             Published Book (GitHub Pages)
+                      ↓
+        [ Monograph chapters with links ]
+                      ↓
+    [ Embed visualizations from spoke repos ]
+    [ Citations + "Learn more" & source links ]
+```
 
 ---
 
-## 📝 File Cleanup Status
+## 📝 Maintenance Notes
+
+- **Book Rendering:** Run `quarto render book/` locally, HTML output goes to `book/_book/`
+- **Deployment:** Push main branch → GitHub Actions auto-deploys to GitHub Pages
+- **Updating Units:** Edit chapters in `book/chapters/`, add links to spoke repos
+- **Spoke Updates:** Each spoke repo maintains its own code, notebooks, and datasets independently
+- **Hub Sync:** When spoke repos update, manually pull key findings and update chapter text/links
+
+---
+
+## 🔗 Quick Links to Spoke Repos
+
+1. **Unit 1 — Behavioral Foundation**  
+   → [github.com/sanjaykshetri/Misinformation-study-Masters-Thesis](https://github.com/sanjaykshetri/Misinformation-study-Masters-Thesis)
+
+2. **Unit 2 — NLP Baselines**  
+   → [github.com/sanjaykshetri/Misinformation-Detection-ML-Model2](https://github.com/sanjaykshetri/Misinformation-Detection-ML-Model2)
+
+3. **Unit 3 — Epidemic Modeling**  
+   → [github.com/sanjaykshetri/misinformation-epidemic-model](https://github.com/sanjaykshetri/misinformation-epidemic-model)
+
+4. **Unit 4 — Production & Scale**  
+   → [github.com/sanjaykshetri/misinformation-at-scale](https://github.com/sanjaykshetri/misinformation-at-scale)
+````
 
 **Removed Files:**
 - Old 10-chapter structure (01-introduction through 07-ethics-responsible-ds)
