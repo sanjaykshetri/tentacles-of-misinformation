@@ -1,0 +1,672 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "The Tentacles of Misinformation",
+    "section": "",
+    "text": "1 The Tentacles of Misinformation",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>The Tentacles of Misinformation</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#a-research-monograph-on-cognitive-vulnerability-and-predictive-analytics",
+    "href": "index.html#a-research-monograph-on-cognitive-vulnerability-and-predictive-analytics",
+    "title": "The Tentacles of Misinformation",
+    "section": "1.1 A Research Monograph on Cognitive Vulnerability and Predictive Analytics",
+    "text": "1.1 A Research Monograph on Cognitive Vulnerability and Predictive Analytics\n\n\n\n\n\n\nNote\n\n\n\nThis research monograph presents an end-to-end study of misinformation susceptibility, integrating behavioral science, NLP, and machine learning to understand who falls for misinformation, why, and how susceptibility can be predicted and mitigated.\n\n\n\n1.1.1 Overview\nMisinformation represents one of the most pressing challenges to informed discourse and democratic participation in the digital age. This work extends an IRB-approved Master’s thesis on cognitive vulnerability to misinformation with large-scale NLP models, fusion architectures, and interactive decision support systems.\n\n\n1.1.2 Key Contributions\n\nBehavioral Analysis: Survey-based identification of cognitive and mindset features that predict susceptibility\nNLP Classification: State-of-the-art transformer models for detecting misinformation narratives at scale\nFusion Models: Multimodal architectures combining behavioral and content features for improved predictions\nPolicy Insights: Actionable dashboards and visualizations for researchers and policymakers\n\n\n\n1.1.3 Author\nSanjay Kumar Chhetri\nData Scientist | Behavioral Researcher | Educator\n\nHow to navigate this book:\n\nStart with the Introduction for context and research questions\nReview the Literature Review for theoretical foundations\nExplore the Behavioral Analysis chapter for cognitive predictors\nUnderstand NLP Pipelines for content analysis methods\nStudy Fusion Models for the integration approach\nExamine Results and Discussion for key findings\nConsult Appendices for technical details and supplementary analyses\n\n\nCitation:\n@book{chhetri2026tentacles,\n  title={The Tentacles of Misinformation: Behavioral Science, NLP, and Predictive Analytics},\n  author={Chhetri, Sanjay Kumar},\n  year={2026},\n  publisher={Self-published},\n  url={https://tentacles-of-misinformation.com}\n}\nDisclaimer:\nAll behavioral data used in this project is anonymized and approved for analysis under IRB protocol. Public misinformation datasets are used in accordance with their respective licenses.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>The Tentacles of Misinformation</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/00-prologue.html",
+    "href": "chapters/00-prologue.html",
+    "title": "2  Prologue — When a False Story Wins",
+    "section": "",
+    "text": "2.1 A Concrete Case\nEvery day, misinformation spreads faster than truth. But why? And who falls for it?\nThis prologue opens with a concrete anecdote—a false story that captured public attention and reshaped beliefs—and asks: What psychological, social, and algorithmic forces allowed this narrative to prevail?",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Prologue — When a False Story Wins</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/00-prologue.html#the-tentacles-a-metaphor-for-complexity",
+    "href": "chapters/00-prologue.html#the-tentacles-a-metaphor-for-complexity",
+    "title": "2  Prologue — When a False Story Wins",
+    "section": "2.2 The Tentacles: A Metaphor for Complexity",
+    "text": "2.2 The Tentacles: A Metaphor for Complexity\nMisinformation doesn’t spread through a single mechanism. Instead, it exploits multiple psychological and social vulnerabilities:\n\nCognitive Biases: Confirmation bias, motivated reasoning, pattern recognition gone awry\nEmotions: Fear, outrage, and tribalism override critical thinking\nAlgorithms: Social media platforms amplify what engages, regardless of truth\nSocial Dynamics: Trust networks and authority figures shape belief",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Prologue — When a False Story Wins</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/00-prologue.html#what-this-book-will-explore",
+    "href": "chapters/00-prologue.html#what-this-book-will-explore",
+    "title": "2  Prologue — When a False Story Wins",
+    "section": "2.3 What This Book Will Explore",
+    "text": "2.3 What This Book Will Explore\nThis book is structured around a simple question: Can we measure, model, and mitigate misinformation susceptibility?\nAcross eight chapters, we’ll build:\n\nBehavioral models that predict who is vulnerableto misinformation\nNLP systems that detect and characterize false narratives\nFusion models combining human cognition with content analysis\nDashboards to visualize risk and spread\nEthical frameworks for responsible intervention",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Prologue — When a False Story Wins</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/00-prologue.html#a-portfolio-in-data-science",
+    "href": "chapters/00-prologue.html#a-portfolio-in-data-science",
+    "title": "2  Prologue — When a False Story Wins",
+    "section": "2.4 A Portfolio in Data Science",
+    "text": "2.4 A Portfolio in Data Science\nMore than research, this book is a portfolio project—a story of how data science integrates behavioral science, machine learning, and ethical reasoning.\nEach chapter demonstrates not just what can be done, but how to do it reproducibly, rigorously, and responsibly.\nLet’s begin.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Prologue — When a False Story Wins</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/01-thesis-as-code.html",
+    "href": "chapters/01-thesis-as-code.html",
+    "title": "3  Chapter 1: Measuring Vulnerability — Rebuilding My Thesis as Code",
+    "section": "",
+    "text": "3.1 From Survey to Science\nMy Master’s thesis investigated a deceptively simple question: Who is cognitively vulnerable to misinformation?\nUsing a survey of 194 participants, I measured four cognitive constructs:",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Chapter 1: Measuring Vulnerability — Rebuilding My Thesis as Code</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/01-thesis-as-code.html#from-survey-to-science",
+    "href": "chapters/01-thesis-as-code.html#from-survey-to-science",
+    "title": "3  Chapter 1: Measuring Vulnerability — Rebuilding My Thesis as Code",
+    "section": "",
+    "text": "CRT: Cognitive Reflection Test (numeracy and analytical thinking)\nVOI-7: Openness to information and epistemic curiosity\n\nCMQ-5: Conspiracy mentality and mistrust\nBSR-10: Bullshit receptivity (susceptibility to pseudo-profound language)",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Chapter 1: Measuring Vulnerability — Rebuilding My Thesis as Code</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/01-thesis-as-code.html#why-rebuild-as-code",
+    "href": "chapters/01-thesis-as-code.html#why-rebuild-as-code",
+    "title": "3  Chapter 1: Measuring Vulnerability — Rebuilding My Thesis as Code",
+    "section": "3.2 Why Rebuild as Code?",
+    "text": "3.2 Why Rebuild as Code?\nThe original analysis lived in SPSS—proprietary, point-and-click, difficult to reproduce or extend.\nThis chapter reconstructs the entire thesis as reproducible Python and R code, making it:\n\nTransparent: Every step documented and auditable\nReusable: Code can be adapted for new data or questions\nVerifiable: Hiring managers, academics, and collaborators can validate findings\nExtensible: Foundation for multimodal models later in this book",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Chapter 1: Measuring Vulnerability — Rebuilding My Thesis as Code</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/01-thesis-as-code.html#analysis-pipeline",
+    "href": "chapters/01-thesis-as-code.html#analysis-pipeline",
+    "title": "3  Chapter 1: Measuring Vulnerability — Rebuilding My Thesis as Code",
+    "section": "3.3 Analysis Pipeline",
+    "text": "3.3 Analysis Pipeline\n\n3.3.1 1. Data Cleaning & EDA\n\nMissing data imputation\nOutlier detection and handling\nDescriptive statistics and distributions\n\n\n\n3.3.2 2. Measurement Validation\n\nCronbach’s α (internal consistency)\nNormality testing (Shapiro-Wilk)\nCorrelation matrices (Pearson and Spearman)\n\n\n\n3.3.3 3. Path Modeling & Mediation\n\nStructural equation modeling (lavaan in R)\nTesting direct and indirect effects\nBootstrap confidence intervals\n\n\n\n3.3.4 4. Effect Interpretation\n\nEffect sizes for academic publication\nPractical implications for practitioners",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Chapter 1: Measuring Vulnerability — Rebuilding My Thesis as Code</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/01-thesis-as-code.html#key-findings",
+    "href": "chapters/01-thesis-as-code.html#key-findings",
+    "title": "3  Chapter 1: Measuring Vulnerability — Rebuilding My Thesis as Code",
+    "section": "3.4 Key Findings",
+    "text": "3.4 Key Findings\n[Placeholder: Insert findings from thesis]",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Chapter 1: Measuring Vulnerability — Rebuilding My Thesis as Code</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/01-thesis-as-code.html#reproducibility-note",
+    "href": "chapters/01-thesis-as-code.html#reproducibility-note",
+    "title": "3  Chapter 1: Measuring Vulnerability — Rebuilding My Thesis as Code",
+    "section": "3.5 Reproducibility Note",
+    "text": "3.5 Reproducibility Note\nAll code, data, and results for this chapter live in: - behavioral_analysis/notebooks/01_exploratory_analysis.ipynb - src/data_prep.py and src/features.py\nRun the scripts to regenerate all tables and figures.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Chapter 1: Measuring Vulnerability — Rebuilding My Thesis as Code</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/02-spss-to-python.html",
+    "href": "chapters/02-spss-to-python.html",
+    "title": "4  Chapter 2: From SPSS to Reproducible Analytics",
+    "section": "",
+    "text": "4.1 The Migration Challenge\nMost social science research lives in a proprietary workflow: - SPSS or Stata for data cleaning and analysis - Manual figure creation and table reporting - Point-and-click interfaces that leave no audit trail\nThis chapter documents my migration from SPSS to a fully reproducible analytics pipeline in Python and R.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Chapter 2: From SPSS to Reproducible Analytics</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/02-spss-to-python.html#lessons-learned",
+    "href": "chapters/02-spss-to-python.html#lessons-learned",
+    "title": "4  Chapter 2: From SPSS to Reproducible Analytics",
+    "section": "4.2 Lessons Learned",
+    "text": "4.2 Lessons Learned\n\n4.2.1 1. Version Control Everything\n\nAll scripts in Git\nTracked changes and collaboration enabled\nReproducible from any checkpoint\n\n\n\n4.2.2 2. Automate Table & Figure Generation\n\nDynamic reports via Quarto\nTables generated directly from models, not manually typed\nPlots sync with underlying data automatically\n\n\n\n4.2.3 3. Modular Code Structure\n\nSeparate concerns: data prep, feature engineering, modeling, reporting\nReusable components across projects\nEasier testing and debugging\n\n\n\n4.2.4 4. Embrace Open-Source Tools\n\nR (tidyverse, lavaan) for statistical modeling\nPython (scikit-learn, transformers) for ML and NLP\nQuarto for narrative + code integration",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Chapter 2: From SPSS to Reproducible Analytics</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/02-spss-to-python.html#project-structure",
+    "href": "chapters/02-spss-to-python.html#project-structure",
+    "title": "4  Chapter 2: From SPSS to Reproducible Analytics",
+    "section": "4.3 Project Structure",
+    "text": "4.3 Project Structure\nbehavioral_analysis/\n├── notebooks/          # EDA and exploratory analysis\n├── scripts/           # Reproducible pipelines\n└── results/           # Generated outputs\n\nsrc/\n├── data_prep.py       # Data cleaning and validation\n├── features.py        # Feature engineering\n└── train_baseline.py  # Model training\n\nbook/\n├── chapters/          # This narrative\n└── _book/            # Rendered HTML",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Chapter 2: From SPSS to Reproducible Analytics</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/02-spss-to-python.html#key-tooling-decisions",
+    "href": "chapters/02-spss-to-python.html#key-tooling-decisions",
+    "title": "4  Chapter 2: From SPSS to Reproducible Analytics",
+    "section": "4.4 Key Tooling Decisions",
+    "text": "4.4 Key Tooling Decisions\n\n\n\nTask\nTool\nWhy\n\n\n\n\nVersion control\nGit + GitHub\nCollaboration and reproducibility\n\n\nEDA\nJupyter + pandas\nInteractive exploration\n\n\nStatistical modeling\nR + lavaan\nSEM and mediation\n\n\nML modeling\nPython + scikit-learn\nProduction-ready pipelines\n\n\nNarrative\nQuarto\nCode + markdown in one document\n\n\nDeployment\nGitHub Pages / Netlify\nFree, static hosting",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Chapter 2: From SPSS to Reproducible Analytics</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/02-spss-to-python.html#benefits-of-this-approach",
+    "href": "chapters/02-spss-to-python.html#benefits-of-this-approach",
+    "title": "4  Chapter 2: From SPSS to Reproducible Analytics",
+    "section": "4.5 Benefits of This Approach",
+    "text": "4.5 Benefits of This Approach\n\nAudit trail: Every decision is documented in code\nReproducibility: Anyone can run the script and get identical results\nCollaboration: Easy to share, review, and extend\nPortfolio value: Shows mastery of modern data science tooling",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Chapter 2: From SPSS to Reproducible Analytics</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/02-spss-to-python.html#for-data-science-practitioners",
+    "href": "chapters/02-spss-to-python.html#for-data-science-practitioners",
+    "title": "4  Chapter 2: From SPSS to Reproducible Analytics",
+    "section": "4.6 For Data Science Practitioners",
+    "text": "4.6 For Data Science Practitioners\nWhether you’re migrating legacy analyses or building new projects, this chapter showcases: - Best practices for reproducible analytics - How to structure a project for collaboration and deployment - Tools and workflows hiring teams recognize and value",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Chapter 2: From SPSS to Reproducible Analytics</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/03-sharing-decision.html",
+    "href": "chapters/03-sharing-decision.html",
+    "title": "5  Chapter 3: The Sharing Decision — Modeling Who Clicks “Share”",
+    "section": "",
+    "text": "5.1 From Theory to Classification\nWhy do people share misinformation? Not because they intend to spread falsehoods, but because the content triggers emotional responses, social rewards, or tribal affiliation.\nThis chapter shifts focus from who is vulnerable to what content drives action.",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Chapter 3: The Sharing Decision — Modeling Who Clicks \"Share\"</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/03-sharing-decision.html#the-social-media-lens",
+    "href": "chapters/03-sharing-decision.html#the-social-media-lens",
+    "title": "5  Chapter 3: The Sharing Decision — Modeling Who Clicks “Share”",
+    "section": "5.2 The Social Media Lens",
+    "text": "5.2 The Social Media Lens\nOn social platforms, the sharing decision is binary:\n\\[\\text{Action} = \\begin{cases} \\text{Share} & \\text{if } \\text{engagement value} &gt; \\text{social cost} \\\\ \\text{Don't share} & \\text{otherwise} \\end{cases}\\]\nFactors influencing this: - Content characteristics: Emotional tone, novelty, perceived credibility - Individual traits: Social influence sensitivity, platform engagement patterns - Network effects: How many friends have already shared? - Context: Timing, trending topics, current events",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Chapter 3: The Sharing Decision — Modeling Who Clicks \"Share\"</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/03-sharing-decision.html#dataset-feature-engineering",
+    "href": "chapters/03-sharing-decision.html#dataset-feature-engineering",
+    "title": "5  Chapter 3: The Sharing Decision — Modeling Who Clicks “Share”",
+    "section": "5.3 Dataset & Feature Engineering",
+    "text": "5.3 Dataset & Feature Engineering\n\n5.3.1 Data Source\n\nReal or simulated social media dataset with labeled shares vs. non-shares\nFeatures extracted from posts and user profiles\n\n\n\n5.3.2 Feature Engineering\n\nContent features:\n\nEmotional sentiment (valence, arousal)\nNovelty score (how often has this claim circulated?)\nLinguistic markers (rhetorical questions, exclamation, urgency language)\nDomain signals (known news source vs. unknown blog?)\n\nUser features:\n\nAccount age and activity level\nHistorical sharing patterns\nNetwork centrality (how many followers?)\nEngagement rate on previous posts\n\nTemporal features:\n\nTime of day, day of week\nLag since post creation\nTrending topic indicator",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Chapter 3: The Sharing Decision — Modeling Who Clicks \"Share\"</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/03-sharing-decision.html#model-development",
+    "href": "chapters/03-sharing-decision.html#model-development",
+    "title": "5  Chapter 3: The Sharing Decision — Modeling Who Clicks “Share”",
+    "section": "5.4 Model Development",
+    "text": "5.4 Model Development\n\n5.4.1 Baseline: Logistic Regression\nSimple, interpretable, sets performance floor.\n\n\n5.4.2 Advanced: Random Forest & XGBoost\nCapture non-linear interactions between features.\n\n\n5.4.3 Evaluation Metrics\n\nPrecision / Recall (class imbalance matters—false positives are costly)\nROC-AUC (overall discrimination ability)\nFeature importance (SHAP values for interpretability)",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Chapter 3: The Sharing Decision — Modeling Who Clicks \"Share\"</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/03-sharing-decision.html#error-analysis",
+    "href": "chapters/03-sharing-decision.html#error-analysis",
+    "title": "5  Chapter 3: The Sharing Decision — Modeling Who Clicks “Share”",
+    "section": "5.5 Error Analysis",
+    "text": "5.5 Error Analysis\nNot all errors are equal: - False Positives (predicted share, user doesn’t): Waste identification resources - False Negatives (predicted no share, user does): Miss high-risk content\nWe’ll examine failure modes and discuss practical thresholds for deployment.",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Chapter 3: The Sharing Decision — Modeling Who Clicks \"Share\"</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/03-sharing-decision.html#reproducibility",
+    "href": "chapters/03-sharing-decision.html#reproducibility",
+    "title": "5  Chapter 3: The Sharing Decision — Modeling Who Clicks “Share”",
+    "section": "5.6 Reproducibility",
+    "text": "5.6 Reproducibility\nCode and data for this chapter: - behavioral_analysis/notebooks/02_baseline_models.ipynb - src/train_baseline.py",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Chapter 3: The Sharing Decision — Modeling Who Clicks \"Share\"</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/03-sharing-decision.html#practical-implications",
+    "href": "chapters/03-sharing-decision.html#practical-implications",
+    "title": "5  Chapter 3: The Sharing Decision — Modeling Who Clicks “Share”",
+    "section": "5.7 Practical Implications",
+    "text": "5.7 Practical Implications\nThis analysis informs: - Content moderation: Proactive identification of high-spread-risk posts - Platform design: How UI/UX choices influence sharing behavior - Interventions: Strategic placement of fact-checks or friction warnings",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Chapter 3: The Sharing Decision — Modeling Who Clicks \"Share\"</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/04-pseudo-profound.html",
+    "href": "chapters/04-pseudo-profound.html",
+    "title": "6  Chapter 4: Spotting Pseudo-Profound Bullshit — A Gentle NLP Project",
+    "section": "",
+    "text": "6.1 What Is “Pseudo-Profundity”?\nSome statements sound wise but mean nothing:\nvs.\nOne is nonsensical. One is meaningful. But both can feel profound.\nMy thesis included a Bullshit Receptivity scale (BSR-10) measuring susceptibility to this linguistic deception. This chapter uses NLP to build a classifier that detects pseudo-profound language.",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Chapter 4: Spotting Pseudo-Profound Bullshit — A Gentle NLP Project</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/04-pseudo-profound.html#what-is-pseudo-profundity",
+    "href": "chapters/04-pseudo-profound.html#what-is-pseudo-profundity",
+    "title": "6  Chapter 4: Spotting Pseudo-Profound Bullshit — A Gentle NLP Project",
+    "section": "",
+    "text": "“The growth of deep evolutionary forms brings about the creation of the ever-present dynamic world that radiates in all directions.”\n\n\n\n“Societies that preserve social bonds through shared rituals experience more cooperation.”",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Chapter 4: Spotting Pseudo-Profound Bullshit — A Gentle NLP Project</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/04-pseudo-profound.html#dataset-definitions",
+    "href": "chapters/04-pseudo-profound.html#dataset-definitions",
+    "title": "6  Chapter 4: Spotting Pseudo-Profound Bullshit — A Gentle NLP Project",
+    "section": "6.2 Dataset & Definitions",
+    "text": "6.2 Dataset & Definitions\n\n6.2.1 Real Data\n\nCollection of pseudo-profound statements (from research literature)\nCollection of mundane but true statements\nTarget: Binary classification (profound-sounding vs. grounded)\n\n\n\n6.2.2 Linguistic Hypotheses\nPseudo-profound language may be characterized by: - N-gram patterns: Unusual word combinations that lack semantic grounding - Vocabulary: Overuse of abstract nouns, psychological jargon, vague modifiers - Structure: Complex syntax masking logical vacuity - Sentiment: High positive valence (sounds “inspiring”)",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Chapter 4: Spotting Pseudo-Profound Bullshit — A Gentle NLP Project</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/04-pseudo-profound.html#nlp-pipeline",
+    "href": "chapters/04-pseudo-profound.html#nlp-pipeline",
+    "title": "6  Chapter 4: Spotting Pseudo-Profound Bullshit — A Gentle NLP Project",
+    "section": "6.3 NLP Pipeline",
+    "text": "6.3 NLP Pipeline\n\n6.3.1 1. Tokenization & Preprocessing\n\nLowercase, lemmatization, stop-word handling\nPreserve linguistic richness (don’t over-process)\n\n\n\n6.3.2 2. Feature Extraction\n\n6.3.2.1 TF-IDF Baselines\nQuick, interpretable, surprisingly effective.\n\n\n6.3.2.2 Embeddings (SBERT)\nCapture semantic meaning using transformer models.\n\n\n6.3.2.3 Linguistic Features\n\nFlesch-Kincaid readability\nAverage word length\nSyntactic complexity (parse trees)\nEmotional tone (NRC lexicon)\n\n\n\n\n6.3.3 3. Classification\n\nLogistic Regression (baseline)\nSVM (robust to high-dimensional embeddings)\nRandom Forest (nonlinear patterns)\nFine-tuned BERT (if sufficient data)",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Chapter 4: Spotting Pseudo-Profound Bullshit — A Gentle NLP Project</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/04-pseudo-profound.html#results-interpretation",
+    "href": "chapters/04-pseudo-profound.html#results-interpretation",
+    "title": "6  Chapter 4: Spotting Pseudo-Profound Bullshit — A Gentle NLP Project",
+    "section": "6.4 Results & Interpretation",
+    "text": "6.4 Results & Interpretation\nKey findings: - Which linguistic signals most predict pseudo-profundity? - Can humans and machines agree on what’s bullshit? - Limitations: Context matters. Is “metaphor” the same as “bullshit”?\nConfusion matrix and ROC curves included.",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Chapter 4: Spotting Pseudo-Profound Bullshit — A Gentle NLP Project</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/04-pseudo-profound.html#critical-reflection",
+    "href": "chapters/04-pseudo-profound.html#critical-reflection",
+    "title": "6  Chapter 4: Spotting Pseudo-Profound Bullshit — A Gentle NLP Project",
+    "section": "6.5 Critical Reflection",
+    "text": "6.5 Critical Reflection\nImportant caveat: This is NOT a “truth detector.”\nPseudo-profundity is about linguistic form, not factual accuracy. A true statement can be expressed beautifully. A false statement can be precise.\nThe real utility: - Flag suspiciously complex language that may hide weak thinking - Raise cognitive friction: “Pause and ask: does this actually make sense?” - Combine with other signals (source credibility, evidence backing) for better assessment",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Chapter 4: Spotting Pseudo-Profound Bullshit — A Gentle NLP Project</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/04-pseudo-profound.html#code-data",
+    "href": "chapters/04-pseudo-profound.html#code-data",
+    "title": "6  Chapter 4: Spotting Pseudo-Profound Bullshit — A Gentle NLP Project",
+    "section": "6.6 Code & Data",
+    "text": "6.6 Code & Data\n\nbehavioral_analysis/notebooks/03_linguistic_features.ipynb\nsrc/train_linguistic_features.py\nTransformer notebooks: behavioral_analysis/notebooks/04_transformers.ipynb",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Chapter 4: Spotting Pseudo-Profound Bullshit — A Gentle NLP Project</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/04-pseudo-profound.html#for-data-science-practitioners",
+    "href": "chapters/04-pseudo-profound.html#for-data-science-practitioners",
+    "title": "6  Chapter 4: Spotting Pseudo-Profound Bullshit — A Gentle NLP Project",
+    "section": "6.7 For Data Science Practitioners",
+    "text": "6.7 For Data Science Practitioners\nThis chapter demonstrates: - End-to-end NLP pipeline (from text to predictions) - Multiple embedding strategies (TF-IDF, transformers, linguistic) - Model comparison and error analysis - Ethical reasoning: What does “accuracy” mean in this context?",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Chapter 4: Spotting Pseudo-Profound Bullshit — A Gentle NLP Project</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/05-infodemic-simulation.html",
+    "href": "chapters/05-infodemic-simulation.html",
+    "title": "7  Chapter 5: Age, Emotion, and Susceptibility — Simulating an Infodemic",
+    "section": "",
+    "text": "7.1 The Research Question\nPrior chapters investigated individual traits and content characteristics separately. This chapter asks: How do they interact?\nSpecifically: - Do older and younger adults respond differently to emotionally charged misinformation? - Can we predict personalized risk profiles based on age, emotion sensitivity, and cognitive style? - How would an infodemic spread through a population with these heterogeneous vulnerabilities?",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Chapter 5: Age, Emotion, and Susceptibility — Simulating an Infodemic</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/05-infodemic-simulation.html#methodology",
+    "href": "chapters/05-infodemic-simulation.html#methodology",
+    "title": "7  Chapter 5: Age, Emotion, and Susceptibility — Simulating an Infodemic",
+    "section": "7.2 Methodology",
+    "text": "7.2 Methodology\n\n7.2.1 Data Source\nLiterature-informed or simulated dataset including: - Age (categories: 18-30, 31-50, 51-70, 70+) - Emotional sensitivity (validated psychometric scales) - Cognitive reflection (CRT-style scores) - Exposure to misinformation (number of articles encountered) - Belief change (outcome: did the person update their beliefs?)\n\n\n7.2.2 Analysis Plan\n\nGroup Comparisons\n\nANOVA: Does age predict susceptibility?\nEffect sizes and post-hoc tests (Tukey HSD)\n\nInteraction Terms\n\nDoes emotion sensitivity + low cognitive reflection predict higher belief change?\nDo these effects differ by age group?\n\nRegression Modeling\n\nMultiple logistic regression with interactions\nCoefficient interpretation: What does a one-unit change in X mean for different demographic groups?\n\nRisk Profiling\n\nCreate a “susceptibility score” as a function of age, emotion, and cognition\nVisualize risk profiles across subpopulations",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Chapter 5: Age, Emotion, and Susceptibility — Simulating an Infodemic</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/05-infodemic-simulation.html#simulation-spatial-models",
+    "href": "chapters/05-infodemic-simulation.html#simulation-spatial-models",
+    "title": "7  Chapter 5: Age, Emotion, and Susceptibility — Simulating an Infodemic",
+    "section": "7.3 Simulation & Spatial Models",
+    "text": "7.3 Simulation & Spatial Models\n\n7.3.1 Agent-Based Infodemic Model\nExtend analysis to a simulated social network: - Agents with heterogeneous susceptibility profiles - Misinformation introduced at different time points - Network effects: Does proximity to infected nodes increase transmission?\n\n\n7.3.2 Visualizations\n\nHeatmaps showing transmission rates by age × emotion combinations\nTime-series plots of belief prevalence\nNetwork diagrams showing spread dynamics",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Chapter 5: Age, Emotion, and Susceptibility — Simulating an Infodemic</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/05-infodemic-simulation.html#key-findings",
+    "href": "chapters/05-infodemic-simulation.html#key-findings",
+    "title": "7  Chapter 5: Age, Emotion, and Susceptibility — Simulating an Infodemic",
+    "section": "7.4 Key Findings",
+    "text": "7.4 Key Findings\n[Placeholder: Synthesize results and implications]\nExamples of insights: - “Adults 70+ show 2.3x higher belief change when exposed to high-emotion narratives, particularly conspiracy claims.” - “Individuals high in cognitive reflection resist belief change even when exposed to emotionally salient misinformation.” - “Network structure matters: central nodes with high susceptibility act as amplifiers.”",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Chapter 5: Age, Emotion, and Susceptibility — Simulating an Infodemic</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/05-infodemic-simulation.html#policy-practice-implications",
+    "href": "chapters/05-infodemic-simulation.html#policy-practice-implications",
+    "title": "7  Chapter 5: Age, Emotion, and Susceptibility — Simulating an Infodemic",
+    "section": "7.5 Policy & Practice Implications",
+    "text": "7.5 Policy & Practice Implications\nThis chapter informs: - Targeting: Who should receive prebunking or inoculation? - Content design: Which demographic segments need friction-adding interventions? - Resource allocation: Where to focus fact-checking efforts for maximum impact?",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Chapter 5: Age, Emotion, and Susceptibility — Simulating an Infodemic</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/05-infodemic-simulation.html#code-reproducibility",
+    "href": "chapters/05-infodemic-simulation.html#code-reproducibility",
+    "title": "7  Chapter 5: Age, Emotion, and Susceptibility — Simulating an Infodemic",
+    "section": "7.6 Code & Reproducibility",
+    "text": "7.6 Code & Reproducibility\n\nbehavioral_analysis/notebooks/03_regression_models.ipynb\nSimulation code in src/ (placeholder for future)\nInteractive dashboard in dashboards/streamlit/ (under development)",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Chapter 5: Age, Emotion, and Susceptibility — Simulating an Infodemic</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/05-infodemic-simulation.html#for-practitioners",
+    "href": "chapters/05-infodemic-simulation.html#for-practitioners",
+    "title": "7  Chapter 5: Age, Emotion, and Susceptibility — Simulating an Infodemic",
+    "section": "7.7 For Practitioners",
+    "text": "7.7 For Practitioners\nThis chapter demonstrates: - Statistical interaction modeling and interpretation - Heterogeneous treatment effects (HTE) - Simulation and complexity science approaches - Translating analysis into actionable insights",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Chapter 5: Age, Emotion, and Susceptibility — Simulating an Infodemic</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/06-interactive-dashboards.html",
+    "href": "chapters/06-interactive-dashboards.html",
+    "title": "8  Chapter 6: Visualizing the Tentacles — Interactive Views of Misinformation",
+    "section": "",
+    "text": "8.1 From Tables to Interactive Dashboards\nStatistical tables are precise but alienating. Decision-makers need to see the story.\nThis chapter builds interactive dashboards that make misinformation dynamics tangible: - Spread patterns across demographics - Risk profiles by user segment - Model predictions and uncertainty - Real-time monitoring of emerging narratives",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Chapter 6: Visualizing the Tentacles — Interactive Views of Misinformation</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/06-interactive-dashboards.html#visualization-philosophy",
+    "href": "chapters/06-interactive-dashboards.html#visualization-philosophy",
+    "title": "8  Chapter 6: Visualizing the Tentacles — Interactive Views of Misinformation",
+    "section": "8.2 Visualization Philosophy",
+    "text": "8.2 Visualization Philosophy\nEffective misinformation dashboards balance: - Accuracy: Faithful representation of underlying data - Clarity: Intuitive for non-technical audiences - Actionability: Points toward decisions (e.g., “Which demographic needs intervention?”) - Humility: Communicates uncertainty and limitations",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Chapter 6: Visualizing the Tentacles — Interactive Views of Misinformation</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/06-interactive-dashboards.html#dashboard-components",
+    "href": "chapters/06-interactive-dashboards.html#dashboard-components",
+    "title": "8  Chapter 6: Visualizing the Tentacles — Interactive Views of Misinformation",
+    "section": "8.3 Dashboard Components",
+    "text": "8.3 Dashboard Components\n\n8.3.1 1. Spread & Transmission (Interactive Network)\n\nGraph: Social network with nodes = users, edges = sharing relationships\nColor intensity: Risk level (green = low susceptibility, red = high)\nAnimation: Show misinformation propagation over time\nHover tooltips: User details (age, cognitive style, historical engagement)\n\n\n\n8.3.2 2. Risk Profile Heatmap\n\nAxes: Demographics (age, education, political affiliation) × emotional sensitivity\nCell color: Predicted susceptibility score\nInteractivity: Filter by cognitive traits, hover for confidence intervals\n\n\n\n8.3.3 3. Model Predictions (Individual-Level)\n\nInput interface: User trait sliders (age, numeracy, emotion sensitivity)\nOutput display: Predicted likelihood of sharing; counterfactual: “If this user’s CRT score were +10…”\nFeature importance: Which traits drive this prediction most?\n\n\n\n8.3.4 4. NLP Classifier Output\n\nText input: Paste a claim or article\nOutput: Pseudo-profundity score, emotional tone, credibility signals\nSimilar narratives: Show other claims the model flagged as similar\n\n\n\n8.3.5 5. Temporal Trends\n\nTime series: Belief prevalence over time, stratified by demographic\nAnnotation: Mark interventions (fact-checks, inoculation campaigns) to visualize effects",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Chapter 6: Visualizing the Tentacles — Interactive Views of Misinformation</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/06-interactive-dashboards.html#technology-stack",
+    "href": "chapters/06-interactive-dashboards.html#technology-stack",
+    "title": "8  Chapter 6: Visualizing the Tentacles — Interactive Views of Misinformation",
+    "section": "8.4 Technology Stack",
+    "text": "8.4 Technology Stack\n\n8.4.1 Streamlit (Python-native)\n\nRapid prototyping\nMinimal frontend knowledge needed\nEasy deployment to Streamlit Cloud\n\nPros: Python-native, fast iteration\nCons: Limited customization\n\n\n8.4.2 Plotly + Dash\n\nHighly interactive, production-grade\nFull control over layout and interactions\n\nPros: Professional, flexible\nCons: Steeper learning curve\n\n\n8.4.3 Power BI (Enterprise)\n\nExcel-like familiarity for stakeholders\nReal-time data update capabilities\n\nPros: Familiar to business users\nCons: No-code limitations; integration overhead",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Chapter 6: Visualizing the Tentacles — Interactive Views of Misinformation</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/06-interactive-dashboards.html#dashboard-design-principles",
+    "href": "chapters/06-interactive-dashboards.html#dashboard-design-principles",
+    "title": "8  Chapter 6: Visualizing the Tentacles — Interactive Views of Misinformation",
+    "section": "8.5 Dashboard Design Principles",
+    "text": "8.5 Dashboard Design Principles\n\n8.5.1 1. Progressive Disclosure\nStart simple (trend line), allow deep-diving into subgroups.\n\n\n8.5.2 2. Context & Uncertainty\nShow confidence intervals. Use color/opacity to encode uncertainty.\n\n\n8.5.3 3. Actionability\nEvery visualization should answer: “What should I do with this?”\n\n\n8.5.4 4. Accessibility\n\nHigh contrast, colorblind-friendly palettes\nKeyboard navigation support\nDescriptions for screen readers",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Chapter 6: Visualizing the Tentacles — Interactive Views of Misinformation</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/06-interactive-dashboards.html#deployment",
+    "href": "chapters/06-interactive-dashboards.html#deployment",
+    "title": "8  Chapter 6: Visualizing the Tentacles — Interactive Views of Misinformation",
+    "section": "8.6 Deployment",
+    "text": "8.6 Deployment\nDashboard lives in: - dashboards/streamlit/app.py (primary) - dashboards/powerbi/ (enterprise version, optional)\nHosted at: - Streamlit Cloud (free) - GitHub Pages (static export) - Internal dashboard server (if enterprise license)",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Chapter 6: Visualizing the Tentacles — Interactive Views of Misinformation</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/06-interactive-dashboards.html#for-data-science-practitioners",
+    "href": "chapters/06-interactive-dashboards.html#for-data-science-practitioners",
+    "title": "8  Chapter 6: Visualizing the Tentacles — Interactive Views of Misinformation",
+    "section": "8.7 For Data Science Practitioners",
+    "text": "8.7 For Data Science Practitioners\nThis chapter showcases: - End-to-end visualization design - Interactive dashboard architecture - Communicating uncertainty and limitations - Bridging analytics and decision-making - UX/design thinking in data science",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Chapter 6: Visualizing the Tentacles — Interactive Views of Misinformation</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/06-interactive-dashboards.html#critical-note",
+    "href": "chapters/06-interactive-dashboards.html#critical-note",
+    "title": "8  Chapter 6: Visualizing the Tentacles — Interactive Views of Misinformation",
+    "section": "8.8 Critical Note",
+    "text": "8.8 Critical Note\nDashboards can mislead as easily as illuminate. This chapter includes a section on visualization ethics: - Avoiding sensationalism - Representing tradeoffs honestly - Being transparent about model limitations - Avoiding nudging users toward intended conclusions",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Chapter 6: Visualizing the Tentacles — Interactive Views of Misinformation</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/07-ethics-responsible-ds.html",
+    "href": "chapters/07-ethics-responsible-ds.html",
+    "title": "9  Chapter 7: Ethics, Limits, and Responsible Data Science",
+    "section": "",
+    "text": "9.1 Why Ethics Now?\nBy Chapter 7, we’ve built models that: - Predict who is vulnerable to misinformation - Classify false narratives - Simulate spread dynamics - Visualize risk in real-time\nBut capability is not obligation. Just because we can do something doesn’t mean we should.\nThis reflective essay ties together all prior chapters and asks: How do we wield these tools responsibly?",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Chapter 7: Ethics, Limits, and Responsible Data Science</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/07-ethics-responsible-ds.html#core-tensions-in-misinformation-research",
+    "href": "chapters/07-ethics-responsible-ds.html#core-tensions-in-misinformation-research",
+    "title": "9  Chapter 7: Ethics, Limits, and Responsible Data Science",
+    "section": "9.2 Core Tensions in Misinformation Research",
+    "text": "9.2 Core Tensions in Misinformation Research\n\n9.2.1 1. Privacy vs. Insight\n\nThe data problem: Understanding who is vulnerable requires personal information (demographics, psychology, behavior)\nThe risk: Profiling can enable manipulation (“We know exactly who to target with propaganda”)\nThe balance: We use aggregated, anonymized data; no individual targeting\n\n\n\n9.2.2 2. Protection vs. Autonomy\n\nThe paternalism problem: Restricting access to information violates user agency\nThe harm problem: Unrestricted misinformation causes real damage (health, politics, social cohesion)\nThe balance: Interventions should be transparent (not hidden algorithms); low-friction (friction-adding, not censorship)\n\n\n\n9.2.3 3. Academic Truth vs. Commercial Incentives\n\nThe publication bias: Journals reward novel, surprising findings. Null results don’t get published\nThe platform bias: Social media companies profit from engagement, regardless of truth\nThe balance: Publish honestly. Highlight limitations. Resist pressure to oversell findings\n\n\n\n9.2.4 4. Transparency vs. Information Security\n\nThe openness ideal: Science should be reproducible and publicly accessible\nThe manipulation risk: Open-sourcing classifier code enables adversaries to craft evading messages\nThe balance: Share methods and high-level insights; hold back deployable artifacts",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Chapter 7: Ethics, Limits, and Responsible Data Science</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/07-ethics-responsible-ds.html#ethical-principles-for-this-project",
+    "href": "chapters/07-ethics-responsible-ds.html#ethical-principles-for-this-project",
+    "title": "9  Chapter 7: Ethics, Limits, and Responsible Data Science",
+    "section": "9.3 Ethical Principles for This Project",
+    "text": "9.3 Ethical Principles for This Project\n\n9.3.1 1. Harm-Reduction Over Censorship\nWe inform, not forbid. Users retain judgment.\nExample: Our NLP classifier doesn’t remove content; it adds a labeling signal (“This narrative uses pseudo-profound language; check the sources”).\n\n\n9.3.2 2. Transparency in Design\n\nWhat signals does our model use to predict susceptibility?\nWhat are the failure modes?\nWho might this harm if misused?\n\n\n\n9.3.3 3. Inclusivity in Research\n\nWhose voices are missing from our behavioral sample (N=194)?\nDo our findings generalize across cultures, languages, socioeconomic contexts?\nCan we partner with under-resourced communities to co-develop solutions?\n\n\n\n9.3.4 4. Data Minimalism\nCollect only what we need. Delete when done. Anonymize rigorously.\n\n\n9.3.5 5. Accountability\n\nName an ethical review board or advisor\nPublish limitations alongside findings\nMonitor real-world effects if our tools are deployed\nRespond to and learn from mistakes",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Chapter 7: Ethics, Limits, and Responsible Data Science</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/07-ethics-responsible-ds.html#case-study-when-good-tools-enable-bad-actors",
+    "href": "chapters/07-ethics-responsible-ds.html#case-study-when-good-tools-enable-bad-actors",
+    "title": "9  Chapter 7: Ethics, Limits, and Responsible Data Science",
+    "section": "9.4 Case Study: When Good Tools Enable Bad Actors",
+    "text": "9.4 Case Study: When Good Tools Enable Bad Actors\nScenario: A political campaign purchases access to our susceptibility classifier. They use it to: - Identify vulnerable voters - Micro-target them with misinformation - Measure conversion rates\nOur safeguards: - Terms of use prohibit this - Technical control: Model outputs anonymized, never sold with identifiers - Advocacy: Push for regulation of voter targeting\nLesson: We can’t prevent misuse entirely, but we can make it harder and document our reasoning.",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Chapter 7: Ethics, Limits, and Responsible Data Science</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/07-ethics-responsible-ds.html#implications-for-different-stakeholders",
+    "href": "chapters/07-ethics-responsible-ds.html#implications-for-different-stakeholders",
+    "title": "9  Chapter 7: Ethics, Limits, and Responsible Data Science",
+    "section": "9.5 Implications for Different Stakeholders",
+    "text": "9.5 Implications for Different Stakeholders\n\n9.5.1 For Researchers\n\nPublish limitations, not just findings\nQuestion incentive structures (what gets funded? what gets published?)\nCollaborate across disciplines (psychology, ethics, computer science)\n\n\n\n9.5.2 For Data Scientists\n\nAsk “Why?” before building (Do we need this? Who benefits?)\nDesign for interpretability, not just accuracy\nExpect adversarial use; design defenses\n\n\n\n9.5.3 For Platforms & Policy-Makers\n\nAvoid hidden algorithms; transparency builds trust\nFriction &gt; Censorship: Slow down sharing, don’t prevent it\nInvest in digital literacy, not just detection\n\n\n\n9.5.4 For Users\n\nEmbrace epistemological humility: You don’t know what you don’t know\nSeek out disconfirming evidence\nSlow down; misinformation relies on emotional, rapid response",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Chapter 7: Ethics, Limits, and Responsible Data Science</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/07-ethics-responsible-ds.html#open-questions",
+    "href": "chapters/07-ethics-responsible-ds.html#open-questions",
+    "title": "9  Chapter 7: Ethics, Limits, and Responsible Data Science",
+    "section": "9.6 Open Questions",
+    "text": "9.6 Open Questions\nSome issues remain unsettled:\n\nIs vulnerability immutable? Can people learn resilience? (Yes, but how?)\nAre interventions scalable? Can fact-checks keep pace with misinformation? (Unclear)\nWho decides what’s “misinformation”? (Deeply political; no algorithm resolves this)",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Chapter 7: Ethics, Limits, and Responsible Data Science</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/07-ethics-responsible-ds.html#personal-reflection",
+    "href": "chapters/07-ethics-responsible-ds.html#personal-reflection",
+    "title": "9  Chapter 7: Ethics, Limits, and Responsible Data Science",
+    "section": "9.7 Personal Reflection",
+    "text": "9.7 Personal Reflection\nAs a data scientist and educator, I’m committed to: - Rigor without righteousness: My models are tools, not truth - Humility about limits: Data can’t settle values questions - Justice focus: Who is harmed by misinformation? How do we protect them?\nThis work won’t “solve” misinformation. But it can make people more resilient and informed.",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Chapter 7: Ethics, Limits, and Responsible Data Science</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/07-ethics-responsible-ds.html#resources",
+    "href": "chapters/07-ethics-responsible-ds.html#resources",
+    "title": "9  Chapter 7: Ethics, Limits, and Responsible Data Science",
+    "section": "9.8 Resources",
+    "text": "9.8 Resources\n\nStanford Internet Observatory: https://sio.stanford.edu\nMIT Media Lab, Civic Media: https://civic.media.mit.edu\nPolicy Brief: “Misinformation and Mental Models” (sample citation)",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Chapter 7: Ethics, Limits, and Responsible Data Science</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/07-ethics-responsible-ds.html#for-practitioners",
+    "href": "chapters/07-ethics-responsible-ds.html#for-practitioners",
+    "title": "9  Chapter 7: Ethics, Limits, and Responsible Data Science",
+    "section": "9.9 For Practitioners",
+    "text": "9.9 For Practitioners\nThis chapter models: - Ethical reasoning in applied data science - Stakeholder analysis and conflict mapping - Communicating uncertainties and limitations - Reflexivity: Questioning your own assumptions and incentives",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Chapter 7: Ethics, Limits, and Responsible Data Science</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/08-epilogue.html",
+    "href": "chapters/08-epilogue.html",
+    "title": "10  Epilogue: My Path into Data Science",
+    "section": "",
+    "text": "10.1 Why This Book, Why Now?\nThis project began as a Master’s thesis and evolved into something larger—a portfolio of skills, a research platform, and a personal philosophy.\nThis epilogue reflects on that journey and maps the terrain for readers considering a similar path.",
+    "crumbs": [
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Epilogue: My Path into Data Science</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/08-epilogue.html#what-each-chapter-demonstrates",
+    "href": "chapters/08-epilogue.html#what-each-chapter-demonstrates",
+    "title": "10  Epilogue: My Path into Data Science",
+    "section": "10.2 What Each Chapter Demonstrates",
+    "text": "10.2 What Each Chapter Demonstrates\n\n10.2.1 Technical Skills\n\n\n\n\n\n\n\n\nChapter\nCore Competency\nTools & Methods\n\n\n\n\nCh 1: Thesis as Code\nStatistical modeling\nR (lavaan), Python (pandas, scipy), reproducible workflows\n\n\nCh 2: SPSS to Python\nWorkflow migration\nGit, version control, Quarto, automation\n\n\nCh 3: Sharing Decision\nClassification & feature eng.\nscikit-learn, cross-validation, error analysis\n\n\nCh 4: Pseudo-Profound\nNLP & embeddings\nBERT, SBERT, TF-IDF, text preprocessing\n\n\nCh 5: Infodemic Simulation\nRegression & causal models\nInteraction terms, hierarchical models, simulation\n\n\nCh 6: Interactive Dashboards\nVisualization & communication\nStreamlit, Plotly, UX design, storytelling\n\n\nCh 7: Ethics & Responsibility\nCritical reasoning\nStakeholder analysis, limitations documentation\n\n\n\n\n\n10.2.2 Domain Knowledge\n\nBehavioral science: Survey design, measurement validation, psychological constructs\nMisinformation ecology: How false narratives spread, where interventions go\nNLP fundamentals: Embeddings, transformer models, linguistic analysis\nCausal reasoning: Confounds, mediation, when correlation isn’t causation\n\n\n\n10.2.3 Professional Practices\n\nReproducible workflows and code documentation\nClear communication for academic and business audiences\nEthical reflection and stakeholder accountability\nCross-functional collaboration (psychology, computer science, policy)",
+    "crumbs": [
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Epilogue: My Path into Data Science</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/08-epilogue.html#the-portfolio-narrative",
+    "href": "chapters/08-epilogue.html#the-portfolio-narrative",
+    "title": "10  Epilogue: My Path into Data Science",
+    "section": "10.3 The Portfolio Narrative",
+    "text": "10.3 The Portfolio Narrative\nData science interviews often ask: “Tell us about a project you’re proud of.”\nThis book IS that answer. It demonstrates:\n\nEnd-to-end ownership: From problem definition to deployment\nRigor + pragmatism: Research standards + production realities\nCommunication: Code, visuals, narrative for different audiences\nValues: Ethics, limitations, honest uncertainty\nGrowth: Thesis → scalable research platform → publishable work",
+    "crumbs": [
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Epilogue: My Path into Data Science</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/08-epilogue.html#how-to-navigate-this-work",
+    "href": "chapters/08-epilogue.html#how-to-navigate-this-work",
+    "title": "10  Epilogue: My Path into Data Science",
+    "section": "10.4 How to Navigate This Work",
+    "text": "10.4 How to Navigate This Work\n\n10.4.1 For Hiring Managers & Collaborators\n\nChapter 1-2: I can do rigorous statistical analysis and translate it into reproducible code\nChapter 3-5: I understand machine learning fundamentals and can build applied models\nChapter 4, 6: I grapple with NLP and visualization design\nChapter 7: I think beyond the model—about impact, ethics, responsibility\nThis epilogue: I can articulate growth and learn from experience\n\nRelevant roles: Data Scientist, ML Engineer, Analytics Engineer, Research Scientist\n\n\n10.4.2 For Academics & Researchers\n\nChapter 1-2: Statistical methodology and open science practices\nChapter 4: NLP for linguistic theory\nChapter 5: Causal and simulation modeling\nChapter 7: Ethics in computational social science\n\nRelevant venues: Conference talks, journal submissions, collaborative research\n\n\n10.4.3 For Learners & Career-Changers\n\nStart here: Chapters 1-2 (foundation + tooling)\nApply next: Chapters 3-5 (ML pipelines, real data)\nThink holistically: Chapters 6-7 (systems thinking + ethics)\nBuild your own: Fork this repo, adapt the structure for your domain",
+    "crumbs": [
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Epilogue: My Path into Data Science</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/08-epilogue.html#where-im-headed",
+    "href": "chapters/08-epilogue.html#where-im-headed",
+    "title": "10  Epilogue: My Path into Data Science",
+    "section": "10.5 Where I’m Headed",
+    "text": "10.5 Where I’m Headed\n\n10.5.1 Short Term (Next 6 Months)\n\nPublish manuscript from this book in peer-reviewed venue\nDeploy dashboards to mathwithmeditation.org\nContribute to open-source misinformation research tools\n\n\n\n10.5.2 Medium Term (1-2 Years)\n\nExpand to Nepal election misinformation dataset (Chapter 9?)\nIntegrate Vedanta/Anthroposophy NLP analysis (Chapter 10?)\nPartner with fact-checking organizations on real-world deployment\n\n\n\n10.5.3 Long Term\n\nVision: Make data science education more rigorous, inclusive, and ethical\nTeaching: Courses and workshops on responsible AI, reproducible research\nPolicy: Contribute to evidence-based regulation of social media",
+    "crumbs": [
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Epilogue: My Path into Data Science</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/08-epilogue.html#lessons-learned",
+    "href": "chapters/08-epilogue.html#lessons-learned",
+    "title": "10  Epilogue: My Path into Data Science",
+    "section": "10.6 Lessons Learned",
+    "text": "10.6 Lessons Learned\n\n10.6.1 1. Rigor Compounds\nStarting with careful data cleaning and measurement validation saves enormous time downstream.\n\n\n10.6.2 2. Reproducibility is a Love Letter to Future You\nSix months from now, you won’t remember why you chose this parameter. Document it.\n\n\n10.6.3 3. Communicate to Different Audiences\nThe same finding needs different frames: - Academics: Effect sizes, confidence intervals, theoretical implications - Practitioners: Actionable thresholds, business impact, failure modes - Public: Intuitive narrative, why it matters to everyday life\n\n\n10.6.4 4. Ethics Isn’t a Checkbox\nIt’s not “complete” and then done. It’s ongoing: Design → Build → Deploy → Monitor → Reflect.\n\n\n10.6.5 5. Collaborate Across Disciplines\nMy best insights came from talking with psychologists, journalists, and platform safety teams—not just data scientists.",
+    "crumbs": [
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Epilogue: My Path into Data Science</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/08-epilogue.html#staying-in-touch",
+    "href": "chapters/08-epilogue.html#staying-in-touch",
+    "title": "10  Epilogue: My Path into Data Science",
+    "section": "10.7 Staying in Touch",
+    "text": "10.7 Staying in Touch\nI’m always interested in: - Collaborations on misinformation research - Speaking opportunities and teaching - Feedback on this work - Directions you take it in (fork it, improve it, make it your own!)\n\nGitHub: https://github.com/sanjaykshetri\nWebsite: https://mathwithmeditation.com\nEmail: [your contact info]",
+    "crumbs": [
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Epilogue: My Path into Data Science</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/08-epilogue.html#one-more-thing",
+    "href": "chapters/08-epilogue.html#one-more-thing",
+    "title": "10  Epilogue: My Path into Data Science",
+    "section": "10.8 One More Thing",
+    "text": "10.8 One More Thing\nMisinformation is a hard problem. It won’t be “solved” by a single model or dataset.\nBut by combining behavioral insight, statistical rigor, technical skill, and ethical reasoning, we can make incremental progress. We can help people think more clearly. We can build systems that are more transparent and just.\nThat’s why this book exists. That’s why I do this work.",
+    "crumbs": [
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Epilogue: My Path into Data Science</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/08-epilogue.html#acknowledgments",
+    "href": "chapters/08-epilogue.html#acknowledgments",
+    "title": "10  Epilogue: My Path into Data Science",
+    "section": "10.9 Acknowledgments",
+    "text": "10.9 Acknowledgments\n[Placeholder: Thank advisors, collaborators, mentors, family]",
+    "crumbs": [
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Epilogue: My Path into Data Science</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/08-epilogue.html#references",
+    "href": "chapters/08-epilogue.html#references",
+    "title": "10  Epilogue: My Path into Data Science",
+    "section": "10.10 References",
+    "text": "10.10 References\n[Full bibliography of chapters synthesized here]",
+    "crumbs": [
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Epilogue: My Path into Data Science</span>"
+    ]
+  }
+]
