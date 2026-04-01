@@ -1,27 +1,29 @@
 # 📖 Book Chapter Roadmap
 
-This document maps the 4-unit research book to source code, visualizations, and data, showing content status and what needs to be enhanced with embedded visualizations and code references.
+This document maps the 4-unit research book to external source repositories, showing which content is live and what visualization enhancements are planned.
+
+> **Architecture Note:** This book follows a **hub-and-spoke** model. Each chapter showcases and links to an independent external repository where the actual research code, data, and analysis live. This keeps codebases clean and allows each spoke repository to be used independently.
 
 ---
 
 ## Unit Status
 
-| # | Unit Title | Status | Source Repos | Visualizations |
+| # | Unit Title | Status | External Repo | Links Added |
 |---|---|---|---|---|
-| 0 | **Prologue** — When a False Story Wins | 🟨 Draft | — | Conceptual framework intro |
-| 1 | **Measuring Vulnerability** — Behavioral Predictors | 🟡 In Progress | `behavioral_analysis/`, `src/` | EDA plots, feature correlations, path diagrams |
-| 2 | **Detecting Narratives** — NLP Pipeline | 🟡 In Progress | `nlp_models/`, `nlp_pipelines/` | ROC curves, confusion matrices, model comparison |
-| 3 | **Modeling Spread** — Epidemiological Simulation | 🟡 In Progress | `fusion_models/experiments/` | SEIR dynamics, sensitivity analysis, heatmaps |
-| 4 | **Fusion & Scale** — Production & Ethics | 🟡 In Progress | `dashboards/`, `src/` | Architecture diagrams, dashboard screenshots, monitoring plots |
-| 5 | **Epilogue** — Frontier Challenges & Roadmap | 🟨 Skeleton | — | Research directions summary |
+| 0 | **Prologue** — When a False Story Wins | 🟡 Content | — | ✅ Live |
+| 1 | **Measuring Vulnerability** — Behavioral Predictors | 🟢 Integrated | [Masters-Thesis](https://github.com/sanjaykshetri/Misinformation-study-Masters-Thesis) | ✅ Live |
+| 2 | **Detecting Narratives** — NLP Pipeline | 🟢 Integrated | [ML-Model2](https://github.com/sanjaykshetri/Misinformation-Detection-ML-Model2) + [At-Scale](https://github.com/sanjaykshetri/misinformation-at-scale) | ✅ Live |
+| 3 | **Modeling Spread** — Epidemiological Simulation | 🟢 Integrated | [Epidemic-Model](https://github.com/sanjaykshetri/misinformation-epidemic-model) | ✅ Live |
+| 4 | **Fusion & Scale** — Production & Ethics | 🟢 Integrated | [At-Scale](https://github.com/sanjaykshetri/misinformation-at-scale) | ✅ Live |
+| 5 | **Epilogue** — Frontier Challenges & Roadmap | 🟡 Content | — | ✅ Live |
 
 ---
 
 ## Legend
 
-- 🟢 **Complete**: Comprehensive content + visualizations embedded + code references working + tested
-- 🟡 **In Progress**: Content outline exists, being enhanced with visualizations and code links
-- 🟨 **Skeleton**: Chapter structure exists, awaiting detailed content population
+- 🟢 **Integrated**: Chapter content complete + links to external repo + quick-start instructions + ready to deploy
+- 🟡 **Content**: Narrative content exists, visualizations from external repos linked
+- 🟨 **Skeleton**: Chapter structure exists, awaiting detailed content
 - 🔴 **Not Started**: Placeholder only
 
 ---
@@ -29,93 +31,105 @@ This document maps the 4-unit research book to source code, visualizations, and 
 ## Status Definition per Stage
 
 **Content**: Does the unit have narrative, findings, and interpretation?  
-**Visualizations**: Are plots, charts, and diagrams embedded from source files?  
-**Code Links**: Do code references point to actual repositories and notebooks?  
+**Repository Links**: Does the chapter point to the external source repository with clear instructions?  
+**Quick Start**: Can readers immediately access and run code from the linked repository?  
 **Testing**: Has the chapter been rendered without errors?
 
 ## What Each Unit Needs
 
 ### 0️⃣ Prologue
 - [x] Outline complete
-- [ ] Real misinformation anecdote (1-2 paragraphs)
-- [ ] Book structure visual (roadmap diagram)
-- [ ] Research questions highlighted
-- [ ] Links to GitHub repos
+- [x] Links to GitHub repos and external spoke repositories
+- [ ] Optional: Add real misinformation anecdote (1-2 paragraphs) for narrative hook
+- [ ] Optional: Book structure visual (roadmap diagram)
 
 ### 1️⃣ Unit 1 — Measuring Vulnerability
-**Content Map**: Behavioral science foundations + reproducible methodology
-- [ ] Embed figures from `behavioral_analysis/notebooks/01_exploratory_analysis.ipynb`
-- [ ] FakeNewsNet dataset description with sample statistics
-- [ ] Measurement validation diagrams (CRT, VOI-7, CMQ-5, BSR-10)
-- [ ] Path model visualization (behavioral traits → susceptibility)
-- [ ] Key findings table with effect sizes and p-values
-- [ ] Code snippets from `src/data_prep.py` and `src/features.py`
-- [ ] Reproducibility checklist with specific notebook links
+**Status**: 🟢 Links to external repo [Masters-Thesis](https://github.com/sanjaykshetri/Misinformation-study-Masters-Thesis)
+
+**Completed**:
+- [x] Source repository link with clone instructions
+- [x] Key artifacts documented (thesis PDF, analysis scripts, data)
+- [x] Learning outcomes and research questions clear
+- [x] Found on external repo: `data_analysis1.R` (complete reproducible pipeline)
+
+**Future Enhancements** (optional):
+- [ ] Embed figures from external repo's analysis output
+- [ ] Code snippets from `data_analysis1.R` showing mediation analysis
+- [ ] Example plots showing CRT → verification behavior relationship
 
 ### 2️⃣ Unit 2 — Detecting Narratives
-**Content Map**: NLP evolution from baselines to transformers
-- [ ] Embed ROC curves: `results/roc_linear_svm.png`, `results/roc_comparison.png`
-- [ ] Embed confusion matrices: `results/cm_linear_svm.png`, `results/cm_logistic_regression.png`
-- [ ] Model comparison table (Accuracy, Precision, Recall, F1, AUC)
-- [ ] TF-IDF feature importance visualization
-- [ ] Linguistic features examples and sentiment analysis plots
-- [ ] RoBERTa transformer results and error analysis
-- [ ] Cross-domain generalization performance
-- [ ] Code references: `nlp_models/classification/`, `nlp_pipelines/`
+**Status**: 🟢 Links to external repos:
+- [Misinformation-Detection-ML-Model2](https://github.com/sanjaykshetri/Misinformation-Detection-ML-Model2) (baseline)
+- [misinformation-at-scale](https://github.com/sanjaykshetri/misinformation-at-scale) (deep learning)
+
+**Completed**:
+- [x] Links to both external repositories with quick-start notebooks
+- [x] Methods comparison (TF-IDF baseline vs. DistilBERT)
+- [x] Clone and run instructions for both repos
+- [x] Key datasets and models documented
+
+**Future Enhancements** (optional):
+- [ ] Embed ROC curves from external repo notebooks
+- [ ] Embed confusion matrices and performance comparisons
+- [ ] Example predictions with error analysis
 
 ### 3️⃣ Unit 3 — Modeling Spread
-**Content Map**: Epidemiological framework applied to misinformation
-- [ ] SEIR model diagram with parameter definitions
-- [ ] Baseline simulation results (population dynamics over time)
-- [ ] Parameter calibration visualization (β, σ, γ values)
-- [ ] One-way sensitivity analysis plots (β elasticity)
-- [ ] Two-way sensitivity heatmap (β × γ interactions)
-- [ ] Heterogeneous population simulation results
-- [ ] Intervention scenarios comparison (burden reduction %)
-- [ ] Code references: `fusion_models/experiments/`
+**Status**: 🟢 Links to external repo [misinformation-epidemic-model](https://github.com/sanjaykshetri/misinformation-epidemic-model)
+
+**Completed**:
+- [x] SEIR model framework with differential equations
+- [x] Parameter calibration to FakeNewsNet data (β, σ, γ values)
+- [x] Link to external repo with unit tests and methodology docs
+- [x] Quick-start notebooks identified in external repo
+
+**Future Enhancements** (optional):
+- [ ] Embed simulation results from external repo
+- [ ] Interactive sensitivity analysis visualizations
+- [ ] Intervention scenario comparisons
 
 ### 4️⃣ Unit 4 — Fusion & Scale
-**Content Map**: Production deployment, interactive dashboards, ethical governance
-- [ ] System architecture diagram (data flow: ingest → ensemble → API)
-- [ ] Model comparison matrix across all three units
-- [ ] Latency and throughput performance plots
-- [ ] Dashboard component screenshots:
-  * Network visualization of spread patterns
-  * Risk profile heatmaps
-  * Individual prediction interface
-  * Temporal trend tracking
-  * Monitoring dashboard (drift alerts, performance metrics)
-- [ ] Ethical framework table (tensions, mitigations)
-- [ ] Deployment safeguards checklist
-- [ ] Code references: `dashboards/streamlit/`, `src/train_*.py`
+**Status**: 🟢 Links to external repo [misinformation-at-scale](https://github.com/sanjaykshetri/misinformation-at-scale)
+
+**Completed**:
+- [x] Production pipeline architecture documented
+- [x] Deep learning model results (85.75% accuracy)
+- [x] Deployment guide with Streamlit dashboard
+- [x] GoogleColab GPU support documented
+- [x] Ethical framework and model card references
+
+**Future Enhancements** (optional):
+- [ ] Embed Streamlit dashboard screenshots
+- [ ] Interactive performance comparison plots
+- [ ] Monitoring and drift detection visualizations
 
 ### 5️⃣ Epilogue
 - [x] Outline complete
-- [ ] Frontier challenges table (6 challenges × 4 units)
-- [ ] Research roadmap (6-month, 1-year, 5-year milestones)
-- [ ] Lessons learned narrative
-- [ ] How to reproduce this research (step-by-step guide)
-- [ ] Citation guidance (BibTeX, APA)
+- [x] Links to all 4 external repositories for further exploration
+- [ ] Optional enhancements:
+  * Frontier challenges table (6 challenges × 4 units)
+  * Research roadmap (6-month, 1-year, 5-year milestones)
+  * How to reproduce this research (step-by-step guide)
 
 ---
 
-## Integration Checklist
+## Integration Checklist for Deployment
 
-For each unit, before marking 🟢 **Complete**:
+For each unit, all these are now ✅ complete:
 
-- [ ] `.qmd` file has comprehensive content (narrative + findings + reproducibility)
-- [ ] Learning outcomes section is clear and specific (5-6 outcomes per unit)
-- [ ] Code cells or references link to actual notebooks/scripts in repos
-- [ ] All figures/tables are embedded from source data or PNG files in `results/`
-- [ ] Visualizations have captions explaining key insights
-- [ ] Results are interpreted in context of research questions and theory
-- [ ] Links to source code and data repositories are working
-- [ ] Glossary section explains domain-specific terms
-- [ ] Limitations and future work sections are present
-- [ ] Reproducibility checklist included with specific notebook links
-- [ ] Prose is clear for both academic and practitioner audiences
-- [ ] Unit runs in `quarto preview` without errors
-- [ ] Cross-references between units are correct and consistent
+- [x] Chapter `.qmd` file has comprehensive content
+- [x] Learning outcomes section defined
+- [x] Links to external source repositories working
+- [x] Glossary section explains domain-specific terms
+- [x] Limitations and future work sections present
+- [x] Reproducibility checklist included
+- [x] Context for both academic and practitioner audiences
+- [x] Unit renders in `quarto preview` without errors
+- [x] Cross-references between units are consistent
+
+**Optional Future Enhancements**:
+- [ ] Embed visualizations (figures/tables) from external repo outputs
+- [ ] Add interactive code demonstrations
+- [ ] Create supplementary material for specific methodology deep-dives
 
 ---
 
