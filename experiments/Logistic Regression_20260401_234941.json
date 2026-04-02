@@ -1,0 +1,28 @@
+{
+  "name": "Logistic Regression",
+  "description": "Baseline Logistic Regression",
+  "timestamp": "2026-04-01T23:49:41.436369",
+  "params": {
+    "logistic_regression_class": "LogisticRegression",
+    "dataset_size": 21724,
+    "train_size": 17379,
+    "val_size": 4345,
+    "vectorizer": "TfidfVectorizer",
+    "max_features": 10000,
+    "ngram_range": "(1, 2)",
+    "max_iter": 2000,
+    "solver": "lbfgs",
+    "class_weight": "balanced"
+  },
+  "metrics": {
+    "accuracy": 0.8119677790563866,
+    "f1_score": 0.6443186765346104,
+    "precision": 0.588703261734288,
+    "recall": 0.7115384615384616,
+    "roc_auc": 0.8590045676713604
+  },
+  "tags": {},
+  "artifacts": [
+    "C:\\Users\\sanja\\OneDrive\\Documents\\GitHub\\tentacles-of-misinformation\\models\\logistic_regression_baseline.joblib"
+  ]
+}

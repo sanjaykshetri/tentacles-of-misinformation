@@ -1,0 +1,27 @@
+{
+  "name": "Linear SVM",
+  "description": "Baseline Linear SVM",
+  "timestamp": "2026-04-01T23:49:41.548086",
+  "params": {
+    "linear_svm_class": "LinearSVC",
+    "dataset_size": 21724,
+    "train_size": 17379,
+    "val_size": 4345,
+    "vectorizer": "TfidfVectorizer",
+    "max_features": 10000,
+    "ngram_range": "(1, 2)",
+    "max_iter": 5000,
+    "class_weight": "balanced"
+  },
+  "metrics": {
+    "accuracy": 0.7935558112773302,
+    "f1_score": 0.6145251396648045,
+    "precision": 0.5555555555555556,
+    "recall": 0.6875,
+    "roc_auc": 0.8412692016757826
+  },
+  "tags": {},
+  "artifacts": [
+    "C:\\Users\\sanja\\OneDrive\\Documents\\GitHub\\tentacles-of-misinformation\\models\\linear_svm_baseline.joblib"
+  ]
+}

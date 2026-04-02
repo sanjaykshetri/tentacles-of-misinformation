@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>5&nbsp; Unit 3: Modeling Spread – The Tentacles of Misinformation</title>
+<title>5&nbsp; Chapter 3: Spread Modeling — Understanding Cascade Dynamics – The Tentacles of Misinformation</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -118,7 +118,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/03-modeling-spread.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Unit 3: Modeling Spread</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/03-modeling-spread.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Chapter 3: Spread Modeling — Understanding Cascade Dynamics</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -148,43 +148,43 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">The Tentacles of Misinformation</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">🐙 Detecting Misinformation at Scale</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../chapters/00-prologue.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Prologue — When a False Story Wins</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Prologue — A Case Study: Why This Matters</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../chapters/01-measuring-vulnerability.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Unit 1: Measuring Vulnerability</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Chapter 1: Behavioral Intelligence — Your Unfair Edge</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../chapters/02-detecting-narratives.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Unit 2: Detecting Narratives</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Chapter 2: Building the Detection Engine</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../chapters/03-modeling-spread.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Unit 3: Modeling Spread</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Chapter 3: Spread Modeling — Understanding Cascade Dynamics</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../chapters/04-fusion-scale.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Unit 4: Fusion &amp; Scale</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Chapter 4: From Lab to Production — Building Deployable Systems</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../chapters/05-epilogue.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Epilogue: My Path into Data Science</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Epilogue: Reflection &amp; What Comes Next</span></span></a>
   </div>
 </li>
     </ul>
@@ -197,47 +197,48 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#learning-outcomes" id="toc-learning-outcomes" class="nav-link active" data-scroll-target="#learning-outcomes"><span class="header-section-number">5.1</span> Learning Outcomes</a></li>
-  <li><a href="#source-repository" id="toc-source-repository" class="nav-link" data-scroll-target="#source-repository"><span class="header-section-number">5.2</span> 🔗 Source Repository</a></li>
-  <li><a href="#the-research-question" id="toc-the-research-question" class="nav-link" data-scroll-target="#the-research-question"><span class="header-section-number">5.3</span> The Research Question</a></li>
-  <li><a href="#part-a-the-infodemic-concept" id="toc-part-a-the-infodemic-concept" class="nav-link" data-scroll-target="#part-a-the-infodemic-concept"><span class="header-section-number">5.4</span> Part A: The Infodemic Concept</a>
+  <li><a href="#what-i-built" id="toc-what-i-built" class="nav-link active" data-scroll-target="#what-i-built"><span class="header-section-number">5.1</span> What I Built</a></li>
+  <li><a href="#why-spread-modeling-matters" id="toc-why-spread-modeling-matters" class="nav-link" data-scroll-target="#why-spread-modeling-matters"><span class="header-section-number">5.2</span> Why Spread Modeling Matters</a></li>
+  <li><a href="#the-data" id="toc-the-data" class="nav-link" data-scroll-target="#the-data"><span class="header-section-number">5.3</span> The Data</a></li>
+  <li><a href="#the-model-seir-compartmental-framework" id="toc-the-model-seir-compartmental-framework" class="nav-link" data-scroll-target="#the-model-seir-compartmental-framework"><span class="header-section-number">5.4</span> The Model: SEIR Compartmental Framework</a></li>
+  <li><a href="#part-a-the-infodemic-concept" id="toc-part-a-the-infodemic-concept" class="nav-link" data-scroll-target="#part-a-the-infodemic-concept"><span class="header-section-number">5.5</span> Part A: The Infodemic Concept</a>
   <ul class="collapse">
-  <li><a href="#from-epidemiology-to-misinformation" id="toc-from-epidemiology-to-misinformation" class="nav-link" data-scroll-target="#from-epidemiology-to-misinformation"><span class="header-section-number">5.4.1</span> From Epidemiology to Misinformation</a></li>
-  <li><a href="#heterogeneous-susceptibility" id="toc-heterogeneous-susceptibility" class="nav-link" data-scroll-target="#heterogeneous-susceptibility"><span class="header-section-number">5.4.2</span> Heterogeneous Susceptibility</a></li>
+  <li><a href="#from-epidemiology-to-misinformation" id="toc-from-epidemiology-to-misinformation" class="nav-link" data-scroll-target="#from-epidemiology-to-misinformation"><span class="header-section-number">5.5.1</span> From Epidemiology to Misinformation</a></li>
+  <li><a href="#heterogeneous-susceptibility" id="toc-heterogeneous-susceptibility" class="nav-link" data-scroll-target="#heterogeneous-susceptibility"><span class="header-section-number">5.5.2</span> Heterogeneous Susceptibility</a></li>
   </ul></li>
-  <li><a href="#part-b-epidemiological-model-framework" id="toc-part-b-epidemiological-model-framework" class="nav-link" data-scroll-target="#part-b-epidemiological-model-framework"><span class="header-section-number">5.5</span> Part B: Epidemiological Model Framework</a>
+  <li><a href="#part-b-epidemiological-model-framework" id="toc-part-b-epidemiological-model-framework" class="nav-link" data-scroll-target="#part-b-epidemiological-model-framework"><span class="header-section-number">5.6</span> Part B: Epidemiological Model Framework</a>
   <ul class="collapse">
-  <li><a href="#seir-model-adapted-for-misinformation" id="toc-seir-model-adapted-for-misinformation" class="nav-link" data-scroll-target="#seir-model-adapted-for-misinformation"><span class="header-section-number">5.5.1</span> SEIR Model (Adapted for Misinformation)</a></li>
-  <li><a href="#mathematical-formulation" id="toc-mathematical-formulation" class="nav-link" data-scroll-target="#mathematical-formulation"><span class="header-section-number">5.5.2</span> Mathematical Formulation</a></li>
-  <li><a href="#calibration-to-fakenewsnet-data" id="toc-calibration-to-fakenewsnet-data" class="nav-link" data-scroll-target="#calibration-to-fakenewsnet-data"><span class="header-section-number">5.5.3</span> Calibration to FakeNewsNet Data</a></li>
-  <li><a href="#derived-quantity-r₀" id="toc-derived-quantity-r₀" class="nav-link" data-scroll-target="#derived-quantity-r₀"><span class="header-section-number">5.5.4</span> Derived Quantity: R₀</a></li>
+  <li><a href="#seir-model-adapted-for-misinformation" id="toc-seir-model-adapted-for-misinformation" class="nav-link" data-scroll-target="#seir-model-adapted-for-misinformation"><span class="header-section-number">5.6.1</span> SEIR Model (Adapted for Misinformation)</a></li>
+  <li><a href="#mathematical-formulation" id="toc-mathematical-formulation" class="nav-link" data-scroll-target="#mathematical-formulation"><span class="header-section-number">5.6.2</span> Mathematical Formulation</a></li>
+  <li><a href="#calibration-to-fakenewsnet-data" id="toc-calibration-to-fakenewsnet-data" class="nav-link" data-scroll-target="#calibration-to-fakenewsnet-data"><span class="header-section-number">5.6.3</span> Calibration to FakeNewsNet Data</a></li>
+  <li><a href="#derived-quantity-r₀" id="toc-derived-quantity-r₀" class="nav-link" data-scroll-target="#derived-quantity-r₀"><span class="header-section-number">5.6.4</span> Derived Quantity: R₀</a></li>
   </ul></li>
-  <li><a href="#part-c-sensitivity-analysis" id="toc-part-c-sensitivity-analysis" class="nav-link" data-scroll-target="#part-c-sensitivity-analysis"><span class="header-section-number">5.6</span> Part C: Sensitivity Analysis</a>
+  <li><a href="#part-c-sensitivity-analysis" id="toc-part-c-sensitivity-analysis" class="nav-link" data-scroll-target="#part-c-sensitivity-analysis"><span class="header-section-number">5.7</span> Part C: Sensitivity Analysis</a>
   <ul class="collapse">
-  <li><a href="#single-parameter-sensitivity" id="toc-single-parameter-sensitivity" class="nav-link" data-scroll-target="#single-parameter-sensitivity"><span class="header-section-number">5.6.1</span> Single-Parameter Sensitivity</a></li>
-  <li><a href="#two-way-sensitivity-β-γ-interaction" id="toc-two-way-sensitivity-β-γ-interaction" class="nav-link" data-scroll-target="#two-way-sensitivity-β-γ-interaction"><span class="header-section-number">5.6.2</span> Two-Way Sensitivity: β × γ Interaction</a></li>
-  <li><a href="#visualizations" id="toc-visualizations" class="nav-link" data-scroll-target="#visualizations"><span class="header-section-number">5.6.3</span> Visualizations</a></li>
+  <li><a href="#single-parameter-sensitivity" id="toc-single-parameter-sensitivity" class="nav-link" data-scroll-target="#single-parameter-sensitivity"><span class="header-section-number">5.7.1</span> Single-Parameter Sensitivity</a></li>
+  <li><a href="#two-way-sensitivity-β-γ-interaction" id="toc-two-way-sensitivity-β-γ-interaction" class="nav-link" data-scroll-target="#two-way-sensitivity-β-γ-interaction"><span class="header-section-number">5.7.2</span> Two-Way Sensitivity: β × γ Interaction</a></li>
+  <li><a href="#visualizations" id="toc-visualizations" class="nav-link" data-scroll-target="#visualizations"><span class="header-section-number">5.7.3</span> Visualizations</a></li>
   </ul></li>
-  <li><a href="#part-d-heterogeneous-population-simulation" id="toc-part-d-heterogeneous-population-simulation" class="nav-link" data-scroll-target="#part-d-heterogeneous-population-simulation"><span class="header-section-number">5.7</span> Part D: Heterogeneous Population Simulation</a>
+  <li><a href="#part-d-heterogeneous-population-simulation" id="toc-part-d-heterogeneous-population-simulation" class="nav-link" data-scroll-target="#part-d-heterogeneous-population-simulation"><span class="header-section-number">5.8</span> Part D: Heterogeneous Population Simulation</a>
   <ul class="collapse">
-  <li><a href="#agent-based-model" id="toc-agent-based-model" class="nav-link" data-scroll-target="#agent-based-model"><span class="header-section-number">5.7.1</span> Agent-Based Model</a></li>
-  <li><a href="#simulation-baseline-vs.-intervention" id="toc-simulation-baseline-vs.-intervention" class="nav-link" data-scroll-target="#simulation-baseline-vs.-intervention"><span class="header-section-number">5.7.2</span> Simulation: Baseline vs.&nbsp;Intervention</a></li>
-  <li><a href="#intervention-targeting" id="toc-intervention-targeting" class="nav-link" data-scroll-target="#intervention-targeting"><span class="header-section-number">5.7.3</span> Intervention Targeting</a></li>
+  <li><a href="#agent-based-model" id="toc-agent-based-model" class="nav-link" data-scroll-target="#agent-based-model"><span class="header-section-number">5.8.1</span> Agent-Based Model</a></li>
+  <li><a href="#simulation-baseline-vs.-intervention" id="toc-simulation-baseline-vs.-intervention" class="nav-link" data-scroll-target="#simulation-baseline-vs.-intervention"><span class="header-section-number">5.8.2</span> Simulation: Baseline vs.&nbsp;Intervention</a></li>
+  <li><a href="#intervention-targeting" id="toc-intervention-targeting" class="nav-link" data-scroll-target="#intervention-targeting"><span class="header-section-number">5.8.3</span> Intervention Targeting</a></li>
   </ul></li>
-  <li><a href="#part-e-key-findings" id="toc-part-e-key-findings" class="nav-link" data-scroll-target="#part-e-key-findings"><span class="header-section-number">5.8</span> Part E: Key Findings</a>
+  <li><a href="#part-e-key-findings" id="toc-part-e-key-findings" class="nav-link" data-scroll-target="#part-e-key-findings"><span class="header-section-number">5.9</span> Part E: Key Findings</a>
   <ul class="collapse">
-  <li><a href="#main-results" id="toc-main-results" class="nav-link" data-scroll-target="#main-results"><span class="header-section-number">5.8.1</span> Main Results</a></li>
-  <li><a href="#policy-recommendations" id="toc-policy-recommendations" class="nav-link" data-scroll-target="#policy-recommendations"><span class="header-section-number">5.8.2</span> Policy Recommendations</a></li>
+  <li><a href="#main-results" id="toc-main-results" class="nav-link" data-scroll-target="#main-results"><span class="header-section-number">5.9.1</span> Main Results</a></li>
+  <li><a href="#policy-recommendations" id="toc-policy-recommendations" class="nav-link" data-scroll-target="#policy-recommendations"><span class="header-section-number">5.9.2</span> Policy Recommendations</a></li>
   </ul></li>
-  <li><a href="#part-f-limitations-assumptions" id="toc-part-f-limitations-assumptions" class="nav-link" data-scroll-target="#part-f-limitations-assumptions"><span class="header-section-number">5.9</span> Part F: Limitations &amp; Assumptions</a>
+  <li><a href="#part-f-limitations-assumptions" id="toc-part-f-limitations-assumptions" class="nav-link" data-scroll-target="#part-f-limitations-assumptions"><span class="header-section-number">5.10</span> Part F: Limitations &amp; Assumptions</a>
   <ul class="collapse">
-  <li><a href="#model-assumptions" id="toc-model-assumptions" class="nav-link" data-scroll-target="#model-assumptions"><span class="header-section-number">5.9.1</span> Model Assumptions</a></li>
-  <li><a href="#data-limitations" id="toc-data-limitations" class="nav-link" data-scroll-target="#data-limitations"><span class="header-section-number">5.9.2</span> Data Limitations</a></li>
-  <li><a href="#generalizability" id="toc-generalizability" class="nav-link" data-scroll-target="#generalizability"><span class="header-section-number">5.9.3</span> Generalizability</a></li>
+  <li><a href="#model-assumptions" id="toc-model-assumptions" class="nav-link" data-scroll-target="#model-assumptions"><span class="header-section-number">5.10.1</span> Model Assumptions</a></li>
+  <li><a href="#data-limitations" id="toc-data-limitations" class="nav-link" data-scroll-target="#data-limitations"><span class="header-section-number">5.10.2</span> Data Limitations</a></li>
+  <li><a href="#generalizability" id="toc-generalizability" class="nav-link" data-scroll-target="#generalizability"><span class="header-section-number">5.10.3</span> Generalizability</a></li>
   </ul></li>
-  <li><a href="#reproducibility-checklist" id="toc-reproducibility-checklist" class="nav-link" data-scroll-target="#reproducibility-checklist"><span class="header-section-number">5.10</span> Reproducibility Checklist</a></li>
-  <li><a href="#glossary" id="toc-glossary" class="nav-link" data-scroll-target="#glossary"><span class="header-section-number">5.11</span> Glossary</a></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">5.12</span> References</a></li>
+  <li><a href="#reproducibility-checklist" id="toc-reproducibility-checklist" class="nav-link" data-scroll-target="#reproducibility-checklist"><span class="header-section-number">5.11</span> Reproducibility Checklist</a></li>
+  <li><a href="#glossary" id="toc-glossary" class="nav-link" data-scroll-target="#glossary"><span class="header-section-number">5.12</span> Glossary</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">5.13</span> References</a></li>
   </ul>
 </nav>
     </div>
@@ -246,7 +247,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Unit 3: Modeling Spread</span></h1>
+<h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Chapter 3: Spread Modeling — Understanding Cascade Dynamics</span></h1>
 </div>
 
 
@@ -263,49 +264,48 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="learning-outcomes" class="level2" data-number="5.1">
-<h2 data-number="5.1" class="anchored" data-anchor-id="learning-outcomes"><span class="header-section-number">5.1</span> Learning Outcomes</h2>
-<p>By the end of this unit, you will: 1. Understand epidemiological models applied to misinformation spread 2. Estimate transmission parameters calibrated to real data 3. Conduct sensitivity analysis on key parameters 4. Simulate heterogeneous population responses to interventions 5. Interpret mathematical models in policy contexts 6. Identify assumptions and limitations of compartmental models</p>
+<section id="what-i-built" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="what-i-built"><span class="header-section-number">5.1</span> What I Built</h2>
+<p>A mathematical model and simulation showing how misinformation spreads through populations—and what stops it.</p>
+<p><strong>The model</strong>: SEIR compartmental framework (borrowed from epidemiology, adapted for information): - <strong>S</strong> = Susceptible (haven’t seen the misinformation) - <strong>E</strong> = Exposed (saw it, deciding) - <strong>I</strong> = Infected (believe it, sharing) - <strong>R</strong> = Recovered (corrected or immune)</p>
+<p><strong>Parameters calibrated to real FakeNewsNet cascade data</strong>, not made-up numbers.</p>
 <hr>
 </section>
-<section id="source-repository" class="level2" data-number="5.2">
-<h2 data-number="5.2" class="anchored" data-anchor-id="source-repository"><span class="header-section-number">5.2</span> 🔗 Source Repository</h2>
-<blockquote class="blockquote">
-<p><strong>This chapter showcases research from:</strong> <a href="https://github.com/sanjaykshetri/misinformation-epidemic-model">misinformation-epidemic-model</a></p>
-</blockquote>
-<p><strong>Key artifacts in the external repository:</strong> - 🧬 SEIR compartmental model implementation - 📊 Calibration to FakeNewsNet cascade data - 📓 Quick-start notebooks: - <code>notebooks/quick_start_academic.ipynb</code> - 5-minute overview - <code>notebooks/baseline_vs_interventions.ipynb</code> - Full scenario analysis - ✅ 46 unit tests + mypy strict type checking (production-grade code quality) - 📋 Complete methodology documentation (METHODOLOGY.md, MODEL_ASSUMPTIONS.md)</p>
-<p><strong>To run locally:</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/sanjaykshetri/misinformation-epidemic-model.git</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> misinformation-epidemic-model</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install <span class="at">-e</span> .</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="ex">jupyter</span> notebook notebooks/quick_start_academic.ipynb</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="why-spread-modeling-matters" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="why-spread-modeling-matters"><span class="header-section-number">5.2</span> Why Spread Modeling Matters</h2>
+<p>Detection alone is reactive: “We found this false story.”</p>
+<p>Spread modeling is <em>predictive</em>: “If we do nothing, it reaches 40% of the network. If we add fact-checks in hour 2, it only reaches 15%.”</p>
+<p><strong>Real-world implication</strong>: Platform teams need to know: - ✅ How fast does this spread? - ✅ Who gets exposed first? - ✅ What interventions actually work? - ✅ When do we need to act?</p>
 <hr>
 </section>
-<section id="the-research-question" class="level2" data-number="5.3">
-<h2 data-number="5.3" class="anchored" data-anchor-id="the-research-question"><span class="header-section-number">5.3</span> The Research Question</h2>
-<p><strong>How do misinformation and rumors spread through populations?</strong> Can we predict dynamics and design interventions?</p>
-<p>This unit applies epidemiological modeling (SEIR framework) to information cascades: - <strong>Susceptibility</strong>: Who is vulnerable to belief? - <strong>Exposure</strong>: How are individuals exposed to misinformation? - <strong>Infection</strong>: Does exposure lead to belief adoption?<br>
-- <strong>Recovery</strong>: Do individuals correct false beliefs over time? - <strong>Contribution</strong>: Quantifies intervention impact at population scale</p>
+<section id="the-data" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="the-data"><span class="header-section-number">5.3</span> The Data</h2>
+<p><strong>Calibration source</strong>: FakeNewsNet cascades - Tracked which users saw, liked, shared each article - Measured temporal dynamics (how many new exposures per hour) - Computed population-level statistics</p>
+<p><strong>Result</strong>: Estimated parameters for the SEIR model - β (transmission rate) = 0.0153 - σ (incubation rate) = 0.3193 - γ (recovery rate) = 0.10 - Basic reproduction number R₀ = 0.176</p>
+<p><strong>Interpretation</strong>: One infected person exposes ~0.176 others before message dies out. Misinformation is <em>less</em> contagious than COVID (R₀≈2-3), but still spreading.</p>
 <hr>
 </section>
-<section id="part-a-the-infodemic-concept" class="level2" data-number="5.4">
-<h2 data-number="5.4" class="anchored" data-anchor-id="part-a-the-infodemic-concept"><span class="header-section-number">5.4</span> Part A: The Infodemic Concept</h2>
-<section id="from-epidemiology-to-misinformation" class="level3" data-number="5.4.1">
-<h3 data-number="5.4.1" class="anchored" data-anchor-id="from-epidemiology-to-misinformation"><span class="header-section-number">5.4.1</span> From Epidemiology to Misinformation</h3>
+<section id="the-model-seir-compartmental-framework" class="level2" data-number="5.4">
+<h2 data-number="5.4" class="anchored" data-anchor-id="the-model-seir-compartmental-framework"><span class="header-section-number">5.4</span> The Model: SEIR Compartmental Framework</h2>
+</section>
+<section id="part-a-the-infodemic-concept" class="level2" data-number="5.5">
+<h2 data-number="5.5" class="anchored" data-anchor-id="part-a-the-infodemic-concept"><span class="header-section-number">5.5</span> Part A: The Infodemic Concept</h2>
+<section id="from-epidemiology-to-misinformation" class="level3" data-number="5.5.1">
+<h3 data-number="5.5.1" class="anchored" data-anchor-id="from-epidemiology-to-misinformation"><span class="header-section-number">5.5.1</span> From Epidemiology to Misinformation</h3>
 <p>The COVID-19 pandemic introduced the term <strong>“infodemic”</strong>: simultaneous spread of accurate and false information about a disease.</p>
 <p><strong>Key insight</strong>: Information spreads like viruses. - Both can be contagious (attractive/engaging) - Both accumulate in hubs (influential nodes) - Both have <strong>R₀</strong> (reproductive number): How many people does one infected person transmit to?</p>
 </section>
-<section id="heterogeneous-susceptibility" class="level3" data-number="5.4.2">
-<h3 data-number="5.4.2" class="anchored" data-anchor-id="heterogeneous-susceptibility"><span class="header-section-number">5.4.2</span> Heterogeneous Susceptibility</h3>
+<section id="heterogeneous-susceptibility" class="level3" data-number="5.5.2">
+<h3 data-number="5.5.2" class="anchored" data-anchor-id="heterogeneous-susceptibility"><span class="header-section-number">5.5.2</span> Heterogeneous Susceptibility</h3>
 <p>Prior chapters measured individual vulnerability. This chapter asks: <strong>At population scale, how do these differences matter?</strong></p>
 <p><strong>Key interactions</strong>: - Age × Emotion sensitivity: Do older adults with high emotional reactivity believe misinformation more? - Cognitive reflection × Exposure: Do individuals with higher CRT resist belief change? - Social network position × Susceptibility: Are central nodes more influential because they’re more credible or just more visible?</p>
 <hr>
 </section>
 </section>
-<section id="part-b-epidemiological-model-framework" class="level2" data-number="5.5">
-<h2 data-number="5.5" class="anchored" data-anchor-id="part-b-epidemiological-model-framework"><span class="header-section-number">5.5</span> Part B: Epidemiological Model Framework</h2>
-<section id="seir-model-adapted-for-misinformation" class="level3" data-number="5.5.1">
-<h3 data-number="5.5.1" class="anchored" data-anchor-id="seir-model-adapted-for-misinformation"><span class="header-section-number">5.5.1</span> SEIR Model (Adapted for Misinformation)</h3>
+<section id="part-b-epidemiological-model-framework" class="level2" data-number="5.6">
+<h2 data-number="5.6" class="anchored" data-anchor-id="part-b-epidemiological-model-framework"><span class="header-section-number">5.6</span> Part B: Epidemiological Model Framework</h2>
+<section id="seir-model-adapted-for-misinformation" class="level3" data-number="5.6.1">
+<h3 data-number="5.6.1" class="anchored" data-anchor-id="seir-model-adapted-for-misinformation"><span class="header-section-number">5.6.1</span> SEIR Model (Adapted for Misinformation)</h3>
 <p>Standard epidemiological model with states:</p>
 <table class="caption-top table">
 <colgroup>
@@ -344,8 +344,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tbody>
 </table>
 </section>
-<section id="mathematical-formulation" class="level3" data-number="5.5.2">
-<h3 data-number="5.5.2" class="anchored" data-anchor-id="mathematical-formulation"><span class="header-section-number">5.5.2</span> Mathematical Formulation</h3>
+<section id="mathematical-formulation" class="level3" data-number="5.6.2">
+<h3 data-number="5.6.2" class="anchored" data-anchor-id="mathematical-formulation"><span class="header-section-number">5.6.2</span> Mathematical Formulation</h3>
 <p><strong>Differential equations</strong>:</p>
 <pre><code>dS/dt = -β × S × I  (Susceptibles exposed)
 dE/dt = β × S × I - σ × E  (Exposed individuals: some move to infected)
@@ -353,8 +353,8 @@ dI/dt = σ × E - γ × I  (Believers: some recover)
 dR/dt = γ × I  (Recovered/immune)</code></pre>
 <p><strong>Parameters</strong>: - <strong>β</strong> (transmission rate): How likely is exposure to cause belief? - <strong>σ</strong> (latency rate): How quickly do exposed individuals decide? - <strong>γ</strong> (recovery rate): How quickly do believers correct themselves?</p>
 </section>
-<section id="calibration-to-fakenewsnet-data" class="level3" data-number="5.5.3">
-<h3 data-number="5.5.3" class="anchored" data-anchor-id="calibration-to-fakenewsnet-data"><span class="header-section-number">5.5.3</span> Calibration to FakeNewsNet Data</h3>
+<section id="calibration-to-fakenewsnet-data" class="level3" data-number="5.6.3">
+<h3 data-number="5.6.3" class="anchored" data-anchor-id="calibration-to-fakenewsnet-data"><span class="header-section-number">5.6.3</span> Calibration to FakeNewsNet Data</h3>
 <p>We estimate parameters from real cascade data:</p>
 <table class="caption-top table">
 <colgroup>
@@ -393,8 +393,8 @@ dR/dt = γ × I  (Recovered/immune)</code></pre>
 </tbody>
 </table>
 </section>
-<section id="derived-quantity-r₀" class="level3" data-number="5.5.4">
-<h3 data-number="5.5.4" class="anchored" data-anchor-id="derived-quantity-r₀"><span class="header-section-number">5.5.4</span> Derived Quantity: R₀</h3>
+<section id="derived-quantity-r₀" class="level3" data-number="5.6.4">
+<h3 data-number="5.6.4" class="anchored" data-anchor-id="derived-quantity-r₀"><span class="header-section-number">5.6.4</span> Derived Quantity: R₀</h3>
 <p><strong>Basic Reproduction Number</strong> = β / γ</p>
 <pre><code>R₀ = 0.0153 / 0.0870 = 0.176</code></pre>
 <p><strong>Interpretation</strong>: On average, 1 believer convinces 0.176 others to believe (&lt; 1 = misinformation dies out naturally)</p>
@@ -402,10 +402,10 @@ dR/dt = γ × I  (Recovered/immune)</code></pre>
 <hr>
 </section>
 </section>
-<section id="part-c-sensitivity-analysis" class="level2" data-number="5.6">
-<h2 data-number="5.6" class="anchored" data-anchor-id="part-c-sensitivity-analysis"><span class="header-section-number">5.6</span> Part C: Sensitivity Analysis</h2>
-<section id="single-parameter-sensitivity" class="level3" data-number="5.6.1">
-<h3 data-number="5.6.1" class="anchored" data-anchor-id="single-parameter-sensitivity"><span class="header-section-number">5.6.1</span> Single-Parameter Sensitivity</h3>
+<section id="part-c-sensitivity-analysis" class="level2" data-number="5.7">
+<h2 data-number="5.7" class="anchored" data-anchor-id="part-c-sensitivity-analysis"><span class="header-section-number">5.7</span> Part C: Sensitivity Analysis</h2>
+<section id="single-parameter-sensitivity" class="level3" data-number="5.7.1">
+<h3 data-number="5.7.1" class="anchored" data-anchor-id="single-parameter-sensitivity"><span class="header-section-number">5.7.1</span> Single-Parameter Sensitivity</h3>
 <p>How sensitive is outbreak outcome to each parameter?</p>
 <table class="caption-top table">
 <colgroup>
@@ -445,8 +445,8 @@ dR/dt = γ × I  (Recovered/immune)</code></pre>
 </table>
 <p><strong>Finding</strong>: Transmission rate (β) is most influential parameter.</p>
 </section>
-<section id="two-way-sensitivity-β-γ-interaction" class="level3" data-number="5.6.2">
-<h3 data-number="5.6.2" class="anchored" data-anchor-id="two-way-sensitivity-β-γ-interaction"><span class="header-section-number">5.6.2</span> Two-Way Sensitivity: β × γ Interaction</h3>
+<section id="two-way-sensitivity-β-γ-interaction" class="level3" data-number="5.7.2">
+<h3 data-number="5.7.2" class="anchored" data-anchor-id="two-way-sensitivity-β-γ-interaction"><span class="header-section-number">5.7.2</span> Two-Way Sensitivity: β × γ Interaction</h3>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 25%">
@@ -485,34 +485,34 @@ dR/dt = γ × I  (Recovered/immune)</code></pre>
 </table>
 <p><strong>Finding</strong>: Interaction is multiplicative. Intervention success depends on BOTH reducing transmission AND accelerating recovery.</p>
 </section>
-<section id="visualizations" class="level3" data-number="5.6.3">
-<h3 data-number="5.6.3" class="anchored" data-anchor-id="visualizations"><span class="header-section-number">5.6.3</span> Visualizations</h3>
+<section id="visualizations" class="level3" data-number="5.7.3">
+<h3 data-number="5.7.3" class="anchored" data-anchor-id="visualizations"><span class="header-section-number">5.7.3</span> Visualizations</h3>
 <p><strong>Interactive plots and comprehensive analysis available in the external repository:</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/sanjaykshetri/misinformation-epidemic-model.git</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> misinformation-epidemic-model</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="ex">jupyter</span> notebook notebooks/baseline_vs_interventions.ipynb</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/sanjaykshetri/misinformation-epidemic-model.git</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> misinformation-epidemic-model</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="ex">jupyter</span> notebook notebooks/baseline_vs_interventions.ipynb</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p><strong>Key visualizations you can generate:</strong> - <strong>Baseline dynamics</strong>: SEIR compartments over time with population trajectories - <strong>Sensitivity heatmap</strong>: β × γ parameter space colored by peak infection rate - <strong>Intervention scenarios</strong>: 4 plots showing baseline vs.&nbsp;3 intervention strategies - <strong>Confidence bands</strong>: Parameter uncertainty visualization with credible intervals - <strong>Cascade distributions</strong>: Real FakeNewsNet cascade structure histograms (cascade depths, widths) - <strong>Model diagnostics</strong>: Residual plots and goodness-of-fit checks</p>
 <p><strong>Run locally:</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> seir_model <span class="im">import</span> calibrate_from_cascades, plot_dynamics</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>params <span class="op">=</span> calibrate_from_cascades(<span class="st">'fakenewsnet.csv'</span>)</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>plot_dynamics(params)  <span class="co"># Creates baseline trajectory</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> seir_model <span class="im">import</span> calibrate_from_cascades, plot_dynamics</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>params <span class="op">=</span> calibrate_from_cascades(<span class="st">'fakenewsnet.csv'</span>)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>plot_dynamics(params)  <span class="co"># Creates baseline trajectory</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <hr>
 </section>
 </section>
-<section id="part-d-heterogeneous-population-simulation" class="level2" data-number="5.7">
-<h2 data-number="5.7" class="anchored" data-anchor-id="part-d-heterogeneous-population-simulation"><span class="header-section-number">5.7</span> Part D: Heterogeneous Population Simulation</h2>
-<section id="agent-based-model" class="level3" data-number="5.7.1">
-<h3 data-number="5.7.1" class="anchored" data-anchor-id="agent-based-model"><span class="header-section-number">5.7.1</span> Agent-Based Model</h3>
+<section id="part-d-heterogeneous-population-simulation" class="level2" data-number="5.8">
+<h2 data-number="5.8" class="anchored" data-anchor-id="part-d-heterogeneous-population-simulation"><span class="header-section-number">5.8</span> Part D: Heterogeneous Population Simulation</h2>
+<section id="agent-based-model" class="level3" data-number="5.8.1">
+<h3 data-number="5.8.1" class="anchored" data-anchor-id="agent-based-model"><span class="header-section-number">5.8.1</span> Agent-Based Model</h3>
 <p>Extend SEIR to a simulated population with: - N = 10,000 agents - Age distribution: 18-80 years (realistic) - Connectivity: Small-world network (average degree = 8) - Susceptibility heterogeneity: Varies by age and cognitive traits</p>
 </section>
-<section id="simulation-baseline-vs.-intervention" class="level3" data-number="5.7.2">
-<h3 data-number="5.7.2" class="anchored" data-anchor-id="simulation-baseline-vs.-intervention"><span class="header-section-number">5.7.2</span> Simulation: Baseline vs.&nbsp;Intervention</h3>
+<section id="simulation-baseline-vs.-intervention" class="level3" data-number="5.8.2">
+<h3 data-number="5.8.2" class="anchored" data-anchor-id="simulation-baseline-vs.-intervention"><span class="header-section-number">5.8.2</span> Simulation: Baseline vs.&nbsp;Intervention</h3>
 <p><strong>Scenario 1 (Baseline)</strong>: No intervention - Result: Misinformation reaches 18.3% of population at peak</p>
 <p><strong>Scenario 2 (Single intervention)</strong>: Prebunking campaign - Reduce β by 20% - Result: Misinformation reaches 14.7% (19.6% reduction)</p>
 <p><strong>Scenario 3 (Combined interventions)</strong>: - Pre-bunking (β -20%) - Rapid fact-checking (γ +30%) - Result: Misinformation reaches 15.7% peak, extinct by day 120 - <strong>Overall burden reduction</strong>: 14.3%</p>
 </section>
-<section id="intervention-targeting" class="level3" data-number="5.7.3">
-<h3 data-number="5.7.3" class="anchored" data-anchor-id="intervention-targeting"><span class="header-section-number">5.7.3</span> Intervention Targeting</h3>
+<section id="intervention-targeting" class="level3" data-number="5.8.3">
+<h3 data-number="5.8.3" class="anchored" data-anchor-id="intervention-targeting"><span class="header-section-number">5.8.3</span> Intervention Targeting</h3>
 <p><strong>Who to prioritize?</strong></p>
 <table class="caption-top table">
 <thead>
@@ -547,10 +547,10 @@ dR/dt = γ × I  (Recovered/immune)</code></pre>
 <hr>
 </section>
 </section>
-<section id="part-e-key-findings" class="level2" data-number="5.8">
-<h2 data-number="5.8" class="anchored" data-anchor-id="part-e-key-findings"><span class="header-section-number">5.8</span> Part E: Key Findings</h2>
-<section id="main-results" class="level3" data-number="5.8.1">
-<h3 data-number="5.8.1" class="anchored" data-anchor-id="main-results"><span class="header-section-number">5.8.1</span> Main Results</h3>
+<section id="part-e-key-findings" class="level2" data-number="5.9">
+<h2 data-number="5.9" class="anchored" data-anchor-id="part-e-key-findings"><span class="header-section-number">5.9</span> Part E: Key Findings</h2>
+<section id="main-results" class="level3" data-number="5.9.1">
+<h3 data-number="5.9.1" class="anchored" data-anchor-id="main-results"><span class="header-section-number">5.9.1</span> Main Results</h3>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 30%">
@@ -593,8 +593,8 @@ dR/dt = γ × I  (Recovered/immune)</code></pre>
 </tbody>
 </table>
 </section>
-<section id="policy-recommendations" class="level3" data-number="5.8.2">
-<h3 data-number="5.8.2" class="anchored" data-anchor-id="policy-recommendations"><span class="header-section-number">5.8.2</span> Policy Recommendations</h3>
+<section id="policy-recommendations" class="level3" data-number="5.9.2">
+<h3 data-number="5.9.2" class="anchored" data-anchor-id="policy-recommendations"><span class="header-section-number">5.9.2</span> Policy Recommendations</h3>
 <ol type="1">
 <li><strong>Targeted prebunking</strong>: Focus on high-susceptibility demographics</li>
 <li><strong>Rapid corrections</strong>: Accelerate fact-check speed (reduces γ)</li>
@@ -604,10 +604,10 @@ dR/dt = γ × I  (Recovered/immune)</code></pre>
 <hr>
 </section>
 </section>
-<section id="part-f-limitations-assumptions" class="level2" data-number="5.9">
-<h2 data-number="5.9" class="anchored" data-anchor-id="part-f-limitations-assumptions"><span class="header-section-number">5.9</span> Part F: Limitations &amp; Assumptions</h2>
-<section id="model-assumptions" class="level3" data-number="5.9.1">
-<h3 data-number="5.9.1" class="anchored" data-anchor-id="model-assumptions"><span class="header-section-number">5.9.1</span> Model Assumptions</h3>
+<section id="part-f-limitations-assumptions" class="level2" data-number="5.10">
+<h2 data-number="5.10" class="anchored" data-anchor-id="part-f-limitations-assumptions"><span class="header-section-number">5.10</span> Part F: Limitations &amp; Assumptions</h2>
+<section id="model-assumptions" class="level3" data-number="5.10.1">
+<h3 data-number="5.10.1" class="anchored" data-anchor-id="model-assumptions"><span class="header-section-number">5.10.1</span> Model Assumptions</h3>
 <ol type="1">
 <li><strong>Homogeneous mixing</strong>: Assumes random contact (violated in real social networks)</li>
 <li><strong>No reinfection</strong>: Once corrected, can’t re-adopt same false belief (unrealistic)</li>
@@ -615,8 +615,8 @@ dR/dt = γ × I  (Recovered/immune)</code></pre>
 <li><strong>Parameter stationarity</strong>: Assumes β, σ, γ don’t change over time</li>
 </ol>
 </section>
-<section id="data-limitations" class="level3" data-number="5.9.2">
-<h3 data-number="5.9.2" class="anchored" data-anchor-id="data-limitations"><span class="header-section-number">5.9.2</span> Data Limitations</h3>
+<section id="data-limitations" class="level3" data-number="5.10.2">
+<h3 data-number="5.10.2" class="anchored" data-anchor-id="data-limitations"><span class="header-section-number">5.10.2</span> Data Limitations</h3>
 <ol type="1">
 <li><strong>Observable cascades only</strong>: FakeNewsNet captures shares but not private discussions</li>
 <li><strong>No context</strong>: Doesn’t distinguish between virality drivers (humor, outrage, novelty)</li>
@@ -624,8 +624,8 @@ dR/dt = γ × I  (Recovered/immune)</code></pre>
 <li><strong>Cross-cultural</strong>: Calibrated on English-language content</li>
 </ol>
 </section>
-<section id="generalizability" class="level3" data-number="5.9.3">
-<h3 data-number="5.9.3" class="anchored" data-anchor-id="generalizability"><span class="header-section-number">5.9.3</span> Generalizability</h3>
+<section id="generalizability" class="level3" data-number="5.10.3">
+<h3 data-number="5.10.3" class="anchored" data-anchor-id="generalizability"><span class="header-section-number">5.10.3</span> Generalizability</h3>
 <ul>
 <li>Results apply to <strong>text-based misinformation</strong> about news/politics</li>
 <li>May not generalize to: video, images, scientific misinformation, health</li>
@@ -634,8 +634,8 @@ dR/dt = γ × I  (Recovered/immune)</code></pre>
 <hr>
 </section>
 </section>
-<section id="reproducibility-checklist" class="level2" data-number="5.10">
-<h2 data-number="5.10" class="anchored" data-anchor-id="reproducibility-checklist"><span class="header-section-number">5.10</span> Reproducibility Checklist</h2>
+<section id="reproducibility-checklist" class="level2" data-number="5.11">
+<h2 data-number="5.11" class="anchored" data-anchor-id="reproducibility-checklist"><span class="header-section-number">5.11</span> Reproducibility Checklist</h2>
 <ul>
 <li>✅ Mathematical derivations: Documented in <code>fusion_models/</code></li>
 <li>✅ Parameter estimation: Code in <code>src/</code> with cross-validation</li>
@@ -645,8 +645,8 @@ dR/dt = γ × I  (Recovered/immune)</code></pre>
 </ul>
 <hr>
 </section>
-<section id="glossary" class="level2" data-number="5.11">
-<h2 data-number="5.11" class="anchored" data-anchor-id="glossary"><span class="header-section-number">5.11</span> Glossary</h2>
+<section id="glossary" class="level2" data-number="5.12">
+<h2 data-number="5.12" class="anchored" data-anchor-id="glossary"><span class="header-section-number">5.12</span> Glossary</h2>
 <p><strong>SEIR Model</strong>: Susceptible-Exposed-Infected-Recovered epidemiological framework<br>
 <strong>Infodemic</strong>: Simultaneous spread of accurate and false information<br>
 <strong>β (transmission rate)</strong>: Probability that exposure leads to belief<br>
@@ -656,8 +656,8 @@ dR/dt = γ × I  (Recovered/immune)</code></pre>
 <strong>Prebunking</strong>: Inoculation against misinformation before exposure</p>
 <hr>
 </section>
-<section id="references" class="level2" data-number="5.12">
-<h2 data-number="5.12" class="anchored" data-anchor-id="references"><span class="header-section-number">5.12</span> References</h2>
+<section id="references" class="level2" data-number="5.13">
+<h2 data-number="5.13" class="anchored" data-anchor-id="references"><span class="header-section-number">5.13</span> References</h2>
 <ul>
 <li>Vosoughi et al.&nbsp;(2018). The spread of true and false news online. Science.</li>
 <li>Kermack &amp; McKendrick (1927). A contribution to the mathematical theory of epidemics.</li>
@@ -1070,13 +1070,13 @@ dR/dt = γ × I  (Recovered/immune)</code></pre>
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../chapters/02-detecting-narratives.html" class="pagination-link" aria-label="Unit 2: Detecting Narratives">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Unit 2: Detecting Narratives</span></span>
+      <a href="../chapters/02-detecting-narratives.html" class="pagination-link" aria-label="Chapter 2: Building the Detection Engine">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Chapter 2: Building the Detection Engine</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../chapters/04-fusion-scale.html" class="pagination-link" aria-label="Unit 4: Fusion &amp; Scale">
-        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Unit 4: Fusion &amp; Scale</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../chapters/04-fusion-scale.html" class="pagination-link" aria-label="Chapter 4: From Lab to Production — Building Deployable Systems">
+        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Chapter 4: From Lab to Production — Building Deployable Systems</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

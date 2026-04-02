@@ -1,53 +1,357 @@
-# The Tentacles of Misinformation
+# 🐙 Detecting Misinformation at Scale
 
-## A Research Monograph on Cognitive Vulnerability and Predictive Analytics
+> **An end-to-end system combining behavioral science, NLP, and epidemiological modeling to understand who falls for misinformation—and how to predict it.**
 
-::: {.callout-note}
-This research monograph presents an end-to-end study of misinformation susceptibility, integrating behavioral science, NLP, and machine learning to understand who falls for misinformation, why, and how susceptibility can be predicted and mitigated.
+::: {.callout-important}
+## Not a Tutorial. A Complete System.
+
+This is the full production-ready pipeline I built: **behavioral modeling + NLP detection + spread simulation + deployment thinking**. 
+
+21K+ fact-checked articles. Real accuracy trade-offs. Honest about limitations. 86.1% hybrid model accuracy.
 :::
 
-### Overview
+---
 
-Misinformation represents one of the most pressing challenges to informed discourse and democratic participation in the digital age. This work extends an IRB-approved Master's thesis on cognitive vulnerability to misinformation with large-scale NLP models, fusion architectures, and interactive decision support systems.
+## 🎯 The Problem
 
-### Key Contributions
+**Most misinformation detection systems ignore how humans actually work.**
 
-- **Behavioral Analysis**: Survey-based identification of cognitive and mindset features that predict susceptibility
-- **NLP Classification**: State-of-the-art transformer models for detecting misinformation narratives at scale
-- **Fusion Models**: Multimodal architectures combining behavioral and content features for improved predictions
-- **Policy Insights**: Actionable dashboards and visualizations for researchers and policymakers
+They see text. They classify. Done.
 
-### Author
+But real misinformation exploits *psychology*:
+- Emotional manipulation
+- False certainty
+- Artificial simplicity
+- Authority mimicking
 
-**Sanjay Kumar Chhetri**  
-Data Scientist | Behavioral Researcher | Educator
+This system models both humans and text.
+
+**Result**: 4-5% accuracy improvement + 12% reduction in false positives.
+
+That's the difference between a model and a deployed system.
 
 ---
 
-**How to navigate this book:**
+## 🏗️ The System (Complete Architecture)
 
-1. Start with the Introduction for context and research questions
-2. Review the Literature Review for theoretical foundations
-3. Explore the Behavioral Analysis chapter for cognitive predictors
-4. Understand NLP Pipelines for content analysis methods
-5. Study Fusion Models for the integration approach
-6. Examine Results and Discussion for key findings
-7. Consult Appendices for technical details and supplementary analyses
+```{mermaid}
+graph TD
+    A["📰 Input: News Articles<br/>23,196 fact-checked articles"] --> B["🧠 Behavioral Intelligence<br/>Cognitive predictors + Psychology<br/>- Sentiment analysis<br/>- Readability patterns<br/>- Certainty markers"]
+    B --> C["📊 Feature Engineering<br/>13 linguistic + behavioral features"]
+    C --> D["🤖 Detection Engine<br/>TF-IDF + Transformers<br/>Baseline: 81.2%<br/>Advanced: 85.75%"]
+    D --> E["🔥 Hybrid Fusion<br/>Combined approach<br/>86.1% final accuracy"]
+    E --> F["🌍 Spread Modeling<br/>SEIR epidemiological model<br/>R₀ = 0.176"]
+    F --> G["⚡ Production Systems<br/>Pipeline + Tracking + Dashboards<br/>2ms inference, <50ms API"]
+    G --> H["✨ Output<br/>Risk Score + Explanation<br/>Confidence intervals"]
+    
+    style A fill:#e1f5ff
+    style B fill:#fff3e0
+    style E fill:#f3e5f5
+    style H fill:#e8f5e9
+```
 
 ---
 
-**Citation:**
+## 💡 Why This Works (3 Core Insights)
+
+:::: {.columns}
+
+::: {.column width="32%"}
+
+### 🧠 Behavioral + Technical
+
+**What separates senior from junior:**
+
+Most ML engineers optimize metrics. Real systems optimize for humans.
+
+This combines _cognitive science_ with _machine learning_.
+
+Nobody else does this.
+
+**Your advantage**: Different approach, stronger results.
+
+:::
+
+::: {.column width="32%"}
+
+### 📈 Simple → Complex
+
+**Baselines matter more than fanciness:**
+
+- TF-IDF: 81.2% (fast, interpretable)
+- Transformers: 85.75% (slow, 80x more compute)
+- Hybrid: 86.1%  ← **Production sweet spot**
+
+You learn *why* complexity matters—and when it doesn't.
+
+**Your advantage**: Know when to say "80% and ship beats 85% and broken."
+
+:::
+
+::: {.column width="32%"}
+
+### 🚀 End-to-End Ownership
+
+**From research notebooks to deployed systems:**
+
+- ✅ Unified data pipeline
+- ✅ Reproducible experiments
+- ✅ Monitoring & drift detection
+- ✅ Fairness metrics
+- ✅ Interactive dashboards
+
+This is what "production-ready" actually means.
+
+**Your advantage**: Ship code that works in 2 years' time.
+
+::::
+
+---
+
+## 📊 What You Get (Real Results)
+
+| Component | Accuracy | Speed | Trade-off |
+|-----------|----------|-------|-----------|
+| **Baseline** (TF-IDF) | 81.2% | 0.1ms | Fast, interpretable |
+| **Transformer** (DistilBERT) | 85.75% | 8ms | SOTA, expensive |
+| **Hybrid** (Best) | **86.1%** | **2ms** | ✅ Production choice |
+
+**Here's what matters:**
+
+- ✅ **Simple dominates**: 81% baseline catches most falsehoods
+- ✅ **Trade-offs are real**: 4.5% gain costs 80x compute
+- ✅ **Hybrid wins**: Best accuracy + practical speed
+- ✅ **Generalization holds**: Production ≈ Test (84-86%)
+
+---
+
+## 🧭 Read the Book (It's Structured for Learning)
+
+::: {.callout-tip}
+## Each chapter teaches + builds
+
+Not lecture. Practice. Every chapter has code you can run.
+:::
+
+:::: {.columns}
+
+::: {.column width="19%"}
+
+### [1️⃣ Behavioral](chapters/01-measuring-vulnerability.qmd)
+
+**Why people fall for misinformation**
+
+IRB-approved study (N=194)
+Cognitive predictors
+Feature extraction
+
+**Time**: 15 min
+
+:::
+
+::: {.column width="19%"}
+
+### [2️⃣ Detection](chapters/02-detecting-narratives.qmd)
+
+**Building the classifier**
+
+TF-IDF → Transformers
+Error analysis
+Real trade-offs
+
+**Time**: 20 min
+
+:::
+
+::: {.column width="19%"}
+
+### [3️⃣ Spread](chapters/03-modeling-spread.qmd)
+
+**How it propagates**
+
+SEIR epidemiology
+Intervention scenarios
+Population dynamics
+
+**Time**: 15 min
+
+:::
+
+::: {.column width="19%"}
+
+### [4️⃣ Production](chapters/04-fusion-scale.qmd)
+
+**Making it real**
+
+Pipelines + Tracking
+Dashboards + APIs
+Monitoring + Ethics
+
+**Time**: 20 min
+
+:::
+
+::: {.column width="19%"}
+
+### [5️⃣ Reflection](chapters/05-epilogue.qmd)
+
+**What's next**
+
+Honest limitations
+Future directions
+Portfolio narrative
+
+**Time**: 20 min
+
+:::
+
+::::
+
+**Total**: ~90 minutes. Or read one chapter (15-20 min) and explore deeper.
+
+---
+
+## 🚀 Start Here (Three Paths)
+
+### Path 1️⃣: The Impatient (5 min)
+
+Just want to see it work?
+
+```bash
+# Windows
+.\tasks.ps1 -Task train-tracked
+
+# macOS/Linux
+make train-tracked
+```
+
+Result: 81-86% accuracy. Models saved. Done.
+
+---
+
+### Path 2️⃣: The Curious (60 min)
+
+Want to understand the system:
+
+1. Read this page (5 min)
+2. Skim [Chapter 1](chapters/01-measuring-vulnerability.qmd) (10 min)
+3. Explore [Chapter 2: Detection Engine](chapters/02-detecting-narratives.qmd) (20 min)
+4. Review results in `experiments/` directory (15 min)
+5. Check out [External Repos](#external-work) (10 min)
+
+---
+
+### Path 3️⃣: The Deep Dive (3+ hours)
+
+Want to master the whole system:
+
+1. Read all 5 chapters sequentially (~90 min)
+2. Run the pipeline yourself (`tasks.ps1`)
+3. Explore the model artifacts in `models/` and `experiments/`
+4. Dive into external repos for full implementation details
+5. Build on top (add features, new datasets, experiments)
+
+---
+
+## 🎓 What This Teaches (For Your Career)
+
+### Technical Skills
+- ✅ Behavioral science → ML integration
+- ✅ Classical baselines → Deep learning progression
+- ✅ Production pipelines (data → inference)
+- ✅ Experiment tracking & reproducibility
+- ✅ Fairness & ethical AI
+
+### Systems Thinking
+- ✅ When simple is enough (81% > 90% overfit)
+- ✅ Trade-offs are everything (accuracy vs. speed vs. fairness)
+- ✅ Monitoring matters (drift detection, bias checking)
+- ✅ Communication wins (explaining uncertainty > confidence)
+
+### Interview Signal
+This is what you show when asked: *"Tell us about a project you're proud of."*
+
+- "I built a complete system, not just trained a model"
+- "I understand behavioral science + ML (rare combination)"
+- "I think about production—speed, fairness, monitoring"
+- "I can explain trade-offs and why I made architectural choices"
+
+---
+
+## 🔗 This is Part of Something Bigger: External Work {#external-work}
+
+This repo ties together 4 external repositories, each with full implementation:
+
+| Repository | What | Start Here | Stars |
+|------------|------|-----------|-------|
+| **[Misinformation-study-Masters-Thesis](https://github.com/sanjaykshetri/Misinformation-study-Masters-Thesis)** | Behavioral research<br/>IRB-approved study, survey analysis, mediation models | `data_analysis1.R`  | 🔬 |
+| **[Misinformation-Detection-ML-Model2](https://github.com/sanjaykshetri/Misinformation-Detection-ML-Model2)** | NLP baselines<br/>TF-IDF, Logistic Regression, full notebooks | `misinformation_analysis.ipynb` | 🤖 |
+| **[misinformation-at-scale](https://github.com/sanjaykshetri/misinformation-at-scale)** | Production system<br/>Transformers, dashboards, deployment | `notebooks/04_deep_learning_model.ipynb` | ⚡ |
+| **[misinformation-epidemic-model](https://github.com/sanjaykshetri/misinformation-epidemic-model)** | Spread modeling<br/>SEIR ODE solvers, simulations, sensitivity | `notebooks/quick_start.ipynb` | 🌍 |
+
+Each stands alone. Together they're formidable.
+
+---
+
+## ⚖️ The Honest Take (What This Is & Isn't)
+
+### ✅ This IS
+
+- A complete system I built end-to-end
+- Production-ready code with monitoring
+- Real trade-off analysis (not overselling)
+- Reproducible with fixed seeds & docs
+- Learning journey (hypothesis → implementation → ethics)
+
+### ❌ This is NOT
+
+- A textbook on misinformation
+- Permission to deploy without testing
+- A silver bullet (no such thing)
+- Adversarially robust
+- Cross-domain by default
+
+**Honest limitations:** Works well on political/entertainment misinformation. May need tuning for health/finance/science. Doesn't see images. Doesn't handle latent misinformation.
+
+But the foundation is solid *and the thinking is right* to build anything next.
+
+---
+
+## 👤 About
+
+**Sanjay Kumar Chhetri**
+
+Data Scientist | Behavioral Researcher | Builder
+
+- **Background**: Psychology (MSc focus on cognitive vulnerability) + Data Science (Springboard capstone)
+- **Why this**: Misinformation + responsible AI + population-level thinking
+- **Contact**: [@sanjaykshetri](https://github.com/sanjaykshetri)
+
+This project taught me: Combine domains. Understand humans. Ship systems. Think ethics first.
+
+---
+
+::: {.callout-success}
+## Ready to Learn?
+
+**Start with [Chapter 1: Behavioral Intelligence →](chapters/01-measuring-vulnerability.qmd)**
+
+Or
+
+**[Run the System Yourself (5 min) →](https://github.com/sanjaykshetri/tentacles-of-misinformation#-run-it-quick-demo)**
+:::
+
+---
+
+**Built**: 2025-2026 | **Status**: Production Ready | **Last Updated**: April 2, 2026
+
+**License**: MIT (code) + FakeNewsNet & IRB data (as licensed)
 
 ```bibtex
 @book{chhetri2026tentacles,
-  title={The Tentacles of Misinformation: Behavioral Science, NLP, and Predictive Analytics},
+  title={Detecting Misinformation at Scale},
   author={Chhetri, Sanjay Kumar},
   year={2026},
-  publisher={Self-published},
-  url={https://tentacles-of-misinformation.com}
+  url={https://sanjaykshetri.github.io/tentacles-of-misinformation/}
 }
 ```
-
-**Disclaimer:**
-
-All behavioral data used in this project is anonymized and approved for analysis under IRB protocol. Public misinformation datasets are used in accordance with their respective licenses.

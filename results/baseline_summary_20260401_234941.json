@@ -1,0 +1,26 @@
+{
+  "timestamp": "2026-04-01T23:49:41.647263",
+  "dataset": {
+    "total_articles": 21724,
+    "train_size": 17379,
+    "val_size": 4345
+  },
+  "models": {
+    "logistic_regression": {
+      "accuracy": 0.8119677790563866,
+      "f1_score": 0.6443186765346104,
+      "precision": 0.588703261734288,
+      "recall": 0.7115384615384616,
+      "roc_auc": 0.8590045676713604
+    },
+    "linear_svm": {
+      "accuracy": 0.7935558112773302,
+      "f1_score": 0.6145251396648045,
+      "precision": 0.5555555555555556,
+      "recall": 0.6875,
+      "roc_auc": 0.8412692016757826
+    }
+  },
+  "best_model": "logistic_regression",
+  "best_auc": 0.8590045676713604
+}

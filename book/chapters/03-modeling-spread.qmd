@@ -1,52 +1,51 @@
-# Unit 3: Modeling Spread
+# Chapter 3: Spread Modeling — Understanding Cascade Dynamics
 
-## Learning Outcomes
+## What I Built
 
-By the end of this unit, you will:
-1. Understand epidemiological models applied to misinformation spread
-2. Estimate transmission parameters calibrated to real data
-3. Conduct sensitivity analysis on key parameters
-4. Simulate heterogeneous population responses to interventions
-5. Interpret mathematical models in policy contexts
-6. Identify assumptions and limitations of compartmental models
+A mathematical model and simulation showing how misinformation spreads through populations—and what stops it.
 
----
+**The model**: SEIR compartmental framework (borrowed from epidemiology, adapted for information):
+- **S** = Susceptible (haven't seen the misinformation)
+- **E** = Exposed (saw it, deciding)
+- **I** = Infected (believe it, sharing)
+- **R** = Recovered (corrected or immune)
 
-## 🔗 Source Repository
-
-> **This chapter showcases research from:** [misinformation-epidemic-model](https://github.com/sanjaykshetri/misinformation-epidemic-model)
-
-**Key artifacts in the external repository:**
-- 🧬 SEIR compartmental model implementation
-- 📊 Calibration to FakeNewsNet cascade data
-- 📓 Quick-start notebooks:
-  - `notebooks/quick_start_academic.ipynb` - 5-minute overview
-  - `notebooks/baseline_vs_interventions.ipynb` - Full scenario analysis
-- ✅ 46 unit tests + mypy strict type checking (production-grade code quality)
-- 📋 Complete methodology documentation (METHODOLOGY.md, MODEL_ASSUMPTIONS.md)
-
-**To run locally:**
-```bash
-git clone https://github.com/sanjaykshetri/misinformation-epidemic-model.git
-cd misinformation-epidemic-model
-pip install -e .
-jupyter notebook notebooks/quick_start_academic.ipynb
-```
+**Parameters calibrated to real FakeNewsNet cascade data**, not made-up numbers.
 
 ---
 
-## The Research Question
+## Why Spread Modeling Matters
 
-**How do misinformation and rumors spread through populations?** Can we predict dynamics and design interventions?
+Detection alone is reactive: "We found this false story."
 
-This unit applies epidemiological modeling (SEIR framework) to information cascades:
-- **Susceptibility**: Who is vulnerable to belief?
-- **Exposure**: How are individuals exposed to misinformation?
-- **Infection**: Does exposure lead to belief adoption?  
-- **Recovery**: Do individuals correct false beliefs over time?
-- **Contribution**: Quantifies intervention impact at population scale
+Spread modeling is *predictive*: "If we do nothing, it reaches 40% of the network. If we add fact-checks in hour 2, it only reaches 15%."
+
+**Real-world implication**: Platform teams need to know:
+- ✅ How fast does this spread?
+- ✅ Who gets exposed first? 
+- ✅ What interventions actually work?
+- ✅ When do we need to act?
 
 ---
+
+## The Data
+
+**Calibration source**: FakeNewsNet cascades
+- Tracked which users saw, liked, shared each article
+- Measured temporal dynamics (how many new exposures per hour)
+- Computed population-level statistics
+
+**Result**: Estimated parameters for the SEIR model
+- β (transmission rate) = 0.0153
+- σ (incubation rate) = 0.3193
+- γ (recovery rate) = 0.10
+- Basic reproduction number R₀ = 0.176
+
+**Interpretation**: One infected person exposes ~0.176 others before message dies out. Misinformation is *less* contagious than COVID (R₀≈2-3), but still spreading.
+
+---
+
+## The Model: SEIR Compartmental Framework
 
 ## Part A: The Infodemic Concept
 

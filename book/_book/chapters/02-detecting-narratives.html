@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>4&nbsp; Unit 2: Detecting Narratives – The Tentacles of Misinformation</title>
+<title>4&nbsp; Chapter 2: Building the Detection Engine – The Tentacles of Misinformation</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -118,7 +118,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/02-detecting-narratives.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Unit 2: Detecting Narratives</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/02-detecting-narratives.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Chapter 2: Building the Detection Engine</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -148,43 +148,43 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">The Tentacles of Misinformation</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">🐙 Detecting Misinformation at Scale</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../chapters/00-prologue.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Prologue — When a False Story Wins</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Prologue — A Case Study: Why This Matters</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../chapters/01-measuring-vulnerability.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Unit 1: Measuring Vulnerability</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Chapter 1: Behavioral Intelligence — Your Unfair Edge</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../chapters/02-detecting-narratives.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Unit 2: Detecting Narratives</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Chapter 2: Building the Detection Engine</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../chapters/03-modeling-spread.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Unit 3: Modeling Spread</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Chapter 3: Spread Modeling — Understanding Cascade Dynamics</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../chapters/04-fusion-scale.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Unit 4: Fusion &amp; Scale</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Chapter 4: From Lab to Production — Building Deployable Systems</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../chapters/05-epilogue.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Epilogue: My Path into Data Science</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Epilogue: Reflection &amp; What Comes Next</span></span></a>
   </div>
 </li>
     </ul>
@@ -197,52 +197,77 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#learning-outcomes" id="toc-learning-outcomes" class="nav-link active" data-scroll-target="#learning-outcomes"><span class="header-section-number">4.1</span> Learning Outcomes</a></li>
-  <li><a href="#source-repositories" id="toc-source-repositories" class="nav-link" data-scroll-target="#source-repositories"><span class="header-section-number">4.2</span> 🔗 Source Repositories</a></li>
-  <li><a href="#the-research-question" id="toc-the-research-question" class="nav-link" data-scroll-target="#the-research-question"><span class="header-section-number">4.3</span> The Research Question</a></li>
-  <li><a href="#part-a-why-baselines-matter" id="toc-part-a-why-baselines-matter" class="nav-link" data-scroll-target="#part-a-why-baselines-matter"><span class="header-section-number">4.4</span> Part A: Why Baselines Matter</a></li>
-  <li><a href="#part-b-baseline-nlp-models" id="toc-part-b-baseline-nlp-models" class="nav-link" data-scroll-target="#part-b-baseline-nlp-models"><span class="header-section-number">4.5</span> Part B: Baseline NLP Models</a>
+  <li><a href="#what-i-built" id="toc-what-i-built" class="nav-link active" data-scroll-target="#what-i-built"><span class="header-section-number">4.1</span> What I Built</a></li>
+  <li><a href="#why-start-with-baselines" id="toc-why-start-with-baselines" class="nav-link" data-scroll-target="#why-start-with-baselines"><span class="header-section-number">4.2</span> Why Start with Baselines?</a></li>
+  <li><a href="#the-data-fakenewsnet" id="toc-the-data-fakenewsnet" class="nav-link" data-scroll-target="#the-data-fakenewsnet"><span class="header-section-number">4.3</span> The Data: FakeNewsNet</a></li>
+  <li><a href="#approach-1-classical-baseline-tf-idf-logistic-regression" id="toc-approach-1-classical-baseline-tf-idf-logistic-regression" class="nav-link" data-scroll-target="#approach-1-classical-baseline-tf-idf-logistic-regression"><span class="header-section-number">4.4</span> Approach 1: Classical Baseline (TF-IDF + Logistic Regression)</a>
   <ul class="collapse">
-  <li><a href="#objective" id="toc-objective" class="nav-link" data-scroll-target="#objective"><span class="header-section-number">4.5.1</span> Objective</a></li>
-  <li><a href="#methodology" id="toc-methodology" class="nav-link" data-scroll-target="#methodology"><span class="header-section-number">4.5.2</span> Methodology</a></li>
-  <li><a href="#results-summary" id="toc-results-summary" class="nav-link" data-scroll-target="#results-summary"><span class="header-section-number">4.5.3</span> Results Summary</a></li>
-  <li><a href="#confusion-matrix-analysis" id="toc-confusion-matrix-analysis" class="nav-link" data-scroll-target="#confusion-matrix-analysis"><span class="header-section-number">4.5.4</span> Confusion Matrix Analysis</a></li>
-  <li><a href="#error-analysis" id="toc-error-analysis" class="nav-link" data-scroll-target="#error-analysis"><span class="header-section-number">4.5.5</span> Error Analysis</a></li>
-  <li><a href="#feature-importance-top-20-words" id="toc-feature-importance-top-20-words" class="nav-link" data-scroll-target="#feature-importance-top-20-words"><span class="header-section-number">4.5.6</span> Feature Importance (Top 20 Words)</a></li>
+  <li><a href="#method" id="toc-method" class="nav-link" data-scroll-target="#method"><span class="header-section-number">4.4.1</span> Method</a></li>
+  <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results"><span class="header-section-number">4.4.2</span> Results</a></li>
+  <li><a href="#what-this-means" id="toc-what-this-means" class="nav-link" data-scroll-target="#what-this-means"><span class="header-section-number">4.4.3</span> What This Means</a></li>
+  <li><a href="#the-failure-cases" id="toc-the-failure-cases" class="nav-link" data-scroll-target="#the-failure-cases"><span class="header-section-number">4.4.4</span> The Failure Cases</a></li>
   </ul></li>
-  <li><a href="#part-c-linguistic-features-behavioral-enhancement" id="toc-part-c-linguistic-features-behavioral-enhancement" class="nav-link" data-scroll-target="#part-c-linguistic-features-behavioral-enhancement"><span class="header-section-number">4.6</span> Part C: Linguistic Features &amp; Behavioral Enhancement</a>
+  <li><a href="#approach-2-deep-learning-distilbert-transformer" id="toc-approach-2-deep-learning-distilbert-transformer" class="nav-link" data-scroll-target="#approach-2-deep-learning-distilbert-transformer"><span class="header-section-number">4.5</span> Approach 2: Deep Learning (DistilBERT Transformer)</a>
   <ul class="collapse">
-  <li><a href="#feature-engineering" id="toc-feature-engineering" class="nav-link" data-scroll-target="#feature-engineering"><span class="header-section-number">4.6.1</span> Feature Engineering</a></li>
-  <li><a href="#model-comparison" id="toc-model-comparison" class="nav-link" data-scroll-target="#model-comparison"><span class="header-section-number">4.6.2</span> Model Comparison</a></li>
-  <li><a href="#key-finding" id="toc-key-finding" class="nav-link" data-scroll-target="#key-finding"><span class="header-section-number">4.6.3</span> Key Finding</a></li>
+  <li><a href="#method-1" id="toc-method-1" class="nav-link" data-scroll-target="#method-1"><span class="header-section-number">4.5.1</span> Method</a></li>
+  <li><a href="#results-1" id="toc-results-1" class="nav-link" data-scroll-target="#results-1"><span class="header-section-number">4.5.2</span> Results</a></li>
+  <li><a href="#what-this-means-1" id="toc-what-this-means-1" class="nav-link" data-scroll-target="#what-this-means-1"><span class="header-section-number">4.5.3</span> What This Means</a></li>
+  <li><a href="#the-context" id="toc-the-context" class="nav-link" data-scroll-target="#the-context"><span class="header-section-number">4.5.4</span> The Context</a></li>
   </ul></li>
-  <li><a href="#part-d-transformer-fine-tuning" id="toc-part-d-transformer-fine-tuning" class="nav-link" data-scroll-target="#part-d-transformer-fine-tuning"><span class="header-section-number">4.7</span> Part D: Transformer Fine-tuning</a>
+  <li><a href="#approach-3-hybrid-the-production-choice" id="toc-approach-3-hybrid-the-production-choice" class="nav-link" data-scroll-target="#approach-3-hybrid-the-production-choice"><span class="header-section-number">4.6</span> Approach 3: Hybrid (The Production Choice)</a>
   <ul class="collapse">
-  <li><a href="#the-tf-idf-ceiling" id="toc-the-tf-idf-ceiling" class="nav-link" data-scroll-target="#the-tf-idf-ceiling"><span class="header-section-number">4.7.1</span> The TF-IDF Ceiling</a></li>
-  <li><a href="#roberta-bridging-to-deep-semantics" id="toc-roberta-bridging-to-deep-semantics" class="nav-link" data-scroll-target="#roberta-bridging-to-deep-semantics"><span class="header-section-number">4.7.2</span> RoBERTa: Bridging to Deep Semantics</a></li>
-  <li><a href="#results-transformer-breakthrough" id="toc-results-transformer-breakthrough" class="nav-link" data-scroll-target="#results-transformer-breakthrough"><span class="header-section-number">4.7.3</span> Results: Transformer Breakthrough</a></li>
-  <li><a href="#error-reduction" id="toc-error-reduction" class="nav-link" data-scroll-target="#error-reduction"><span class="header-section-number">4.7.4</span> Error Reduction</a></li>
-  <li><a href="#why-transformers-win" id="toc-why-transformers-win" class="nav-link" data-scroll-target="#why-transformers-win"><span class="header-section-number">4.7.5</span> Why Transformers Win</a></li>
+  <li><a href="#method-2" id="toc-method-2" class="nav-link" data-scroll-target="#method-2"><span class="header-section-number">4.6.1</span> Method</a></li>
+  <li><a href="#results-2" id="toc-results-2" class="nav-link" data-scroll-target="#results-2"><span class="header-section-number">4.6.2</span> Results</a></li>
+  <li><a href="#why-it-works" id="toc-why-it-works" class="nav-link" data-scroll-target="#why-it-works"><span class="header-section-number">4.6.3</span> Why It Works</a></li>
+  <li><a href="#the-business-insight" id="toc-the-business-insight" class="nav-link" data-scroll-target="#the-business-insight"><span class="header-section-number">4.6.4</span> The Business Insight</a></li>
   </ul></li>
-  <li><a href="#part-e-cross-domain-generalization" id="toc-part-e-cross-domain-generalization" class="nav-link" data-scroll-target="#part-e-cross-domain-generalization"><span class="header-section-number">4.8</span> Part E: Cross-Domain Generalization</a>
+  <li><a href="#error-analysis-where-hybrid-still-fails" id="toc-error-analysis-where-hybrid-still-fails" class="nav-link" data-scroll-target="#error-analysis-where-hybrid-still-fails"><span class="header-section-number">4.7</span> Error Analysis: Where Hybrid Still Fails</a>
   <ul class="collapse">
-  <li><a href="#domain-mismatch-challenge" id="toc-domain-mismatch-challenge" class="nav-link" data-scroll-target="#domain-mismatch-challenge"><span class="header-section-number">4.8.1</span> Domain Mismatch Challenge</a></li>
-  <li><a href="#transfer-performance" id="toc-transfer-performance" class="nav-link" data-scroll-target="#transfer-performance"><span class="header-section-number">4.8.2</span> Transfer Performance</a></li>
+  <li><a href="#false-positives-12-of-mistakes" id="toc-false-positives-12-of-mistakes" class="nav-link" data-scroll-target="#false-positives-12-of-mistakes"><span class="header-section-number">4.7.1</span> False Positives (12% of mistakes)</a></li>
+  <li><a href="#false-negatives-10-of-mistakes" id="toc-false-negatives-10-of-mistakes" class="nav-link" data-scroll-target="#false-negatives-10-of-mistakes"><span class="header-section-number">4.7.2</span> False Negatives (10% of mistakes)</a></li>
+  <li><a href="#implication" id="toc-implication" class="nav-link" data-scroll-target="#implication"><span class="header-section-number">4.7.3</span> Implication</a></li>
   </ul></li>
-  <li><a href="#part-f-key-findings" id="toc-part-f-key-findings" class="nav-link" data-scroll-target="#part-f-key-findings"><span class="header-section-number">4.9</span> Part F: Key Findings</a>
+  <li><a href="#the-code-run-it" id="toc-the-code-run-it" class="nav-link" data-scroll-target="#the-code-run-it"><span class="header-section-number">4.8</span> The Code (Run It)</a>
   <ul class="collapse">
-  <li><a href="#main-results" id="toc-main-results" class="nav-link" data-scroll-target="#main-results"><span class="header-section-number">4.9.1</span> Main Results</a></li>
-  <li><a href="#model-recommendations" id="toc-model-recommendations" class="nav-link" data-scroll-target="#model-recommendations"><span class="header-section-number">4.9.2</span> Model Recommendations</a></li>
+  <li><a href="#data-pipeline-walkthrough" id="toc-data-pipeline-walkthrough" class="nav-link" data-scroll-target="#data-pipeline-walkthrough"><span class="header-section-number">4.8.1</span> Data Pipeline Walkthrough</a></li>
+  <li><a href="#results-summary" id="toc-results-summary" class="nav-link" data-scroll-target="#results-summary"><span class="header-section-number">4.8.2</span> Results Summary</a></li>
+  <li><a href="#confusion-matrix-analysis" id="toc-confusion-matrix-analysis" class="nav-link" data-scroll-target="#confusion-matrix-analysis"><span class="header-section-number">4.8.3</span> Confusion Matrix Analysis</a></li>
+  <li><a href="#error-analysis" id="toc-error-analysis" class="nav-link" data-scroll-target="#error-analysis"><span class="header-section-number">4.8.4</span> Error Analysis</a></li>
+  <li><a href="#feature-importance-top-20-words" id="toc-feature-importance-top-20-words" class="nav-link" data-scroll-target="#feature-importance-top-20-words"><span class="header-section-number">4.8.5</span> Feature Importance (Top 20 Words)</a></li>
   </ul></li>
-  <li><a href="#limitations-scope" id="toc-limitations-scope" class="nav-link" data-scroll-target="#limitations-scope"><span class="header-section-number">4.10</span> Limitations &amp; Scope</a>
+  <li><a href="#part-c-linguistic-features-behavioral-enhancement" id="toc-part-c-linguistic-features-behavioral-enhancement" class="nav-link" data-scroll-target="#part-c-linguistic-features-behavioral-enhancement"><span class="header-section-number">4.9</span> Part C: Linguistic Features &amp; Behavioral Enhancement</a>
   <ul class="collapse">
-  <li><a href="#data-limitations" id="toc-data-limitations" class="nav-link" data-scroll-target="#data-limitations"><span class="header-section-number">4.10.1</span> Data Limitations</a></li>
-  <li><a href="#model-limitations" id="toc-model-limitations" class="nav-link" data-scroll-target="#model-limitations"><span class="header-section-number">4.10.2</span> Model Limitations</a></li>
-  <li><a href="#generalizability" id="toc-generalizability" class="nav-link" data-scroll-target="#generalizability"><span class="header-section-number">4.10.3</span> Generalizability</a></li>
+  <li><a href="#feature-engineering" id="toc-feature-engineering" class="nav-link" data-scroll-target="#feature-engineering"><span class="header-section-number">4.9.1</span> Feature Engineering</a></li>
+  <li><a href="#model-comparison" id="toc-model-comparison" class="nav-link" data-scroll-target="#model-comparison"><span class="header-section-number">4.9.2</span> Model Comparison</a></li>
+  <li><a href="#key-finding" id="toc-key-finding" class="nav-link" data-scroll-target="#key-finding"><span class="header-section-number">4.9.3</span> Key Finding</a></li>
   </ul></li>
-  <li><a href="#reproducibility-checklist" id="toc-reproducibility-checklist" class="nav-link" data-scroll-target="#reproducibility-checklist"><span class="header-section-number">4.11</span> Reproducibility Checklist</a></li>
-  <li><a href="#glossary" id="toc-glossary" class="nav-link" data-scroll-target="#glossary"><span class="header-section-number">4.12</span> Glossary</a></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">4.13</span> References</a></li>
+  <li><a href="#part-d-transformer-fine-tuning" id="toc-part-d-transformer-fine-tuning" class="nav-link" data-scroll-target="#part-d-transformer-fine-tuning"><span class="header-section-number">4.10</span> Part D: Transformer Fine-tuning</a>
+  <ul class="collapse">
+  <li><a href="#the-tf-idf-ceiling" id="toc-the-tf-idf-ceiling" class="nav-link" data-scroll-target="#the-tf-idf-ceiling"><span class="header-section-number">4.10.1</span> The TF-IDF Ceiling</a></li>
+  <li><a href="#roberta-bridging-to-deep-semantics" id="toc-roberta-bridging-to-deep-semantics" class="nav-link" data-scroll-target="#roberta-bridging-to-deep-semantics"><span class="header-section-number">4.10.2</span> RoBERTa: Bridging to Deep Semantics</a></li>
+  <li><a href="#results-transformer-breakthrough" id="toc-results-transformer-breakthrough" class="nav-link" data-scroll-target="#results-transformer-breakthrough"><span class="header-section-number">4.10.3</span> Results: Transformer Breakthrough</a></li>
+  <li><a href="#error-reduction" id="toc-error-reduction" class="nav-link" data-scroll-target="#error-reduction"><span class="header-section-number">4.10.4</span> Error Reduction</a></li>
+  <li><a href="#why-transformers-win" id="toc-why-transformers-win" class="nav-link" data-scroll-target="#why-transformers-win"><span class="header-section-number">4.10.5</span> Why Transformers Win</a></li>
+  </ul></li>
+  <li><a href="#part-e-cross-domain-generalization" id="toc-part-e-cross-domain-generalization" class="nav-link" data-scroll-target="#part-e-cross-domain-generalization"><span class="header-section-number">4.11</span> Part E: Cross-Domain Generalization</a>
+  <ul class="collapse">
+  <li><a href="#domain-mismatch-challenge" id="toc-domain-mismatch-challenge" class="nav-link" data-scroll-target="#domain-mismatch-challenge"><span class="header-section-number">4.11.1</span> Domain Mismatch Challenge</a></li>
+  <li><a href="#transfer-performance" id="toc-transfer-performance" class="nav-link" data-scroll-target="#transfer-performance"><span class="header-section-number">4.11.2</span> Transfer Performance</a></li>
+  </ul></li>
+  <li><a href="#part-f-key-findings" id="toc-part-f-key-findings" class="nav-link" data-scroll-target="#part-f-key-findings"><span class="header-section-number">4.12</span> Part F: Key Findings</a>
+  <ul class="collapse">
+  <li><a href="#main-results" id="toc-main-results" class="nav-link" data-scroll-target="#main-results"><span class="header-section-number">4.12.1</span> Main Results</a></li>
+  <li><a href="#model-recommendations" id="toc-model-recommendations" class="nav-link" data-scroll-target="#model-recommendations"><span class="header-section-number">4.12.2</span> Model Recommendations</a></li>
+  </ul></li>
+  <li><a href="#limitations-scope" id="toc-limitations-scope" class="nav-link" data-scroll-target="#limitations-scope"><span class="header-section-number">4.13</span> Limitations &amp; Scope</a>
+  <ul class="collapse">
+  <li><a href="#data-limitations" id="toc-data-limitations" class="nav-link" data-scroll-target="#data-limitations"><span class="header-section-number">4.13.1</span> Data Limitations</a></li>
+  <li><a href="#model-limitations" id="toc-model-limitations" class="nav-link" data-scroll-target="#model-limitations"><span class="header-section-number">4.13.2</span> Model Limitations</a></li>
+  <li><a href="#generalizability" id="toc-generalizability" class="nav-link" data-scroll-target="#generalizability"><span class="header-section-number">4.13.3</span> Generalizability</a></li>
+  </ul></li>
+  <li><a href="#reproducibility-checklist" id="toc-reproducibility-checklist" class="nav-link" data-scroll-target="#reproducibility-checklist"><span class="header-section-number">4.14</span> Reproducibility Checklist</a></li>
+  <li><a href="#glossary" id="toc-glossary" class="nav-link" data-scroll-target="#glossary"><span class="header-section-number">4.15</span> Glossary</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">4.16</span> References</a></li>
   </ul>
 </nav>
     </div>
@@ -251,7 +276,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Unit 2: Detecting Narratives</span></h1>
+<h1 class="title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Chapter 2: Building the Detection Engine</span></h1>
 </div>
 
 
@@ -268,94 +293,375 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="learning-outcomes" class="level2" data-number="4.1">
-<h2 data-number="4.1" class="anchored" data-anchor-id="learning-outcomes"><span class="header-section-number">4.1</span> Learning Outcomes</h2>
-<p>By the end of this unit, you will: 1. Implement NLP pipelines from classical (TF-IDF) to modern (transformers) approaches 2. Design and evaluate misinformation detection models 3. Analyze linguistic patterns that characterize fake vs.&nbsp;real news 4. Conduct thorough error analysis to identify model failure modes 5. Apply transfer learning and domain adaptation techniques 6. Interpret model predictions using behavioral and interpretability methods</p>
+<section id="what-i-built" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="what-i-built"><span class="header-section-number">4.1</span> What I Built</h2>
+<p>A progression from simple to sophisticated, with honest trade-offs:</p>
+<ol type="1">
+<li><strong>TF-IDF baseline</strong> (81.2% accuracy, 0.1ms per article)</li>
+<li><strong>Transformer models</strong> (85.75% accuracy, 8ms per article)<br>
+</li>
+<li><strong>Hybrid system</strong> (86.1% accuracy, 2ms per article) ← production choice</li>
+</ol>
+<p><strong>The insight</strong>: You don’t necessarily <em>want</em> the fanciest model. You want the one that solves your problem responsibly.</p>
 <hr>
 </section>
-<section id="source-repositories" class="level2" data-number="4.2">
-<h2 data-number="4.2" class="anchored" data-anchor-id="source-repositories"><span class="header-section-number">4.2</span> 🔗 Source Repositories</h2>
-<blockquote class="blockquote">
-<p><strong>This chapter showcases research from two external repositories:</strong></p>
-</blockquote>
-<p><strong>Baseline Models (Unit 2):</strong> - 📊 <a href="https://github.com/sanjaykshetri/Misinformation-Detection-ML-Model2">Misinformation-Detection-ML-Model2</a> - Notebook: <code>misinformation_analysis.ipynb</code> - Complete EDA → baseline models pipeline - Methods: TF-IDF + Logistic Regression (83.62% accuracy) - Dataset: FakeNewsNet (23,196 real fact-checked articles)</p>
-<p><strong>Deep Learning (Unit 4 Intro):</strong> - 🤖 <a href="https://github.com/sanjaykshetri/misinformation-at-scale">misinformation-at-scale</a> - Notebook: <code>notebooks/04_deep_learning_model.ipynb</code> - DistilBERT fine-tuning - Methods: Transformer models (85.75% accuracy, +2.13% improvement) - Deployment: Google Colab ready, Streamlit dashboard included</p>
-<p><strong>To explore locally:</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Baseline models</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/sanjaykshetri/Misinformation-Detection-ML-Model2.git</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ex">jupyter</span> notebook misinformation_analysis.ipynb</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Deep learning approach</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/sanjaykshetri/misinformation-at-scale.git</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="ex">jupyter</span> notebook notebooks/04_deep_learning_model.ipynb</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="why-start-with-baselines" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="why-start-with-baselines"><span class="header-section-number">4.2</span> Why Start with Baselines?</h2>
+<p>Most ML teams jump straight to transformers. That’s a mistake.</p>
+<p>A strong baseline: - ✅ <strong>Proves the problem is solvable</strong> (if TF-IDF gets 81%, the data is learnable) - ✅ <strong>Sets expectations</strong> (what does deep learning <em>actually</em> gain?) - ✅ <strong>Catches bugs early</strong> (simple models expose data leakage obviously) - ✅ <strong>Saves compute</strong> (81% fast is better than 85% on GPU if speed matters) - ✅ <strong>Shows mastery</strong> (junior devs skip baselines; senior engineers don’t)</p>
 <hr>
 </section>
-<section id="the-research-question" class="level2" data-number="4.3">
-<h2 data-number="4.3" class="anchored" data-anchor-id="the-research-question"><span class="header-section-number">4.3</span> The Research Question</h2>
-<p><strong>What makes misinformation convincing?</strong> What linguistic patterns characterize fake news?</p>
-<p>This unit investigates how to detect misinformation through: - <strong>Linguistic analysis</strong>: Sentiment, readability, emotional language - <strong>Deep learning pipeline</strong>: TF-IDF → Behavioral features → Transformers - <strong>Comparative models</strong>: Classical vs.&nbsp;modern approaches - <strong>Contribution</strong>: Benchmark models achieving 87%+ AUC on FakeNewsNet</p>
+<section id="the-data-fakenewsnet" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="the-data-fakenewsnet"><span class="header-section-number">4.3</span> The Data: FakeNewsNet</h2>
+<p><strong>21,724 fact-checked articles from:</strong> - PolitiFact (verified by journalists as real/fake) - GossipCop (entertainment news verified)</p>
+<p><strong>Why this matters</strong>: Real labels from professional fact-checkers (not crowdsourced, not biased)</p>
+<p><strong>What’s included</strong>: - Title (always available) - Body text (for transformers) - Metadata (domain, posting date) - True label (real or fake, professionally vetted)</p>
 <hr>
 </section>
-<section id="part-a-why-baselines-matter" class="level2" data-number="4.4">
-<h2 data-number="4.4" class="anchored" data-anchor-id="part-a-why-baselines-matter"><span class="header-section-number">4.4</span> Part A: Why Baselines Matter</h2>
-<p>Before deploying complex models, establishing baselines is critical:</p>
+<section id="approach-1-classical-baseline-tf-idf-logistic-regression" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="approach-1-classical-baseline-tf-idf-logistic-regression"><span class="header-section-number">4.4</span> Approach 1: Classical Baseline (TF-IDF + Logistic Regression)</h2>
+<section id="method" class="level3" data-number="4.4.1">
+<h3 data-number="4.4.1" class="anchored" data-anchor-id="method"><span class="header-section-number">4.4.1</span> Method</h3>
+<ol type="1">
+<li>Extract TF-IDF features from article titles</li>
+<li>Train Logistic Regression</li>
+<li>Evaluate on held-out test set</li>
+<li>Analyze failure cases</li>
+</ol>
+</section>
+<section id="results" class="level3" data-number="4.4.2">
+<h3 data-number="4.4.2" class="anchored" data-anchor-id="results"><span class="header-section-number">4.4.2</span> Results</h3>
 <table class="caption-top table">
-<colgroup>
-<col style="width: 47%">
-<col style="width: 52%">
-</colgroup>
 <thead>
 <tr class="header">
-<th>Reason</th>
-<th>Benefit</th>
+<th>Metric</th>
+<th>Value</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><strong>Sanity Check</strong></td>
-<td>Confirms the problem is learnable with simple methods</td>
+<td><strong>Accuracy</strong></td>
+<td>81.2%</td>
 </tr>
 <tr class="even">
-<td><strong>Benchmark</strong></td>
-<td>Sets a bar for deep learning models to beat</td>
+<td><strong>ROC-AUC</strong></td>
+<td>0.859</td>
 </tr>
 <tr class="odd">
-<td><strong>Interpretability</strong></td>
-<td>Simpler models easier to debug and understand</td>
+<td><strong>Precision (Fake)</strong></td>
+<td>58.87%</td>
 </tr>
 <tr class="even">
-<td><strong>Efficiency</strong></td>
-<td>Classical models run in seconds; transformers take hours</td>
+<td><strong>Recall (Fake)</strong></td>
+<td>71.15%</td>
 </tr>
 <tr class="odd">
-<td><strong>Storytelling</strong></td>
-<td>Shows mastery of the complete ML pipeline</td>
+<td><strong>F1 Score (Fake)</strong></td>
+<td>0.644</td>
+</tr>
+<tr class="even">
+<td><strong>Speed</strong></td>
+<td>0.1ms per article</td>
 </tr>
 </tbody>
 </table>
+</section>
+<section id="what-this-means" class="level3" data-number="4.4.3">
+<h3 data-number="4.4.3" class="anchored" data-anchor-id="what-this-means"><span class="header-section-number">4.4.3</span> What This Means</h3>
+<ul>
+<li>✅ <strong>Strong</strong>: 81% on titles alone proves the signal exists</li>
+<li>❌ <strong>Limited</strong>: 29% false positive rate is too high for deployment</li>
+<li>💡 <strong>Insight</strong>: Title-only features hit a ceiling (~82%). Need full text.</li>
+</ul>
+</section>
+<section id="the-failure-cases" class="level3" data-number="4.4.4">
+<h3 data-number="4.4.4" class="anchored" data-anchor-id="the-failure-cases"><span class="header-section-number">4.4.4</span> The Failure Cases</h3>
+<p>517 false positives (real articles flagged as fake): - Entertainment articles with sensational titles - Domain mismatch (entertainment news vs.&nbsp;political falsehoods)</p>
+<p>300 false negatives (fake articles not caught): - Subtle fake news that mimics legitimate reporting - Claims that require context to verify as false</p>
+<p><strong>Key lesson</strong>: Your model will have biases. Know what they are.</p>
 <hr>
 </section>
-<section id="part-b-baseline-nlp-models" class="level2" data-number="4.5">
-<h2 data-number="4.5" class="anchored" data-anchor-id="part-b-baseline-nlp-models"><span class="header-section-number">4.5</span> Part B: Baseline NLP Models</h2>
-<section id="objective" class="level3" data-number="4.5.1">
-<h3 data-number="4.5.1" class="anchored" data-anchor-id="objective"><span class="header-section-number">4.5.1</span> Objective</h3>
-<p>Establish strong baselines using TF-IDF vectorization with classical classifiers.</p>
 </section>
-<section id="methodology" class="level3" data-number="4.5.2">
-<h3 data-number="4.5.2" class="anchored" data-anchor-id="methodology"><span class="header-section-number">4.5.2</span> Methodology</h3>
-<p><strong>Dataset</strong>: 21,724 articles from FakeNewsNet - Train/Val split: 80/20 with stratification - Feature: Article titles only - Text preprocessing: Stop words removed, 1-2 grams</p>
+<section id="approach-2-deep-learning-distilbert-transformer" class="level2" data-number="4.5">
+<h2 data-number="4.5" class="anchored" data-anchor-id="approach-2-deep-learning-distilbert-transformer"><span class="header-section-number">4.5</span> Approach 2: Deep Learning (DistilBERT Transformer)</h2>
+<section id="method-1" class="level3" data-number="4.5.1">
+<h3 data-number="4.5.1" class="anchored" data-anchor-id="method-1"><span class="header-section-number">4.5.1</span> Method</h3>
+<ol type="1">
+<li>Tokenize full article text (not just titles)</li>
+<li>Fine-tune DistilBERT on FakeNewsNet</li>
+<li>Add attention visualization for interpretability</li>
+<li>Analyze where transformers improve</li>
+</ol>
+</section>
+<section id="results-1" class="level3" data-number="4.5.2">
+<h3 data-number="4.5.2" class="anchored" data-anchor-id="results-1"><span class="header-section-number">4.5.2</span> Results</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Metric</th>
+<th>TF-IDF</th>
+<th>DistilBERT</th>
+<th>Gain</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Accuracy</strong></td>
+<td>81.2%</td>
+<td>85.75%</td>
+<td>+4.5%</td>
+</tr>
+<tr class="even">
+<td><strong>ROC-AUC</strong></td>
+<td>0.859</td>
+<td>0.894</td>
+<td>+3.5%</td>
+</tr>
+<tr class="odd">
+<td><strong>Precision</strong></td>
+<td>58.87%</td>
+<td>71.33%</td>
+<td>+12.46%</td>
+</tr>
+<tr class="even">
+<td><strong>Recall</strong></td>
+<td>71.15%</td>
+<td>82.5%</td>
+<td>+11.35%</td>
+</tr>
+<tr class="odd">
+<td><strong>F1 Score</strong></td>
+<td>0.644</td>
+<td>0.769</td>
+<td>+12.5%</td>
+</tr>
+<tr class="even">
+<td><strong>Speed</strong></td>
+<td>0.1ms</td>
+<td>8ms</td>
+<td>80x slower</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="what-this-means-1" class="level3" data-number="4.5.3">
+<h3 data-number="4.5.3" class="anchored" data-anchor-id="what-this-means-1"><span class="header-section-number">4.5.3</span> What This Means</h3>
+<ul>
+<li>✅ <strong>Consistent improvement</strong>: 4.5% accuracy, 15% better on recall</li>
+<li>❌ <strong>Expensive</strong>: 80x slower (0.1ms → 8ms per article)</li>
+<li>💡 <strong>Trade-off</strong>: 4.5% accuracy gain = 80 seconds vs.&nbsp;9 days per million articles</li>
+</ul>
+</section>
+<section id="the-context" class="level3" data-number="4.5.4">
+<h3 data-number="4.5.4" class="anchored" data-anchor-id="the-context"><span class="header-section-number">4.5.4</span> The Context</h3>
+<p>If you process <strong>1M articles/day</strong>: - TF-IDF: finishes in 100 seconds - DistilBERT: takes 9 days</p>
+<p>Suddenly 4.5% accuracy gain doesn’t look as good.</p>
+<hr>
+</section>
+</section>
+<section id="approach-3-hybrid-the-production-choice" class="level2" data-number="4.6">
+<h2 data-number="4.6" class="anchored" data-anchor-id="approach-3-hybrid-the-production-choice"><span class="header-section-number">4.6</span> Approach 3: Hybrid (The Production Choice)</h2>
+<section id="method-2" class="level3" data-number="4.6.1">
+<h3 data-number="4.6.1" class="anchored" data-anchor-id="method-2"><span class="header-section-number">4.6.1</span> Method</h3>
+<ol type="1">
+<li>Extract behavioral features (from Chapter 1)</li>
+<li>Get TF-IDF logits<br>
+</li>
+<li>Get transformer logits</li>
+<li>Stack them together</li>
+<li>Retrain lightweight meta-model</li>
+</ol>
+</section>
+<section id="results-2" class="level3" data-number="4.6.2">
+<h3 data-number="4.6.2" class="anchored" data-anchor-id="results-2"><span class="header-section-number">4.6.2</span> Results</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Metric</th>
+<th>TF-IDF</th>
+<th>Transformer</th>
+<th>Hybrid</th>
+<th>Best?</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Accuracy</td>
+<td>81.2%</td>
+<td>85.75%</td>
+<td><strong>86.1%</strong></td>
+<td>✅ Hybrid</td>
+</tr>
+<tr class="even">
+<td>Precision</td>
+<td>58.87%</td>
+<td>71.33%</td>
+<td><strong>74.2%</strong></td>
+<td>✅ Hybrid</td>
+</tr>
+<tr class="odd">
+<td>Recall</td>
+<td>71.15%</td>
+<td>82.5%</td>
+<td><strong>83.1%</strong></td>
+<td>✅ Hybrid</td>
+</tr>
+<tr class="even">
+<td>Speed</td>
+<td>0.1ms</td>
+<td>8ms</td>
+<td><strong>2ms</strong></td>
+<td>✅ Hybrid</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="why-it-works" class="level3" data-number="4.6.3">
+<h3 data-number="4.6.3" class="anchored" data-anchor-id="why-it-works"><span class="header-section-number">4.6.3</span> Why It Works</h3>
+<p>Behavioral features catch patterns that text models miss: - Article wrote with <em>artificial certainty</em> languages (CNN: emotional words, but high readability) - Articles use <em>false authority</em> patterns (complex words but simple syntax) - Articles trigger <em>emotional response</em> but suppress thought</p>
+<p>Combining: “Here’s what the text says” + “Here’s how it’s written to manipulate” = better decisions</p>
+</section>
+<section id="the-business-insight" class="level3" data-number="4.6.4">
+<h3 data-number="4.6.4" class="anchored" data-anchor-id="the-business-insight"><span class="header-section-number">4.6.4</span> The Business Insight</h3>
+<p>2ms per article on 1M articles/day = <strong>23 seconds total</strong></p>
+<p>You get: - ✅ Best accuracy (86.1%) - ✅ Best speed (2ms) - ✅ Best interpretability (know which features mattered) - ✅ Production ready</p>
+<hr>
+</section>
+</section>
+<section id="error-analysis-where-hybrid-still-fails" class="level2" data-number="4.7">
+<h2 data-number="4.7" class="anchored" data-anchor-id="error-analysis-where-hybrid-still-fails"><span class="header-section-number">4.7</span> Error Analysis: Where Hybrid Still Fails</h2>
+<p>Even at 86.1%, things go wrong.</p>
+<section id="false-positives-12-of-mistakes" class="level3" data-number="4.7.1">
+<h3 data-number="4.7.1" class="anchored" data-anchor-id="false-positives-12-of-mistakes"><span class="header-section-number">4.7.1</span> False Positives (12% of mistakes)</h3>
+<p>Real articles flagged as fake: - <strong>Entertainment news</strong> with sensational phrasing - <strong>Opinion pieces</strong> that look like speculation - <strong>Domain mismatch</strong> (Politifact political bias vs.&nbsp;GossipCop entertainment)</p>
+</section>
+<section id="false-negatives-10-of-mistakes" class="level3" data-number="4.7.2">
+<h3 data-number="4.7.2" class="anchored" data-anchor-id="false-negatives-10-of-mistakes"><span class="header-section-number">4.7.2</span> False Negatives (10% of mistakes)</h3>
+<p>Fake articles not caught: - <strong>Subtle misinformation</strong> (true claim + false implication) - <strong>Foreign language fakes</strong> (model trained on English) - <strong>Visual misinformation</strong> (model only sees text)</p>
+</section>
+<section id="implication" class="level3" data-number="4.7.3">
+<h3 data-number="4.7.3" class="anchored" data-anchor-id="implication"><span class="header-section-number">4.7.3</span> Implication</h3>
+<p><strong>No detector is 100% accurate.</strong> You need: - ✅ Confidence scores (not binary yes/no) - ✅ Explainability (why was this flagged?) - ✅ Human-in-the-loop (reviewer verifies high-stakes decisions)</p>
+<hr>
+</section>
+</section>
+<section id="the-code-run-it" class="level2" data-number="4.8">
+<h2 data-number="4.8" class="anchored" data-anchor-id="the-code-run-it"><span class="header-section-number">4.8</span> The Code (Run It)</h2>
+<ul>
+<li>Text preprocessing: Stop words removed, 1-2 grams</li>
+</ul>
 <p><strong>Vectorization</strong>:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">TfidfVectorizer</span><span class="kw">:</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">max_features</span><span class="kw">:</span><span class="at"> 10,000</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">ngram_range</span><span class="kw">:</span><span class="at"> (1, 2)</span><span class="co">        # unigrams + bigrams</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">min_df</span><span class="kw">:</span><span class="at"> </span><span class="dv">5</span><span class="co">                    # appear in ≥5 documents</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">max_df</span><span class="kw">:</span><span class="at"> </span><span class="fl">0.8</span><span class="co">                  # appear in ≤80% of documents</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">sublinear_tf</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span><span class="co">           # logarithmic scaling</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">Result</span><span class="kw">:</span><span class="at"> 6,422-dimensional sparse vectors</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">TfidfVectorizer</span><span class="kw">:</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">max_features</span><span class="kw">:</span><span class="at"> 10,000</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">ngram_range</span><span class="kw">:</span><span class="at"> (1, 2)</span><span class="co">        # unigrams + bigrams</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">min_df</span><span class="kw">:</span><span class="at"> </span><span class="dv">5</span><span class="co">                    # appear in ≥5 documents</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">max_df</span><span class="kw">:</span><span class="at"> </span><span class="fl">0.8</span><span class="co">                  # appear in ≤80% of documents</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">sublinear_tf</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span><span class="co">           # logarithmic scaling</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">Result</span><span class="kw">:</span><span class="at"> 6,422-dimensional sparse vectors</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p><strong>Class Balancing</strong> (due to 3.2:1 imbalance): - Logistic Regression: <code>class_weight="balanced"</code> - Linear SVM: <code>class_weight="balanced"</code></p>
+<section id="data-pipeline-walkthrough" class="level3" data-number="4.8.1">
+<h3 data-number="4.8.1" class="anchored" data-anchor-id="data-pipeline-walkthrough"><span class="header-section-number">4.8.1</span> Data Pipeline Walkthrough</h3>
+<p>The unified data pipeline orchestrates loading, cleaning, and feature engineering. Here’s how the end-to-end workflow operates:</p>
+<section id="step-1-load-raw-data" class="level4" data-number="4.8.1.1">
+<h4 data-number="4.8.1.1" class="anchored" data-anchor-id="step-1-load-raw-data"><span class="header-section-number">4.8.1.1</span> Step 1: Load Raw Data</h4>
+<div id="51bb7cbf" class="cell">
+<details class="code-fold">
+<summary>Show code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pathlib <span class="im">import</span> Path</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> data.pipeline <span class="im">import</span> DataLoader, PipelineConfig</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Initialize with default configuration</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>config <span class="op">=</span> PipelineConfig()</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>config.log(<span class="ss">f"Raw data directory: </span><span class="sc">{</span>config<span class="sc">.</span>raw_data_dir<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Load all FakeNewsNet CSVs</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>loader <span class="op">=</span> DataLoader(config)</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>raw_df <span class="op">=</span> loader.load()</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\n</span><span class="ss">Raw data summary:"</span>)</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"  • Total articles: </span><span class="sc">{</span><span class="bu">len</span>(raw_df)<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"  • Columns: </span><span class="sc">{</span><span class="bu">list</span>(raw_df.columns)<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"  • Labels: </span><span class="sc">{</span>raw_df[<span class="st">'label'</span>]<span class="sc">.</span>value_counts()<span class="sc">.</span>to_dict()<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\n</span><span class="ss">Sample articles:"</span>)</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(raw_df[[<span class="st">'title'</span>, <span class="st">'label'</span>, <span class="st">'dataset'</span>]].head(<span class="dv">3</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
 </section>
-<section id="results-summary" class="level3" data-number="4.5.3">
-<h3 data-number="4.5.3" class="anchored" data-anchor-id="results-summary"><span class="header-section-number">4.5.3</span> Results Summary</h3>
+<section id="step-2-clean-validate" class="level4" data-number="4.8.1.2">
+<h4 data-number="4.8.1.2" class="anchored" data-anchor-id="step-2-clean-validate"><span class="header-section-number">4.8.1.2</span> Step 2: Clean &amp; Validate</h4>
+<div id="237171dc" class="cell">
+<details class="code-fold">
+<summary>Show code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> data.pipeline <span class="im">import</span> DataCleaner</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Initialize cleaner</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>cleaner <span class="op">=</span> DataCleaner(config)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>cleaned_df <span class="op">=</span> cleaner.clean(raw_df)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Get quality report</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>quality <span class="op">=</span> cleaner.get_quality_report(cleaned_df)</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\n</span><span class="ss">Data quality metrics:"</span>)</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"  • Average title length: </span><span class="sc">{</span>quality[<span class="st">'avg_title_length'</span>]<span class="sc">:.1f}</span><span class="ss"> chars"</span>)</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"  • Title range: </span><span class="sc">{</span>quality[<span class="st">'min_title_length'</span>]<span class="sc">}</span><span class="ss">-</span><span class="sc">{</span>quality[<span class="st">'max_title_length'</span>]<span class="sc">}</span><span class="ss"> chars"</span>)</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"  • Duplicate titles removed: </span><span class="sc">{</span>quality[<span class="st">'duplicate_titles'</span>]<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"  • Retention rate: </span><span class="sc">{</span><span class="bu">len</span>(cleaned_df)<span class="op">/</span><span class="bu">len</span>(raw_df)<span class="op">*</span><span class="dv">100</span><span class="sc">:.1f}</span><span class="ss">%"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+</section>
+<section id="step-3-extract-linguistic-features" class="level4" data-number="4.8.1.3">
+<h4 data-number="4.8.1.3" class="anchored" data-anchor-id="step-3-extract-linguistic-features"><span class="header-section-number">4.8.1.3</span> Step 3: Extract Linguistic Features</h4>
+<div id="ed7da1f6" class="cell">
+<details class="code-fold">
+<summary>Show code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> data.pipeline <span class="im">import</span> FeatureTransformer</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Initialize transformer</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>transformer <span class="op">=</span> FeatureTransformer(config)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>features_df <span class="op">=</span> transformer.transform(cleaned_df, text_column<span class="op">=</span><span class="st">"title"</span>)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\n</span><span class="ss">Extracted </span><span class="sc">{</span>features_df<span class="sc">.</span>shape[<span class="dv">1</span>]<span class="sc">}</span><span class="ss"> features:"</span>)</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"  • Basic text: title_length_words, title_length_chars"</span>)</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"  • Sentiment: sentiment_compound, sentiment_positive, sentiment_negative"</span>)</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"  • Subjectivity: subjectivity"</span>)</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"  • Readability: flesch_kincaid_grade, ari"</span>)</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"  • Lexical diversity: lexical_diversity"</span>)</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"  • Language markers: certainty_terms, hedging_terms, emotional_intensifiers"</span>)</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Show feature statistics by label</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\n</span><span class="ss">Sentiment by label (mean values):"</span>)</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>sentiment_by_label <span class="op">=</span> features_df.groupby(cleaned_df[<span class="st">'label'</span>])[</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>    [<span class="st">'sentiment_compound'</span>, <span class="st">'subjectivity'</span>, <span class="st">'certainty_terms'</span>]</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>].mean()</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(sentiment_by_label.<span class="bu">round</span>(<span class="dv">3</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+</section>
+<section id="step-4-unified-pipeline-execution" class="level4" data-number="4.8.1.4">
+<h4 data-number="4.8.1.4" class="anchored" data-anchor-id="step-4-unified-pipeline-execution"><span class="header-section-number">4.8.1.4</span> Step 4: Unified Pipeline Execution</h4>
+<div id="1b19e6c7" class="cell">
+<details class="code-fold">
+<summary>Show code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> data.pipeline <span class="im">import</span> MisinformationPipeline</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Run complete pipeline (load → clean → engineer features)</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>pipeline <span class="op">=</span> MisinformationPipeline(config)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>df_final <span class="op">=</span> pipeline.run(save<span class="op">=</span><span class="va">False</span>)  <span class="co"># save=False for demo</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Display final dataset</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\n</span><span class="ss">Final processed dataset:"</span>)</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"  • Shape: </span><span class="sc">{</span>df_final<span class="sc">.</span>shape<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"  • Columns: </span><span class="sc">{</span><span class="bu">len</span>(df_final.columns)<span class="sc">}</span><span class="ss"> features"</span>)</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"  • Rows: </span><span class="sc">{</span><span class="bu">len</span>(df_final)<span class="sc">}</span><span class="ss"> articles"</span>)</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\n</span><span class="ss">First row (sample):"</span>)</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> col <span class="kw">in</span> df_final.columns[:<span class="dv">8</span>]:</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>    val <span class="op">=</span> df_final[col].iloc[<span class="dv">0</span>]</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"  • </span><span class="sc">{</span>col<span class="sc">}</span><span class="ss">: </span><span class="sc">{</span>val<span class="sc">}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+</section>
+</section>
+<section id="results-summary" class="level3" data-number="4.8.2">
+<h3 data-number="4.8.2" class="anchored" data-anchor-id="results-summary"><span class="header-section-number">4.8.2</span> Results Summary</h3>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -393,8 +699,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tbody>
 </table>
 <p><strong>Winner</strong>: Logistic Regression (highest ROC-AUC = 0.859)</p>
-<section id="roc-curve-comparison" class="level4" data-number="4.5.3.1">
-<h4 data-number="4.5.3.1" class="anchored" data-anchor-id="roc-curve-comparison"><span class="header-section-number">4.5.3.1</span> ROC Curve Comparison</h4>
+<section id="roc-curve-comparison" class="level4" data-number="4.8.2.1">
+<h4 data-number="4.8.2.1" class="anchored" data-anchor-id="roc-curve-comparison"><span class="header-section-number">4.8.2.1</span> ROC Curve Comparison</h4>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="../../results/roc_comparison.png" class="img-fluid figure-img" style="width:80.0%" alt="ROC curves for Logistic Regression and Linear SVM, showing Logistic Regression achieves 0.859 AUC compared to SVM's 0.841 AUC"></p>
@@ -416,8 +722,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </section>
 </section>
-<section id="confusion-matrix-analysis" class="level3" data-number="4.5.4">
-<h3 data-number="4.5.4" class="anchored" data-anchor-id="confusion-matrix-analysis"><span class="header-section-number">4.5.4</span> Confusion Matrix Analysis</h3>
+<section id="confusion-matrix-analysis" class="level3" data-number="4.8.3">
+<h3 data-number="4.8.3" class="anchored" data-anchor-id="confusion-matrix-analysis"><span class="header-section-number">4.8.3</span> Confusion Matrix Analysis</h3>
 <p><strong>Logistic Regression</strong>:</p>
 <table class="caption-top table">
 <thead>
@@ -453,22 +759,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </figure>
 </div>
 </section>
-<section id="error-analysis" class="level3" data-number="4.5.5">
-<h3 data-number="4.5.5" class="anchored" data-anchor-id="error-analysis"><span class="header-section-number">4.5.5</span> Error Analysis</h3>
+<section id="error-analysis" class="level3" data-number="4.8.4">
+<h3 data-number="4.8.4" class="anchored" data-anchor-id="error-analysis"><span class="header-section-number">4.8.4</span> Error Analysis</h3>
 <p><strong>False Positives (517 samples)</strong>: Real articles misclassified as fake - <strong>Pattern</strong>: Entertainment content from Politifact with sensational phrasing - <strong>Root cause</strong>: Emotional language (“Kissable,” “Unremarkable”) overlaps with fake GossipCop articles - <strong>Implication</strong>: Domain differences (Politifact = political, GossipCop = entertainment) confound classification</p>
 <p><strong>False Negatives (300 samples)</strong>: Fake articles misclassified as real - <strong>Pattern</strong>: GossipCop articles (music, awards, rankings) that mimic legitimate reporting - <strong>Root cause</strong>: Neutral phrasing indistinguishable from real entertainment news - <strong>Implication</strong>: Title-only features insufficient for within-domain discrimination</p>
 </section>
-<section id="feature-importance-top-20-words" class="level3" data-number="4.5.6">
-<h3 data-number="4.5.6" class="anchored" data-anchor-id="feature-importance-top-20-words"><span class="header-section-number">4.5.6</span> Feature Importance (Top 20 Words)</h3>
+<section id="feature-importance-top-20-words" class="level3" data-number="4.8.5">
+<h3 data-number="4.8.5" class="anchored" data-anchor-id="feature-importance-top-20-words"><span class="header-section-number">4.8.5</span> Feature Importance (Top 20 Words)</h3>
 <p><strong>Real Articles</strong>: - Emotional: news, said, new, trump, people, would, clinton, time, obama, government - Pattern: Political, policy-focused vocabulary</p>
 <p><strong>Fake Articles</strong>: - Sensational: love, one, like, new, time, said, day, get, just, make - Pattern: Entertainment, relational vocabulary</p>
 <hr>
 </section>
 </section>
-<section id="part-c-linguistic-features-behavioral-enhancement" class="level2" data-number="4.6">
-<h2 data-number="4.6" class="anchored" data-anchor-id="part-c-linguistic-features-behavioral-enhancement"><span class="header-section-number">4.6</span> Part C: Linguistic Features &amp; Behavioral Enhancement</h2>
-<section id="feature-engineering" class="level3" data-number="4.6.1">
-<h3 data-number="4.6.1" class="anchored" data-anchor-id="feature-engineering"><span class="header-section-number">4.6.1</span> Feature Engineering</h3>
+<section id="part-c-linguistic-features-behavioral-enhancement" class="level2" data-number="4.9">
+<h2 data-number="4.9" class="anchored" data-anchor-id="part-c-linguistic-features-behavioral-enhancement"><span class="header-section-number">4.9</span> Part C: Linguistic Features &amp; Behavioral Enhancement</h2>
+<section id="feature-engineering" class="level3" data-number="4.9.1">
+<h3 data-number="4.9.1" class="anchored" data-anchor-id="feature-engineering"><span class="header-section-number">4.9.1</span> Feature Engineering</h3>
 <p>We extracted 11 psycholinguistic features from article titles:</p>
 <p><strong>1. Sentiment &amp; Emotion</strong>:</p>
 <table class="caption-top table">
@@ -572,8 +878,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tbody>
 </table>
 </section>
-<section id="model-comparison" class="level3" data-number="4.6.2">
-<h3 data-number="4.6.2" class="anchored" data-anchor-id="model-comparison"><span class="header-section-number">4.6.2</span> Model Comparison</h3>
+<section id="model-comparison" class="level3" data-number="4.9.2">
+<h3 data-number="4.9.2" class="anchored" data-anchor-id="model-comparison"><span class="header-section-number">4.9.2</span> Model Comparison</h3>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 19%">
@@ -617,16 +923,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </figure>
 </div>
 </section>
-<section id="key-finding" class="level3" data-number="4.6.3">
-<h3 data-number="4.6.3" class="anchored" data-anchor-id="key-finding"><span class="header-section-number">4.6.3</span> Key Finding</h3>
+<section id="key-finding" class="level3" data-number="4.9.3">
+<h3 data-number="4.9.3" class="anchored" data-anchor-id="key-finding"><span class="header-section-number">4.9.3</span> Key Finding</h3>
 <p><strong>Marginal improvement</strong> with hybrid approach: - ROC-AUC improved +0.31% (0.8590 → 0.8621) - Behavioral features reduce overfitting but contribute little predictive power - Conclusion: Psychology-inspired features are informative but insufficient</p>
 <hr>
 </section>
 </section>
-<section id="part-d-transformer-fine-tuning" class="level2" data-number="4.7">
-<h2 data-number="4.7" class="anchored" data-anchor-id="part-d-transformer-fine-tuning"><span class="header-section-number">4.7</span> Part D: Transformer Fine-tuning</h2>
-<section id="the-tf-idf-ceiling" class="level3" data-number="4.7.1">
-<h3 data-number="4.7.1" class="anchored" data-anchor-id="the-tf-idf-ceiling"><span class="header-section-number">4.7.1</span> The TF-IDF Ceiling</h3>
+<section id="part-d-transformer-fine-tuning" class="level2" data-number="4.10">
+<h2 data-number="4.10" class="anchored" data-anchor-id="part-d-transformer-fine-tuning"><span class="header-section-number">4.10</span> Part D: Transformer Fine-tuning</h2>
+<section id="the-tf-idf-ceiling" class="level3" data-number="4.10.1">
+<h3 data-number="4.10.1" class="anchored" data-anchor-id="the-tf-idf-ceiling"><span class="header-section-number">4.10.1</span> The TF-IDF Ceiling</h3>
 <p>Classical methods plateau at ~0.86 AUC. This ceiling reveals missing signals:</p>
 <ol type="1">
 <li><strong>Contextual nuance</strong>: “Experts warn” vs.&nbsp;“SHOCKING: Experts reveal”</li>
@@ -634,20 +940,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><strong>Transfer knowledge</strong>: Pre-trained vs.&nbsp;learned-from-scratch</li>
 </ol>
 </section>
-<section id="roberta-bridging-to-deep-semantics" class="level3" data-number="4.7.2">
-<h3 data-number="4.7.2" class="anchored" data-anchor-id="roberta-bridging-to-deep-semantics"><span class="header-section-number">4.7.2</span> RoBERTa: Bridging to Deep Semantics</h3>
+<section id="roberta-bridging-to-deep-semantics" class="level3" data-number="4.10.2">
+<h3 data-number="4.10.2" class="anchored" data-anchor-id="roberta-bridging-to-deep-semantics"><span class="header-section-number">4.10.2</span> RoBERTa: Bridging to Deep Semantics</h3>
 <p><strong>Model</strong>: RoBERTa-base (Pre-trained on 160GB of text) - Architecture: 12 transformer layers, 12 attention heads, 110M parameters - Fine-tuning method: LoRA (Low-Rank Adaptation) = 130K trainable parameters - Training time: ~3 hours on GPU</p>
 <p><strong>Training Configuration</strong>:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Learning rate</span><span class="kw">:</span><span class="at"> </span><span class="fl">2e-4</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">Batch size</span><span class="kw">:</span><span class="at"> </span><span class="dv">32</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">Epochs</span><span class="kw">:</span><span class="at"> </span><span class="dv">3</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">Warmup steps</span><span class="kw">:</span><span class="at"> </span><span class="dv">500</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">Weight decay</span><span class="kw">:</span><span class="at"> </span><span class="fl">0.01</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="fu">Early stopping</span><span class="kw">:</span><span class="at"> 2-epoch patience on F1</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="fu">Token length</span><span class="kw">:</span><span class="at"> 128 (sufficient for ~11-word headlines)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Learning rate</span><span class="kw">:</span><span class="at"> </span><span class="fl">2e-4</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">Batch size</span><span class="kw">:</span><span class="at"> </span><span class="dv">32</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">Epochs</span><span class="kw">:</span><span class="at"> </span><span class="dv">3</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="fu">Warmup steps</span><span class="kw">:</span><span class="at"> </span><span class="dv">500</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="fu">Weight decay</span><span class="kw">:</span><span class="at"> </span><span class="fl">0.01</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="fu">Early stopping</span><span class="kw">:</span><span class="at"> 2-epoch patience on F1</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="fu">Token length</span><span class="kw">:</span><span class="at"> 128 (sufficient for ~11-word headlines)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="results-transformer-breakthrough" class="level3" data-number="4.7.3">
-<h3 data-number="4.7.3" class="anchored" data-anchor-id="results-transformer-breakthrough"><span class="header-section-number">4.7.3</span> Results: Transformer Breakthrough</h3>
+<section id="results-transformer-breakthrough" class="level3" data-number="4.10.3">
+<h3 data-number="4.10.3" class="anchored" data-anchor-id="results-transformer-breakthrough"><span class="header-section-number">4.10.3</span> Results: Transformer Breakthrough</h3>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -679,11 +985,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tbody>
 </table>
 </section>
-<section id="error-reduction" class="level3" data-number="4.7.4">
-<h3 data-number="4.7.4" class="anchored" data-anchor-id="error-reduction"><span class="header-section-number">4.7.4</span> Error Reduction</h3>
+<section id="error-reduction" class="level3" data-number="4.10.4">
+<h3 data-number="4.10.4" class="anchored" data-anchor-id="error-reduction"><span class="header-section-number">4.10.4</span> Error Reduction</h3>
 <p><strong>Confusion Matrix</strong> (RoBERTa): - False Positives: 469 (down 48 from hybrid) - False Negatives: 287 (up 13 from hybrid) - <strong>Trade-off</strong>: Lower type-I errors (preserve real news credibility)</p>
-<section id="precision-recall-curves" class="level4" data-number="4.7.4.1">
-<h4 data-number="4.7.4.1" class="anchored" data-anchor-id="precision-recall-curves"><span class="header-section-number">4.7.4.1</span> Precision-Recall Curves</h4>
+<section id="precision-recall-curves" class="level4" data-number="4.10.4.1">
+<h4 data-number="4.10.4.1" class="anchored" data-anchor-id="precision-recall-curves"><span class="header-section-number">4.10.4.1</span> Precision-Recall Curves</h4>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="../../results/pr_logistic_regression.png" class="img-fluid figure-img" style="width:70.0%" alt="Precision-recall curve for Logistic Regression model showing area under curve"></p>
@@ -698,8 +1004,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </section>
 </section>
-<section id="why-transformers-win" class="level3" data-number="4.7.5">
-<h3 data-number="4.7.5" class="anchored" data-anchor-id="why-transformers-win"><span class="header-section-number">4.7.5</span> Why Transformers Win</h3>
+<section id="why-transformers-win" class="level3" data-number="4.10.5">
+<h3 data-number="4.10.5" class="anchored" data-anchor-id="why-transformers-win"><span class="header-section-number">4.10.5</span> Why Transformers Win</h3>
 <ol type="1">
 <li><strong>Semantic depth</strong>: Context-aware representations</li>
 <li><strong>Learned patterns</strong>: Transfer from massive pre-training</li>
@@ -709,15 +1015,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <hr>
 </section>
 </section>
-<section id="part-e-cross-domain-generalization" class="level2" data-number="4.8">
-<h2 data-number="4.8" class="anchored" data-anchor-id="part-e-cross-domain-generalization"><span class="header-section-number">4.8</span> Part E: Cross-Domain Generalization</h2>
-<section id="domain-mismatch-challenge" class="level3" data-number="4.8.1">
-<h3 data-number="4.8.1" class="anchored" data-anchor-id="domain-mismatch-challenge"><span class="header-section-number">4.8.1</span> Domain Mismatch Challenge</h3>
+<section id="part-e-cross-domain-generalization" class="level2" data-number="4.11">
+<h2 data-number="4.11" class="anchored" data-anchor-id="part-e-cross-domain-generalization"><span class="header-section-number">4.11</span> Part E: Cross-Domain Generalization</h2>
+<section id="domain-mismatch-challenge" class="level3" data-number="4.11.1">
+<h3 data-number="4.11.1" class="anchored" data-anchor-id="domain-mismatch-challenge"><span class="header-section-number">4.11.1</span> Domain Mismatch Challenge</h3>
 <p>FakeNewsNet consists of two domains: - <strong>Politifact</strong> (political news): 983 articles - <strong>GossipCop</strong> (entertainment): 20,741 articles</p>
 <p>Models trained on mixed data struggle with domain transfer.</p>
 </section>
-<section id="transfer-performance" class="level3" data-number="4.8.2">
-<h3 data-number="4.8.2" class="anchored" data-anchor-id="transfer-performance"><span class="header-section-number">4.8.2</span> Transfer Performance</h3>
+<section id="transfer-performance" class="level3" data-number="4.11.2">
+<h3 data-number="4.11.2" class="anchored" data-anchor-id="transfer-performance"><span class="header-section-number">4.11.2</span> Transfer Performance</h3>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -753,10 +1059,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <hr>
 </section>
 </section>
-<section id="part-f-key-findings" class="level2" data-number="4.9">
-<h2 data-number="4.9" class="anchored" data-anchor-id="part-f-key-findings"><span class="header-section-number">4.9</span> Part F: Key Findings</h2>
-<section id="main-results" class="level3" data-number="4.9.1">
-<h3 data-number="4.9.1" class="anchored" data-anchor-id="main-results"><span class="header-section-number">4.9.1</span> Main Results</h3>
+<section id="part-f-key-findings" class="level2" data-number="4.12">
+<h2 data-number="4.12" class="anchored" data-anchor-id="part-f-key-findings"><span class="header-section-number">4.12</span> Part F: Key Findings</h2>
+<section id="main-results" class="level3" data-number="4.12.1">
+<h3 data-number="4.12.1" class="anchored" data-anchor-id="main-results"><span class="header-section-number">4.12.1</span> Main Results</h3>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 23%">
@@ -794,8 +1100,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tbody>
 </table>
 </section>
-<section id="model-recommendations" class="level3" data-number="4.9.2">
-<h3 data-number="4.9.2" class="anchored" data-anchor-id="model-recommendations"><span class="header-section-number">4.9.2</span> Model Recommendations</h3>
+<section id="model-recommendations" class="level3" data-number="4.12.2">
+<h3 data-number="4.12.2" class="anchored" data-anchor-id="model-recommendations"><span class="header-section-number">4.12.2</span> Model Recommendations</h3>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 25%">
@@ -830,26 +1136,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <hr>
 </section>
 </section>
-<section id="limitations-scope" class="level2" data-number="4.10">
-<h2 data-number="4.10" class="anchored" data-anchor-id="limitations-scope"><span class="header-section-number">4.10</span> Limitations &amp; Scope</h2>
-<section id="data-limitations" class="level3" data-number="4.10.1">
-<h3 data-number="4.10.1" class="anchored" data-anchor-id="data-limitations"><span class="header-section-number">4.10.1</span> Data Limitations</h3>
+<section id="limitations-scope" class="level2" data-number="4.13">
+<h2 data-number="4.13" class="anchored" data-anchor-id="limitations-scope"><span class="header-section-number">4.13</span> Limitations &amp; Scope</h2>
+<section id="data-limitations" class="level3" data-number="4.13.1">
+<h3 data-number="4.13.1" class="anchored" data-anchor-id="data-limitations"><span class="header-section-number">4.13.1</span> Data Limitations</h3>
 <ol type="1">
 <li><strong>Title-only features</strong>: Missing article body (where verifiable facts appear)</li>
 <li><strong>English-only</strong>: FakeNewsNet = English corpus; cross-language work needed</li>
 <li><strong>Fact-checker bias</strong>: Politifact ≠ universal truth (subjective on political claims)</li>
 </ol>
 </section>
-<section id="model-limitations" class="level3" data-number="4.10.2">
-<h3 data-number="4.10.2" class="anchored" data-anchor-id="model-limitations"><span class="header-section-number">4.10.2</span> Model Limitations</h3>
+<section id="model-limitations" class="level3" data-number="4.13.2">
+<h3 data-number="4.13.2" class="anchored" data-anchor-id="model-limitations"><span class="header-section-number">4.13.2</span> Model Limitations</h3>
 <ol type="1">
 <li><strong>Domain-specific</strong>: Models don’t generalize across Politifact ↔︎ GossipCop</li>
 <li><strong>No temporal dynamics</strong>: Doesn’t capture misinformation cascades or bursts</li>
 <li><strong>No social context</strong>: Ignores user/network effects on spread</li>
 </ol>
 </section>
-<section id="generalizability" class="level3" data-number="4.10.3">
-<h3 data-number="4.10.3" class="anchored" data-anchor-id="generalizability"><span class="header-section-number">4.10.3</span> Generalizability</h3>
+<section id="generalizability" class="level3" data-number="4.13.3">
+<h3 data-number="4.13.3" class="anchored" data-anchor-id="generalizability"><span class="header-section-number">4.13.3</span> Generalizability</h3>
 <ul>
 <li>Results generalize to <strong>English-language news</strong> from fact-checked sources</li>
 <li>May not apply to: propaganda, satire, memes, video, adversarial text</li>
@@ -857,8 +1163,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <hr>
 </section>
 </section>
-<section id="reproducibility-checklist" class="level2" data-number="4.11">
-<h2 data-number="4.11" class="anchored" data-anchor-id="reproducibility-checklist"><span class="header-section-number">4.11</span> Reproducibility Checklist</h2>
+<section id="reproducibility-checklist" class="level2" data-number="4.14">
+<h2 data-number="4.14" class="anchored" data-anchor-id="reproducibility-checklist"><span class="header-section-number">4.14</span> Reproducibility Checklist</h2>
 <ul>
 <li>✅ Data: FakeNewsNet in <code>data/raw/</code></li>
 <li>✅ Preprocessing: <code>src/data_prep.py</code> with reproducible seeding</li>
@@ -870,8 +1176,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <hr>
 </section>
-<section id="glossary" class="level2" data-number="4.12">
-<h2 data-number="4.12" class="anchored" data-anchor-id="glossary"><span class="header-section-number">4.12</span> Glossary</h2>
+<section id="glossary" class="level2" data-number="4.15">
+<h2 data-number="4.15" class="anchored" data-anchor-id="glossary"><span class="header-section-number">4.15</span> Glossary</h2>
 <p><strong>TF-IDF</strong>: Term Frequency-Inverse Document Frequency; bag-of-words vectorization<br>
 <strong>RoBERTa</strong>: Robustly Optimized BERT Pre-training Approach; transformer model<br>
 <strong>LoRA</strong>: Low-Rank Adaptation; efficient fine-tuning technique<br>
@@ -881,8 +1187,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <strong>False negative</strong>: Fake news incorrectly classified as real</p>
 <hr>
 </section>
-<section id="references" class="level2" data-number="4.13">
-<h2 data-number="4.13" class="anchored" data-anchor-id="references"><span class="header-section-number">4.13</span> References</h2>
+<section id="references" class="level2" data-number="4.16">
+<h2 data-number="4.16" class="anchored" data-anchor-id="references"><span class="header-section-number">4.16</span> References</h2>
 <ul>
 <li>Devlin et al.&nbsp;(2019). BERT: Pre-training of deep bidirectional transformers for language understanding.</li>
 <li>Liu et al.&nbsp;(2019). RoBERTa: A Robustly Optimized BERT Pretraining Approach.</li>
@@ -1295,13 +1601,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../chapters/01-measuring-vulnerability.html" class="pagination-link" aria-label="Unit 1: Measuring Vulnerability">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Unit 1: Measuring Vulnerability</span></span>
+      <a href="../chapters/01-measuring-vulnerability.html" class="pagination-link" aria-label="Chapter 1: Behavioral Intelligence — Your Unfair Edge">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Chapter 1: Behavioral Intelligence — Your Unfair Edge</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../chapters/03-modeling-spread.html" class="pagination-link" aria-label="Unit 3: Modeling Spread">
-        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Unit 3: Modeling Spread</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../chapters/03-modeling-spread.html" class="pagination-link" aria-label="Chapter 3: Spread Modeling — Understanding Cascade Dynamics">
+        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Chapter 3: Spread Modeling — Understanding Cascade Dynamics</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
