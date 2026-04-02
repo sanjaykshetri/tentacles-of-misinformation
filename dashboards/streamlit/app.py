@@ -12,60 +12,18 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# Path resolution - works from any working directory
-# For HF Space: models/ is in the same directory as app.py
-# For local: models/ is at repo root
-try:
-    MODEL_DIR = Path(__file__).parent / "models"
-    if not (MODEL_DIR / "tfidf_vectorizer.joblib").exists():
-        # Fall back to repo root structure (local dev)
-        MODEL_DIR = Path(__file__).parent.parent.parent / "models"
-except:
-    MODEL_DIR = Path(__file__).parent.parent.parent / "models"
-
-# Fallback URLs for models (in case not in local repo)
-MODEL_URLS = {
-    "vectorizer": "https://github.com/sanjaykshetri/tentacles-of-misinformation/raw/main/models/tfidf_vectorizer.joblib",
-    "model": "https://github.com/sanjaykshetri/tentacles-of-misinformation/raw/main/models/logistic_regression_baseline.joblib"
-}
+# Path resolution for HF Space (models/ in same directory as app.py)
+MODEL_DIR = Path(__file__).parent / "models"
 
 @st.cache_resource
 def load_model():
-    """Load baseline TF-IDF + Logistic Regression model with error handling."""
-    import urllib.request
-    import tempfile
+    """Load baseline TF-IDF + Logistic Regression model."""
+    vectorizer_path = MODEL_DIR / "tfidf_vectorizer.joblib"
+    model_path = MODEL_DIR / "logistic_regression_baseline.joblib"
     
-    try:
-        # First, try to load from local directory
-        if (MODEL_DIR / "tfidf_vectorizer.joblib").exists() and (MODEL_DIR / "logistic_regression_baseline.joblib").exists():
-            vectorizer = joblib.load(MODEL_DIR / "tfidf_vectorizer.joblib")
-            model = joblib.load(MODEL_DIR / "logistic_regression_baseline.joblib")
-            return vectorizer, model
-    except Exception as e:
-        st.warning(f"⚠️ Local models not found, downloading from GitHub...")
-    
-    # Fallback: download from GitHub
-    try:
-        with st.spinner("📥 Downloading models from GitHub (first time only)..."):
-            temp_dir = tempfile.gettempdir()
-            
-            # Download vectorizer
-            vectorizer_file = Path(temp_dir) / "tfidf_vectorizer.joblib"
-            if not vectorizer_file.exists():
-                urllib.request.urlretrieve(MODEL_URLS["vectorizer"], vectorizer_file)
-            
-            # Download model
-            model_file = Path(temp_dir) / "logistic_regression_baseline.joblib"
-            if not model_file.exists():
-                urllib.request.urlretrieve(MODEL_URLS["model"], model_file)
-            
-            vectorizer = joblib.load(vectorizer_file)
-            model = joblib.load(model_file)
-            return vectorizer, model
-    except Exception as e:
-        st.error(f"❌ Failed to load models: {e}")
-        st.info("Please ensure model files are available or check your internet connection")
-        return None, None
+    vectorizer = joblib.load(vectorizer_path)
+    model = joblib.load(model_path)
+    return vectorizer, model
 
 def predict_fake_news(text, vectorizer, model):
     """Make prediction with confidence scores."""
@@ -82,7 +40,17 @@ def predict_fake_news(text, vectorizer, model):
 st.sidebar.title("🧭 Navigation")
 page = st.sidebar.radio("Select page:", ["🏠 Classifier", "📊 Model Info", "ℹ️ About"])
 
-vectorizer, model = load_model()
+# Load models with error display
+try:
+    vectorizer, model = load_model()
+    if vectorizer is None or model is None:
+        st.error("❌ Models failed to load (None returned)")
+        st.stop()
+except Exception as e:
+    st.error(f"❌ Error loading models: {str(e)}")
+    import traceback
+    st.error(traceback.format_exc())
+    st.stop()
 
 # ============================================================================
 # PAGE 1: Interactive Classifier
