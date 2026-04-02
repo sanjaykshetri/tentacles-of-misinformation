@@ -15,18 +15,48 @@ st.set_page_config(
 # Path resolution - works from any working directory
 MODEL_DIR = Path(__file__).parent.parent.parent / "models"
 
+# Fallback URLs for models (in case not in local repo)
+MODEL_URLS = {
+    "vectorizer": "https://github.com/sanjaykshetri/tentacles-of-misinformation/raw/main/models/tfidf_vectorizer.joblib",
+    "model": "https://github.com/sanjaykshetri/tentacles-of-misinformation/raw/main/models/logistic_regression_baseline.joblib"
+}
+
 @st.cache_resource
 def load_model():
     """Load baseline TF-IDF + Logistic Regression model with error handling."""
+    import urllib.request
+    import tempfile
+    
     try:
-        vectorizer = joblib.load(MODEL_DIR / "tfidf_vectorizer.joblib")
-        model = joblib.load(MODEL_DIR / "logistic_regression_baseline.joblib")
-        return vectorizer, model
-    except FileNotFoundError as e:
-        st.error(f"❌ Model files not found: {e}")
-        return None, None
+        # First, try to load from local directory
+        if (MODEL_DIR / "tfidf_vectorizer.joblib").exists() and (MODEL_DIR / "logistic_regression_baseline.joblib").exists():
+            vectorizer = joblib.load(MODEL_DIR / "tfidf_vectorizer.joblib")
+            model = joblib.load(MODEL_DIR / "logistic_regression_baseline.joblib")
+            return vectorizer, model
     except Exception as e:
-        st.error(f"❌ Error loading model: {e}")
+        st.warning(f"⚠️ Local models not found, downloading from GitHub...")
+    
+    # Fallback: download from GitHub
+    try:
+        with st.spinner("📥 Downloading models from GitHub (first time only)..."):
+            temp_dir = tempfile.gettempdir()
+            
+            # Download vectorizer
+            vectorizer_file = Path(temp_dir) / "tfidf_vectorizer.joblib"
+            if not vectorizer_file.exists():
+                urllib.request.urlretrieve(MODEL_URLS["vectorizer"], vectorizer_file)
+            
+            # Download model
+            model_file = Path(temp_dir) / "logistic_regression_baseline.joblib"
+            if not model_file.exists():
+                urllib.request.urlretrieve(MODEL_URLS["model"], model_file)
+            
+            vectorizer = joblib.load(vectorizer_file)
+            model = joblib.load(model_file)
+            return vectorizer, model
+    except Exception as e:
+        st.error(f"❌ Failed to load models: {e}")
+        st.info("Please ensure model files are available or check your internet connection")
         return None, None
 
 def predict_fake_news(text, vectorizer, model):
