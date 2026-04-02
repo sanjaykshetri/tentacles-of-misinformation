@@ -79,6 +79,16 @@ A strong baseline:
 
 **Key lesson**: Your model will have biases. Know what they are.
 
+### Visualizations
+
+**Confusion Matrix (Logistic Regression)**
+
+![](../images/cm_logistic_regression.png)
+
+**ROC Curve (Logistic Regression)**
+
+![](../images/roc_logistic_regression.png)
+
 ---
 
 ## Approach 2: Deep Learning (DistilBERT Transformer)
@@ -154,6 +164,18 @@ You get:
 - ✅ Best speed (2ms)
 - ✅ Best interpretability (know which features mattered)
 - ✅ Production ready
+
+### Model Comparison (All Approaches)
+
+![](../images/model_comparison.png)
+
+**ROC Curve Comparison (All Three Models)**
+
+![](../images/roc_comparison.png)
+
+**Linear SVM Confusion Matrix** (Alternative approach)
+
+![](../images/cm_linear_svm.png)
 
 ---
 

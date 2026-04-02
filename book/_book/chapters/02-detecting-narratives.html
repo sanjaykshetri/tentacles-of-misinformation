@@ -206,6 +206,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results"><span class="header-section-number">4.4.2</span> Results</a></li>
   <li><a href="#what-this-means" id="toc-what-this-means" class="nav-link" data-scroll-target="#what-this-means"><span class="header-section-number">4.4.3</span> What This Means</a></li>
   <li><a href="#the-failure-cases" id="toc-the-failure-cases" class="nav-link" data-scroll-target="#the-failure-cases"><span class="header-section-number">4.4.4</span> The Failure Cases</a></li>
+  <li><a href="#visualizations" id="toc-visualizations" class="nav-link" data-scroll-target="#visualizations"><span class="header-section-number">4.4.5</span> Visualizations</a></li>
   </ul></li>
   <li><a href="#approach-2-deep-learning-distilbert-transformer" id="toc-approach-2-deep-learning-distilbert-transformer" class="nav-link" data-scroll-target="#approach-2-deep-learning-distilbert-transformer"><span class="header-section-number">4.5</span> Approach 2: Deep Learning (DistilBERT Transformer)</a>
   <ul class="collapse">
@@ -220,6 +221,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#results-2" id="toc-results-2" class="nav-link" data-scroll-target="#results-2"><span class="header-section-number">4.6.2</span> Results</a></li>
   <li><a href="#why-it-works" id="toc-why-it-works" class="nav-link" data-scroll-target="#why-it-works"><span class="header-section-number">4.6.3</span> Why It Works</a></li>
   <li><a href="#the-business-insight" id="toc-the-business-insight" class="nav-link" data-scroll-target="#the-business-insight"><span class="header-section-number">4.6.4</span> The Business Insight</a></li>
+  <li><a href="#model-comparison-all-approaches" id="toc-model-comparison-all-approaches" class="nav-link" data-scroll-target="#model-comparison-all-approaches"><span class="header-section-number">4.6.5</span> Model Comparison (All Approaches)</a></li>
   </ul></li>
   <li><a href="#error-analysis-where-hybrid-still-fails" id="toc-error-analysis-where-hybrid-still-fails" class="nav-link" data-scroll-target="#error-analysis-where-hybrid-still-fails"><span class="header-section-number">4.7</span> Error Analysis: Where Hybrid Still Fails</a>
   <ul class="collapse">
@@ -379,6 +381,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>517 false positives (real articles flagged as fake): - Entertainment articles with sensational titles - Domain mismatch (entertainment news vs.&nbsp;political falsehoods)</p>
 <p>300 false negatives (fake articles not caught): - Subtle fake news that mimics legitimate reporting - Claims that require context to verify as false</p>
 <p><strong>Key lesson</strong>: Your model will have biases. Know what they are.</p>
+</section>
+<section id="visualizations" class="level3" data-number="4.4.5">
+<h3 data-number="4.4.5" class="anchored" data-anchor-id="visualizations"><span class="header-section-number">4.4.5</span> Visualizations</h3>
+<p><strong>Confusion Matrix (Logistic Regression)</strong></p>
+<p><img src="../images/cm_logistic_regression.png" class="img-fluid"></p>
+<p><strong>ROC Curve (Logistic Regression)</strong></p>
+<p><img src="../images/roc_logistic_regression.png" class="img-fluid"></p>
 <hr>
 </section>
 </section>
@@ -525,6 +534,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 data-number="4.6.4" class="anchored" data-anchor-id="the-business-insight"><span class="header-section-number">4.6.4</span> The Business Insight</h3>
 <p>2ms per article on 1M articles/day = <strong>23 seconds total</strong></p>
 <p>You get: - ✅ Best accuracy (86.1%) - ✅ Best speed (2ms) - ✅ Best interpretability (know which features mattered) - ✅ Production ready</p>
+</section>
+<section id="model-comparison-all-approaches" class="level3" data-number="4.6.5">
+<h3 data-number="4.6.5" class="anchored" data-anchor-id="model-comparison-all-approaches"><span class="header-section-number">4.6.5</span> Model Comparison (All Approaches)</h3>
+<p><img src="../images/model_comparison.png" class="img-fluid"></p>
+<p><strong>ROC Curve Comparison (All Three Models)</strong></p>
+<p><img src="../images/roc_comparison.png" class="img-fluid"></p>
+<p><strong>Linear SVM Confusion Matrix</strong> (Alternative approach)</p>
+<p><img src="../images/cm_linear_svm.png" class="img-fluid"></p>
 <hr>
 </section>
 </section>
@@ -564,7 +581,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>The unified data pipeline orchestrates loading, cleaning, and feature engineering. Here’s how the end-to-end workflow operates:</p>
 <section id="step-1-load-raw-data" class="level4" data-number="4.8.1.1">
 <h4 data-number="4.8.1.1" class="anchored" data-anchor-id="step-1-load-raw-data"><span class="header-section-number">4.8.1.1</span> Step 1: Load Raw Data</h4>
-<div id="51bb7cbf" class="cell">
+<div id="6de69ae3" class="cell">
 <details class="code-fold">
 <summary>Show code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pathlib <span class="im">import</span> Path</span>
@@ -589,7 +606,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="step-2-clean-validate" class="level4" data-number="4.8.1.2">
 <h4 data-number="4.8.1.2" class="anchored" data-anchor-id="step-2-clean-validate"><span class="header-section-number">4.8.1.2</span> Step 2: Clean &amp; Validate</h4>
-<div id="237171dc" class="cell">
+<div id="1e3b9388" class="cell">
 <details class="code-fold">
 <summary>Show code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> data.pipeline <span class="im">import</span> DataCleaner</span>
@@ -610,7 +627,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="step-3-extract-linguistic-features" class="level4" data-number="4.8.1.3">
 <h4 data-number="4.8.1.3" class="anchored" data-anchor-id="step-3-extract-linguistic-features"><span class="header-section-number">4.8.1.3</span> Step 3: Extract Linguistic Features</h4>
-<div id="ed7da1f6" class="cell">
+<div id="54bb0420" class="cell">
 <details class="code-fold">
 <summary>Show code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> data.pipeline <span class="im">import</span> FeatureTransformer</span>
@@ -638,7 +655,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="step-4-unified-pipeline-execution" class="level4" data-number="4.8.1.4">
 <h4 data-number="4.8.1.4" class="anchored" data-anchor-id="step-4-unified-pipeline-execution"><span class="header-section-number">4.8.1.4</span> Step 4: Unified Pipeline Execution</h4>
-<div id="1b19e6c7" class="cell">
+<div id="19f7e120" class="cell">
 <details class="code-fold">
 <summary>Show code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> data.pipeline <span class="im">import</span> MisinformationPipeline</span>
