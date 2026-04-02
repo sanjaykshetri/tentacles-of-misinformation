@@ -13,7 +13,15 @@ st.set_page_config(
 )
 
 # Path resolution - works from any working directory
-MODEL_DIR = Path(__file__).parent.parent.parent / "models"
+# For HF Space: models/ is in the same directory as app.py
+# For local: models/ is at repo root
+try:
+    MODEL_DIR = Path(__file__).parent / "models"
+    if not (MODEL_DIR / "tfidf_vectorizer.joblib").exists():
+        # Fall back to repo root structure (local dev)
+        MODEL_DIR = Path(__file__).parent.parent.parent / "models"
+except:
+    MODEL_DIR = Path(__file__).parent.parent.parent / "models"
 
 # Fallback URLs for models (in case not in local repo)
 MODEL_URLS = {
