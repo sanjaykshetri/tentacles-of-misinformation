@@ -313,6 +313,24 @@ make train-tracked
 
 ---
 
+## 🎮 Try It Interactive Demo
+
+Don't want to run code locally? Test the classifier online:
+
+**[🚀 Live Demo: Misinformation Classifier](https://huggingface.co/spaces/sanjaykshetri/misinformation-classifier)**
+
+- Paste any text (article, tweet, social media post)
+- Get instant fake/real prediction (81.2% accuracy baseline)
+- See confidence scores and key terms
+- No installation needed — works in your browser
+
+**Powered by:**
+- TF-IDF vectorizer + Logistic Regression
+- Trained on 21,754 real & fake articles
+- Deployed on Hugging Face Spaces
+
+---
+
 ## 📊 Key Results (What You Can Expect)
 
 | Metric | Baseline | Transformer |
