@@ -82,6 +82,34 @@ Standard epidemiological model with states:
 | **I** (Infected/Believer) | Actively shares/believes misinformation | Recovery or continued spread |
 | **R** (Recovered) | Corrected false belief or immune | Unlikely to re-infect |
 
+### SEIR Flow Diagram
+
+```{mermaid}
+graph LR
+    S["📍 Susceptible<br/>(Haven't seen it)"]
+    E["⏳ Exposed<br/>(Saw it, deciding)"]
+    I["😷 Infected<br/>(Believe & share)"]
+    R["✅ Recovered<br/>(Corrected/immune)"]
+    
+    S -->|β: exposure| E
+    E -->|σ: belief adoption| I
+    E -->|skepticism| R
+    I -->|γ: fact-check/correction| R
+    I -->|continued sharing| I
+    
+    style S fill:#e3f2fd
+    style E fill:#fff3e0
+    style I fill:#ffebee
+    style R fill:#e8f5e9
+```
+
+**Flow explanation**:
+- **S → E** (via β): Someone sees the misinformation article or post
+- **E → I** (via σ): They decide to believe and start sharing it
+- **E → R** (skepticism): They verify and resist belief
+- **I → R** (via γ): Fact-check reaches them, they correct themselves
+- **I → I** (continued sharing): Some believers keep spreading before correcting
+
 ### Mathematical Formulation
 
 **Differential equations**:
@@ -197,6 +225,37 @@ Extend SEIR to a simulated population with:
 - Rapid fact-checking (γ +30%)
 - Result: Misinformation reaches 15.7% peak, extinct by day 120
 - **Overall burden reduction**: 14.3%
+
+### Intervention Mechanisms (Visual)
+
+```{mermaid}
+graph LR
+    S["📍 Susceptible"]
+    E["⏳ Exposed"]
+    I["😷 Infected"]
+    R["✅ Recovered"]
+    
+    S -->|β (baseline 0.0153)| E
+    E -->|σ (0.3193)| I
+    E -->|skepticism| R
+    I -->|γ (0.0870)| R
+    
+    S -->|β-20% = 0.0122| E
+    E -->|γ+30% = 1.131| R
+    
+    style S fill:#e3f2fd
+    style E fill:#fff3e0
+    style I fill:#ffebee
+    style R fill:#e8f5e9
+```
+
+**Three intervention levers**:
+
+| Lever | Mechanism | Effect on SEIR |
+|-------|-----------|---|
+| **Pre-bunking** | Inoculate against arguments | Reduce β (fewer exposures → belief) |
+| **Rapid fact-check** | Speed up correction | Increase γ (faster I → R transitions) |
+| **Network intervention** | Add trusted sources | Reduce β + increase E → R (skepticism) |
 
 ### Intervention Targeting
 

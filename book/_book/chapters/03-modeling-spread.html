@@ -105,6 +105,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+<script src="../site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="../site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
 
 </head>
@@ -209,9 +212,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#part-b-epidemiological-model-framework" id="toc-part-b-epidemiological-model-framework" class="nav-link" data-scroll-target="#part-b-epidemiological-model-framework"><span class="header-section-number">5.6</span> Part B: Epidemiological Model Framework</a>
   <ul class="collapse">
   <li><a href="#seir-model-adapted-for-misinformation" id="toc-seir-model-adapted-for-misinformation" class="nav-link" data-scroll-target="#seir-model-adapted-for-misinformation"><span class="header-section-number">5.6.1</span> SEIR Model (Adapted for Misinformation)</a></li>
-  <li><a href="#mathematical-formulation" id="toc-mathematical-formulation" class="nav-link" data-scroll-target="#mathematical-formulation"><span class="header-section-number">5.6.2</span> Mathematical Formulation</a></li>
-  <li><a href="#calibration-to-fakenewsnet-data" id="toc-calibration-to-fakenewsnet-data" class="nav-link" data-scroll-target="#calibration-to-fakenewsnet-data"><span class="header-section-number">5.6.3</span> Calibration to FakeNewsNet Data</a></li>
-  <li><a href="#derived-quantity-r₀" id="toc-derived-quantity-r₀" class="nav-link" data-scroll-target="#derived-quantity-r₀"><span class="header-section-number">5.6.4</span> Derived Quantity: R₀</a></li>
+  <li><a href="#seir-flow-diagram" id="toc-seir-flow-diagram" class="nav-link" data-scroll-target="#seir-flow-diagram"><span class="header-section-number">5.6.2</span> SEIR Flow Diagram</a></li>
+  <li><a href="#mathematical-formulation" id="toc-mathematical-formulation" class="nav-link" data-scroll-target="#mathematical-formulation"><span class="header-section-number">5.6.3</span> Mathematical Formulation</a></li>
+  <li><a href="#calibration-to-fakenewsnet-data" id="toc-calibration-to-fakenewsnet-data" class="nav-link" data-scroll-target="#calibration-to-fakenewsnet-data"><span class="header-section-number">5.6.4</span> Calibration to FakeNewsNet Data</a></li>
+  <li><a href="#derived-quantity-r₀" id="toc-derived-quantity-r₀" class="nav-link" data-scroll-target="#derived-quantity-r₀"><span class="header-section-number">5.6.5</span> Derived Quantity: R₀</a></li>
   </ul></li>
   <li><a href="#part-c-sensitivity-analysis" id="toc-part-c-sensitivity-analysis" class="nav-link" data-scroll-target="#part-c-sensitivity-analysis"><span class="header-section-number">5.7</span> Part C: Sensitivity Analysis</a>
   <ul class="collapse">
@@ -223,7 +227,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#agent-based-model" id="toc-agent-based-model" class="nav-link" data-scroll-target="#agent-based-model"><span class="header-section-number">5.8.1</span> Agent-Based Model</a></li>
   <li><a href="#simulation-baseline-vs.-intervention" id="toc-simulation-baseline-vs.-intervention" class="nav-link" data-scroll-target="#simulation-baseline-vs.-intervention"><span class="header-section-number">5.8.2</span> Simulation: Baseline vs.&nbsp;Intervention</a></li>
-  <li><a href="#intervention-targeting" id="toc-intervention-targeting" class="nav-link" data-scroll-target="#intervention-targeting"><span class="header-section-number">5.8.3</span> Intervention Targeting</a></li>
+  <li><a href="#intervention-mechanisms-visual" id="toc-intervention-mechanisms-visual" class="nav-link" data-scroll-target="#intervention-mechanisms-visual"><span class="header-section-number">5.8.3</span> Intervention Mechanisms (Visual)</a></li>
+  <li><a href="#intervention-targeting" id="toc-intervention-targeting" class="nav-link" data-scroll-target="#intervention-targeting"><span class="header-section-number">5.8.4</span> Intervention Targeting</a></li>
   </ul></li>
   <li><a href="#part-e-key-findings" id="toc-part-e-key-findings" class="nav-link" data-scroll-target="#part-e-key-findings"><span class="header-section-number">5.9</span> Part E: Key Findings</a>
   <ul class="collapse">
@@ -344,8 +349,39 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tbody>
 </table>
 </section>
-<section id="mathematical-formulation" class="level3" data-number="5.6.2">
-<h3 data-number="5.6.2" class="anchored" data-anchor-id="mathematical-formulation"><span class="header-section-number">5.6.2</span> Mathematical Formulation</h3>
+<section id="seir-flow-diagram" class="level3" data-number="5.6.2">
+<h3 data-number="5.6.2" class="anchored" data-anchor-id="seir-flow-diagram"><span class="header-section-number">5.6.2</span> SEIR Flow Diagram</h3>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">graph LR
+    S["📍 Susceptible&lt;br/&gt;(Haven't seen it)"]
+    E["⏳ Exposed&lt;br/&gt;(Saw it, deciding)"]
+    I["😷 Infected&lt;br/&gt;(Believe &amp; share)"]
+    R["✅ Recovered&lt;br/&gt;(Corrected/immune)"]
+    
+    S --&gt;|β: exposure| E
+    E --&gt;|σ: belief adoption| I
+    E --&gt;|skepticism| R
+    I --&gt;|γ: fact-check/correction| R
+    I --&gt;|continued sharing| I
+    
+    style S fill:#e3f2fd
+    style E fill:#fff3e0
+    style I fill:#ffebee
+    style R fill:#e8f5e9
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<p><strong>Flow explanation</strong>: - <strong>S → E</strong> (via β): Someone sees the misinformation article or post - <strong>E → I</strong> (via σ): They decide to believe and start sharing it - <strong>E → R</strong> (skepticism): They verify and resist belief - <strong>I → R</strong> (via γ): Fact-check reaches them, they correct themselves - <strong>I → I</strong> (continued sharing): Some believers keep spreading before correcting</p>
+</section>
+<section id="mathematical-formulation" class="level3" data-number="5.6.3">
+<h3 data-number="5.6.3" class="anchored" data-anchor-id="mathematical-formulation"><span class="header-section-number">5.6.3</span> Mathematical Formulation</h3>
 <p><strong>Differential equations</strong>:</p>
 <pre><code>dS/dt = -β × S × I  (Susceptibles exposed)
 dE/dt = β × S × I - σ × E  (Exposed individuals: some move to infected)
@@ -353,8 +389,8 @@ dI/dt = σ × E - γ × I  (Believers: some recover)
 dR/dt = γ × I  (Recovered/immune)</code></pre>
 <p><strong>Parameters</strong>: - <strong>β</strong> (transmission rate): How likely is exposure to cause belief? - <strong>σ</strong> (latency rate): How quickly do exposed individuals decide? - <strong>γ</strong> (recovery rate): How quickly do believers correct themselves?</p>
 </section>
-<section id="calibration-to-fakenewsnet-data" class="level3" data-number="5.6.3">
-<h3 data-number="5.6.3" class="anchored" data-anchor-id="calibration-to-fakenewsnet-data"><span class="header-section-number">5.6.3</span> Calibration to FakeNewsNet Data</h3>
+<section id="calibration-to-fakenewsnet-data" class="level3" data-number="5.6.4">
+<h3 data-number="5.6.4" class="anchored" data-anchor-id="calibration-to-fakenewsnet-data"><span class="header-section-number">5.6.4</span> Calibration to FakeNewsNet Data</h3>
 <p>We estimate parameters from real cascade data:</p>
 <table class="caption-top table">
 <colgroup>
@@ -393,8 +429,8 @@ dR/dt = γ × I  (Recovered/immune)</code></pre>
 </tbody>
 </table>
 </section>
-<section id="derived-quantity-r₀" class="level3" data-number="5.6.4">
-<h3 data-number="5.6.4" class="anchored" data-anchor-id="derived-quantity-r₀"><span class="header-section-number">5.6.4</span> Derived Quantity: R₀</h3>
+<section id="derived-quantity-r₀" class="level3" data-number="5.6.5">
+<h3 data-number="5.6.5" class="anchored" data-anchor-id="derived-quantity-r₀"><span class="header-section-number">5.6.5</span> Derived Quantity: R₀</h3>
 <p><strong>Basic Reproduction Number</strong> = β / γ</p>
 <pre><code>R₀ = 0.0153 / 0.0870 = 0.176</code></pre>
 <p><strong>Interpretation</strong>: On average, 1 believer convinces 0.176 others to believe (&lt; 1 = misinformation dies out naturally)</p>
@@ -511,8 +547,72 @@ dR/dt = γ × I  (Recovered/immune)</code></pre>
 <p><strong>Scenario 2 (Single intervention)</strong>: Prebunking campaign - Reduce β by 20% - Result: Misinformation reaches 14.7% (19.6% reduction)</p>
 <p><strong>Scenario 3 (Combined interventions)</strong>: - Pre-bunking (β -20%) - Rapid fact-checking (γ +30%) - Result: Misinformation reaches 15.7% peak, extinct by day 120 - <strong>Overall burden reduction</strong>: 14.3%</p>
 </section>
-<section id="intervention-targeting" class="level3" data-number="5.8.3">
-<h3 data-number="5.8.3" class="anchored" data-anchor-id="intervention-targeting"><span class="header-section-number">5.8.3</span> Intervention Targeting</h3>
+<section id="intervention-mechanisms-visual" class="level3" data-number="5.8.3">
+<h3 data-number="5.8.3" class="anchored" data-anchor-id="intervention-mechanisms-visual"><span class="header-section-number">5.8.3</span> Intervention Mechanisms (Visual)</h3>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">graph LR
+    S["📍 Susceptible"]
+    E["⏳ Exposed"]
+    I["😷 Infected"]
+    R["✅ Recovered"]
+    
+    S --&gt;|β (baseline 0.0153)| E
+    E --&gt;|σ (0.3193)| I
+    E --&gt;|skepticism| R
+    I --&gt;|γ (0.0870)| R
+    
+    S --&gt;|β-20% = 0.0122| E
+    E --&gt;|γ+30% = 1.131| R
+    
+    style S fill:#e3f2fd
+    style E fill:#fff3e0
+    style I fill:#ffebee
+    style R fill:#e8f5e9
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<p><strong>Three intervention levers</strong>:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 52%">
+<col style="width: 14%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Lever</th>
+<th>Mechanism</th>
+<th>Effect on SEIR</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Pre-bunking</strong></td>
+<td>Inoculate against arguments</td>
+<td>Reduce β (fewer exposures → belief)</td>
+</tr>
+<tr class="even">
+<td><strong>Rapid fact-check</strong></td>
+<td>Speed up correction</td>
+<td>Increase γ (faster I → R transitions)</td>
+</tr>
+<tr class="odd">
+<td><strong>Network intervention</strong></td>
+<td>Add trusted sources</td>
+<td>Reduce β + increase E → R (skepticism)</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="intervention-targeting" class="level3" data-number="5.8.4">
+<h3 data-number="5.8.4" class="anchored" data-anchor-id="intervention-targeting"><span class="header-section-number">5.8.4</span> Intervention Targeting</h3>
 <p><strong>Who to prioritize?</strong></p>
 <table class="caption-top table">
 <thead>
