@@ -26,7 +26,7 @@ The app will open at `http://localhost:8501`
 ### Hugging Face Spaces
 
 The app is deployed to Hugging Face Spaces:
-[🚀 Open in HF Spaces](https://huggingface.co/spaces/YOUR_USERNAME/misinformation-classifier)
+[🚀 Open Live Demo](https://huggingface.co/spaces/sanjaykshetri/tentacles)
 
 ### Local Deployment
 

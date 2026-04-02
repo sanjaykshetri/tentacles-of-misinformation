@@ -118,7 +118,7 @@ git push huggingface main
 
 ## Links
 
-- **Your Space**: `https://huggingface.co/spaces/YOUR_USERNAME/misinformation-classifier`
+- **Live Demo**: https://huggingface.co/spaces/sanjaykshetri/tentacles
 - **Main Repo**: https://github.com/sanjaykshetri/tentacles-of-misinformation
 - **Documentation**: https://sanjaykshetri.github.io/tentacles-of-misinformation/
 

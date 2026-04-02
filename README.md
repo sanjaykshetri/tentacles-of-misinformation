@@ -317,7 +317,7 @@ make train-tracked
 
 Don't want to run code locally? Test the classifier online:
 
-**[🚀 Live Demo: Misinformation Classifier](https://huggingface.co/spaces/sanjaykshetri/misinformation-classifier)**
+**[🚀 Live Demo: Misinformation Classifier](https://huggingface.co/spaces/sanjaykshetri/tentacles)**
 
 - Paste any text (article, tweet, social media post)
 - Get instant fake/real prediction (81.2% accuracy baseline)
