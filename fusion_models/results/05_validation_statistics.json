@@ -1,8 +1,8 @@
 {
-  "auc_fusion": 1.0,
-  "auc_nlp": 1.0,
-  "delta_auc": 0.0,
-  "p_bootstrap": 1.0,
-  "mcnemar_chi2": 1.0,
-  "mcnemar_p": 0.31731050786291415
+  "auc_fusion": 0.8141862562550914,
+  "auc_nlp": 0.8253604678226463,
+  "delta_auc": -0.011174211567554826,
+  "p_bootstrap": 0.0125,
+  "mcnemar_chi2": 43.369175627240146,
+  "mcnemar_p": 4.532729747097619e-11
 }

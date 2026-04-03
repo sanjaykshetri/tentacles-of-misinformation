@@ -1,29 +1,31 @@
 {
   "modality_ablation": {
     "NLP-only": {
-      "mean": 1.0,
-      "std": 7.021666937153402e-17
+      "mean": 0.8266703907334092,
+      "std": 0.007572140176874089
     },
     "Behavioral-only": {
-      "mean": 0.46948,
-      "std": 0.01343915671957631
+      "mean": 0.5562751705746105,
+      "std": 0.00713592664674809
     },
     "Both (Fusion)": {
-      "mean": 1.0,
-      "std": 0.0
+      "mean": 0.8275826148273012,
+      "std": 0.007024347377054311
     }
   },
   "feature_importance": {
-    "crt": -0.0024799999999999822,
-    "nfc": 0.005064444444444538,
-    "education": -0.008391111111111071,
-    "political_leaning": -0.0079244444444444,
-    "social_media_hrs": 0.002731111111111073,
-    "news_literacy": -0.0001377777777777922,
-    "prior_exposure": -0.007377777777777761
+    "title_length_words": 0.01254508674727317,
+    "title_length_chars": 0.014956578913248975,
+    "subjectivity": 0.00898748058190657,
+    "lexical_diversity": -0.00041382306637316457,
+    "certainty_terms": -0.00036534993185033393,
+    "hedging_terms": 0.00909953022719101,
+    "emotional_intensifiers": -0.0002341109595948021,
+    "certainty_hedging_ratio": -0.00040584833923817953
   },
   "top_features": [
-    "nfc"
+    "title_length_chars",
+    "title_length_words"
   ],
-  "min_features_for_95pct": 1
+  "min_features_for_95pct": 2
 }
