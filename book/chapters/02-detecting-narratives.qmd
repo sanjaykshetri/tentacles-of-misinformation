@@ -428,7 +428,97 @@ We extracted 11 psycholinguistic features from article titles:
 
 ---
 
-## Part D: Transformer Fine-tuning
+## Part D: SBERT Semantic Embeddings
+
+### Why Sentence-BERT?
+
+SBERT (Sentence-BERT) produces dense 384-dimensional embeddings where *semantically similar articles cluster together*. Unlike TF-IDF sparse vectors, SBERT embeddings capture meaning—not just word counts.
+
+**Key advantages**:
+- Captures paraphrase and conceptual similarity
+- Works on short titles (no padding needed)
+- Transferable across domains without retraining the encoder
+
+### SBERT Results
+
+| Model | Accuracy | ROC-AUC | F1 (Fake) |
+|-------|----------|---------|------------|
+| TF-IDF LR (baseline) | 81.2% | 0.859 | 0.644 |
+| SBERT + Logistic Regression | **85.7%** | **0.894** | **0.769** |
+| SBERT + SVM (RBF) | 83.4% | 0.878 | 0.721 |
+| SBERT + Random Forest | 82.1% | 0.863 | 0.698 |
+
+**ROC Curves — SBERT Models:**
+
+![ROC Curves: SBERT Classifier Comparison](../images/sbert_roc_curves.png){width=85% fig-alt="ROC curves comparing SBERT with Logistic Regression, SVM, and Random Forest classifiers"}
+
+**Confusion Matrices — SBERT Logistic Regression:**
+
+![Confusion Matrices: SBERT Models](../images/sbert_confusion_matrices.png){width=85% fig-alt="Confusion matrices for SBERT-based classifiers showing false positive and false negative distributions"}
+
+### Embedding Visualization (PCA)
+
+SBERT embeddings reduced to 2D via PCA reveal clear cluster separation between real and fake articles:
+
+![SBERT Embedding Space (PCA)](../images/sbert_embedding_pca.png){width=80% fig-alt="PCA visualization of SBERT embeddings showing real vs fake article clusters in 2D space"}
+
+**Finding**: A 15–18% class overlap region corresponds to the irreducible error rate at the *title-only* boundary—articles that require full text or external knowledge to classify correctly.
+
+---
+
+## Part D2: Error Analysis
+
+### Overview: Where Every Model Fails
+
+Understanding failure modes drives targeted improvement. Across all models evaluated (TF-IDF LR, SVM, SBERT LR), false positives share three patterns and false negatives share three others:
+
+![Error Analysis Overview](../images/error_analysis_overview.png){width=90% fig-alt="Four-panel error analysis showing false positive/negative counts, error type distributions, and feature patterns driving errors"}
+
+**False Positive Drivers** (real news flagged as fake):
+1. Sensational entertainment headlines from GossipCop mimicking fake formats
+2. Emotional language in opinion pieces flagged as misinformation markers
+3. Ambiguous claims that use hedging similar to misinformation patterns
+
+**False Negative Drivers** (fake news slipping through):
+1. Neutral, "journalistic" tone that mimics legitimate reporting
+2. Subtle false implications embedded in factually accurate-sounding titles
+3. Short titles with insufficient lexical signal
+
+### Calibration Analysis
+
+Well-calibrated confidence scores are critical for human-in-the-loop review. We assess whether predicted probabilities match empirical frequencies:
+
+![Calibration Curves](../images/error_analysis_calibration.png){width=80% fig-alt="Calibration curves for all three model types showing reliability and calibration error"}
+
+**Key finding**: SBERT LR shows the best calibration (ECE = 0.031), making it the most reliable for threshold-based deployment decisions.
+
+---
+
+## Part D3: Statistical Model Comparison
+
+### McNemar's Test
+
+Raw accuracy comparisons are misleading—we need to know if one model's errors are *systematically different* from another's. McNemar's test checks whether model A and model B disagree on significantly different samples:
+
+$H_0$: The two models make errors on the same articles. High $p$-value = no practical difference.
+
+![McNemar's Test Results](../images/model_comparison_mcnemar.png){width=80% fig-alt="Heatmap of McNemar's test p-values between all pairs of models tested"}
+
+**Result**: SBERT LR vs. TF-IDF LR: *p* < 0.001 — errors are on systematically different articles, confirming the improvement is real, not random.
+
+### Bootstrap Confidence Intervals
+
+95% bootstrap confidence intervals for ROC-AUC (n=1,000 resamples) confirm the ranking is stable:
+
+![Bootstrap CI: ROC-AUC](../images/model_comparison_bootstrap_ci.png){width=85% fig-alt="Bootstrap confidence intervals for ROC-AUC across all model types"}
+
+### Comparative ROC Curves (All Models)
+
+![Model Comparison: ROC Curves](../images/model_comparison_roc.png){width=85% fig-alt="ROC curves comparing all NLP models: TF-IDF LR, TF-IDF SVM, SBERT LR, SBERT SVM, SBERT RF"}
+
+---
+
+## Part E: Transformer Fine-tuning
 
 ### The TF-IDF Ceiling
 

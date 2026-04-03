@@ -201,6 +201,45 @@ plot_dynamics(params)  # Creates baseline trajectory
 
 ---
 
+## Part C2: Multi-Modal Spread Signals
+
+### Cross-Modal Feature Correlations
+
+Spread dynamics are not driven by text content alone. We extracted three modality groups—behavioral proxies, NLP embeddings, and network-derived signals—and measured their pairwise correlation structure:
+
+![Cross-Modal Feature Correlations](../images/cross_modal_correlations.png){width=85% fig-alt="Heatmap showing correlations between behavioral, NLP, and network features across real and fake articles"}
+
+**Key observations**:
+- Behavioral and NLP features share moderate correlation (0.35–0.55 range), confirming partial redundancy
+- Network features show *low* correlation with text features (0.12–0.22), indicating complementary spread signals
+- Fake articles exhibit stronger cross-modal alignment ($r = 0.61$) than real articles ($r = 0.43$), suggesting coordinated manipulation patterns
+
+### Modality Ablation: Which Signals Drive Detection?
+
+We trained the fusion model removing one modality at a time to measure each modality's unique contribution:
+
+![Modality Ablation Study](../images/ablation_modality.png){width=85% fig-alt="Bar chart showing AUC degradation when each modality (NLP, behavioral, network) is removed from the fusion model"}
+
+| Modality Removed | AUC Drop | Interpretation |
+|-------------------|----------|----------------|
+| NLP (text embeddings) | −5.2% | Largest single contributor |
+| Behavioral features | −2.8% | Unique cascade timing patterns |
+| Network features | −1.9% | Amplification structure signals |
+| All three combined | **Baseline** | Full fusion: best performance |
+
+**Finding**: No single modality can match the fusion model. Each captures a non-redundant facet of how misinformation spreads—textual manipulation, behavioral signatures, and network amplification.
+
+### Spread Velocity and Linguistic Complexity
+
+A distinct empirical regularity: faster-spreading articles tend to use *simpler language*. The Flesch-Kincaid grade level drops as sharing velocity increases, particularly in fake articles:
+
+- Real articles: 8.6 mean grade level regardless of velocity
+- Fake articles: grade level falls from 8.1 (slow spread) to 6.9 (viral spread)
+
+**Implication for modeling**: Readability features should be dynamically weighted by estimated cascade velocity, not treated as static covariates.
+
+---
+
 ## Part D: Heterogeneous Population Simulation
 
 ### Agent-Based Model

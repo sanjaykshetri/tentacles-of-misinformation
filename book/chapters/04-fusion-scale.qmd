@@ -205,9 +205,132 @@ Before shipping misinformation detection, ask:
 | **Production (accuracy)** | Domain-specific ensemble | 85% accuracy on each source |
 | **Real-time monitoring** | Hybrid + behavioral features | Fast, catches changing patterns |
 
+### Fusion Architecture Comparison
+
+We evaluated four fusion strategies: early fusion (concatenated raw features), late fusion (averaged logits), intermediate fusion (shared representation layer), and stacking (meta-learner on model outputs). The following figure summarizes ROC-AUC, training time, and interpretability trade-offs:
+
+![Fusion Architectures Comparison](../images/fusion_architectures_comparison.png){width=90% fig-alt="Bar chart comparing early, late, intermediate, and stacking fusion architectures on ROC-AUC and training time"}
+
+**Results summary**:
+
+| Architecture | ROC-AUC | Train Time | Interpretability |
+|---|---|---|---|
+| Early Fusion (GBM) | 0.903 | 45s | Medium |
+| Late Fusion (avg logits) | 0.891 | 12s | High |
+| Intermediate MLP | 0.897 | 90s | Low |
+| **Stacking (meta-LR)** | **0.912** | 60s | **High** |
+
+**Winner**: Stacking with logistic meta-learner achieves the best AUC while remaining interpretable—the meta-learner weights are directly readable as modality importance scores.
+
+### Ablation Studies
+
+#### Modality Ablation
+
+Removing each input modality one at a time quantifies its unique contribution:
+
+![Modality Ablation](../images/ablation_modality.png){width=85% fig-alt="Bar chart showing AUC degradation when each modality is removed from the stacking ensemble"}
+
+NLP features dominate (−5.2% AUC when removed), followed by behavioral (−2.8%) and network (−1.9%). All three are necessary.
+
+#### Behavioral Feature Ablation
+
+Within the behavioral feature group, which features matter most?
+
+![Behavioral Feature Ablation](../images/ablation_behavioral_features.png){width=85% fig-alt="Incremental AUC contribution of individual behavioral features added one at a time"}
+
+Top 3 behavioral contributors:
+1. **Emotional intensifier count** — strongest discriminator between real and fake
+2. **Certainty term ratio** — fake articles assert more absolute claims
+3. **Flesch-Kincaid grade** — fake articles target lower reading levels
+
+#### Learning Curves
+
+Learning curves diagnose whether more data or better models would help:
+
+![Learning Curves](../images/ablation_learning_curves.png){width=85% fig-alt="Learning curves showing train vs validation AUC as a function of training set size for all fusion models"}
+
+**Finding**: All fusion models plateau at ~15,000 training examples. Performance is *model-bound* not *data-bound* at current scale — the bottleneck is feature representation quality, not sample count.
+
 ---
 
-## Part B: Production Deployment Pipeline
+## Part A2: Global Interpretability
+
+### Permutation Feature Importance
+
+Which features drive predictions the most, when measured by the AUC drop from random permutation?
+
+![Permutation Importance](../images/permutation_importance.png){width=85% fig-alt="Horizontal bar chart showing permutation importance scores for top 20 features across the fusion model"}
+
+The top-5 most important features across the full fusion model:
+1. **SBERT embedding PC1** — first principal component of semantic space
+2. **TF-IDF logit** — direct baseline model signal
+3. **Emotional intensifier count** — behavioral marker
+4. **Certainty term ratio** — linguistic manipulation signal
+5. **SBERT embedding PC3** — third semantic principal component
+
+### Partial Dependence Plots
+
+Partial dependence plots reveal the *shape* of each feature's effect on prediction, averaged over all other features:
+
+![Partial Dependence: Behavioral Features](../images/partial_dependence_behavioral.png){width=85% fig-alt="Partial dependence plots for top behavioral features showing monotonic and non-linear relationships with predicted probability"}
+
+**Insights**:
+- `Emotional intensifier count` has a monotonically increasing relationship — more intensifiers = linearly higher fake probability
+- `Flesch-Kincaid grade` shows a U-shape — very simple AND very complex language both correlate with misinformation
+- `Certainty term ratio` has a threshold effect — flat below 0.05 per word, then steeply rising
+
+### Individual Prediction Explanations
+
+For stakeholder trust and regulatory compliance, every prediction needs an explanation. SHAP (SHapley Additive exPlanations) decomposes each prediction into feature contributions:
+
+![Individual Explanations (SHAP)](../images/individual_explanations.png){width=90% fig-alt="SHAP waterfall plots for 4 representative articles showing feature contributions to individual predictions"}
+
+Each waterfall plot answers: *"Why did the model assign this credibility score to this article?"* Feature bars show pushing toward (red) or against (blue) the fake classification.
+
+---
+
+## Part A3: Validation & Generalization
+
+### Nested Cross-Validation
+
+Standard k-fold CV is optimistically biased when hyperparameters are tuned on the same folds used for evaluation. We used nested CV (outer 5-fold, inner 3-fold) for unbiased generalization estimates:
+
+![Nested Cross-Validation Results](../images/validation_nested_cv.png){width=85% fig-alt="Box plots showing AUC distribution across 5 outer folds for each model, demonstrating variance and stability"}
+
+**Results**: Stacking ensemble achieves 0.908 ± 0.012 AUC across outer folds — the ±0.012 standard deviation confirms the result is stable (not a lucky split).
+
+### Bootstrap Confidence Intervals
+
+1,000 bootstrap resamples produce 95% CIs for all key metrics:
+
+![Bootstrap Confidence Intervals](../images/validation_bootstrap_ci.png){width=85% fig-alt="Forest plot showing 95% bootstrap confidence intervals for AUC, accuracy, and F1 across all models"}
+
+| Model | AUC (95% CI) | Accuracy (95% CI) |
+|-------|---------|-------------|
+| TF-IDF LR | 0.859 [0.841, 0.877] | 81.2% [79.4%, 83.1%] |
+| SBERT LR | 0.894 [0.878, 0.910] | 85.7% [83.9%, 87.5%] |
+| Stacking Ensemble | **0.912 [0.896, 0.927]** | **87.1% [85.3%, 88.9%]** |
+
+Non-overlapping CIs between TF-IDF LR and the stacking ensemble confirm the improvement is statistically meaningful.
+
+### Domain Transfer Performance
+
+A production system must generalize to articles it was never trained on. We measured performance when training on one domain (Politifact or GossipCop) and evaluating on the other:
+
+![Domain Transfer Results](../images/validation_domain_transfer.png){width=85% fig-alt="Heatmap of AUC scores for each source-target domain combination, showing cross-domain generalization gaps"}
+
+**Finding**: All models degrade significantly in cross-domain settings (−8 to −14% AUC). Domain-specific fine-tuning or domain adaptation is essential for production deployment.
+
+### Overall Validation Summary
+
+![Validation Final Summary](../images/validation_final_summary.png){width=90% fig-alt="Multi-panel summary showing nested CV stability, bootstrap CIs, and domain transfer for the recommended stacking ensemble"}
+
+The stacking ensemble meets all production validation thresholds:
+- ✅ Nested CV AUC ≥ 0.90 (achieved: 0.908)
+- ✅ Bootstrap CI width < 0.04 (achieved: 0.031)
+- ✅ Performance gap between domains documented (enables targeted fine-tuning)
+
+---
 
 ### Architecture Overview
 
@@ -386,34 +509,36 @@ app.layout = dbc.Container([
 **Access interactive Streamlit dashboards and production visualizations:**
 
 ```bash
-git clone https://github.com/sanjaykshetri/misinformation-at-scale.git
-cd misinformation-at-scale
+git clone https://github.com/sanjaykshetri/tentacles-of-misinformation.git
+cd tentacles-of-misinformation
 
-# Option 1: Run Streamlit dashboard locally
-pip install -r requirements.txt
+# Option 1: Run full Research Hub (Phase 2-4 results, multi-page)
+pip install -r dashboards/streamlit/requirements.txt
+streamlit run dashboards/streamlit/research_hub.py
+
+# Option 2: Run baseline classifier app
 streamlit run dashboards/streamlit/app.py
 
-# Option 2: Use Google Colab with GPU (no installation needed)
+# Option 3: Use Google Colab with GPU (no installation needed)
 # Open: notebooks/04_deep_learning_model.ipynb
 # Runtime → Change runtime type → GPU
 # Experiment with model predictions in a browser
 ```
 
-**Available in external repo:**
-- **Real-time predictions**: Paste article → credibility score + explanation
-- **Model comparison**: Accuracy, ROC-AUC, F1 plots (baseline vs. DistilBERT)
-- **Network visualization**: Misinformation cascade structures
-- **Risk heatmaps**: Demographic × content-type susceptibility matrix
-- **Performance monitoring**: Dashboard with accuracy trends and data drift alerts
-- **Feature attribution**: SHAP plots explaining individual predictions
+**Pages in the Research Hub (`research_hub.py`)**:
+- **Overview**: Project summary, dataset stats, model performance dashboard
+- **NLP Analysis Tool**: Paste any article title → credibility score + explanation
+- **Behavioral Profiler**: Explore how linguistic markers vary across real/fake articles
+- **Fusion Predictor**: Run the full stacking ensemble on new text with SHAP explanations
+- **Model Comparison**: Interactive ROC curves, bootstrap CIs, McNemar's test results
 
 **Dashboard components available:**
 ```
 dashboards/streamlit/
-├── app.py                   # Main entry point
-├── behavioral_explorer.py   # Interactive trait analysis  
-├── nlp_model_demo.py        # Article credibility checker
-└── risk_predictor.py        # Individual vulnerability estimator
+├── research_hub.py          # Full 5-page research hub (Phase 2-4)
+├── app.py                   # Baseline 3-page classifier (deployed to HF Spaces)
+├── requirements.txt         # All dependencies
+└── test_models.py           # Unit tests for model loading
 ```
 
 ---
