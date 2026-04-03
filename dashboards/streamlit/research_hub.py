@@ -541,18 +541,18 @@ elif page == "📊 Model Comparison":
         # ROC curve image
         roc_img = RESULTS_DIR / "model_comparison_roc.png"
         if roc_img.exists():
-            st.image(str(roc_img), caption="ROC Curves — All Models", use_container_width=True)
+            st.image(str(roc_img), caption="ROC Curves — All Models", width="stretch")
 
     # ---- Tab 2: Ablation
     with tab2:
         st.subheader("Ablation Studies")
         abl_img = RESULTS_DIR / "ablation_modality.png"
         if abl_img.exists():
-            st.image(str(abl_img), caption="Modality Ablation", use_container_width=True)
+            st.image(str(abl_img), caption="Modality Ablation", width="stretch")
 
         abl_feat = RESULTS_DIR / "ablation_behavioral_features.png"
         if abl_feat.exists():
-            st.image(str(abl_feat), caption="Behavioral Feature Leave-One-Out", use_container_width=True)
+            st.image(str(abl_feat), caption="Behavioral Feature Leave-One-Out", width="stretch")
 
         if "ablation" in results:
             st.json(results["ablation"])
@@ -570,7 +570,7 @@ elif page == "📊 Model Comparison":
         ]
         for path, caption in val_imgs:
             if path.exists():
-                st.image(str(path), caption=caption, use_container_width=True)
+                st.image(str(path), caption=caption, width="stretch")
 
         if "validation" in results:
             st.subheader("Validation Summary Table")
@@ -590,7 +590,7 @@ elif page == "📊 Model Comparison":
         for path, cap in [(shap_img, "SHAP Global Importance"), (perm_img, "Permutation Importance"),
                           (pdp_img, "Partial Dependence"), (ind_img, "Individual Explanations")]:
             if path.exists():
-                st.image(str(path), caption=cap, use_container_width=True)
+                st.image(str(path), caption=cap, width="stretch")
 
         if "perm_imp" in results:
             st.subheader("Top Features (Permutation Importance)")
