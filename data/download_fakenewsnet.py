@@ -2,17 +2,13 @@
 """
 FakeNewsNet Data Downloader
 ============================
-Downloads the FakeNewsNet CSV files from Kaggle or the official GitHub source
-and places them in the expected data directory.
+Downloads the FakeNewsNet CSV files from the source repository
+(sanjaykshetri/Misinformation-Detection-ML-Model2) and places them in
+the expected data directory.
 
 Usage
 -----
     python data/download_fakenewsnet.py
-
-Requirements
-------------
-- kaggle CLI configured (~/.kaggle/kaggle.json with API token), OR
-- Manual download from: https://www.kaggle.com/datasets/algord/fake-news
 
 Expected output
 ---------------
@@ -20,17 +16,20 @@ Expected output
     data/raw/fakenewsnet/politifact_fake.csv
     data/raw/fakenewsnet/gossipcop_real.csv
     data/raw/fakenewsnet/gossipcop_fake.csv
-
-Alternative: direct Hugging Face Datasets download (no Kaggle account needed)
 """
 
 import sys
-import subprocess
+import urllib.request
+import urllib.error
 from pathlib import Path
 
 DEST_DIR = Path(__file__).parent / "raw" / "fakenewsnet"
-KAGGLE_DATASET = "algord/fake-news"
-HF_DATASET = "Fnews/fakenewsnet"
+
+# Source: sanjaykshetri/Misinformation-Detection-ML-Model2
+_GITHUB_RAW_BASE = (
+    "https://raw.githubusercontent.com/"
+    "sanjaykshetri/Misinformation-Detection-ML-Model2/main/FakeNewsNet/dataset"
+)
 
 EXPECTED_FILES = [
     "politifact_real.csv",
@@ -44,95 +43,98 @@ def all_files_present() -> bool:
     return all((DEST_DIR / f).exists() for f in EXPECTED_FILES)
 
 
-def download_via_kaggle() -> bool:
-    """Try downloading via the Kaggle CLI."""
-    try:
-        import kaggle  # noqa: F401 — just checking importability
-    except ImportError:
-        subprocess.check_call([sys.executable, "-m", "pip", "install", "kaggle", "-q"])
+def _human_size(n: int) -> str:
+    for unit in ("B", "KB", "MB", "GB"):
+        if n < 1024:
+            return f"{n:.1f} {unit}"
+        n /= 1024
+    return f"{n:.1f} TB"
 
+
+def download_from_github() -> bool:
+    """Download CSVs from the GitHub raw URL."""
     DEST_DIR.mkdir(parents=True, exist_ok=True)
-    result = subprocess.run(
-        ["kaggle", "datasets", "download", "-d", KAGGLE_DATASET,
-         "--unzip", "-p", str(DEST_DIR)],
-        capture_output=True, text=True
-    )
-    if result.returncode != 0:
-        print(f"[kaggle] Error: {result.stderr.strip()}")
-        return False
-    print("[kaggle] Download complete.")
+    for filename in EXPECTED_FILES:
+        url = f"{_GITHUB_RAW_BASE}/{filename}"
+        dest = DEST_DIR / filename
+        if dest.exists():
+            print(f"  [skip] {filename} already present")
+            continue
+        print(f"  Downloading {filename} ...", end=" ", flush=True)
+        try:
+            urllib.request.urlretrieve(url, dest)
+            size = dest.stat().st_size
+            print(f"done ({_human_size(size)})")
+        except urllib.error.HTTPError as exc:
+            print(f"HTTP {exc.code}")
+            # Clean up partial file
+            dest.unlink(missing_ok=True)
+            return False
+        except urllib.error.URLError as exc:
+            print(f"network error: {exc.reason}")
+            dest.unlink(missing_ok=True)
+            return False
     return True
 
 
-def download_via_huggingface() -> bool:
-    """Fallback: download via Hugging Face datasets."""
-    try:
-        from datasets import load_dataset
-    except ImportError:
-        subprocess.check_call([sys.executable, "-m", "pip", "install", "datasets", "-q"])
-        from datasets import load_dataset
+def download_via_git_sparse() -> bool:
+    """Fallback: sparse-checkout only the dataset folder."""
+    import subprocess, tempfile, shutil
 
-    print(f"[huggingface] Downloading {HF_DATASET} ...")
-    try:
-        ds = load_dataset(HF_DATASET)
+    print("  Using git sparse-checkout ...")
+    with tempfile.TemporaryDirectory() as tmp:
+        clone_url = (
+            "https://github.com/sanjaykshetri/Misinformation-Detection-ML-Model2"
+        )
+        cmds = [
+            ["git", "clone", "--no-checkout", "--filter=blob:none",
+             "--depth=1", clone_url, tmp],
+            ["git", "-C", tmp, "sparse-checkout", "set", "FakeNewsNet/dataset"],
+            ["git", "-C", tmp, "checkout"],
+        ]
+        for cmd in cmds:
+            result = subprocess.run(cmd, capture_output=True, text=True)
+            if result.returncode != 0:
+                print(f"  git error: {result.stderr.strip()}")
+                return False
+        src = Path(tmp) / "FakeNewsNet" / "dataset"
         DEST_DIR.mkdir(parents=True, exist_ok=True)
-        for split_name, split_data in ds.items():
-            out_path = DEST_DIR / f"{split_name}.csv"
-            split_data.to_pandas().to_csv(out_path, index=False)
-            print(f"  Saved {out_path} ({len(split_data):,} rows)")
-        return True
-    except Exception as exc:
-        print(f"[huggingface] Failed: {exc}")
-        return False
-
-
-def print_manual_instructions() -> None:
-    print(
-        "\nManual download instructions\n"
-        "============================\n"
-        "1. Go to: https://www.kaggle.com/datasets/algord/fake-news\n"
-        "2. Click 'Download' (requires a free Kaggle account)\n"
-        "3. Unzip and place the four CSV files in:\n"
-        f"   {DEST_DIR}/\n\n"
-        "Expected filenames:\n"
-        "  - politifact_real.csv\n"
-        "  - politifact_fake.csv\n"
-        "  - gossipcop_real.csv\n"
-        "  - gossipcop_fake.csv\n\n"
-        "After placing the files, run:\n"
-        "  python data/pipeline/quickstart.py\n"
-    )
+        for filename in EXPECTED_FILES:
+            shutil.copy2(src / filename, DEST_DIR / filename)
+            print(f"  Copied {filename}")
+    return True
 
 
 def main() -> None:
     print("FakeNewsNet Downloader")
     print("=" * 40)
+    print(f"Source: sanjaykshetri/Misinformation-Detection-ML-Model2")
+    print(f"Destination: {DEST_DIR}\n")
 
     if all_files_present():
-        print(f"All {len(EXPECTED_FILES)} CSV files already present in {DEST_DIR}")
-        print("Nothing to do. Run the pipeline with:")
-        print("  python data/pipeline/quickstart.py")
+        print(f"All {len(EXPECTED_FILES)} CSV files already present.")
+        print("Run the pipeline with:  python data/pipeline/quickstart.py")
         return
 
-    DEST_DIR.mkdir(parents=True, exist_ok=True)
-
-    # Try Kaggle first (fastest, highest quality)
-    print("Attempting Kaggle download ...")
-    if download_via_kaggle() and all_files_present():
-        print(f"\nSuccess! Data saved to {DEST_DIR}")
-        print("Next step: python data/pipeline/quickstart.py")
+    print("Downloading via GitHub raw URLs ...")
+    if download_from_github() and all_files_present():
+        print(f"\nDone. {len(EXPECTED_FILES)} files saved to {DEST_DIR}")
+        print("Next step:  python data/pipeline/quickstart.py")
         return
 
-    # Fallback to Hugging Face
-    print("\nKaggle failed. Trying Hugging Face datasets ...")
-    if download_via_huggingface() and all_files_present():
-        print(f"\nSuccess! Data saved to {DEST_DIR}")
-        print("Next step: python data/pipeline/quickstart.py")
+    print("\nDirect download failed. Trying git sparse-checkout ...")
+    if download_via_git_sparse() and all_files_present():
+        print(f"\nDone. {len(EXPECTED_FILES)} files saved to {DEST_DIR}")
+        print("Next step:  python data/pipeline/quickstart.py")
         return
 
-    # Both failed — give manual instructions
-    print("\nAutomatic download failed.")
-    print_manual_instructions()
+    print(
+        "\nAutomatic download failed.\n"
+        "Manual steps:\n"
+        "  1. Clone https://github.com/sanjaykshetri/Misinformation-Detection-ML-Model2\n"
+        "  2. Copy FakeNewsNet/dataset/*.csv to:\n"
+        f"     {DEST_DIR}/\n"
+    )
     sys.exit(1)
 
 
