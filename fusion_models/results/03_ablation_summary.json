@@ -1,0 +1,29 @@
+{
+  "modality_ablation": {
+    "NLP-only": {
+      "mean": 1.0,
+      "std": 7.021666937153402e-17
+    },
+    "Behavioral-only": {
+      "mean": 0.46948,
+      "std": 0.01343915671957631
+    },
+    "Both (Fusion)": {
+      "mean": 1.0,
+      "std": 0.0
+    }
+  },
+  "feature_importance": {
+    "crt": -0.0024799999999999822,
+    "nfc": 0.005064444444444538,
+    "education": -0.008391111111111071,
+    "political_leaning": -0.0079244444444444,
+    "social_media_hrs": 0.002731111111111073,
+    "news_literacy": -0.0001377777777777922,
+    "prior_exposure": -0.007377777777777761
+  },
+  "top_features": [
+    "nfc"
+  ],
+  "min_features_for_95pct": 1
+}

@@ -1,0 +1,8 @@
+{
+  "auc_fusion": 1.0,
+  "auc_nlp": 1.0,
+  "delta_auc": 0.0,
+  "p_bootstrap": 1.0,
+  "mcnemar_chi2": 1.0,
+  "mcnemar_p": 0.31731050786291415
+}

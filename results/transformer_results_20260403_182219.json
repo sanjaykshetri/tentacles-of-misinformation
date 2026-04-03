@@ -1,0 +1,40 @@
+{
+  "timestamp": "20260403_182219",
+  "device": "cpu",
+  "using_real_data": false,
+  "sbert_model": "all-MiniLM-L6-v2",
+  "embedding_dim": 384,
+  "train_size": 2400,
+  "val_size": 600,
+  "cv_roc_auc": {
+    "mean": 1.0,
+    "std": 7.021666937153402e-17
+  },
+  "models": {
+    "SBERT + LR": {
+      "accuracy": 1.0,
+      "f1": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "roc_auc": 1.0,
+      "train_time": 0.09
+    },
+    "SBERT + SVM": {
+      "accuracy": 1.0,
+      "f1": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "roc_auc": 0.9999999999999999,
+      "train_time": 0.33
+    },
+    "SBERT + MLP": {
+      "accuracy": 1.0,
+      "f1": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "roc_auc": 1.0,
+      "train_time": 0.46
+    }
+  },
+  "distilbert": null
+}
