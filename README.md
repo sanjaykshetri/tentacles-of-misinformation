@@ -79,13 +79,13 @@ This gives us behavioral priors: feature extraction from articles that targets h
 
 Can machines detect misinformation from text?
 
-### Results:
+### Results (real FakeNewsNet data, 21,724 articles):
 
 | Model | Accuracy | ROC-AUC | Speed |
 |-------|----------|---------|-------|
-| **TF-IDF Baseline** | 81.2% | 0.859 | 0.1ms/article |
-| **Transformers** | 85.75% | 0.894 | 8ms/article |
-| **Hybrid (Best)** | 86.1% | 0.901 | 2ms/article |
+| **TF-IDF + LR (Baseline)** | 81.2% | 0.859 | 0.1ms/article |
+| **SBERT + MLP** | 83.5% | 0.850 | 8ms/article |
+| **Fusion (Stacking)** | 82.3% | 0.830 | 2ms/article |
 
 ### What Matters:
 
@@ -106,9 +106,10 @@ What if we combined:
 * Transformer predictions
 
 **Result:**
-* 4-5% accuracy improvement
-* 12% reduction in false positives
-* Better domain generalization
+* Fusion (modality ablation): NLP-only 0.827 AUC vs Both 0.828 AUC
+* SBERT+MLP best single-modal transformer: 83.5% accuracy, 0.850 AUC
+* Stacking ensemble: 82.3% accuracy, 0.830 AUC
+* Behavioral features add robustness (regularization effect) even if AUC gain is small
 
 **Why it works:** Behavioral features capture manipulation dynamics that text classifiers miss.
 
@@ -198,14 +199,24 @@ Throughout the project:
 ### Quick Start (2 minutes)
 
 ```bash
-# Windows
-.\tasks.ps1 -Task train-tracked
+# Download real data (FakeNewsNet, 4 CSVs ~23K articles)
+python data/download_fakenewsnet.py
 
-# macOS/Linux
-make train-tracked
+# Train baselines
+make train-tracked           # macOS/Linux
+.\tasks.ps1 -Task train-tracked  # Windows
 ```
 
-Result: Models trained, experiments logged, 81-86% accuracy achieved.
+### Research Hub Dashboard
+
+```bash
+streamlit run dashboards/streamlit/research_hub.py
+```
+Open http://localhost:8501 — 5-page interactive dashboard with model benchmarks, error analysis, fusion comparisons, and SHAP interpretability.
+
+### Full Pipeline
+
+```bash
 
 ### Full Deep Dive
 
