@@ -25,13 +25,29 @@ st.set_page_config(
 )
 
 # ---------------------------------------------------------------------------
-# Paths
+# Paths — resolve for both local dev and HF Spaces deployment
 # ---------------------------------------------------------------------------
 APP_DIR      = Path(__file__).parent
-PROJECT_ROOT = APP_DIR.parent.parent
-MODEL_DIR    = PROJECT_ROOT / "models"
-RESULTS_DIR  = PROJECT_ROOT / "results"
-FUSION_DIR   = PROJECT_ROOT / "fusion_models" / "results"
+_local_root  = APP_DIR.parent.parent  # …/tentacles-of-misinformation
+
+# Model files: local project → fall back to src/models/ next to this file
+MODEL_DIR   = _local_root / "models"    if (_local_root / "models").exists()   else APP_DIR / "models"
+FUSION_DIR  = (_local_root / "fusion_models" / "results"
+               if (_local_root / "fusion_models" / "results").exists()
+               else APP_DIR / "fusion_results")
+
+# Result images: served from local disk when available, otherwise via GitHub raw URL
+_GITHUB_RAW = "https://raw.githubusercontent.com/sanjaykshetri/tentacles-of-misinformation/main/results"
+_local_results = _local_root / "results"
+
+def result_img(filename: str):
+    """Return local Path if it exists, else the GitHub raw URL string."""
+    local = _local_results / filename
+    return local if local.exists() else f"{_GITHUB_RAW}/{filename}"
+
+def result_img_exists(filename: str) -> bool:
+    """True whether the image is available locally or remotely (always True on HF)."""
+    return (_local_results / filename).exists() or True  # remote always available
 
 # ---------------------------------------------------------------------------
 # Helpers
@@ -41,8 +57,7 @@ def load_nlp_models():
     paths = {
         "tfidf":   MODEL_DIR / "tfidf_vectorizer.joblib",
         "lr":      MODEL_DIR / "logistic_regression_baseline.joblib",
-        "svm":     MODEL_DIR / "svm_baseline.joblib",
-        "sbert_clf": MODEL_DIR / "sbert_best_classifier.joblib",
+        "svm":     MODEL_DIR / "linear_svm_baseline.joblib",
     }
     loaded = {}
     for key, p in paths.items():
@@ -64,7 +79,7 @@ def load_fusion_model():
 def load_results():
     data = {}
     # model comparison
-    p = RESULTS_DIR / "model_comparison_final.csv"
+    p = _local_results / "model_comparison_final.csv"
     if p.exists():
         data["comparison"] = pd.read_csv(p)
     # ablation
@@ -188,16 +203,14 @@ if page == "🏠 Overview":
 
     # Show any saved result images
     imgs = {
-        "Model Comparison": RESULTS_DIR / "model_comparison_roc.png",
-        "Ablation Studies": RESULTS_DIR / "ablation_modality.png",
-        "Permutation Importance": RESULTS_DIR / "permutation_importance.png",
+        "Model Comparison": result_img("model_comparison_roc.png"),
+        "Ablation Studies": result_img("ablation_modality.png"),
+        "Permutation Importance": result_img("permutation_importance.png"),
     }
-    found = [(k, v) for k, v in imgs.items() if v.exists()]
-    if found:
-        st.subheader("📸 Latest Results")
-        cols2 = st.columns(len(found))
-        for col, (label, path) in zip(cols2, found):
-            col.image(str(path), caption=label, use_container_width=True)
+    st.subheader("📸 Latest Results")
+    cols2 = st.columns(len(imgs))
+    for col, (label, path) in zip(cols2, imgs.items()):
+        col.image(str(path), caption=label, use_container_width=True)
 
 
 # ============================================================================
@@ -226,57 +239,60 @@ elif page == "📰 NLP Analysis Tool":
         if not user_text.strip():
             st.warning("Please enter some text.")
         elif not nlp_models:
-            st.warning(
-                "NLP models not found in `models/`. Run `nlp_models/notebooks/01_baseline_classifiers.ipynb` first to train and save them."
-            )
-            st.info("Showing demo result for illustration.")
-            # Demo fallback
-            col1, col2 = st.columns(2)
-            col1.metric("LR P(Fake)", "37.2%", "REAL")
-            col2.metric("SVM P(Fake)", "41.8%", "REAL")
+            st.session_state["nlp_result"] = {"demo": True}
         else:
             preds = predict_text(user_text, nlp_models)
-            # Filter by selected
             preds = {k: v for k, v in preds.items() if k in [m.upper() for m in model_choice]}
-
             if not preds:
                 st.error("Selected models not available. Check that models are saved.")
             else:
-                st.markdown("### Classification Results")
-                col_arr = st.columns(len(preds))
-                for col, (mname, (label, prob)) in zip(col_arr, preds.items()):
-                    with col:
-                        if label == "FAKE":
-                            st.error(f"**{mname}**: {label}")
-                        else:
-                            st.success(f"**{mname}**: {label}")
-                        fig = make_gauge(prob, mname)
-                        st.pyplot(fig)
-                        plt.close(fig)
-
-                # Key terms
+                tfidf_terms = []
                 if "tfidf" in nlp_models:
-                    st.markdown("### 🔑 Top TF-IDF Signals")
                     try:
                         vec = nlp_models["tfidf"]
                         X   = vec.transform([user_text])
                         fn  = vec.get_feature_names_out()
                         scores = X.toarray()[0]
                         top_idx = np.argsort(scores)[-12:][::-1]
-                        top_terms = [(fn[i], float(scores[i])) for i in top_idx if scores[i] > 0]
-                        if top_terms:
-                            terms_df = pd.DataFrame(top_terms, columns=["Term", "TF-IDF Score"])
-                            fig2, ax2 = plt.subplots(figsize=(8, 3.5))
-                            ax2.barh(terms_df["Term"][::-1], terms_df["TF-IDF Score"][::-1],
-                                     color="#673AB7", alpha=0.8)
-                            ax2.set_xlabel("TF-IDF Score")
-                            ax2.set_title("Key Terms in Input", fontweight="bold")
-                            ax2.grid(True, axis="x", alpha=0.3)
-                            fig2.tight_layout()
-                            st.pyplot(fig2)
-                            plt.close(fig2)
+                        tfidf_terms = [(fn[i], float(scores[i])) for i in top_idx if scores[i] > 0]
                     except Exception:
                         pass
+                st.session_state["nlp_result"] = {"preds": preds, "terms": tfidf_terms}
+
+    result = st.session_state.get("nlp_result")
+    if result:
+        if result.get("demo"):
+            st.warning("NLP models not found in `models/`. Run `nlp_models/notebooks/01_baseline_classifiers.ipynb` first.")
+            st.info("Showing demo result for illustration.")
+            col1, col2 = st.columns(2)
+            col1.metric("LR P(Fake)", "37.2%", "REAL")
+            col2.metric("SVM P(Fake)", "41.8%", "REAL")
+        else:
+            preds = result["preds"]
+            st.markdown("### Classification Results")
+            col_arr = st.columns(len(preds))
+            for col, (mname, (label, prob)) in zip(col_arr, preds.items()):
+                with col:
+                    if label == "FAKE":
+                        st.error(f"**{mname}**: {label}")
+                    else:
+                        st.success(f"**{mname}**: {label}")
+                    fig = make_gauge(prob, mname)
+                    st.pyplot(fig)
+                    plt.close(fig)
+            top_terms = result.get("terms", [])
+            if top_terms:
+                st.markdown("### 🔑 Top TF-IDF Signals")
+                terms_df = pd.DataFrame(top_terms, columns=["Term", "TF-IDF Score"])
+                fig2, ax2 = plt.subplots(figsize=(8, 3.5))
+                ax2.barh(terms_df["Term"][::-1], terms_df["TF-IDF Score"][::-1],
+                         color="#673AB7", alpha=0.8)
+                ax2.set_xlabel("TF-IDF Score")
+                ax2.set_title("Key Terms in Input", fontweight="bold")
+                ax2.grid(True, axis="x", alpha=0.3)
+                fig2.tight_layout()
+                st.pyplot(fig2)
+                plt.close(fig2)
 
 
 # ============================================================================
@@ -295,12 +311,55 @@ elif page == "👤 Behavioral Profiler":
     st.markdown("---")
 
     with st.form("behavioral_form"):
-        st.subheader("Cognitive Style")
-        crt = st.slider(
-            "Cognitive Reflection Test (CRT) score — correct answers out of 7 questions",
-            0, 7, 4,
-            help="Higher = more analytical reasoning",
+        st.subheader("🧠 Cognitive Reflection Test (CRT)")
+        st.markdown(
+            "*Answer each question carefully — the test is designed to trigger an intuitive "
+            "but incorrect response. Think before you answer.*"
         )
+        crt_q1 = st.radio(
+            "**Q1** · A bat and a ball cost $1.10 in total. The bat costs $1.00 more than the ball. "
+            "How much does the **ball** cost?",
+            ["10 cents", "5 cents", "15 cents", "1 cent"],
+            index=0,
+        )
+        crt_q2 = st.radio(
+            "**Q2** · If it takes 5 machines 5 minutes to make 5 widgets, how long would it take "
+            "100 machines to make 100 widgets?",
+            ["100 minutes", "5 minutes", "20 minutes", "50 minutes"],
+            index=0,
+        )
+        crt_q3 = st.radio(
+            "**Q3** · In a lake there is a patch of lily pads. Every day the patch doubles in size. "
+            "If it takes 48 days for the patch to cover half the lake, how long to cover the whole lake?",
+            ["24 days", "49 days", "96 days", "47 days"],
+            index=0,
+        )
+        crt_q4 = st.radio(
+            "**Q4** · John can drink one barrel of water in 6 days; Mary can drink one barrel in 12 days. "
+            "How long would it take them to drink one barrel **together**?",
+            ["9 days", "4 days", "3 days", "6 days"],
+            index=0,
+        )
+        crt_q5 = st.radio(
+            "**Q5** · Jerry received both the 15th highest and the 15th lowest mark in the class. "
+            "How many students are in the class?",
+            ["30 students", "29 students", "28 students", "31 students"],
+            index=0,
+        )
+        crt_q6 = st.radio(
+            "**Q6** · A man buys a pig for $60, sells it for $70, buys it back for $80, and sells it "
+            "finally for $90. How much has he **made** in total?",
+            ["$10", "$20", "$30", "$0"],
+            index=0,
+        )
+        crt_q7 = st.radio(
+            "**Q7** · Simon invested $8,000. Six months later his stocks had fallen 50%. "
+            "From that low point, stocks then rose 75%. Simon now has:",
+            ["Come out ahead", "Broken even", "Lost money", "Doubled his money"],
+            index=0,
+        )
+        st.markdown("---")
+        st.subheader("Cognitive Style")
         nfc = st.slider(
             "Need for Cognition (NFC) — enjoy thinking deeply (1=strongly disagree, 5=strongly agree)",
             1, 5, 3,
@@ -336,6 +395,21 @@ elif page == "👤 Behavioral Profiler":
         submitted = st.form_submit_button("📊 Generate Profile", type="primary")
 
     if submitted:
+        st.session_state["profiler_submitted"] = True
+
+    if st.session_state.get("profiler_submitted"):
+        # Score the CRT answers
+        _crt_answers = [
+            (crt_q1, "5 cents",    "Q1", "The ball costs **5 cents** ($1.05 + $0.05 = $1.10; difference = $1.00). The intuitive answer of 10 cents means the bat is only $1.00 more — not $1.00."),
+            (crt_q2, "5 minutes",  "Q2", "Still **5 minutes** — each machine independently makes 1 widget per 5 min, so 100 machines make 100 widgets in the same 5 minutes."),
+            (crt_q3, "49 days",    "Q3", "**49 days** — on day 48 the patch covers half the lake; one more doubling (day 49) covers the whole lake."),
+            (crt_q4, "4 days",     "Q4", "**4 days** — combined rate = 1/6 + 1/12 = 1/4 barrel/day, so 1 barrel takes 4 days."),
+            (crt_q5, "29 students","Q5", "**29 students** — 15th highest + 15th lowest means 14 above Jerry, Jerry, 14 below = 29 total."),
+            (crt_q6, "$20",        "Q6", "**$20** — two independent transactions each yield $10 profit ($60→$70 and $80→$90)."),
+            (crt_q7, "Lost money", "Q7", "**Lost money** — $8,000 × 0.50 = $4,000, then × 1.75 = $7,000. A 75% rise from a 50% loss leaves you $1,000 short."),
+        ]
+        crt = sum(ans == correct for ans, correct, _, __ in _crt_answers)
+
         # Compute a synthetic susceptibility score (weighted formula from study)
         # Lower CRT → more susceptible; lower NFC → more susceptible; more social media → more susceptible
         raw = (
@@ -403,6 +477,16 @@ elif page == "👤 Behavioral Profiler":
         for r in recs:
             st.markdown(f"- {r}")
 
+        # CRT answer reveal
+        st.markdown("---")
+        st.markdown(f"### 🧠 CRT Results — {crt}/7 correct")
+        for ans, correct, label, explanation in _crt_answers:
+            is_right = ans == correct
+            icon = "✅" if is_right else "❌"
+            verdict = "correct" if is_right else f"incorrect — you chose **{ans}**, answer is **{correct}**"
+            with st.expander(f"{icon} {label} — {verdict}"):
+                st.markdown(explanation)
+
 
 # ============================================================================
 #  PAGE: FUSION PREDICTOR
@@ -438,7 +522,6 @@ elif page == "🔀 Fusion Predictor":
         if not article_text.strip():
             st.warning("Please enter article text.")
         else:
-            # NLP score
             nlp_prob = None
             if nlp_models and "tfidf" in nlp_models and "lr" in nlp_models:
                 try:
@@ -446,10 +529,7 @@ elif page == "🔀 Fusion Predictor":
                     nlp_prob = float(nlp_models["lr"].predict_proba(X_nlp_in)[0, 1])
                 except Exception:
                     pass
-
-            nlp_prob = nlp_prob if nlp_prob is not None else 0.5  # fallback
-
-            # Behavioral risk
+            nlp_prob = nlp_prob if nlp_prob is not None else 0.5
             beh_risk = float(np.clip(
                 -0.30 * (f_crt / 7.0)
                 - 0.20 * (f_nfc / 5.0)
@@ -458,51 +538,59 @@ elif page == "🔀 Fusion Predictor":
                 + 0.60,
                 0.0, 1.0,
             ))
-
-            # Fusion score (weighted ensemble)
             fusion_prob = float(0.65 * nlp_prob + 0.35 * beh_risk)
+            st.session_state["fusion_result"] = {
+                "nlp_prob": nlp_prob,
+                "beh_risk": beh_risk,
+                "fusion_prob": fusion_prob,
+            }
 
-            st.markdown("---")
-            st.subheader("Fusion Results")
-            c1, c2, c3 = st.columns(3)
-            with c1:
-                st.markdown("**📰 Content Risk (NLP)**")
-                fig_n = make_gauge(nlp_prob, "NLP")
-                st.pyplot(fig_n); plt.close(fig_n)
-            with c2:
-                st.markdown("**👤 User Susceptibility**")
-                fig_b = make_gauge(beh_risk, "Behavioral")
-                st.pyplot(fig_b); plt.close(fig_b)
-            with c3:
-                st.markdown("**🔀 Fusion Score**")
-                fig_f = make_gauge(fusion_prob, "Fusion")
-                st.pyplot(fig_f); plt.close(fig_f)
+    fusion_res = st.session_state.get("fusion_result")
+    if fusion_res:
+        nlp_prob    = fusion_res["nlp_prob"]
+        beh_risk    = fusion_res["beh_risk"]
+        fusion_prob = fusion_res["fusion_prob"]
 
-            # Interpretation
-            st.markdown("---")
-            if fusion_prob >= 0.65:
-                st.error(
-                    "⚠️ **High combined risk**: the article has strong fake-news signals "
-                    "AND this user profile is susceptible. Verify before sharing."
-                )
-            elif fusion_prob >= 0.45:
-                st.warning(
-                    "🟡 **Moderate risk**: ambiguous article or moderately susceptible profile. "
-                    "Apply extra scrutiny."
-                )
-            else:
-                st.success(
-                    "✅ **Low combined risk**: content appears credible and profile shows protective factors."
-                )
+        st.markdown("---")
+        st.subheader("Fusion Results")
+        c1, c2, c3 = st.columns(3)
+        with c1:
+            st.markdown("**📰 Content Risk (NLP)**")
+            fig_n = make_gauge(nlp_prob, "NLP")
+            st.pyplot(fig_n); plt.close(fig_n)
+        with c2:
+            st.markdown("**👤 User Susceptibility**")
+            fig_b = make_gauge(beh_risk, "Behavioral")
+            st.pyplot(fig_b); plt.close(fig_b)
+        with c3:
+            st.markdown("**🔀 Fusion Score**")
+            fig_f = make_gauge(fusion_prob, "Fusion")
+            st.pyplot(fig_f); plt.close(fig_f)
 
-            if nlp_prob > 0.5 and beh_risk < 0.4:
-                st.info(
-                    "ℹ️ The article content looks risky but the user's analytical profile provides some protection."
-                )
-            elif nlp_prob < 0.5 and beh_risk > 0.6:
-                st.warning(
-                    "⚠️ The article looks credible but the user's profile suggests elevated susceptibility to framing effects."
-                )
+        st.markdown("---")
+        if fusion_prob >= 0.65:
+            st.error(
+                "⚠️ **High combined risk**: the article has strong fake-news signals "
+                "AND this user profile is susceptible. Verify before sharing."
+            )
+        elif fusion_prob >= 0.45:
+            st.warning(
+                "🟡 **Moderate risk**: ambiguous article or moderately susceptible profile. "
+                "Apply extra scrutiny."
+            )
+        else:
+            st.success(
+                "✅ **Low combined risk**: content appears credible and profile shows protective factors."
+            )
+
+        if nlp_prob > 0.5 and beh_risk < 0.4:
+            st.info(
+                "ℹ️ The article content looks risky but the user's analytical profile provides some protection."
+            )
+        elif nlp_prob < 0.5 and beh_risk > 0.6:
+            st.warning(
+                "⚠️ The article looks credible but the user's profile suggests elevated susceptibility to framing effects."
+            )
 
 
 # ============================================================================
@@ -539,65 +627,52 @@ elif page == "📊 Model Comparison":
             st.caption("Demo data — run Phase 2 & 3 notebooks to populate real results.")
 
         # ROC curve image
-        roc_img = RESULTS_DIR / "model_comparison_roc.png"
-        if roc_img.exists():
-            st.image(str(roc_img), caption="ROC Curves — All Models", width="stretch")
+        roc_img = result_img("model_comparison_roc.png")
+        st.image(str(roc_img), caption="ROC Curves — All Models", use_container_width=True)
 
     # ---- Tab 2: Ablation
     with tab2:
         st.subheader("Ablation Studies")
-        abl_img = RESULTS_DIR / "ablation_modality.png"
-        if abl_img.exists():
-            st.image(str(abl_img), caption="Modality Ablation", width="stretch")
+        abl_img = result_img("ablation_modality.png")
+        st.image(str(abl_img), caption="Modality Ablation", use_container_width=True)
 
-        abl_feat = RESULTS_DIR / "ablation_behavioral_features.png"
-        if abl_feat.exists():
-            st.image(str(abl_feat), caption="Behavioral Feature Leave-One-Out", width="stretch")
+        abl_feat = result_img("ablation_behavioral_features.png")
+        st.image(str(abl_feat), caption="Behavioral Feature Leave-One-Out", use_container_width=True)
 
         if "ablation" in results:
             st.json(results["ablation"])
-        elif not abl_img.exists():
-            st.info("Run `fusion_models/notebooks/03_ablation_studies.ipynb` to generate ablation plots.")
 
     # ---- Tab 3: Validation
     with tab3:
         st.subheader("Validation & Generalization")
         val_imgs = [
-            (RESULTS_DIR / "validation_nested_cv.png",     "Nested Cross-Validation AUC"),
-            (RESULTS_DIR / "validation_bootstrap_ci.png",  "Bootstrap 95% CI"),
-            (RESULTS_DIR / "validation_domain_transfer.png", "Domain Transfer Simulation"),
-            (RESULTS_DIR / "validation_final_summary.png", "Final Performance Heatmap"),
+            (result_img("validation_nested_cv.png"),     "Nested Cross-Validation AUC"),
+            (result_img("validation_bootstrap_ci.png"),  "Bootstrap 95% CI"),
+            (result_img("validation_domain_transfer.png"), "Domain Transfer Simulation"),
+            (result_img("validation_final_summary.png"), "Final Performance Heatmap"),
         ]
         for path, caption in val_imgs:
-            if path.exists():
-                st.image(str(path), caption=caption, width="stretch")
+            st.image(str(path), caption=caption, use_container_width=True)
 
         if "validation" in results:
             st.subheader("Validation Summary Table")
             st.dataframe(results["validation"], use_container_width=True)
 
-        if not any(p.exists() for p, _ in val_imgs):
-            st.info("Run `fusion_models/notebooks/05_validation_and_generalization.ipynb` to generate validation plots.")
-
     # ---- Tab 4: Feature Importance
     with tab4:
         st.subheader("Feature Importance")
-        shap_img  = RESULTS_DIR / "shap_feature_importance.png"
-        perm_img  = RESULTS_DIR / "permutation_importance.png"
-        pdp_img   = RESULTS_DIR / "partial_dependence_behavioral.png"
-        ind_img   = RESULTS_DIR / "individual_explanations.png"
+        shap_img  = result_img("shap_feature_importance.png")
+        perm_img  = result_img("permutation_importance.png")
+        pdp_img   = result_img("partial_dependence_behavioral.png")
+        ind_img   = result_img("individual_explanations.png")
 
         for path, cap in [(shap_img, "SHAP Global Importance"), (perm_img, "Permutation Importance"),
                           (pdp_img, "Partial Dependence"), (ind_img, "Individual Explanations")]:
-            if path.exists():
-                st.image(str(path), caption=cap, width="stretch")
+            st.image(str(path), caption=cap, use_container_width=True)
 
         if "perm_imp" in results:
             st.subheader("Top Features (Permutation Importance)")
             st.dataframe(results["perm_imp"].head(15), use_container_width=True)
-
-        if not any(p.exists() for p in [shap_img, perm_img, pdp_img]):
-            st.info("Run `fusion_models/notebooks/04_interpretability.ipynb` to generate importance plots.")
 
         # Always show interactive importance builder
         st.markdown("---")

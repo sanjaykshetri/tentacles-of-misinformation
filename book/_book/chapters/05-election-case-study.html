@@ -70,6 +70,13 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script type="module">
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+  document.addEventListener('DOMContentLoaded', function() {
+    mermaid.initialize({ startOnLoad: false, theme: 'neutral' });
+    mermaid.run({ querySelector: '.mermaid' });
+  });
+</script>
 
 
 </head>
@@ -155,7 +162,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../chapters/06-epilogue.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Epilogue: Reflection &amp; What Comes Next</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">What I Would Do Differently</span></span></a>
   </div>
 </li>
     </ul>
@@ -958,8 +965,8 @@ ul.task-list li input[type="checkbox"] {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../chapters/06-epilogue.html" class="pagination-link" aria-label="Epilogue: Reflection &amp; What Comes Next">
-        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Epilogue: Reflection &amp; What Comes Next</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../chapters/06-epilogue.html" class="pagination-link" aria-label="What I Would Do Differently">
+        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">What I Would Do Differently</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
