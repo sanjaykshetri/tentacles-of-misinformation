@@ -109,6 +109,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-diagram/mermaid-init.js"></script>
 <link href="../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -186,8 +215,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapters/05-epilogue.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Epilogue: Reflection &amp; What Comes Next</span></span></a>
+  <a href="../chapters/05-election-case-study.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Chapter 5: Election Misinformation — A Multimodal Case Study</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/06-epilogue.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Epilogue: Reflection &amp; What Comes Next</span></span></a>
   </div>
 </li>
     </ul>
@@ -223,27 +258,33 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#two-way-sensitivity-β-γ-interaction" id="toc-two-way-sensitivity-β-γ-interaction" class="nav-link" data-scroll-target="#two-way-sensitivity-β-γ-interaction"><span class="header-section-number">5.7.2</span> Two-Way Sensitivity: β × γ Interaction</a></li>
   <li><a href="#visualizations" id="toc-visualizations" class="nav-link" data-scroll-target="#visualizations"><span class="header-section-number">5.7.3</span> Visualizations</a></li>
   </ul></li>
-  <li><a href="#part-d-heterogeneous-population-simulation" id="toc-part-d-heterogeneous-population-simulation" class="nav-link" data-scroll-target="#part-d-heterogeneous-population-simulation"><span class="header-section-number">5.8</span> Part D: Heterogeneous Population Simulation</a>
+  <li><a href="#part-c2-multi-modal-spread-signals" id="toc-part-c2-multi-modal-spread-signals" class="nav-link" data-scroll-target="#part-c2-multi-modal-spread-signals"><span class="header-section-number">5.8</span> Part C2: Multi-Modal Spread Signals</a>
   <ul class="collapse">
-  <li><a href="#agent-based-model" id="toc-agent-based-model" class="nav-link" data-scroll-target="#agent-based-model"><span class="header-section-number">5.8.1</span> Agent-Based Model</a></li>
-  <li><a href="#simulation-baseline-vs.-intervention" id="toc-simulation-baseline-vs.-intervention" class="nav-link" data-scroll-target="#simulation-baseline-vs.-intervention"><span class="header-section-number">5.8.2</span> Simulation: Baseline vs.&nbsp;Intervention</a></li>
-  <li><a href="#intervention-mechanisms-visual" id="toc-intervention-mechanisms-visual" class="nav-link" data-scroll-target="#intervention-mechanisms-visual"><span class="header-section-number">5.8.3</span> Intervention Mechanisms (Visual)</a></li>
-  <li><a href="#intervention-targeting" id="toc-intervention-targeting" class="nav-link" data-scroll-target="#intervention-targeting"><span class="header-section-number">5.8.4</span> Intervention Targeting</a></li>
+  <li><a href="#cross-modal-feature-correlations" id="toc-cross-modal-feature-correlations" class="nav-link" data-scroll-target="#cross-modal-feature-correlations"><span class="header-section-number">5.8.1</span> Cross-Modal Feature Correlations</a></li>
+  <li><a href="#modality-ablation-which-signals-drive-detection" id="toc-modality-ablation-which-signals-drive-detection" class="nav-link" data-scroll-target="#modality-ablation-which-signals-drive-detection"><span class="header-section-number">5.8.2</span> Modality Ablation: Which Signals Drive Detection?</a></li>
+  <li><a href="#spread-velocity-and-linguistic-complexity" id="toc-spread-velocity-and-linguistic-complexity" class="nav-link" data-scroll-target="#spread-velocity-and-linguistic-complexity"><span class="header-section-number">5.8.3</span> Spread Velocity and Linguistic Complexity</a></li>
   </ul></li>
-  <li><a href="#part-e-key-findings" id="toc-part-e-key-findings" class="nav-link" data-scroll-target="#part-e-key-findings"><span class="header-section-number">5.9</span> Part E: Key Findings</a>
+  <li><a href="#part-d-heterogeneous-population-simulation" id="toc-part-d-heterogeneous-population-simulation" class="nav-link" data-scroll-target="#part-d-heterogeneous-population-simulation"><span class="header-section-number">5.9</span> Part D: Heterogeneous Population Simulation</a>
   <ul class="collapse">
-  <li><a href="#main-results" id="toc-main-results" class="nav-link" data-scroll-target="#main-results"><span class="header-section-number">5.9.1</span> Main Results</a></li>
-  <li><a href="#policy-recommendations" id="toc-policy-recommendations" class="nav-link" data-scroll-target="#policy-recommendations"><span class="header-section-number">5.9.2</span> Policy Recommendations</a></li>
+  <li><a href="#agent-based-model" id="toc-agent-based-model" class="nav-link" data-scroll-target="#agent-based-model"><span class="header-section-number">5.9.1</span> Agent-Based Model</a></li>
+  <li><a href="#simulation-baseline-vs.-intervention" id="toc-simulation-baseline-vs.-intervention" class="nav-link" data-scroll-target="#simulation-baseline-vs.-intervention"><span class="header-section-number">5.9.2</span> Simulation: Baseline vs.&nbsp;Intervention</a></li>
+  <li><a href="#intervention-mechanisms-visual" id="toc-intervention-mechanisms-visual" class="nav-link" data-scroll-target="#intervention-mechanisms-visual"><span class="header-section-number">5.9.3</span> Intervention Mechanisms (Visual)</a></li>
+  <li><a href="#intervention-targeting" id="toc-intervention-targeting" class="nav-link" data-scroll-target="#intervention-targeting"><span class="header-section-number">5.9.4</span> Intervention Targeting</a></li>
   </ul></li>
-  <li><a href="#part-f-limitations-assumptions" id="toc-part-f-limitations-assumptions" class="nav-link" data-scroll-target="#part-f-limitations-assumptions"><span class="header-section-number">5.10</span> Part F: Limitations &amp; Assumptions</a>
+  <li><a href="#part-e-key-findings" id="toc-part-e-key-findings" class="nav-link" data-scroll-target="#part-e-key-findings"><span class="header-section-number">5.10</span> Part E: Key Findings</a>
   <ul class="collapse">
-  <li><a href="#model-assumptions" id="toc-model-assumptions" class="nav-link" data-scroll-target="#model-assumptions"><span class="header-section-number">5.10.1</span> Model Assumptions</a></li>
-  <li><a href="#data-limitations" id="toc-data-limitations" class="nav-link" data-scroll-target="#data-limitations"><span class="header-section-number">5.10.2</span> Data Limitations</a></li>
-  <li><a href="#generalizability" id="toc-generalizability" class="nav-link" data-scroll-target="#generalizability"><span class="header-section-number">5.10.3</span> Generalizability</a></li>
+  <li><a href="#main-results" id="toc-main-results" class="nav-link" data-scroll-target="#main-results"><span class="header-section-number">5.10.1</span> Main Results</a></li>
+  <li><a href="#policy-recommendations" id="toc-policy-recommendations" class="nav-link" data-scroll-target="#policy-recommendations"><span class="header-section-number">5.10.2</span> Policy Recommendations</a></li>
   </ul></li>
-  <li><a href="#reproducibility-checklist" id="toc-reproducibility-checklist" class="nav-link" data-scroll-target="#reproducibility-checklist"><span class="header-section-number">5.11</span> Reproducibility Checklist</a></li>
-  <li><a href="#glossary" id="toc-glossary" class="nav-link" data-scroll-target="#glossary"><span class="header-section-number">5.12</span> Glossary</a></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">5.13</span> References</a></li>
+  <li><a href="#part-f-limitations-assumptions" id="toc-part-f-limitations-assumptions" class="nav-link" data-scroll-target="#part-f-limitations-assumptions"><span class="header-section-number">5.11</span> Part F: Limitations &amp; Assumptions</a>
+  <ul class="collapse">
+  <li><a href="#model-assumptions" id="toc-model-assumptions" class="nav-link" data-scroll-target="#model-assumptions"><span class="header-section-number">5.11.1</span> Model Assumptions</a></li>
+  <li><a href="#data-limitations" id="toc-data-limitations" class="nav-link" data-scroll-target="#data-limitations"><span class="header-section-number">5.11.2</span> Data Limitations</a></li>
+  <li><a href="#generalizability" id="toc-generalizability" class="nav-link" data-scroll-target="#generalizability"><span class="header-section-number">5.11.3</span> Generalizability</a></li>
+  </ul></li>
+  <li><a href="#reproducibility-checklist" id="toc-reproducibility-checklist" class="nav-link" data-scroll-target="#reproducibility-checklist"><span class="header-section-number">5.12</span> Reproducibility Checklist</a></li>
+  <li><a href="#glossary" id="toc-glossary" class="nav-link" data-scroll-target="#glossary"><span class="header-section-number">5.13</span> Glossary</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">5.14</span> References</a></li>
   </ul>
 </nav>
     </div>
@@ -535,20 +576,86 @@ dR/dt = γ × I  (Recovered/immune)</code></pre>
 <hr>
 </section>
 </section>
-<section id="part-d-heterogeneous-population-simulation" class="level2" data-number="5.8">
-<h2 data-number="5.8" class="anchored" data-anchor-id="part-d-heterogeneous-population-simulation"><span class="header-section-number">5.8</span> Part D: Heterogeneous Population Simulation</h2>
-<section id="agent-based-model" class="level3" data-number="5.8.1">
-<h3 data-number="5.8.1" class="anchored" data-anchor-id="agent-based-model"><span class="header-section-number">5.8.1</span> Agent-Based Model</h3>
+<section id="part-c2-multi-modal-spread-signals" class="level2" data-number="5.8">
+<h2 data-number="5.8" class="anchored" data-anchor-id="part-c2-multi-modal-spread-signals"><span class="header-section-number">5.8</span> Part C2: Multi-Modal Spread Signals</h2>
+<section id="cross-modal-feature-correlations" class="level3" data-number="5.8.1">
+<h3 data-number="5.8.1" class="anchored" data-anchor-id="cross-modal-feature-correlations"><span class="header-section-number">5.8.1</span> Cross-Modal Feature Correlations</h3>
+<p>Spread dynamics are not driven by text content alone. We extracted three modality groups—behavioral proxies, NLP embeddings, and network-derived signals—and measured their pairwise correlation structure:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/cross_modal_correlations.png" class="img-fluid figure-img" style="width:85.0%" alt="Heatmap showing correlations between behavioral, NLP, and network features across real and fake articles"></p>
+<figcaption>Cross-Modal Feature Correlations</figcaption>
+</figure>
+</div>
+<p><strong>Key observations</strong>: - Behavioral and NLP features share moderate correlation (0.35–0.55 range), confirming partial redundancy - Network features show <em>low</em> correlation with text features (0.12–0.22), indicating complementary spread signals - Fake articles exhibit stronger cross-modal alignment (<span class="math inline">\(r = 0.61\)</span>) than real articles (<span class="math inline">\(r = 0.43\)</span>), suggesting coordinated manipulation patterns</p>
+</section>
+<section id="modality-ablation-which-signals-drive-detection" class="level3" data-number="5.8.2">
+<h3 data-number="5.8.2" class="anchored" data-anchor-id="modality-ablation-which-signals-drive-detection"><span class="header-section-number">5.8.2</span> Modality Ablation: Which Signals Drive Detection?</h3>
+<p>We trained the fusion model removing one modality at a time to measure each modality’s unique contribution:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/ablation_modality.png" class="img-fluid figure-img" style="width:85.0%" alt="Bar chart showing AUC degradation when each modality (NLP, behavioral, network) is removed from the fusion model"></p>
+<figcaption>Modality Ablation Study</figcaption>
+</figure>
+</div>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Modality Removed</th>
+<th>AUC Drop</th>
+<th>Interpretation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>NLP (text embeddings)</td>
+<td>−5.2%</td>
+<td>Largest single contributor</td>
+</tr>
+<tr class="even">
+<td>Behavioral features</td>
+<td>−2.8%</td>
+<td>Unique cascade timing patterns</td>
+</tr>
+<tr class="odd">
+<td>Network features</td>
+<td>−1.9%</td>
+<td>Amplification structure signals</td>
+</tr>
+<tr class="even">
+<td>All three combined</td>
+<td><strong>Baseline</strong></td>
+<td>Full fusion: best performance</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Finding</strong>: No single modality can match the fusion model. Each captures a non-redundant facet of how misinformation spreads—textual manipulation, behavioral signatures, and network amplification.</p>
+</section>
+<section id="spread-velocity-and-linguistic-complexity" class="level3" data-number="5.8.3">
+<h3 data-number="5.8.3" class="anchored" data-anchor-id="spread-velocity-and-linguistic-complexity"><span class="header-section-number">5.8.3</span> Spread Velocity and Linguistic Complexity</h3>
+<p>A distinct empirical regularity: faster-spreading articles tend to use <em>simpler language</em>. The Flesch-Kincaid grade level drops as sharing velocity increases, particularly in fake articles:</p>
+<ul>
+<li>Real articles: 8.6 mean grade level regardless of velocity</li>
+<li>Fake articles: grade level falls from 8.1 (slow spread) to 6.9 (viral spread)</li>
+</ul>
+<p><strong>Implication for modeling</strong>: Readability features should be dynamically weighted by estimated cascade velocity, not treated as static covariates.</p>
+<hr>
+</section>
+</section>
+<section id="part-d-heterogeneous-population-simulation" class="level2" data-number="5.9">
+<h2 data-number="5.9" class="anchored" data-anchor-id="part-d-heterogeneous-population-simulation"><span class="header-section-number">5.9</span> Part D: Heterogeneous Population Simulation</h2>
+<section id="agent-based-model" class="level3" data-number="5.9.1">
+<h3 data-number="5.9.1" class="anchored" data-anchor-id="agent-based-model"><span class="header-section-number">5.9.1</span> Agent-Based Model</h3>
 <p>Extend SEIR to a simulated population with: - N = 10,000 agents - Age distribution: 18-80 years (realistic) - Connectivity: Small-world network (average degree = 8) - Susceptibility heterogeneity: Varies by age and cognitive traits</p>
 </section>
-<section id="simulation-baseline-vs.-intervention" class="level3" data-number="5.8.2">
-<h3 data-number="5.8.2" class="anchored" data-anchor-id="simulation-baseline-vs.-intervention"><span class="header-section-number">5.8.2</span> Simulation: Baseline vs.&nbsp;Intervention</h3>
+<section id="simulation-baseline-vs.-intervention" class="level3" data-number="5.9.2">
+<h3 data-number="5.9.2" class="anchored" data-anchor-id="simulation-baseline-vs.-intervention"><span class="header-section-number">5.9.2</span> Simulation: Baseline vs.&nbsp;Intervention</h3>
 <p><strong>Scenario 1 (Baseline)</strong>: No intervention - Result: Misinformation reaches 18.3% of population at peak</p>
 <p><strong>Scenario 2 (Single intervention)</strong>: Prebunking campaign - Reduce β by 20% - Result: Misinformation reaches 14.7% (19.6% reduction)</p>
 <p><strong>Scenario 3 (Combined interventions)</strong>: - Pre-bunking (β -20%) - Rapid fact-checking (γ +30%) - Result: Misinformation reaches 15.7% peak, extinct by day 120 - <strong>Overall burden reduction</strong>: 14.3%</p>
 </section>
-<section id="intervention-mechanisms-visual" class="level3" data-number="5.8.3">
-<h3 data-number="5.8.3" class="anchored" data-anchor-id="intervention-mechanisms-visual"><span class="header-section-number">5.8.3</span> Intervention Mechanisms (Visual)</h3>
+<section id="intervention-mechanisms-visual" class="level3" data-number="5.9.3">
+<h3 data-number="5.9.3" class="anchored" data-anchor-id="intervention-mechanisms-visual"><span class="header-section-number">5.9.3</span> Intervention Mechanisms (Visual)</h3>
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
 <div>
@@ -611,8 +718,8 @@ dR/dt = γ × I  (Recovered/immune)</code></pre>
 </tbody>
 </table>
 </section>
-<section id="intervention-targeting" class="level3" data-number="5.8.4">
-<h3 data-number="5.8.4" class="anchored" data-anchor-id="intervention-targeting"><span class="header-section-number">5.8.4</span> Intervention Targeting</h3>
+<section id="intervention-targeting" class="level3" data-number="5.9.4">
+<h3 data-number="5.9.4" class="anchored" data-anchor-id="intervention-targeting"><span class="header-section-number">5.9.4</span> Intervention Targeting</h3>
 <p><strong>Who to prioritize?</strong></p>
 <table class="caption-top table">
 <thead>
@@ -647,10 +754,10 @@ dR/dt = γ × I  (Recovered/immune)</code></pre>
 <hr>
 </section>
 </section>
-<section id="part-e-key-findings" class="level2" data-number="5.9">
-<h2 data-number="5.9" class="anchored" data-anchor-id="part-e-key-findings"><span class="header-section-number">5.9</span> Part E: Key Findings</h2>
-<section id="main-results" class="level3" data-number="5.9.1">
-<h3 data-number="5.9.1" class="anchored" data-anchor-id="main-results"><span class="header-section-number">5.9.1</span> Main Results</h3>
+<section id="part-e-key-findings" class="level2" data-number="5.10">
+<h2 data-number="5.10" class="anchored" data-anchor-id="part-e-key-findings"><span class="header-section-number">5.10</span> Part E: Key Findings</h2>
+<section id="main-results" class="level3" data-number="5.10.1">
+<h3 data-number="5.10.1" class="anchored" data-anchor-id="main-results"><span class="header-section-number">5.10.1</span> Main Results</h3>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 30%">
@@ -693,8 +800,8 @@ dR/dt = γ × I  (Recovered/immune)</code></pre>
 </tbody>
 </table>
 </section>
-<section id="policy-recommendations" class="level3" data-number="5.9.2">
-<h3 data-number="5.9.2" class="anchored" data-anchor-id="policy-recommendations"><span class="header-section-number">5.9.2</span> Policy Recommendations</h3>
+<section id="policy-recommendations" class="level3" data-number="5.10.2">
+<h3 data-number="5.10.2" class="anchored" data-anchor-id="policy-recommendations"><span class="header-section-number">5.10.2</span> Policy Recommendations</h3>
 <ol type="1">
 <li><strong>Targeted prebunking</strong>: Focus on high-susceptibility demographics</li>
 <li><strong>Rapid corrections</strong>: Accelerate fact-check speed (reduces γ)</li>
@@ -704,10 +811,10 @@ dR/dt = γ × I  (Recovered/immune)</code></pre>
 <hr>
 </section>
 </section>
-<section id="part-f-limitations-assumptions" class="level2" data-number="5.10">
-<h2 data-number="5.10" class="anchored" data-anchor-id="part-f-limitations-assumptions"><span class="header-section-number">5.10</span> Part F: Limitations &amp; Assumptions</h2>
-<section id="model-assumptions" class="level3" data-number="5.10.1">
-<h3 data-number="5.10.1" class="anchored" data-anchor-id="model-assumptions"><span class="header-section-number">5.10.1</span> Model Assumptions</h3>
+<section id="part-f-limitations-assumptions" class="level2" data-number="5.11">
+<h2 data-number="5.11" class="anchored" data-anchor-id="part-f-limitations-assumptions"><span class="header-section-number">5.11</span> Part F: Limitations &amp; Assumptions</h2>
+<section id="model-assumptions" class="level3" data-number="5.11.1">
+<h3 data-number="5.11.1" class="anchored" data-anchor-id="model-assumptions"><span class="header-section-number">5.11.1</span> Model Assumptions</h3>
 <ol type="1">
 <li><strong>Homogeneous mixing</strong>: Assumes random contact (violated in real social networks)</li>
 <li><strong>No reinfection</strong>: Once corrected, can’t re-adopt same false belief (unrealistic)</li>
@@ -715,8 +822,8 @@ dR/dt = γ × I  (Recovered/immune)</code></pre>
 <li><strong>Parameter stationarity</strong>: Assumes β, σ, γ don’t change over time</li>
 </ol>
 </section>
-<section id="data-limitations" class="level3" data-number="5.10.2">
-<h3 data-number="5.10.2" class="anchored" data-anchor-id="data-limitations"><span class="header-section-number">5.10.2</span> Data Limitations</h3>
+<section id="data-limitations" class="level3" data-number="5.11.2">
+<h3 data-number="5.11.2" class="anchored" data-anchor-id="data-limitations"><span class="header-section-number">5.11.2</span> Data Limitations</h3>
 <ol type="1">
 <li><strong>Observable cascades only</strong>: FakeNewsNet captures shares but not private discussions</li>
 <li><strong>No context</strong>: Doesn’t distinguish between virality drivers (humor, outrage, novelty)</li>
@@ -724,8 +831,8 @@ dR/dt = γ × I  (Recovered/immune)</code></pre>
 <li><strong>Cross-cultural</strong>: Calibrated on English-language content</li>
 </ol>
 </section>
-<section id="generalizability" class="level3" data-number="5.10.3">
-<h3 data-number="5.10.3" class="anchored" data-anchor-id="generalizability"><span class="header-section-number">5.10.3</span> Generalizability</h3>
+<section id="generalizability" class="level3" data-number="5.11.3">
+<h3 data-number="5.11.3" class="anchored" data-anchor-id="generalizability"><span class="header-section-number">5.11.3</span> Generalizability</h3>
 <ul>
 <li>Results apply to <strong>text-based misinformation</strong> about news/politics</li>
 <li>May not generalize to: video, images, scientific misinformation, health</li>
@@ -734,8 +841,8 @@ dR/dt = γ × I  (Recovered/immune)</code></pre>
 <hr>
 </section>
 </section>
-<section id="reproducibility-checklist" class="level2" data-number="5.11">
-<h2 data-number="5.11" class="anchored" data-anchor-id="reproducibility-checklist"><span class="header-section-number">5.11</span> Reproducibility Checklist</h2>
+<section id="reproducibility-checklist" class="level2" data-number="5.12">
+<h2 data-number="5.12" class="anchored" data-anchor-id="reproducibility-checklist"><span class="header-section-number">5.12</span> Reproducibility Checklist</h2>
 <ul>
 <li>✅ Mathematical derivations: Documented in <code>fusion_models/</code></li>
 <li>✅ Parameter estimation: Code in <code>src/</code> with cross-validation</li>
@@ -745,8 +852,8 @@ dR/dt = γ × I  (Recovered/immune)</code></pre>
 </ul>
 <hr>
 </section>
-<section id="glossary" class="level2" data-number="5.12">
-<h2 data-number="5.12" class="anchored" data-anchor-id="glossary"><span class="header-section-number">5.12</span> Glossary</h2>
+<section id="glossary" class="level2" data-number="5.13">
+<h2 data-number="5.13" class="anchored" data-anchor-id="glossary"><span class="header-section-number">5.13</span> Glossary</h2>
 <p><strong>SEIR Model</strong>: Susceptible-Exposed-Infected-Recovered epidemiological framework<br>
 <strong>Infodemic</strong>: Simultaneous spread of accurate and false information<br>
 <strong>β (transmission rate)</strong>: Probability that exposure leads to belief<br>
@@ -756,8 +863,8 @@ dR/dt = γ × I  (Recovered/immune)</code></pre>
 <strong>Prebunking</strong>: Inoculation against misinformation before exposure</p>
 <hr>
 </section>
-<section id="references" class="level2" data-number="5.13">
-<h2 data-number="5.13" class="anchored" data-anchor-id="references"><span class="header-section-number">5.13</span> References</h2>
+<section id="references" class="level2" data-number="5.14">
+<h2 data-number="5.14" class="anchored" data-anchor-id="references"><span class="header-section-number">5.14</span> References</h2>
 <ul>
 <li>Vosoughi et al.&nbsp;(2018). The spread of true and false news online. Science.</li>
 <li>Kermack &amp; McKendrick (1927). A contribution to the mathematical theory of epidemics.</li>

@@ -193,7 +193,9 @@ Monitoring + Ethics
 
 ::: {.column width="19%"}
 
-### [5️⃣ Reflection](chapters/05-epilogue.qmd)
+### [5️⃣ Election Case Study](chapters/05-election-case-study.qmd)
+
+### [6️⃣ Reflection](chapters/06-epilogue.qmd)
 
 **What's next**
 

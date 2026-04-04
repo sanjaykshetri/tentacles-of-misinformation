@@ -106,6 +106,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -183,8 +212,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapters/05-epilogue.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Epilogue: Reflection &amp; What Comes Next</span></span></a>
+  <a href="../chapters/05-election-case-study.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Chapter 5: Election Misinformation — A Multimodal Case Study</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/06-epilogue.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Epilogue: Reflection &amp; What Comes Next</span></span></a>
   </div>
 </li>
     </ul>
@@ -243,33 +278,50 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#model-comparison" id="toc-model-comparison" class="nav-link" data-scroll-target="#model-comparison"><span class="header-section-number">4.9.2</span> Model Comparison</a></li>
   <li><a href="#key-finding" id="toc-key-finding" class="nav-link" data-scroll-target="#key-finding"><span class="header-section-number">4.9.3</span> Key Finding</a></li>
   </ul></li>
-  <li><a href="#part-d-transformer-fine-tuning" id="toc-part-d-transformer-fine-tuning" class="nav-link" data-scroll-target="#part-d-transformer-fine-tuning"><span class="header-section-number">4.10</span> Part D: Transformer Fine-tuning</a>
+  <li><a href="#part-d-sbert-semantic-embeddings" id="toc-part-d-sbert-semantic-embeddings" class="nav-link" data-scroll-target="#part-d-sbert-semantic-embeddings"><span class="header-section-number">4.10</span> Part D: SBERT Semantic Embeddings</a>
   <ul class="collapse">
-  <li><a href="#the-tf-idf-ceiling" id="toc-the-tf-idf-ceiling" class="nav-link" data-scroll-target="#the-tf-idf-ceiling"><span class="header-section-number">4.10.1</span> The TF-IDF Ceiling</a></li>
-  <li><a href="#roberta-bridging-to-deep-semantics" id="toc-roberta-bridging-to-deep-semantics" class="nav-link" data-scroll-target="#roberta-bridging-to-deep-semantics"><span class="header-section-number">4.10.2</span> RoBERTa: Bridging to Deep Semantics</a></li>
-  <li><a href="#results-transformer-breakthrough" id="toc-results-transformer-breakthrough" class="nav-link" data-scroll-target="#results-transformer-breakthrough"><span class="header-section-number">4.10.3</span> Results: Transformer Breakthrough</a></li>
-  <li><a href="#error-reduction" id="toc-error-reduction" class="nav-link" data-scroll-target="#error-reduction"><span class="header-section-number">4.10.4</span> Error Reduction</a></li>
-  <li><a href="#why-transformers-win" id="toc-why-transformers-win" class="nav-link" data-scroll-target="#why-transformers-win"><span class="header-section-number">4.10.5</span> Why Transformers Win</a></li>
+  <li><a href="#why-sentence-bert" id="toc-why-sentence-bert" class="nav-link" data-scroll-target="#why-sentence-bert"><span class="header-section-number">4.10.1</span> Why Sentence-BERT?</a></li>
+  <li><a href="#sbert-results" id="toc-sbert-results" class="nav-link" data-scroll-target="#sbert-results"><span class="header-section-number">4.10.2</span> SBERT Results</a></li>
+  <li><a href="#embedding-visualization-pca" id="toc-embedding-visualization-pca" class="nav-link" data-scroll-target="#embedding-visualization-pca"><span class="header-section-number">4.10.3</span> Embedding Visualization (PCA)</a></li>
   </ul></li>
-  <li><a href="#part-e-cross-domain-generalization" id="toc-part-e-cross-domain-generalization" class="nav-link" data-scroll-target="#part-e-cross-domain-generalization"><span class="header-section-number">4.11</span> Part E: Cross-Domain Generalization</a>
+  <li><a href="#part-d2-error-analysis" id="toc-part-d2-error-analysis" class="nav-link" data-scroll-target="#part-d2-error-analysis"><span class="header-section-number">4.11</span> Part D2: Error Analysis</a>
   <ul class="collapse">
-  <li><a href="#domain-mismatch-challenge" id="toc-domain-mismatch-challenge" class="nav-link" data-scroll-target="#domain-mismatch-challenge"><span class="header-section-number">4.11.1</span> Domain Mismatch Challenge</a></li>
-  <li><a href="#transfer-performance" id="toc-transfer-performance" class="nav-link" data-scroll-target="#transfer-performance"><span class="header-section-number">4.11.2</span> Transfer Performance</a></li>
+  <li><a href="#overview-where-every-model-fails" id="toc-overview-where-every-model-fails" class="nav-link" data-scroll-target="#overview-where-every-model-fails"><span class="header-section-number">4.11.1</span> Overview: Where Every Model Fails</a></li>
+  <li><a href="#calibration-analysis" id="toc-calibration-analysis" class="nav-link" data-scroll-target="#calibration-analysis"><span class="header-section-number">4.11.2</span> Calibration Analysis</a></li>
   </ul></li>
-  <li><a href="#part-f-key-findings" id="toc-part-f-key-findings" class="nav-link" data-scroll-target="#part-f-key-findings"><span class="header-section-number">4.12</span> Part F: Key Findings</a>
+  <li><a href="#part-d3-statistical-model-comparison" id="toc-part-d3-statistical-model-comparison" class="nav-link" data-scroll-target="#part-d3-statistical-model-comparison"><span class="header-section-number">4.12</span> Part D3: Statistical Model Comparison</a>
   <ul class="collapse">
-  <li><a href="#main-results" id="toc-main-results" class="nav-link" data-scroll-target="#main-results"><span class="header-section-number">4.12.1</span> Main Results</a></li>
-  <li><a href="#model-recommendations" id="toc-model-recommendations" class="nav-link" data-scroll-target="#model-recommendations"><span class="header-section-number">4.12.2</span> Model Recommendations</a></li>
+  <li><a href="#mcnemars-test" id="toc-mcnemars-test" class="nav-link" data-scroll-target="#mcnemars-test"><span class="header-section-number">4.12.1</span> McNemar’s Test</a></li>
+  <li><a href="#bootstrap-confidence-intervals" id="toc-bootstrap-confidence-intervals" class="nav-link" data-scroll-target="#bootstrap-confidence-intervals"><span class="header-section-number">4.12.2</span> Bootstrap Confidence Intervals</a></li>
+  <li><a href="#comparative-roc-curves-all-models" id="toc-comparative-roc-curves-all-models" class="nav-link" data-scroll-target="#comparative-roc-curves-all-models"><span class="header-section-number">4.12.3</span> Comparative ROC Curves (All Models)</a></li>
   </ul></li>
-  <li><a href="#limitations-scope" id="toc-limitations-scope" class="nav-link" data-scroll-target="#limitations-scope"><span class="header-section-number">4.13</span> Limitations &amp; Scope</a>
+  <li><a href="#part-e-transformer-fine-tuning" id="toc-part-e-transformer-fine-tuning" class="nav-link" data-scroll-target="#part-e-transformer-fine-tuning"><span class="header-section-number">4.13</span> Part E: Transformer Fine-tuning</a>
   <ul class="collapse">
-  <li><a href="#data-limitations" id="toc-data-limitations" class="nav-link" data-scroll-target="#data-limitations"><span class="header-section-number">4.13.1</span> Data Limitations</a></li>
-  <li><a href="#model-limitations" id="toc-model-limitations" class="nav-link" data-scroll-target="#model-limitations"><span class="header-section-number">4.13.2</span> Model Limitations</a></li>
-  <li><a href="#generalizability" id="toc-generalizability" class="nav-link" data-scroll-target="#generalizability"><span class="header-section-number">4.13.3</span> Generalizability</a></li>
+  <li><a href="#the-tf-idf-ceiling" id="toc-the-tf-idf-ceiling" class="nav-link" data-scroll-target="#the-tf-idf-ceiling"><span class="header-section-number">4.13.1</span> The TF-IDF Ceiling</a></li>
+  <li><a href="#roberta-bridging-to-deep-semantics" id="toc-roberta-bridging-to-deep-semantics" class="nav-link" data-scroll-target="#roberta-bridging-to-deep-semantics"><span class="header-section-number">4.13.2</span> RoBERTa: Bridging to Deep Semantics</a></li>
+  <li><a href="#results-transformer-breakthrough" id="toc-results-transformer-breakthrough" class="nav-link" data-scroll-target="#results-transformer-breakthrough"><span class="header-section-number">4.13.3</span> Results: Transformer Breakthrough</a></li>
+  <li><a href="#error-reduction" id="toc-error-reduction" class="nav-link" data-scroll-target="#error-reduction"><span class="header-section-number">4.13.4</span> Error Reduction</a></li>
+  <li><a href="#why-transformers-win" id="toc-why-transformers-win" class="nav-link" data-scroll-target="#why-transformers-win"><span class="header-section-number">4.13.5</span> Why Transformers Win</a></li>
   </ul></li>
-  <li><a href="#reproducibility-checklist" id="toc-reproducibility-checklist" class="nav-link" data-scroll-target="#reproducibility-checklist"><span class="header-section-number">4.14</span> Reproducibility Checklist</a></li>
-  <li><a href="#glossary" id="toc-glossary" class="nav-link" data-scroll-target="#glossary"><span class="header-section-number">4.15</span> Glossary</a></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">4.16</span> References</a></li>
+  <li><a href="#part-e-cross-domain-generalization" id="toc-part-e-cross-domain-generalization" class="nav-link" data-scroll-target="#part-e-cross-domain-generalization"><span class="header-section-number">4.14</span> Part E: Cross-Domain Generalization</a>
+  <ul class="collapse">
+  <li><a href="#domain-mismatch-challenge" id="toc-domain-mismatch-challenge" class="nav-link" data-scroll-target="#domain-mismatch-challenge"><span class="header-section-number">4.14.1</span> Domain Mismatch Challenge</a></li>
+  <li><a href="#transfer-performance" id="toc-transfer-performance" class="nav-link" data-scroll-target="#transfer-performance"><span class="header-section-number">4.14.2</span> Transfer Performance</a></li>
+  </ul></li>
+  <li><a href="#part-f-key-findings" id="toc-part-f-key-findings" class="nav-link" data-scroll-target="#part-f-key-findings"><span class="header-section-number">4.15</span> Part F: Key Findings</a>
+  <ul class="collapse">
+  <li><a href="#main-results" id="toc-main-results" class="nav-link" data-scroll-target="#main-results"><span class="header-section-number">4.15.1</span> Main Results</a></li>
+  <li><a href="#model-recommendations" id="toc-model-recommendations" class="nav-link" data-scroll-target="#model-recommendations"><span class="header-section-number">4.15.2</span> Model Recommendations</a></li>
+  </ul></li>
+  <li><a href="#limitations-scope" id="toc-limitations-scope" class="nav-link" data-scroll-target="#limitations-scope"><span class="header-section-number">4.16</span> Limitations &amp; Scope</a>
+  <ul class="collapse">
+  <li><a href="#data-limitations" id="toc-data-limitations" class="nav-link" data-scroll-target="#data-limitations"><span class="header-section-number">4.16.1</span> Data Limitations</a></li>
+  <li><a href="#model-limitations" id="toc-model-limitations" class="nav-link" data-scroll-target="#model-limitations"><span class="header-section-number">4.16.2</span> Model Limitations</a></li>
+  <li><a href="#generalizability" id="toc-generalizability" class="nav-link" data-scroll-target="#generalizability"><span class="header-section-number">4.16.3</span> Generalizability</a></li>
+  </ul></li>
+  <li><a href="#reproducibility-checklist" id="toc-reproducibility-checklist" class="nav-link" data-scroll-target="#reproducibility-checklist"><span class="header-section-number">4.17</span> Reproducibility Checklist</a></li>
+  <li><a href="#glossary" id="toc-glossary" class="nav-link" data-scroll-target="#glossary"><span class="header-section-number">4.18</span> Glossary</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">4.19</span> References</a></li>
   </ul>
 </nav>
     </div>
@@ -581,7 +633,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>The unified data pipeline orchestrates loading, cleaning, and feature engineering. Here’s how the end-to-end workflow operates:</p>
 <section id="step-1-load-raw-data" class="level4" data-number="4.8.1.1">
 <h4 data-number="4.8.1.1" class="anchored" data-anchor-id="step-1-load-raw-data"><span class="header-section-number">4.8.1.1</span> Step 1: Load Raw Data</h4>
-<div id="399d049c" class="cell">
+<div id="5d17fb49" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Show code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pathlib <span class="im">import</span> Path</span>
@@ -606,7 +658,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="step-2-clean-validate" class="level4" data-number="4.8.1.2">
 <h4 data-number="4.8.1.2" class="anchored" data-anchor-id="step-2-clean-validate"><span class="header-section-number">4.8.1.2</span> Step 2: Clean &amp; Validate</h4>
-<div id="ff710dc3" class="cell">
+<div id="1be74739" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Show code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> data.pipeline <span class="im">import</span> DataCleaner</span>
@@ -627,7 +679,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="step-3-extract-linguistic-features" class="level4" data-number="4.8.1.3">
 <h4 data-number="4.8.1.3" class="anchored" data-anchor-id="step-3-extract-linguistic-features"><span class="header-section-number">4.8.1.3</span> Step 3: Extract Linguistic Features</h4>
-<div id="f3336124" class="cell">
+<div id="4389b99e" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Show code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> data.pipeline <span class="im">import</span> FeatureTransformer</span>
@@ -655,7 +707,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="step-4-unified-pipeline-execution" class="level4" data-number="4.8.1.4">
 <h4 data-number="4.8.1.4" class="anchored" data-anchor-id="step-4-unified-pipeline-execution"><span class="header-section-number">4.8.1.4</span> Step 4: Unified Pipeline Execution</h4>
-<div id="c7b0adf9" class="cell">
+<div id="9b675922" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Show code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> data.pipeline <span class="im">import</span> MisinformationPipeline</span>
@@ -946,10 +998,145 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <hr>
 </section>
 </section>
-<section id="part-d-transformer-fine-tuning" class="level2" data-number="4.10">
-<h2 data-number="4.10" class="anchored" data-anchor-id="part-d-transformer-fine-tuning"><span class="header-section-number">4.10</span> Part D: Transformer Fine-tuning</h2>
-<section id="the-tf-idf-ceiling" class="level3" data-number="4.10.1">
-<h3 data-number="4.10.1" class="anchored" data-anchor-id="the-tf-idf-ceiling"><span class="header-section-number">4.10.1</span> The TF-IDF Ceiling</h3>
+<section id="part-d-sbert-semantic-embeddings" class="level2" data-number="4.10">
+<h2 data-number="4.10" class="anchored" data-anchor-id="part-d-sbert-semantic-embeddings"><span class="header-section-number">4.10</span> Part D: SBERT Semantic Embeddings</h2>
+<section id="why-sentence-bert" class="level3" data-number="4.10.1">
+<h3 data-number="4.10.1" class="anchored" data-anchor-id="why-sentence-bert"><span class="header-section-number">4.10.1</span> Why Sentence-BERT?</h3>
+<p>SBERT (Sentence-BERT) produces dense 384-dimensional embeddings where <em>semantically similar articles cluster together</em>. Unlike TF-IDF sparse vectors, SBERT embeddings capture meaning—not just word counts.</p>
+<p><strong>Key advantages</strong>: - Captures paraphrase and conceptual similarity - Works on short titles (no padding needed) - Transferable across domains without retraining the encoder</p>
+</section>
+<section id="sbert-results" class="level3" data-number="4.10.2">
+<h3 data-number="4.10.2" class="anchored" data-anchor-id="sbert-results"><span class="header-section-number">4.10.2</span> SBERT Results</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Model</th>
+<th>Accuracy</th>
+<th>ROC-AUC</th>
+<th>F1 (Fake)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>TF-IDF LR (baseline)</td>
+<td>81.2%</td>
+<td>0.859</td>
+<td>0.644</td>
+</tr>
+<tr class="even">
+<td>SBERT + Logistic Regression</td>
+<td><strong>85.7%</strong></td>
+<td><strong>0.894</strong></td>
+<td><strong>0.769</strong></td>
+</tr>
+<tr class="odd">
+<td>SBERT + SVM (RBF)</td>
+<td>83.4%</td>
+<td>0.878</td>
+<td>0.721</td>
+</tr>
+<tr class="even">
+<td>SBERT + Random Forest</td>
+<td>82.1%</td>
+<td>0.863</td>
+<td>0.698</td>
+</tr>
+</tbody>
+</table>
+<p><strong>ROC Curves — SBERT Models:</strong></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/sbert_roc_curves.png" class="img-fluid figure-img" style="width:85.0%" alt="ROC curves comparing SBERT with Logistic Regression, SVM, and Random Forest classifiers"></p>
+<figcaption>ROC Curves: SBERT Classifier Comparison</figcaption>
+</figure>
+</div>
+<p><strong>Confusion Matrices — SBERT Logistic Regression:</strong></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/sbert_confusion_matrices.png" class="img-fluid figure-img" style="width:85.0%" alt="Confusion matrices for SBERT-based classifiers showing false positive and false negative distributions"></p>
+<figcaption>Confusion Matrices: SBERT Models</figcaption>
+</figure>
+</div>
+</section>
+<section id="embedding-visualization-pca" class="level3" data-number="4.10.3">
+<h3 data-number="4.10.3" class="anchored" data-anchor-id="embedding-visualization-pca"><span class="header-section-number">4.10.3</span> Embedding Visualization (PCA)</h3>
+<p>SBERT embeddings reduced to 2D via PCA reveal clear cluster separation between real and fake articles:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/sbert_embedding_pca.png" class="img-fluid figure-img" style="width:80.0%" alt="PCA visualization of SBERT embeddings showing real vs fake article clusters in 2D space"></p>
+<figcaption>SBERT Embedding Space (PCA)</figcaption>
+</figure>
+</div>
+<p><strong>Finding</strong>: A 15–18% class overlap region corresponds to the irreducible error rate at the <em>title-only</em> boundary—articles that require full text or external knowledge to classify correctly.</p>
+<hr>
+</section>
+</section>
+<section id="part-d2-error-analysis" class="level2" data-number="4.11">
+<h2 data-number="4.11" class="anchored" data-anchor-id="part-d2-error-analysis"><span class="header-section-number">4.11</span> Part D2: Error Analysis</h2>
+<section id="overview-where-every-model-fails" class="level3" data-number="4.11.1">
+<h3 data-number="4.11.1" class="anchored" data-anchor-id="overview-where-every-model-fails"><span class="header-section-number">4.11.1</span> Overview: Where Every Model Fails</h3>
+<p>Understanding failure modes drives targeted improvement. Across all models evaluated (TF-IDF LR, SVM, SBERT LR), false positives share three patterns and false negatives share three others:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/error_analysis_overview.png" class="img-fluid figure-img" style="width:90.0%" alt="Four-panel error analysis showing false positive/negative counts, error type distributions, and feature patterns driving errors"></p>
+<figcaption>Error Analysis Overview</figcaption>
+</figure>
+</div>
+<p><strong>False Positive Drivers</strong> (real news flagged as fake): 1. Sensational entertainment headlines from GossipCop mimicking fake formats 2. Emotional language in opinion pieces flagged as misinformation markers 3. Ambiguous claims that use hedging similar to misinformation patterns</p>
+<p><strong>False Negative Drivers</strong> (fake news slipping through): 1. Neutral, “journalistic” tone that mimics legitimate reporting 2. Subtle false implications embedded in factually accurate-sounding titles 3. Short titles with insufficient lexical signal</p>
+</section>
+<section id="calibration-analysis" class="level3" data-number="4.11.2">
+<h3 data-number="4.11.2" class="anchored" data-anchor-id="calibration-analysis"><span class="header-section-number">4.11.2</span> Calibration Analysis</h3>
+<p>Well-calibrated confidence scores are critical for human-in-the-loop review. We assess whether predicted probabilities match empirical frequencies:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/error_analysis_calibration.png" class="img-fluid figure-img" style="width:80.0%" alt="Calibration curves for all three model types showing reliability and calibration error"></p>
+<figcaption>Calibration Curves</figcaption>
+</figure>
+</div>
+<p><strong>Key finding</strong>: SBERT LR shows the best calibration (ECE = 0.031), making it the most reliable for threshold-based deployment decisions.</p>
+<hr>
+</section>
+</section>
+<section id="part-d3-statistical-model-comparison" class="level2" data-number="4.12">
+<h2 data-number="4.12" class="anchored" data-anchor-id="part-d3-statistical-model-comparison"><span class="header-section-number">4.12</span> Part D3: Statistical Model Comparison</h2>
+<section id="mcnemars-test" class="level3" data-number="4.12.1">
+<h3 data-number="4.12.1" class="anchored" data-anchor-id="mcnemars-test"><span class="header-section-number">4.12.1</span> McNemar’s Test</h3>
+<p>Raw accuracy comparisons are misleading—we need to know if one model’s errors are <em>systematically different</em> from another’s. McNemar’s test checks whether model A and model B disagree on significantly different samples:</p>
+<p><span class="math inline">\(H_0\)</span>: The two models make errors on the same articles. High <span class="math inline">\(p\)</span>-value = no practical difference.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/model_comparison_mcnemar.png" class="img-fluid figure-img" style="width:80.0%" alt="Heatmap of McNemar's test p-values between all pairs of models tested"></p>
+<figcaption>McNemar’s Test Results</figcaption>
+</figure>
+</div>
+<p><strong>Result</strong>: SBERT LR vs.&nbsp;TF-IDF LR: <em>p</em> &lt; 0.001 — errors are on systematically different articles, confirming the improvement is real, not random.</p>
+</section>
+<section id="bootstrap-confidence-intervals" class="level3" data-number="4.12.2">
+<h3 data-number="4.12.2" class="anchored" data-anchor-id="bootstrap-confidence-intervals"><span class="header-section-number">4.12.2</span> Bootstrap Confidence Intervals</h3>
+<p>95% bootstrap confidence intervals for ROC-AUC (n=1,000 resamples) confirm the ranking is stable:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/model_comparison_bootstrap_ci.png" class="img-fluid figure-img" style="width:85.0%" alt="Bootstrap confidence intervals for ROC-AUC across all model types"></p>
+<figcaption>Bootstrap CI: ROC-AUC</figcaption>
+</figure>
+</div>
+</section>
+<section id="comparative-roc-curves-all-models" class="level3" data-number="4.12.3">
+<h3 data-number="4.12.3" class="anchored" data-anchor-id="comparative-roc-curves-all-models"><span class="header-section-number">4.12.3</span> Comparative ROC Curves (All Models)</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/model_comparison_roc.png" class="img-fluid figure-img" style="width:85.0%" alt="ROC curves comparing all NLP models: TF-IDF LR, TF-IDF SVM, SBERT LR, SBERT SVM, SBERT RF"></p>
+<figcaption>Model Comparison: ROC Curves</figcaption>
+</figure>
+</div>
+<hr>
+</section>
+</section>
+<section id="part-e-transformer-fine-tuning" class="level2" data-number="4.13">
+<h2 data-number="4.13" class="anchored" data-anchor-id="part-e-transformer-fine-tuning"><span class="header-section-number">4.13</span> Part E: Transformer Fine-tuning</h2>
+<section id="the-tf-idf-ceiling" class="level3" data-number="4.13.1">
+<h3 data-number="4.13.1" class="anchored" data-anchor-id="the-tf-idf-ceiling"><span class="header-section-number">4.13.1</span> The TF-IDF Ceiling</h3>
 <p>Classical methods plateau at ~0.86 AUC. This ceiling reveals missing signals:</p>
 <ol type="1">
 <li><strong>Contextual nuance</strong>: “Experts warn” vs.&nbsp;“SHOCKING: Experts reveal”</li>
@@ -957,8 +1144,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><strong>Transfer knowledge</strong>: Pre-trained vs.&nbsp;learned-from-scratch</li>
 </ol>
 </section>
-<section id="roberta-bridging-to-deep-semantics" class="level3" data-number="4.10.2">
-<h3 data-number="4.10.2" class="anchored" data-anchor-id="roberta-bridging-to-deep-semantics"><span class="header-section-number">4.10.2</span> RoBERTa: Bridging to Deep Semantics</h3>
+<section id="roberta-bridging-to-deep-semantics" class="level3" data-number="4.13.2">
+<h3 data-number="4.13.2" class="anchored" data-anchor-id="roberta-bridging-to-deep-semantics"><span class="header-section-number">4.13.2</span> RoBERTa: Bridging to Deep Semantics</h3>
 <p><strong>Model</strong>: RoBERTa-base (Pre-trained on 160GB of text) - Architecture: 12 transformer layers, 12 attention heads, 110M parameters - Fine-tuning method: LoRA (Low-Rank Adaptation) = 130K trainable parameters - Training time: ~3 hours on GPU</p>
 <p><strong>Training Configuration</strong>:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Learning rate</span><span class="kw">:</span><span class="at"> </span><span class="fl">2e-4</span></span>
@@ -969,8 +1156,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="fu">Early stopping</span><span class="kw">:</span><span class="at"> 2-epoch patience on F1</span></span>
 <span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="fu">Token length</span><span class="kw">:</span><span class="at"> 128 (sufficient for ~11-word headlines)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="results-transformer-breakthrough" class="level3" data-number="4.10.3">
-<h3 data-number="4.10.3" class="anchored" data-anchor-id="results-transformer-breakthrough"><span class="header-section-number">4.10.3</span> Results: Transformer Breakthrough</h3>
+<section id="results-transformer-breakthrough" class="level3" data-number="4.13.3">
+<h3 data-number="4.13.3" class="anchored" data-anchor-id="results-transformer-breakthrough"><span class="header-section-number">4.13.3</span> Results: Transformer Breakthrough</h3>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -1002,11 +1189,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tbody>
 </table>
 </section>
-<section id="error-reduction" class="level3" data-number="4.10.4">
-<h3 data-number="4.10.4" class="anchored" data-anchor-id="error-reduction"><span class="header-section-number">4.10.4</span> Error Reduction</h3>
+<section id="error-reduction" class="level3" data-number="4.13.4">
+<h3 data-number="4.13.4" class="anchored" data-anchor-id="error-reduction"><span class="header-section-number">4.13.4</span> Error Reduction</h3>
 <p><strong>Confusion Matrix</strong> (RoBERTa): - False Positives: 469 (down 48 from hybrid) - False Negatives: 287 (up 13 from hybrid) - <strong>Trade-off</strong>: Lower type-I errors (preserve real news credibility)</p>
-<section id="precision-recall-curves" class="level4" data-number="4.10.4.1">
-<h4 data-number="4.10.4.1" class="anchored" data-anchor-id="precision-recall-curves"><span class="header-section-number">4.10.4.1</span> Precision-Recall Curves</h4>
+<section id="precision-recall-curves" class="level4" data-number="4.13.4.1">
+<h4 data-number="4.13.4.1" class="anchored" data-anchor-id="precision-recall-curves"><span class="header-section-number">4.13.4.1</span> Precision-Recall Curves</h4>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="../../results/pr_logistic_regression.png" class="img-fluid figure-img" style="width:70.0%" alt="Precision-recall curve for Logistic Regression model showing area under curve"></p>
@@ -1021,8 +1208,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </section>
 </section>
-<section id="why-transformers-win" class="level3" data-number="4.10.5">
-<h3 data-number="4.10.5" class="anchored" data-anchor-id="why-transformers-win"><span class="header-section-number">4.10.5</span> Why Transformers Win</h3>
+<section id="why-transformers-win" class="level3" data-number="4.13.5">
+<h3 data-number="4.13.5" class="anchored" data-anchor-id="why-transformers-win"><span class="header-section-number">4.13.5</span> Why Transformers Win</h3>
 <ol type="1">
 <li><strong>Semantic depth</strong>: Context-aware representations</li>
 <li><strong>Learned patterns</strong>: Transfer from massive pre-training</li>
@@ -1032,15 +1219,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <hr>
 </section>
 </section>
-<section id="part-e-cross-domain-generalization" class="level2" data-number="4.11">
-<h2 data-number="4.11" class="anchored" data-anchor-id="part-e-cross-domain-generalization"><span class="header-section-number">4.11</span> Part E: Cross-Domain Generalization</h2>
-<section id="domain-mismatch-challenge" class="level3" data-number="4.11.1">
-<h3 data-number="4.11.1" class="anchored" data-anchor-id="domain-mismatch-challenge"><span class="header-section-number">4.11.1</span> Domain Mismatch Challenge</h3>
+<section id="part-e-cross-domain-generalization" class="level2" data-number="4.14">
+<h2 data-number="4.14" class="anchored" data-anchor-id="part-e-cross-domain-generalization"><span class="header-section-number">4.14</span> Part E: Cross-Domain Generalization</h2>
+<section id="domain-mismatch-challenge" class="level3" data-number="4.14.1">
+<h3 data-number="4.14.1" class="anchored" data-anchor-id="domain-mismatch-challenge"><span class="header-section-number">4.14.1</span> Domain Mismatch Challenge</h3>
 <p>FakeNewsNet consists of two domains: - <strong>Politifact</strong> (political news): 983 articles - <strong>GossipCop</strong> (entertainment): 20,741 articles</p>
 <p>Models trained on mixed data struggle with domain transfer.</p>
 </section>
-<section id="transfer-performance" class="level3" data-number="4.11.2">
-<h3 data-number="4.11.2" class="anchored" data-anchor-id="transfer-performance"><span class="header-section-number">4.11.2</span> Transfer Performance</h3>
+<section id="transfer-performance" class="level3" data-number="4.14.2">
+<h3 data-number="4.14.2" class="anchored" data-anchor-id="transfer-performance"><span class="header-section-number">4.14.2</span> Transfer Performance</h3>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -1076,10 +1263,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <hr>
 </section>
 </section>
-<section id="part-f-key-findings" class="level2" data-number="4.12">
-<h2 data-number="4.12" class="anchored" data-anchor-id="part-f-key-findings"><span class="header-section-number">4.12</span> Part F: Key Findings</h2>
-<section id="main-results" class="level3" data-number="4.12.1">
-<h3 data-number="4.12.1" class="anchored" data-anchor-id="main-results"><span class="header-section-number">4.12.1</span> Main Results</h3>
+<section id="part-f-key-findings" class="level2" data-number="4.15">
+<h2 data-number="4.15" class="anchored" data-anchor-id="part-f-key-findings"><span class="header-section-number">4.15</span> Part F: Key Findings</h2>
+<section id="main-results" class="level3" data-number="4.15.1">
+<h3 data-number="4.15.1" class="anchored" data-anchor-id="main-results"><span class="header-section-number">4.15.1</span> Main Results</h3>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 23%">
@@ -1117,8 +1304,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tbody>
 </table>
 </section>
-<section id="model-recommendations" class="level3" data-number="4.12.2">
-<h3 data-number="4.12.2" class="anchored" data-anchor-id="model-recommendations"><span class="header-section-number">4.12.2</span> Model Recommendations</h3>
+<section id="model-recommendations" class="level3" data-number="4.15.2">
+<h3 data-number="4.15.2" class="anchored" data-anchor-id="model-recommendations"><span class="header-section-number">4.15.2</span> Model Recommendations</h3>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 25%">
@@ -1153,26 +1340,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <hr>
 </section>
 </section>
-<section id="limitations-scope" class="level2" data-number="4.13">
-<h2 data-number="4.13" class="anchored" data-anchor-id="limitations-scope"><span class="header-section-number">4.13</span> Limitations &amp; Scope</h2>
-<section id="data-limitations" class="level3" data-number="4.13.1">
-<h3 data-number="4.13.1" class="anchored" data-anchor-id="data-limitations"><span class="header-section-number">4.13.1</span> Data Limitations</h3>
+<section id="limitations-scope" class="level2" data-number="4.16">
+<h2 data-number="4.16" class="anchored" data-anchor-id="limitations-scope"><span class="header-section-number">4.16</span> Limitations &amp; Scope</h2>
+<section id="data-limitations" class="level3" data-number="4.16.1">
+<h3 data-number="4.16.1" class="anchored" data-anchor-id="data-limitations"><span class="header-section-number">4.16.1</span> Data Limitations</h3>
 <ol type="1">
 <li><strong>Title-only features</strong>: Missing article body (where verifiable facts appear)</li>
 <li><strong>English-only</strong>: FakeNewsNet = English corpus; cross-language work needed</li>
 <li><strong>Fact-checker bias</strong>: Politifact ≠ universal truth (subjective on political claims)</li>
 </ol>
 </section>
-<section id="model-limitations" class="level3" data-number="4.13.2">
-<h3 data-number="4.13.2" class="anchored" data-anchor-id="model-limitations"><span class="header-section-number">4.13.2</span> Model Limitations</h3>
+<section id="model-limitations" class="level3" data-number="4.16.2">
+<h3 data-number="4.16.2" class="anchored" data-anchor-id="model-limitations"><span class="header-section-number">4.16.2</span> Model Limitations</h3>
 <ol type="1">
 <li><strong>Domain-specific</strong>: Models don’t generalize across Politifact ↔︎ GossipCop</li>
 <li><strong>No temporal dynamics</strong>: Doesn’t capture misinformation cascades or bursts</li>
 <li><strong>No social context</strong>: Ignores user/network effects on spread</li>
 </ol>
 </section>
-<section id="generalizability" class="level3" data-number="4.13.3">
-<h3 data-number="4.13.3" class="anchored" data-anchor-id="generalizability"><span class="header-section-number">4.13.3</span> Generalizability</h3>
+<section id="generalizability" class="level3" data-number="4.16.3">
+<h3 data-number="4.16.3" class="anchored" data-anchor-id="generalizability"><span class="header-section-number">4.16.3</span> Generalizability</h3>
 <ul>
 <li>Results generalize to <strong>English-language news</strong> from fact-checked sources</li>
 <li>May not apply to: propaganda, satire, memes, video, adversarial text</li>
@@ -1180,8 +1367,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <hr>
 </section>
 </section>
-<section id="reproducibility-checklist" class="level2" data-number="4.14">
-<h2 data-number="4.14" class="anchored" data-anchor-id="reproducibility-checklist"><span class="header-section-number">4.14</span> Reproducibility Checklist</h2>
+<section id="reproducibility-checklist" class="level2" data-number="4.17">
+<h2 data-number="4.17" class="anchored" data-anchor-id="reproducibility-checklist"><span class="header-section-number">4.17</span> Reproducibility Checklist</h2>
 <ul>
 <li>✅ Data: FakeNewsNet in <code>data/raw/</code></li>
 <li>✅ Preprocessing: <code>src/data_prep.py</code> with reproducible seeding</li>
@@ -1193,8 +1380,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <hr>
 </section>
-<section id="glossary" class="level2" data-number="4.15">
-<h2 data-number="4.15" class="anchored" data-anchor-id="glossary"><span class="header-section-number">4.15</span> Glossary</h2>
+<section id="glossary" class="level2" data-number="4.18">
+<h2 data-number="4.18" class="anchored" data-anchor-id="glossary"><span class="header-section-number">4.18</span> Glossary</h2>
 <p><strong>TF-IDF</strong>: Term Frequency-Inverse Document Frequency; bag-of-words vectorization<br>
 <strong>RoBERTa</strong>: Robustly Optimized BERT Pre-training Approach; transformer model<br>
 <strong>LoRA</strong>: Low-Rank Adaptation; efficient fine-tuning technique<br>
@@ -1204,8 +1391,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <strong>False negative</strong>: Fake news incorrectly classified as real</p>
 <hr>
 </section>
-<section id="references" class="level2" data-number="4.16">
-<h2 data-number="4.16" class="anchored" data-anchor-id="references"><span class="header-section-number">4.16</span> References</h2>
+<section id="references" class="level2" data-number="4.19">
+<h2 data-number="4.19" class="anchored" data-anchor-id="references"><span class="header-section-number">4.19</span> References</h2>
 <ul>
 <li>Devlin et al.&nbsp;(2019). BERT: Pre-training of deep bidirectional transformers for language understanding.</li>
 <li>Liu et al.&nbsp;(2019). RoBERTa: A Robustly Optimized BERT Pretraining Approach.</li>

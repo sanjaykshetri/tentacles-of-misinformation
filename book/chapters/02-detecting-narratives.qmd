@@ -231,7 +231,7 @@ The unified data pipeline orchestrates loading, cleaning, and feature engineerin
 #### Step 1: Load Raw Data
 
 ```{python}
-#| eval: true
+#| eval: false
 #| code-fold: true
 from pathlib import Path
 from data.pipeline import DataLoader, PipelineConfig
@@ -255,7 +255,7 @@ print(raw_df[['title', 'label', 'dataset']].head(3))
 #### Step 2: Clean & Validate
 
 ```{python}
-#| eval: true
+#| eval: false
 #| code-fold: true
 from data.pipeline import DataCleaner
 
@@ -275,7 +275,7 @@ print(f"  • Retention rate: {len(cleaned_df)/len(raw_df)*100:.1f}%")
 #### Step 3: Extract Linguistic Features
 
 ```{python}
-#| eval: true
+#| eval: false
 #| code-fold: true
 from data.pipeline import FeatureTransformer
 
@@ -302,7 +302,7 @@ print(sentiment_by_label.round(3))
 #### Step 4: Unified Pipeline Execution
 
 ```{python}
-#| eval: true
+#| eval: false
 #| code-fold: true
 from data.pipeline import MisinformationPipeline
 

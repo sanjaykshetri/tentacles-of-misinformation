@@ -65,7 +65,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../chapters/05-epilogue.html" rel="next">
+<link href="../chapters/05-election-case-study.html" rel="next">
 <link href="../chapters/03-modeling-spread.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -212,8 +212,14 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapters/05-epilogue.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Epilogue: Reflection &amp; What Comes Next</span></span></a>
+  <a href="../chapters/05-election-case-study.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Chapter 5: Election Misinformation — A Multimodal Case Study</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/06-epilogue.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Epilogue: Reflection &amp; What Comes Next</span></span></a>
   </div>
 </li>
     </ul>
@@ -251,46 +257,58 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#evolution-of-models-across-units" id="toc-evolution-of-models-across-units" class="nav-link" data-scroll-target="#evolution-of-models-across-units"><span class="header-section-number">6.8.1</span> Evolution of Models Across Units</a></li>
   <li><a href="#use-case-recommended-model" id="toc-use-case-recommended-model" class="nav-link" data-scroll-target="#use-case-recommended-model"><span class="header-section-number">6.8.2</span> Use Case → Recommended Model</a></li>
+  <li><a href="#fusion-architecture-comparison" id="toc-fusion-architecture-comparison" class="nav-link" data-scroll-target="#fusion-architecture-comparison"><span class="header-section-number">6.8.3</span> Fusion Architecture Comparison</a></li>
+  <li><a href="#ablation-studies" id="toc-ablation-studies" class="nav-link" data-scroll-target="#ablation-studies"><span class="header-section-number">6.8.4</span> Ablation Studies</a></li>
   </ul></li>
-  <li><a href="#part-b-production-deployment-pipeline" id="toc-part-b-production-deployment-pipeline" class="nav-link" data-scroll-target="#part-b-production-deployment-pipeline"><span class="header-section-number">6.9</span> Part B: Production Deployment Pipeline</a>
+  <li><a href="#part-a2-global-interpretability" id="toc-part-a2-global-interpretability" class="nav-link" data-scroll-target="#part-a2-global-interpretability"><span class="header-section-number">6.9</span> Part A2: Global Interpretability</a>
   <ul class="collapse">
-  <li><a href="#architecture-overview" id="toc-architecture-overview" class="nav-link" data-scroll-target="#architecture-overview"><span class="header-section-number">6.9.1</span> Architecture Overview</a></li>
-  <li><a href="#data-flow" id="toc-data-flow" class="nav-link" data-scroll-target="#data-flow"><span class="header-section-number">6.9.2</span> Data Flow</a></li>
-  <li><a href="#model-serving" id="toc-model-serving" class="nav-link" data-scroll-target="#model-serving"><span class="header-section-number">6.9.3</span> Model Serving</a></li>
+  <li><a href="#permutation-feature-importance" id="toc-permutation-feature-importance" class="nav-link" data-scroll-target="#permutation-feature-importance"><span class="header-section-number">6.9.1</span> Permutation Feature Importance</a></li>
+  <li><a href="#partial-dependence-plots" id="toc-partial-dependence-plots" class="nav-link" data-scroll-target="#partial-dependence-plots"><span class="header-section-number">6.9.2</span> Partial Dependence Plots</a></li>
+  <li><a href="#individual-prediction-explanations" id="toc-individual-prediction-explanations" class="nav-link" data-scroll-target="#individual-prediction-explanations"><span class="header-section-number">6.9.3</span> Individual Prediction Explanations</a></li>
   </ul></li>
-  <li><a href="#part-c-interactive-dashboards" id="toc-part-c-interactive-dashboards" class="nav-link" data-scroll-target="#part-c-interactive-dashboards"><span class="header-section-number">6.10</span> Part C: Interactive Dashboards</a>
+  <li><a href="#part-a3-validation-generalization" id="toc-part-a3-validation-generalization" class="nav-link" data-scroll-target="#part-a3-validation-generalization"><span class="header-section-number">6.10</span> Part A3: Validation &amp; Generalization</a>
   <ul class="collapse">
-  <li><a href="#design-principles" id="toc-design-principles" class="nav-link" data-scroll-target="#design-principles"><span class="header-section-number">6.10.1</span> Design Principles</a></li>
-  <li><a href="#dashboard-components" id="toc-dashboard-components" class="nav-link" data-scroll-target="#dashboard-components"><span class="header-section-number">6.10.2</span> Dashboard Components</a></li>
-  <li><a href="#technology-stack" id="toc-technology-stack" class="nav-link" data-scroll-target="#technology-stack"><span class="header-section-number">6.10.3</span> Technology Stack</a></li>
-  <li><a href="#live-dashboards-visualizations" id="toc-live-dashboards-visualizations" class="nav-link" data-scroll-target="#live-dashboards-visualizations"><span class="header-section-number">6.10.4</span> Live Dashboards &amp; Visualizations</a></li>
+  <li><a href="#nested-cross-validation" id="toc-nested-cross-validation" class="nav-link" data-scroll-target="#nested-cross-validation"><span class="header-section-number">6.10.1</span> Nested Cross-Validation</a></li>
+  <li><a href="#bootstrap-confidence-intervals" id="toc-bootstrap-confidence-intervals" class="nav-link" data-scroll-target="#bootstrap-confidence-intervals"><span class="header-section-number">6.10.2</span> Bootstrap Confidence Intervals</a></li>
+  <li><a href="#domain-transfer-performance" id="toc-domain-transfer-performance" class="nav-link" data-scroll-target="#domain-transfer-performance"><span class="header-section-number">6.10.3</span> Domain Transfer Performance</a></li>
+  <li><a href="#overall-validation-summary" id="toc-overall-validation-summary" class="nav-link" data-scroll-target="#overall-validation-summary"><span class="header-section-number">6.10.4</span> Overall Validation Summary</a></li>
+  <li><a href="#architecture-overview" id="toc-architecture-overview" class="nav-link" data-scroll-target="#architecture-overview"><span class="header-section-number">6.10.5</span> Architecture Overview</a></li>
+  <li><a href="#data-flow" id="toc-data-flow" class="nav-link" data-scroll-target="#data-flow"><span class="header-section-number">6.10.6</span> Data Flow</a></li>
+  <li><a href="#model-serving" id="toc-model-serving" class="nav-link" data-scroll-target="#model-serving"><span class="header-section-number">6.10.7</span> Model Serving</a></li>
   </ul></li>
-  <li><a href="#part-d-ethical-framework-responsible-deployment" id="toc-part-d-ethical-framework-responsible-deployment" class="nav-link" data-scroll-target="#part-d-ethical-framework-responsible-deployment"><span class="header-section-number">6.11</span> Part D: Ethical Framework &amp; Responsible Deployment</a>
+  <li><a href="#part-c-interactive-dashboards" id="toc-part-c-interactive-dashboards" class="nav-link" data-scroll-target="#part-c-interactive-dashboards"><span class="header-section-number">6.11</span> Part C: Interactive Dashboards</a>
   <ul class="collapse">
-  <li><a href="#core-tensions" id="toc-core-tensions" class="nav-link" data-scroll-target="#core-tensions"><span class="header-section-number">6.11.1</span> Core Tensions</a></li>
-  <li><a href="#deployment-safeguards" id="toc-deployment-safeguards" class="nav-link" data-scroll-target="#deployment-safeguards"><span class="header-section-number">6.11.2</span> Deployment Safeguards</a></li>
-  <li><a href="#case-study-misuse-prevention" id="toc-case-study-misuse-prevention" class="nav-link" data-scroll-target="#case-study-misuse-prevention"><span class="header-section-number">6.11.3</span> Case Study: Misuse Prevention</a></li>
+  <li><a href="#design-principles" id="toc-design-principles" class="nav-link" data-scroll-target="#design-principles"><span class="header-section-number">6.11.1</span> Design Principles</a></li>
+  <li><a href="#dashboard-components" id="toc-dashboard-components" class="nav-link" data-scroll-target="#dashboard-components"><span class="header-section-number">6.11.2</span> Dashboard Components</a></li>
+  <li><a href="#technology-stack" id="toc-technology-stack" class="nav-link" data-scroll-target="#technology-stack"><span class="header-section-number">6.11.3</span> Technology Stack</a></li>
+  <li><a href="#live-dashboards-visualizations" id="toc-live-dashboards-visualizations" class="nav-link" data-scroll-target="#live-dashboards-visualizations"><span class="header-section-number">6.11.4</span> Live Dashboards &amp; Visualizations</a></li>
   </ul></li>
-  <li><a href="#part-e-monitoring-continuous-improvement" id="toc-part-e-monitoring-continuous-improvement" class="nav-link" data-scroll-target="#part-e-monitoring-continuous-improvement"><span class="header-section-number">6.12</span> Part E: Monitoring &amp; Continuous Improvement</a>
+  <li><a href="#part-d-ethical-framework-responsible-deployment" id="toc-part-d-ethical-framework-responsible-deployment" class="nav-link" data-scroll-target="#part-d-ethical-framework-responsible-deployment"><span class="header-section-number">6.12</span> Part D: Ethical Framework &amp; Responsible Deployment</a>
   <ul class="collapse">
-  <li><a href="#performance-monitoring" id="toc-performance-monitoring" class="nav-link" data-scroll-target="#performance-monitoring"><span class="header-section-number">6.12.1</span> Performance Monitoring</a></li>
-  <li><a href="#data-drift-detection" id="toc-data-drift-detection" class="nav-link" data-scroll-target="#data-drift-detection"><span class="header-section-number">6.12.2</span> Data Drift Detection</a></li>
-  <li><a href="#retraining-cadence" id="toc-retraining-cadence" class="nav-link" data-scroll-target="#retraining-cadence"><span class="header-section-number">6.12.3</span> Retraining Cadence</a></li>
+  <li><a href="#core-tensions" id="toc-core-tensions" class="nav-link" data-scroll-target="#core-tensions"><span class="header-section-number">6.12.1</span> Core Tensions</a></li>
+  <li><a href="#deployment-safeguards" id="toc-deployment-safeguards" class="nav-link" data-scroll-target="#deployment-safeguards"><span class="header-section-number">6.12.2</span> Deployment Safeguards</a></li>
+  <li><a href="#case-study-misuse-prevention" id="toc-case-study-misuse-prevention" class="nav-link" data-scroll-target="#case-study-misuse-prevention"><span class="header-section-number">6.12.3</span> Case Study: Misuse Prevention</a></li>
   </ul></li>
-  <li><a href="#part-f-key-findings-recommendations" id="toc-part-f-key-findings-recommendations" class="nav-link" data-scroll-target="#part-f-key-findings-recommendations"><span class="header-section-number">6.13</span> Part F: Key Findings &amp; Recommendations</a>
+  <li><a href="#part-e-monitoring-continuous-improvement" id="toc-part-e-monitoring-continuous-improvement" class="nav-link" data-scroll-target="#part-e-monitoring-continuous-improvement"><span class="header-section-number">6.13</span> Part E: Monitoring &amp; Continuous Improvement</a>
   <ul class="collapse">
-  <li><a href="#model-ensemble-performance" id="toc-model-ensemble-performance" class="nav-link" data-scroll-target="#model-ensemble-performance"><span class="header-section-number">6.13.1</span> Model Ensemble Performance</a></li>
-  <li><a href="#deployment-readiness-checklist" id="toc-deployment-readiness-checklist" class="nav-link" data-scroll-target="#deployment-readiness-checklist"><span class="header-section-number">6.13.2</span> Deployment Readiness Checklist</a></li>
-  <li><a href="#operational-recommendations" id="toc-operational-recommendations" class="nav-link" data-scroll-target="#operational-recommendations"><span class="header-section-number">6.13.3</span> Operational Recommendations</a></li>
+  <li><a href="#performance-monitoring" id="toc-performance-monitoring" class="nav-link" data-scroll-target="#performance-monitoring"><span class="header-section-number">6.13.1</span> Performance Monitoring</a></li>
+  <li><a href="#data-drift-detection" id="toc-data-drift-detection" class="nav-link" data-scroll-target="#data-drift-detection"><span class="header-section-number">6.13.2</span> Data Drift Detection</a></li>
+  <li><a href="#retraining-cadence" id="toc-retraining-cadence" class="nav-link" data-scroll-target="#retraining-cadence"><span class="header-section-number">6.13.3</span> Retraining Cadence</a></li>
   </ul></li>
-  <li><a href="#limitations-future-work" id="toc-limitations-future-work" class="nav-link" data-scroll-target="#limitations-future-work"><span class="header-section-number">6.14</span> Limitations &amp; Future Work</a>
+  <li><a href="#part-f-key-findings-recommendations" id="toc-part-f-key-findings-recommendations" class="nav-link" data-scroll-target="#part-f-key-findings-recommendations"><span class="header-section-number">6.14</span> Part F: Key Findings &amp; Recommendations</a>
   <ul class="collapse">
-  <li><a href="#current-limitations" id="toc-current-limitations" class="nav-link" data-scroll-target="#current-limitations"><span class="header-section-number">6.14.1</span> Current Limitations</a></li>
-  <li><a href="#future-directions" id="toc-future-directions" class="nav-link" data-scroll-target="#future-directions"><span class="header-section-number">6.14.2</span> Future Directions</a></li>
+  <li><a href="#model-ensemble-performance" id="toc-model-ensemble-performance" class="nav-link" data-scroll-target="#model-ensemble-performance"><span class="header-section-number">6.14.1</span> Model Ensemble Performance</a></li>
+  <li><a href="#deployment-readiness-checklist" id="toc-deployment-readiness-checklist" class="nav-link" data-scroll-target="#deployment-readiness-checklist"><span class="header-section-number">6.14.2</span> Deployment Readiness Checklist</a></li>
+  <li><a href="#operational-recommendations" id="toc-operational-recommendations" class="nav-link" data-scroll-target="#operational-recommendations"><span class="header-section-number">6.14.3</span> Operational Recommendations</a></li>
   </ul></li>
-  <li><a href="#reproducibility-checklist" id="toc-reproducibility-checklist" class="nav-link" data-scroll-target="#reproducibility-checklist"><span class="header-section-number">6.15</span> Reproducibility Checklist</a></li>
-  <li><a href="#glossary" id="toc-glossary" class="nav-link" data-scroll-target="#glossary"><span class="header-section-number">6.16</span> Glossary</a></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">6.17</span> References</a></li>
+  <li><a href="#limitations-future-work" id="toc-limitations-future-work" class="nav-link" data-scroll-target="#limitations-future-work"><span class="header-section-number">6.15</span> Limitations &amp; Future Work</a>
+  <ul class="collapse">
+  <li><a href="#current-limitations" id="toc-current-limitations" class="nav-link" data-scroll-target="#current-limitations"><span class="header-section-number">6.15.1</span> Current Limitations</a></li>
+  <li><a href="#future-directions" id="toc-future-directions" class="nav-link" data-scroll-target="#future-directions"><span class="header-section-number">6.15.2</span> Future Directions</a></li>
+  </ul></li>
+  <li><a href="#reproducibility-checklist" id="toc-reproducibility-checklist" class="nav-link" data-scroll-target="#reproducibility-checklist"><span class="header-section-number">6.16</span> Reproducibility Checklist</a></li>
+  <li><a href="#glossary" id="toc-glossary" class="nav-link" data-scroll-target="#glossary"><span class="header-section-number">6.17</span> Glossary</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">6.18</span> References</a></li>
   </ul>
 </nav>
     </div>
@@ -593,13 +611,209 @@ Prediction API + Dashboard
 </tr>
 </tbody>
 </table>
+</section>
+<section id="fusion-architecture-comparison" class="level3" data-number="6.8.3">
+<h3 data-number="6.8.3" class="anchored" data-anchor-id="fusion-architecture-comparison"><span class="header-section-number">6.8.3</span> Fusion Architecture Comparison</h3>
+<p>We evaluated four fusion strategies: early fusion (concatenated raw features), late fusion (averaged logits), intermediate fusion (shared representation layer), and stacking (meta-learner on model outputs). The following figure summarizes ROC-AUC, training time, and interpretability trade-offs:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/fusion_architectures_comparison.png" class="img-fluid figure-img" style="width:90.0%" alt="Bar chart comparing early, late, intermediate, and stacking fusion architectures on ROC-AUC and training time"></p>
+<figcaption>Fusion Architectures Comparison</figcaption>
+</figure>
+</div>
+<p><strong>Results summary</strong>:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Architecture</th>
+<th>ROC-AUC</th>
+<th>Train Time</th>
+<th>Interpretability</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Early Fusion (GBM)</td>
+<td>0.903</td>
+<td>45s</td>
+<td>Medium</td>
+</tr>
+<tr class="even">
+<td>Late Fusion (avg logits)</td>
+<td>0.891</td>
+<td>12s</td>
+<td>High</td>
+</tr>
+<tr class="odd">
+<td>Intermediate MLP</td>
+<td>0.897</td>
+<td>90s</td>
+<td>Low</td>
+</tr>
+<tr class="even">
+<td><strong>Stacking (meta-LR)</strong></td>
+<td><strong>0.912</strong></td>
+<td>60s</td>
+<td><strong>High</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Winner</strong>: Stacking with logistic meta-learner achieves the best AUC while remaining interpretable—the meta-learner weights are directly readable as modality importance scores.</p>
+</section>
+<section id="ablation-studies" class="level3" data-number="6.8.4">
+<h3 data-number="6.8.4" class="anchored" data-anchor-id="ablation-studies"><span class="header-section-number">6.8.4</span> Ablation Studies</h3>
+<section id="modality-ablation" class="level4" data-number="6.8.4.1">
+<h4 data-number="6.8.4.1" class="anchored" data-anchor-id="modality-ablation"><span class="header-section-number">6.8.4.1</span> Modality Ablation</h4>
+<p>Removing each input modality one at a time quantifies its unique contribution:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/ablation_modality.png" class="img-fluid figure-img" style="width:85.0%" alt="Bar chart showing AUC degradation when each modality is removed from the stacking ensemble"></p>
+<figcaption>Modality Ablation</figcaption>
+</figure>
+</div>
+<p>NLP features dominate (−5.2% AUC when removed), followed by behavioral (−2.8%) and network (−1.9%). All three are necessary.</p>
+</section>
+<section id="behavioral-feature-ablation" class="level4" data-number="6.8.4.2">
+<h4 data-number="6.8.4.2" class="anchored" data-anchor-id="behavioral-feature-ablation"><span class="header-section-number">6.8.4.2</span> Behavioral Feature Ablation</h4>
+<p>Within the behavioral feature group, which features matter most?</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/ablation_behavioral_features.png" class="img-fluid figure-img" style="width:85.0%" alt="Incremental AUC contribution of individual behavioral features added one at a time"></p>
+<figcaption>Behavioral Feature Ablation</figcaption>
+</figure>
+</div>
+<p>Top 3 behavioral contributors: 1. <strong>Emotional intensifier count</strong> — strongest discriminator between real and fake 2. <strong>Certainty term ratio</strong> — fake articles assert more absolute claims 3. <strong>Flesch-Kincaid grade</strong> — fake articles target lower reading levels</p>
+</section>
+<section id="learning-curves" class="level4" data-number="6.8.4.3">
+<h4 data-number="6.8.4.3" class="anchored" data-anchor-id="learning-curves"><span class="header-section-number">6.8.4.3</span> Learning Curves</h4>
+<p>Learning curves diagnose whether more data or better models would help:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/ablation_learning_curves.png" class="img-fluid figure-img" style="width:85.0%" alt="Learning curves showing train vs validation AUC as a function of training set size for all fusion models"></p>
+<figcaption>Learning Curves</figcaption>
+</figure>
+</div>
+<p><strong>Finding</strong>: All fusion models plateau at ~15,000 training examples. Performance is <em>model-bound</em> not <em>data-bound</em> at current scale — the bottleneck is feature representation quality, not sample count.</p>
 <hr>
 </section>
 </section>
-<section id="part-b-production-deployment-pipeline" class="level2" data-number="6.9">
-<h2 data-number="6.9" class="anchored" data-anchor-id="part-b-production-deployment-pipeline"><span class="header-section-number">6.9</span> Part B: Production Deployment Pipeline</h2>
-<section id="architecture-overview" class="level3" data-number="6.9.1">
-<h3 data-number="6.9.1" class="anchored" data-anchor-id="architecture-overview"><span class="header-section-number">6.9.1</span> Architecture Overview</h3>
+</section>
+<section id="part-a2-global-interpretability" class="level2" data-number="6.9">
+<h2 data-number="6.9" class="anchored" data-anchor-id="part-a2-global-interpretability"><span class="header-section-number">6.9</span> Part A2: Global Interpretability</h2>
+<section id="permutation-feature-importance" class="level3" data-number="6.9.1">
+<h3 data-number="6.9.1" class="anchored" data-anchor-id="permutation-feature-importance"><span class="header-section-number">6.9.1</span> Permutation Feature Importance</h3>
+<p>Which features drive predictions the most, when measured by the AUC drop from random permutation?</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/permutation_importance.png" class="img-fluid figure-img" style="width:85.0%" alt="Horizontal bar chart showing permutation importance scores for top 20 features across the fusion model"></p>
+<figcaption>Permutation Importance</figcaption>
+</figure>
+</div>
+<p>The top-5 most important features across the full fusion model: 1. <strong>SBERT embedding PC1</strong> — first principal component of semantic space 2. <strong>TF-IDF logit</strong> — direct baseline model signal 3. <strong>Emotional intensifier count</strong> — behavioral marker 4. <strong>Certainty term ratio</strong> — linguistic manipulation signal 5. <strong>SBERT embedding PC3</strong> — third semantic principal component</p>
+</section>
+<section id="partial-dependence-plots" class="level3" data-number="6.9.2">
+<h3 data-number="6.9.2" class="anchored" data-anchor-id="partial-dependence-plots"><span class="header-section-number">6.9.2</span> Partial Dependence Plots</h3>
+<p>Partial dependence plots reveal the <em>shape</em> of each feature’s effect on prediction, averaged over all other features:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/partial_dependence_behavioral.png" class="img-fluid figure-img" style="width:85.0%" alt="Partial dependence plots for top behavioral features showing monotonic and non-linear relationships with predicted probability"></p>
+<figcaption>Partial Dependence: Behavioral Features</figcaption>
+</figure>
+</div>
+<p><strong>Insights</strong>: - <code>Emotional intensifier count</code> has a monotonically increasing relationship — more intensifiers = linearly higher fake probability - <code>Flesch-Kincaid grade</code> shows a U-shape — very simple AND very complex language both correlate with misinformation - <code>Certainty term ratio</code> has a threshold effect — flat below 0.05 per word, then steeply rising</p>
+</section>
+<section id="individual-prediction-explanations" class="level3" data-number="6.9.3">
+<h3 data-number="6.9.3" class="anchored" data-anchor-id="individual-prediction-explanations"><span class="header-section-number">6.9.3</span> Individual Prediction Explanations</h3>
+<p>For stakeholder trust and regulatory compliance, every prediction needs an explanation. SHAP (SHapley Additive exPlanations) decomposes each prediction into feature contributions:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/individual_explanations.png" class="img-fluid figure-img" style="width:90.0%" alt="SHAP waterfall plots for 4 representative articles showing feature contributions to individual predictions"></p>
+<figcaption>Individual Explanations (SHAP)</figcaption>
+</figure>
+</div>
+<p>Each waterfall plot answers: <em>“Why did the model assign this credibility score to this article?”</em> Feature bars show pushing toward (red) or against (blue) the fake classification.</p>
+<hr>
+</section>
+</section>
+<section id="part-a3-validation-generalization" class="level2" data-number="6.10">
+<h2 data-number="6.10" class="anchored" data-anchor-id="part-a3-validation-generalization"><span class="header-section-number">6.10</span> Part A3: Validation &amp; Generalization</h2>
+<section id="nested-cross-validation" class="level3" data-number="6.10.1">
+<h3 data-number="6.10.1" class="anchored" data-anchor-id="nested-cross-validation"><span class="header-section-number">6.10.1</span> Nested Cross-Validation</h3>
+<p>Standard k-fold CV is optimistically biased when hyperparameters are tuned on the same folds used for evaluation. We used nested CV (outer 5-fold, inner 3-fold) for unbiased generalization estimates:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/validation_nested_cv.png" class="img-fluid figure-img" style="width:85.0%" alt="Box plots showing AUC distribution across 5 outer folds for each model, demonstrating variance and stability"></p>
+<figcaption>Nested Cross-Validation Results</figcaption>
+</figure>
+</div>
+<p><strong>Results</strong>: Stacking ensemble achieves 0.908 ± 0.012 AUC across outer folds — the ±0.012 standard deviation confirms the result is stable (not a lucky split).</p>
+</section>
+<section id="bootstrap-confidence-intervals" class="level3" data-number="6.10.2">
+<h3 data-number="6.10.2" class="anchored" data-anchor-id="bootstrap-confidence-intervals"><span class="header-section-number">6.10.2</span> Bootstrap Confidence Intervals</h3>
+<p>1,000 bootstrap resamples produce 95% CIs for all key metrics:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/validation_bootstrap_ci.png" class="img-fluid figure-img" style="width:85.0%" alt="Forest plot showing 95% bootstrap confidence intervals for AUC, accuracy, and F1 across all models"></p>
+<figcaption>Bootstrap Confidence Intervals</figcaption>
+</figure>
+</div>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 24%">
+<col style="width: 31%">
+<col style="width: 44%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Model</th>
+<th>AUC (95% CI)</th>
+<th>Accuracy (95% CI)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>TF-IDF LR</td>
+<td>0.859 [0.841, 0.877]</td>
+<td>81.2% [79.4%, 83.1%]</td>
+</tr>
+<tr class="even">
+<td>SBERT LR</td>
+<td>0.894 [0.878, 0.910]</td>
+<td>85.7% [83.9%, 87.5%]</td>
+</tr>
+<tr class="odd">
+<td>Stacking Ensemble</td>
+<td><strong>0.912 [0.896, 0.927]</strong></td>
+<td><strong>87.1% [85.3%, 88.9%]</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Non-overlapping CIs between TF-IDF LR and the stacking ensemble confirm the improvement is statistically meaningful.</p>
+</section>
+<section id="domain-transfer-performance" class="level3" data-number="6.10.3">
+<h3 data-number="6.10.3" class="anchored" data-anchor-id="domain-transfer-performance"><span class="header-section-number">6.10.3</span> Domain Transfer Performance</h3>
+<p>A production system must generalize to articles it was never trained on. We measured performance when training on one domain (Politifact or GossipCop) and evaluating on the other:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/validation_domain_transfer.png" class="img-fluid figure-img" style="width:85.0%" alt="Heatmap of AUC scores for each source-target domain combination, showing cross-domain generalization gaps"></p>
+<figcaption>Domain Transfer Results</figcaption>
+</figure>
+</div>
+<p><strong>Finding</strong>: All models degrade significantly in cross-domain settings (−8 to −14% AUC). Domain-specific fine-tuning or domain adaptation is essential for production deployment.</p>
+</section>
+<section id="overall-validation-summary" class="level3" data-number="6.10.4">
+<h3 data-number="6.10.4" class="anchored" data-anchor-id="overall-validation-summary"><span class="header-section-number">6.10.4</span> Overall Validation Summary</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/validation_final_summary.png" class="img-fluid figure-img" style="width:90.0%" alt="Multi-panel summary showing nested CV stability, bootstrap CIs, and domain transfer for the recommended stacking ensemble"></p>
+<figcaption>Validation Final Summary</figcaption>
+</figure>
+</div>
+<p>The stacking ensemble meets all production validation thresholds: - ✅ Nested CV AUC ≥ 0.90 (achieved: 0.908) - ✅ Bootstrap CI width &lt; 0.04 (achieved: 0.031) - ✅ Performance gap between domains documented (enables targeted fine-tuning)</p>
+<hr>
+</section>
+<section id="architecture-overview" class="level3" data-number="6.10.5">
+<h3 data-number="6.10.5" class="anchored" data-anchor-id="architecture-overview"><span class="header-section-number">6.10.5</span> Architecture Overview</h3>
 <pre><code>┌─────────────────┐
 │   Raw Articles  │
 │   (URLs, text)  │
@@ -636,13 +850,13 @@ Prediction API + Dashboard
               └────────┘  └───────┘  └───────┘</code></pre>
 <p><strong>Latency budget</strong> (160ms total): - Input validation: 10ms - Preprocessing: 20ms - Feature extraction: 40ms - Model inference: 50ms - Aggregation &amp; post-processing: 30ms - Output formatting &amp; delivery: 10ms</p>
 </section>
-<section id="data-flow" class="level3" data-number="6.9.2">
-<h3 data-number="6.9.2" class="anchored" data-anchor-id="data-flow"><span class="header-section-number">6.9.2</span> Data Flow</h3>
+<section id="data-flow" class="level3" data-number="6.10.6">
+<h3 data-number="6.10.6" class="anchored" data-anchor-id="data-flow"><span class="header-section-number">6.10.6</span> Data Flow</h3>
 <p><strong>Input</strong>: Article titles or URLs (batch or streaming) <strong>Processing</strong>: 1. Text cleaning (remove URLs, normalize unicode) 2. Language detection (filter non-English) 3. TF-IDF vectorization 4. RoBERTa tokenization &amp; embedding 5. Behavioral feature extraction (sentiment, hedging, etc.)</p>
 <p><strong>Output</strong>: - Credibility score (0-1) - Confidence interval - Feature attributions (which words/patterns drove prediction?) - Uncertainty quantification</p>
 </section>
-<section id="model-serving" class="level3" data-number="6.9.3">
-<h3 data-number="6.9.3" class="anchored" data-anchor-id="model-serving"><span class="header-section-number">6.9.3</span> Model Serving</h3>
+<section id="model-serving" class="level3" data-number="6.10.7">
+<h3 data-number="6.10.7" class="anchored" data-anchor-id="model-serving"><span class="header-section-number">6.10.7</span> Model Serving</h3>
 <p><strong>Technology options</strong>:</p>
 <table class="caption-top table">
 <colgroup>
@@ -691,19 +905,19 @@ Prediction API + Dashboard
 <hr>
 </section>
 </section>
-<section id="part-c-interactive-dashboards" class="level2" data-number="6.10">
-<h2 data-number="6.10" class="anchored" data-anchor-id="part-c-interactive-dashboards"><span class="header-section-number">6.10</span> Part C: Interactive Dashboards</h2>
-<section id="design-principles" class="level3" data-number="6.10.1">
-<h3 data-number="6.10.1" class="anchored" data-anchor-id="design-principles"><span class="header-section-number">6.10.1</span> Design Principles</h3>
+<section id="part-c-interactive-dashboards" class="level2" data-number="6.11">
+<h2 data-number="6.11" class="anchored" data-anchor-id="part-c-interactive-dashboards"><span class="header-section-number">6.11</span> Part C: Interactive Dashboards</h2>
+<section id="design-principles" class="level3" data-number="6.11.1">
+<h3 data-number="6.11.1" class="anchored" data-anchor-id="design-principles"><span class="header-section-number">6.11.1</span> Design Principles</h3>
 <p><strong>1. Progressive Disclosure</strong> - Start with simple: What % of articles are flagged as potentially problematic? - Allow deep-dive: Which specific articles? Which features drove predictions?</p>
 <p><strong>2. Context &amp; Uncertainty</strong> - Show confidence intervals around predictions - Highlight failure modes and limitations - Use opacity/color to encode uncertainty</p>
 <p><strong>3. Actionability</strong> Every visualization should answer: “What should I do with this information?” - Example: “These 47 articles have high uncertainty. Recommend manual review.”</p>
 <p><strong>4. Accessibility</strong> - High-contrast color schemes - Colorblind-friendly palettes (not red-green) - Keyboard navigation support - Screen reader compatibility</p>
 </section>
-<section id="dashboard-components" class="level3" data-number="6.10.2">
-<h3 data-number="6.10.2" class="anchored" data-anchor-id="dashboard-components"><span class="header-section-number">6.10.2</span> Dashboard Components</h3>
-<section id="spread-transmission-interactive-network" class="level4" data-number="6.10.2.1">
-<h4 data-number="6.10.2.1" class="anchored" data-anchor-id="spread-transmission-interactive-network"><span class="header-section-number">6.10.2.1</span> 1. Spread &amp; Transmission (Interactive Network)</h4>
+<section id="dashboard-components" class="level3" data-number="6.11.2">
+<h3 data-number="6.11.2" class="anchored" data-anchor-id="dashboard-components"><span class="header-section-number">6.11.2</span> Dashboard Components</h3>
+<section id="spread-transmission-interactive-network" class="level4" data-number="6.11.2.1">
+<h4 data-number="6.11.2.1" class="anchored" data-anchor-id="spread-transmission-interactive-network"><span class="header-section-number">6.11.2.1</span> 1. Spread &amp; Transmission (Interactive Network)</h4>
 <ul>
 <li><strong>Graph</strong>: Social network with nodes = users/entities, edges = sharing</li>
 <li><strong>Node color</strong>: Risk level (green = low susceptibility, red = high)</li>
@@ -712,8 +926,8 @@ Prediction API + Dashboard
 <li><strong>Tooltips</strong>: User details, historical engagement, demographic info</li>
 </ul>
 </section>
-<section id="risk-profile-heatmap" class="level4" data-number="6.10.2.2">
-<h4 data-number="6.10.2.2" class="anchored" data-anchor-id="risk-profile-heatmap"><span class="header-section-number">6.10.2.2</span> 2. Risk Profile Heatmap</h4>
+<section id="risk-profile-heatmap" class="level4" data-number="6.11.2.2">
+<h4 data-number="6.11.2.2" class="anchored" data-anchor-id="risk-profile-heatmap"><span class="header-section-number">6.11.2.2</span> 2. Risk Profile Heatmap</h4>
 <ul>
 <li><strong>Rows</strong>: Demographics (age group, education, political affiliation)</li>
 <li><strong>Columns</strong>: Emotional sensitivity, cognitive reflection</li>
@@ -721,8 +935,8 @@ Prediction API + Dashboard
 <li><strong>Interactivity</strong>: Filter by any trait, hover for confidence intervals</li>
 </ul>
 </section>
-<section id="model-predictions-individual-level" class="level4" data-number="6.10.2.3">
-<h4 data-number="6.10.2.3" class="anchored" data-anchor-id="model-predictions-individual-level"><span class="header-section-number">6.10.2.3</span> 3. Model Predictions (Individual-Level)</h4>
+<section id="model-predictions-individual-level" class="level4" data-number="6.11.2.3">
+<h4 data-number="6.11.2.3" class="anchored" data-anchor-id="model-predictions-individual-level"><span class="header-section-number">6.11.2.3</span> 3. Model Predictions (Individual-Level)</h4>
 <ul>
 <li><strong>Input interface</strong>: Sliders for user traits (age, numeracy, emotion)</li>
 <li><strong>Output</strong>: “This user has 62% predicted likelihood of sharing; 95% CI: [54%, 70%]”</li>
@@ -730,8 +944,8 @@ Prediction API + Dashboard
 <li><strong>Feature importance</strong>: Waterfall chart showing contribution of each trait</li>
 </ul>
 </section>
-<section id="nlp-classifier-analysis" class="level4" data-number="6.10.2.4">
-<h4 data-number="6.10.2.4" class="anchored" data-anchor-id="nlp-classifier-analysis"><span class="header-section-number">6.10.2.4</span> 4. NLP Classifier Analysis</h4>
+<section id="nlp-classifier-analysis" class="level4" data-number="6.11.2.4">
+<h4 data-number="6.11.2.4" class="anchored" data-anchor-id="nlp-classifier-analysis"><span class="header-section-number">6.11.2.4</span> 4. NLP Classifier Analysis</h4>
 <ul>
 <li><strong>Text input box</strong>: Users paste article title or claim</li>
 <li><strong>Output display</strong>:
@@ -744,16 +958,16 @@ Prediction API + Dashboard
 <li><strong>Similar narratives</strong>: “This narrative is similar to 12 previous false claims about…”</li>
 </ul>
 </section>
-<section id="temporal-trends" class="level4" data-number="6.10.2.5">
-<h4 data-number="6.10.2.5" class="anchored" data-anchor-id="temporal-trends"><span class="header-section-number">6.10.2.5</span> 5. Temporal Trends</h4>
+<section id="temporal-trends" class="level4" data-number="6.11.2.5">
+<h4 data-number="6.11.2.5" class="anchored" data-anchor-id="temporal-trends"><span class="header-section-number">6.11.2.5</span> 5. Temporal Trends</h4>
 <ul>
 <li><strong>Time series</strong>: Belief prevalence over time, stratified by demographic</li>
 <li><strong>Annotation layer</strong>: Mark external events (fact-checks, media coverage, interventions)</li>
 <li><strong>Impact visualization</strong>: Show correlation between intervention and belief decline</li>
 </ul>
 </section>
-<section id="monitoring-dashboard" class="level4" data-number="6.10.2.6">
-<h4 data-number="6.10.2.6" class="anchored" data-anchor-id="monitoring-dashboard"><span class="header-section-number">6.10.2.6</span> 6. Monitoring Dashboard</h4>
+<section id="monitoring-dashboard" class="level4" data-number="6.11.2.6">
+<h4 data-number="6.11.2.6" class="anchored" data-anchor-id="monitoring-dashboard"><span class="header-section-number">6.11.2.6</span> 6. Monitoring Dashboard</h4>
 <ul>
 <li><strong>Model performance</strong>: Accuracy, AUC-ROC on recent predictions</li>
 <li><strong>Data drift</strong>: Feature distributions changing?</li>
@@ -762,8 +976,8 @@ Prediction API + Dashboard
 </ul>
 </section>
 </section>
-<section id="technology-stack" class="level3" data-number="6.10.3">
-<h3 data-number="6.10.3" class="anchored" data-anchor-id="technology-stack"><span class="header-section-number">6.10.3</span> Technology Stack</h3>
+<section id="technology-stack" class="level3" data-number="6.11.3">
+<h3 data-number="6.11.3" class="anchored" data-anchor-id="technology-stack"><span class="header-section-number">6.11.3</span> Technology Stack</h3>
 <p><strong>Option 1: Streamlit (Rapid prototyping)</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> streamlit <span class="im">as</span> st</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>st.title(<span class="st">"Misinformation Risk Dashboard"</span>)</span>
@@ -782,63 +996,66 @@ Prediction API + Dashboard
 <strong>Cons</strong>: Steeper learning curve</p>
 <p><strong>Option 3: Power BI (Enterprise)</strong> - Familiar to business users - Real-time data refresh - Row-level security for compliance</p>
 </section>
-<section id="live-dashboards-visualizations" class="level3" data-number="6.10.4">
-<h3 data-number="6.10.4" class="anchored" data-anchor-id="live-dashboards-visualizations"><span class="header-section-number">6.10.4</span> Live Dashboards &amp; Visualizations</h3>
+<section id="live-dashboards-visualizations" class="level3" data-number="6.11.4">
+<h3 data-number="6.11.4" class="anchored" data-anchor-id="live-dashboards-visualizations"><span class="header-section-number">6.11.4</span> Live Dashboards &amp; Visualizations</h3>
 <p><strong>Access interactive Streamlit dashboards and production visualizations:</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/sanjaykshetri/misinformation-at-scale.git</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> misinformation-at-scale</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/sanjaykshetri/tentacles-of-misinformation.git</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> tentacles-of-misinformation</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Option 1: Run Streamlit dashboard locally</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install <span class="at">-r</span> requirements.txt</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="ex">streamlit</span> run dashboards/streamlit/app.py</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Option 1: Run full Research Hub (Phase 2-4 results, multi-page)</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install <span class="at">-r</span> dashboards/streamlit/requirements.txt</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="ex">streamlit</span> run dashboards/streamlit/research_hub.py</span>
 <span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Option 2: Use Google Colab with GPU (no installation needed)</span></span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Open: notebooks/04_deep_learning_model.ipynb</span></span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Runtime → Change runtime type → GPU</span></span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Experiment with model predictions in a browser</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><strong>Available in external repo:</strong> - <strong>Real-time predictions</strong>: Paste article → credibility score + explanation - <strong>Model comparison</strong>: Accuracy, ROC-AUC, F1 plots (baseline vs.&nbsp;DistilBERT) - <strong>Network visualization</strong>: Misinformation cascade structures - <strong>Risk heatmaps</strong>: Demographic × content-type susceptibility matrix - <strong>Performance monitoring</strong>: Dashboard with accuracy trends and data drift alerts - <strong>Feature attribution</strong>: SHAP plots explaining individual predictions</p>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Option 2: Run baseline classifier app</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="ex">streamlit</span> run dashboards/streamlit/app.py</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Option 3: Use Google Colab with GPU (no installation needed)</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Open: notebooks/04_deep_learning_model.ipynb</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Runtime → Change runtime type → GPU</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Experiment with model predictions in a browser</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Pages in the Research Hub (<code>research_hub.py</code>)</strong>: - <strong>Overview</strong>: Project summary, dataset stats, model performance dashboard - <strong>NLP Analysis Tool</strong>: Paste any article title → credibility score + explanation - <strong>Behavioral Profiler</strong>: Explore how linguistic markers vary across real/fake articles - <strong>Fusion Predictor</strong>: Run the full stacking ensemble on new text with SHAP explanations - <strong>Model Comparison</strong>: Interactive ROC curves, bootstrap CIs, McNemar’s test results</p>
 <p><strong>Dashboard components available:</strong></p>
 <pre><code>dashboards/streamlit/
-├── app.py                   # Main entry point
-├── behavioral_explorer.py   # Interactive trait analysis  
-├── nlp_model_demo.py        # Article credibility checker
-└── risk_predictor.py        # Individual vulnerability estimator</code></pre>
+├── research_hub.py          # Full 5-page research hub (Phase 2-4)
+├── app.py                   # Baseline 3-page classifier (deployed to HF Spaces)
+├── requirements.txt         # All dependencies
+└── test_models.py           # Unit tests for model loading</code></pre>
 <hr>
 </section>
 </section>
-<section id="part-d-ethical-framework-responsible-deployment" class="level2" data-number="6.11">
-<h2 data-number="6.11" class="anchored" data-anchor-id="part-d-ethical-framework-responsible-deployment"><span class="header-section-number">6.11</span> Part D: Ethical Framework &amp; Responsible Deployment</h2>
-<section id="core-tensions" class="level3" data-number="6.11.1">
-<h3 data-number="6.11.1" class="anchored" data-anchor-id="core-tensions"><span class="header-section-number">6.11.1</span> Core Tensions</h3>
-<section id="privacy-vs.-insight" class="level4" data-number="6.11.1.1">
-<h4 data-number="6.11.1.1" class="anchored" data-anchor-id="privacy-vs.-insight"><span class="header-section-number">6.11.1.1</span> 1. Privacy vs.&nbsp;Insight</h4>
+<section id="part-d-ethical-framework-responsible-deployment" class="level2" data-number="6.12">
+<h2 data-number="6.12" class="anchored" data-anchor-id="part-d-ethical-framework-responsible-deployment"><span class="header-section-number">6.12</span> Part D: Ethical Framework &amp; Responsible Deployment</h2>
+<section id="core-tensions" class="level3" data-number="6.12.1">
+<h3 data-number="6.12.1" class="anchored" data-anchor-id="core-tensions"><span class="header-section-number">6.12.1</span> Core Tensions</h3>
+<section id="privacy-vs.-insight" class="level4" data-number="6.12.1.1">
+<h4 data-number="6.12.1.1" class="anchored" data-anchor-id="privacy-vs.-insight"><span class="header-section-number">6.12.1.1</span> 1. Privacy vs.&nbsp;Insight</h4>
 <p><strong>The dilemma</strong>: Understanding who is vulnerable requires personal information (age, psychology, behavior)<br>
 <strong>The risk</strong>: Profiling enables manipulation<br>
 <strong>Our approach</strong>: Use only aggregated, anonymized data; never sell individual identifiers</p>
 </section>
-<section id="protection-vs.-autonomy" class="level4" data-number="6.11.1.2">
-<h4 data-number="6.11.1.2" class="anchored" data-anchor-id="protection-vs.-autonomy"><span class="header-section-number">6.11.1.2</span> 2. Protection vs.&nbsp;Autonomy</h4>
+<section id="protection-vs.-autonomy" class="level4" data-number="6.12.1.2">
+<h4 data-number="6.12.1.2" class="anchored" data-anchor-id="protection-vs.-autonomy"><span class="header-section-number">6.12.1.2</span> 2. Protection vs.&nbsp;Autonomy</h4>
 <p><strong>The dilemma</strong>: Restricting content violates user agency; unrestricted misinformation causes harm<br>
 <strong>The risk</strong>: Invisible algorithms deciding what users see<br>
 <strong>Our approach</strong>: Transparent labeling (“This narrative uses emotional language; verify sources”), not censorship</p>
 </section>
-<section id="transparency-vs.-security" class="level4" data-number="6.11.1.3">
-<h4 data-number="6.11.1.3" class="anchored" data-anchor-id="transparency-vs.-security"><span class="header-section-number">6.11.1.3</span> 3. Transparency vs.&nbsp;Security</h4>
+<section id="transparency-vs.-security" class="level4" data-number="6.12.1.3">
+<h4 data-number="6.12.1.3" class="anchored" data-anchor-id="transparency-vs.-security"><span class="header-section-number">6.12.1.3</span> 3. Transparency vs.&nbsp;Security</h4>
 <p><strong>The dilemma</strong>: Open-source code enables adversaries; closed systems lack accountability<br>
 <strong>The risk</strong>: Either “security through obscurity” or “algorithmic manipulation”<br>
 <strong>Our approach</strong>: Publish methods; hold back deployable artifacts; audit by third parties</p>
 </section>
-<section id="accuracy-vs.-fairness" class="level4" data-number="6.11.1.4">
-<h4 data-number="6.11.1.4" class="anchored" data-anchor-id="accuracy-vs.-fairness"><span class="header-section-number">6.11.1.4</span> 4. Accuracy vs.&nbsp;Fairness</h4>
+<section id="accuracy-vs.-fairness" class="level4" data-number="6.12.1.4">
+<h4 data-number="6.12.1.4" class="anchored" data-anchor-id="accuracy-vs.-fairness"><span class="header-section-number">6.12.1.4</span> 4. Accuracy vs.&nbsp;Fairness</h4>
 <p><strong>The dilemma</strong>: Pursuing overall accuracy can amplify errors on minority groups<br>
 <strong>The risk</strong>: Model that’s 85% accurate overall but 60% accurate for low-education users<br>
 <strong>Our approach</strong>: Evaluate performance across demographic groups; retrain if gaps emerge</p>
 </section>
 </section>
-<section id="deployment-safeguards" class="level3" data-number="6.11.2">
-<h3 data-number="6.11.2" class="anchored" data-anchor-id="deployment-safeguards"><span class="header-section-number">6.11.2</span> Deployment Safeguards</h3>
-<section id="technical" class="level4" data-number="6.11.2.1">
-<h4 data-number="6.11.2.1" class="anchored" data-anchor-id="technical"><span class="header-section-number">6.11.2.1</span> Technical</h4>
+<section id="deployment-safeguards" class="level3" data-number="6.12.2">
+<h3 data-number="6.12.2" class="anchored" data-anchor-id="deployment-safeguards"><span class="header-section-number">6.12.2</span> Deployment Safeguards</h3>
+<section id="technical" class="level4" data-number="6.12.2.1">
+<h4 data-number="6.12.2.1" class="anchored" data-anchor-id="technical"><span class="header-section-number">6.12.2.1</span> Technical</h4>
 <ul>
 <li><strong>Model cards</strong>: Document intended use, performance, limitations</li>
 <li><strong>Fairness audits</strong>: Test for disparate impact across demographics</li>
@@ -847,8 +1064,8 @@ Prediction API + Dashboard
 <li><strong>Explanations</strong>: Accompany every prediction with feature attribution</li>
 </ul>
 </section>
-<section id="governance" class="level4" data-number="6.11.2.2">
-<h4 data-number="6.11.2.2" class="anchored" data-anchor-id="governance"><span class="header-section-number">6.11.2.2</span> Governance</h4>
+<section id="governance" class="level4" data-number="6.12.2.2">
+<h4 data-number="6.12.2.2" class="anchored" data-anchor-id="governance"><span class="header-section-number">6.12.2.2</span> Governance</h4>
 <ul>
 <li><strong>Terms of use</strong>: Prohibit individual targeting, harassment, discrimination</li>
 <li><strong>Data minimalism</strong>: Collect only what’s needed; delete when finished; anonymize</li>
@@ -856,8 +1073,8 @@ Prediction API + Dashboard
 <li><strong>Redaction</strong>: Document and learfrom failures; don’t repeat mistakes</li>
 </ul>
 </section>
-<section id="human-in-the-loop" class="level4" data-number="6.11.2.3">
-<h4 data-number="6.11.2.3" class="anchored" data-anchor-id="human-in-the-loop"><span class="header-section-number">6.11.2.3</span> Human-in-the-Loop</h4>
+<section id="human-in-the-loop" class="level4" data-number="6.12.2.3">
+<h4 data-number="6.12.2.3" class="anchored" data-anchor-id="human-in-the-loop"><span class="header-section-number">6.12.2.3</span> Human-in-the-Loop</h4>
 <ul>
 <li><strong>Manual review</strong>: High-uncertainty predictions checked by humans</li>
 <li><strong>Appeal process</strong>: Users can contest predictions</li>
@@ -865,17 +1082,17 @@ Prediction API + Dashboard
 </ul>
 </section>
 </section>
-<section id="case-study-misuse-prevention" class="level3" data-number="6.11.3">
-<h3 data-number="6.11.3" class="anchored" data-anchor-id="case-study-misuse-prevention"><span class="header-section-number">6.11.3</span> Case Study: Misuse Prevention</h3>
+<section id="case-study-misuse-prevention" class="level3" data-number="6.12.3">
+<h3 data-number="6.12.3" class="anchored" data-anchor-id="case-study-misuse-prevention"><span class="header-section-number">6.12.3</span> Case Study: Misuse Prevention</h3>
 <p><strong>Scenario</strong>: Political campaign wants to identify swing voters and micro-target with misinformation</p>
 <p><strong>Controls we implement</strong>: 1. <strong>Technical</strong>: Model outputs anonymized; no individual IDs in API 2. <strong>Contractual</strong>: ToS forbids targeting + political use 3. <strong>Monitoring</strong>: Audit logs track who accesses what 4. <strong>Advocacy</strong>: Support regulation of voter microtargeting 5. <strong>Transparency</strong>: Publish this case study, admit we can’t prevent all misuse</p>
 <hr>
 </section>
 </section>
-<section id="part-e-monitoring-continuous-improvement" class="level2" data-number="6.12">
-<h2 data-number="6.12" class="anchored" data-anchor-id="part-e-monitoring-continuous-improvement"><span class="header-section-number">6.12</span> Part E: Monitoring &amp; Continuous Improvement</h2>
-<section id="performance-monitoring" class="level3" data-number="6.12.1">
-<h3 data-number="6.12.1" class="anchored" data-anchor-id="performance-monitoring"><span class="header-section-number">6.12.1</span> Performance Monitoring</h3>
+<section id="part-e-monitoring-continuous-improvement" class="level2" data-number="6.13">
+<h2 data-number="6.13" class="anchored" data-anchor-id="part-e-monitoring-continuous-improvement"><span class="header-section-number">6.13</span> Part E: Monitoring &amp; Continuous Improvement</h2>
+<section id="performance-monitoring" class="level3" data-number="6.13.1">
+<h3 data-number="6.13.1" class="anchored" data-anchor-id="performance-monitoring"><span class="header-section-number">6.13.1</span> Performance Monitoring</h3>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -908,8 +1125,8 @@ Prediction API + Dashboard
 </tbody>
 </table>
 </section>
-<section id="data-drift-detection" class="level3" data-number="6.12.2">
-<h3 data-number="6.12.2" class="anchored" data-anchor-id="data-drift-detection"><span class="header-section-number">6.12.2</span> Data Drift Detection</h3>
+<section id="data-drift-detection" class="level3" data-number="6.13.2">
+<h3 data-number="6.13.2" class="anchored" data-anchor-id="data-drift-detection"><span class="header-section-number">6.13.2</span> Data Drift Detection</h3>
 <p>Monitor input distributions for shifts:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Check if input feature distributions changed significantly</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>old_mean_title_length <span class="op">=</span> <span class="fl">11.2</span></span>
@@ -918,8 +1135,8 @@ Prediction API + Dashboard
 <span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="bu">abs</span>(divergence) <span class="op">&gt;</span> <span class="fl">0.15</span>:  <span class="co"># &gt;15% shift</span></span>
 <span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    alert(<span class="st">"Title length distribution shifted. Possible domain change?"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="retraining-cadence" class="level3" data-number="6.12.3">
-<h3 data-number="6.12.3" class="anchored" data-anchor-id="retraining-cadence"><span class="header-section-number">6.12.3</span> Retraining Cadence</h3>
+<section id="retraining-cadence" class="level3" data-number="6.13.3">
+<h3 data-number="6.13.3" class="anchored" data-anchor-id="retraining-cadence"><span class="header-section-number">6.13.3</span> Retraining Cadence</h3>
 <ul>
 <li><strong>Reactive</strong>: Retrain if AUC drops below 0.85 (same day)</li>
 <li><strong>Scheduled</strong>: Full retraining monthly on past 30 days of data</li>
@@ -928,10 +1145,10 @@ Prediction API + Dashboard
 <hr>
 </section>
 </section>
-<section id="part-f-key-findings-recommendations" class="level2" data-number="6.13">
-<h2 data-number="6.13" class="anchored" data-anchor-id="part-f-key-findings-recommendations"><span class="header-section-number">6.13</span> Part F: Key Findings &amp; Recommendations</h2>
-<section id="model-ensemble-performance" class="level3" data-number="6.13.1">
-<h3 data-number="6.13.1" class="anchored" data-anchor-id="model-ensemble-performance"><span class="header-section-number">6.13.1</span> Model Ensemble Performance</h3>
+<section id="part-f-key-findings-recommendations" class="level2" data-number="6.14">
+<h2 data-number="6.14" class="anchored" data-anchor-id="part-f-key-findings-recommendations"><span class="header-section-number">6.14</span> Part F: Key Findings &amp; Recommendations</h2>
+<section id="model-ensemble-performance" class="level3" data-number="6.14.1">
+<h3 data-number="6.14.1" class="anchored" data-anchor-id="model-ensemble-performance"><span class="header-section-number">6.14.1</span> Model Ensemble Performance</h3>
 <p><em>Combining all three units</em>:</p>
 <table class="caption-top table">
 <thead>
@@ -965,8 +1182,8 @@ Prediction API + Dashboard
 </tbody>
 </table>
 </section>
-<section id="deployment-readiness-checklist" class="level3" data-number="6.13.2">
-<h3 data-number="6.13.2" class="anchored" data-anchor-id="deployment-readiness-checklist"><span class="header-section-number">6.13.2</span> Deployment Readiness Checklist</h3>
+<section id="deployment-readiness-checklist" class="level3" data-number="6.14.2">
+<h3 data-number="6.14.2" class="anchored" data-anchor-id="deployment-readiness-checklist"><span class="header-section-number">6.14.2</span> Deployment Readiness Checklist</h3>
 <ul>
 <li>✅ Model validation: Achieve ≥85% accuracy on holdout set</li>
 <li>✅ Fairness audit: No demographic group &lt;80% accuracy</li>
@@ -980,8 +1197,8 @@ Prediction API + Dashboard
 <li>✅ Governance: Ethics board review completed</li>
 </ul>
 </section>
-<section id="operational-recommendations" class="level3" data-number="6.13.3">
-<h3 data-number="6.13.3" class="anchored" data-anchor-id="operational-recommendations"><span class="header-section-number">6.13.3</span> Operational Recommendations</h3>
+<section id="operational-recommendations" class="level3" data-number="6.14.3">
+<h3 data-number="6.14.3" class="anchored" data-anchor-id="operational-recommendations"><span class="header-section-number">6.14.3</span> Operational Recommendations</h3>
 <ol type="1">
 <li><strong>Start with dashboards, not automation</strong>: Use system to inform human judgment for 6+ months</li>
 <li><strong>Implement gradual rollout</strong>: Internal users first, then academic partners, then broader public</li>
@@ -992,10 +1209,10 @@ Prediction API + Dashboard
 <hr>
 </section>
 </section>
-<section id="limitations-future-work" class="level2" data-number="6.14">
-<h2 data-number="6.14" class="anchored" data-anchor-id="limitations-future-work"><span class="header-section-number">6.14</span> Limitations &amp; Future Work</h2>
-<section id="current-limitations" class="level3" data-number="6.14.1">
-<h3 data-number="6.14.1" class="anchored" data-anchor-id="current-limitations"><span class="header-section-number">6.14.1</span> Current Limitations</h3>
+<section id="limitations-future-work" class="level2" data-number="6.15">
+<h2 data-number="6.15" class="anchored" data-anchor-id="limitations-future-work"><span class="header-section-number">6.15</span> Limitations &amp; Future Work</h2>
+<section id="current-limitations" class="level3" data-number="6.15.1">
+<h3 data-number="6.15.1" class="anchored" data-anchor-id="current-limitations"><span class="header-section-number">6.15.1</span> Current Limitations</h3>
 <ol type="1">
 <li><strong>Title-only classification</strong>: Missing full article text (where facts exist)</li>
 <li><strong>English-only</strong>: FakeNewsNet corpus; cross-language generalization unknown</li>
@@ -1004,8 +1221,8 @@ Prediction API + Dashboard
 <li><strong>No video/images</strong>: Text-only approach; multimodal misinformation outside scope</li>
 </ol>
 </section>
-<section id="future-directions" class="level3" data-number="6.14.2">
-<h3 data-number="6.14.2" class="anchored" data-anchor-id="future-directions"><span class="header-section-number">6.14.2</span> Future Directions</h3>
+<section id="future-directions" class="level3" data-number="6.15.2">
+<h3 data-number="6.15.2" class="anchored" data-anchor-id="future-directions"><span class="header-section-number">6.15.2</span> Future Directions</h3>
 <ol type="1">
 <li><strong>Multimodal</strong>: Integrate images, video, audio into unified pipeline</li>
 <li><strong>Cross-lingual</strong>: Non-English datasets and zero-shot translation</li>
@@ -1016,8 +1233,8 @@ Prediction API + Dashboard
 <hr>
 </section>
 </section>
-<section id="reproducibility-checklist" class="level2" data-number="6.15">
-<h2 data-number="6.15" class="anchored" data-anchor-id="reproducibility-checklist"><span class="header-section-number">6.15</span> Reproducibility Checklist</h2>
+<section id="reproducibility-checklist" class="level2" data-number="6.16">
+<h2 data-number="6.16" class="anchored" data-anchor-id="reproducibility-checklist"><span class="header-section-number">6.16</span> Reproducibility Checklist</h2>
 <ul>
 <li>✅ Complete pipeline: <code>src/</code> with all preprocessing, model training, serving code</li>
 <li>✅ Deployment configs: Docker files, Kubernetes manifests for scaling</li>
@@ -1028,8 +1245,8 @@ Prediction API + Dashboard
 </ul>
 <hr>
 </section>
-<section id="glossary" class="level2" data-number="6.16">
-<h2 data-number="6.16" class="anchored" data-anchor-id="glossary"><span class="header-section-number">6.16</span> Glossary</h2>
+<section id="glossary" class="level2" data-number="6.17">
+<h2 data-number="6.17" class="anchored" data-anchor-id="glossary"><span class="header-section-number">6.17</span> Glossary</h2>
 <p><strong>Ensemble</strong>: Combining multiple models to improve performance<br>
 <strong>Data drift</strong>: Input feature distributions shift over time<br>
 <strong>Model drift</strong>: Model predictions consistently shift (e.g., becoming more conservative)<br>
@@ -1039,8 +1256,8 @@ Prediction API + Dashboard
 <strong>Throughput</strong>: Number of predictions per second; measured in QPS (queries/sec)</p>
 <hr>
 </section>
-<section id="references" class="level2" data-number="6.17">
-<h2 data-number="6.17" class="anchored" data-anchor-id="references"><span class="header-section-number">6.17</span> References</h2>
+<section id="references" class="level2" data-number="6.18">
+<h2 data-number="6.18" class="anchored" data-anchor-id="references"><span class="header-section-number">6.18</span> References</h2>
 <ul>
 <li>Ghosh et al.&nbsp;(2018). Analyzing misinformation in social media. IEEE DSW.</li>
 <li>Bolukbasi et al.&nbsp;(2016). Man is to computer programmer as woman is to homemaker. NeurIPS.</li>
@@ -1459,8 +1676,8 @@ Prediction API + Dashboard
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../chapters/05-epilogue.html" class="pagination-link" aria-label="Epilogue: Reflection &amp; What Comes Next">
-        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Epilogue: Reflection &amp; What Comes Next</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../chapters/05-election-case-study.html" class="pagination-link" aria-label="Chapter 5: Election Misinformation — A Multimodal Case Study">
+        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Chapter 5: Election Misinformation — A Multimodal Case Study</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
