@@ -229,7 +229,7 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../chapters/06-epilogue.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Epilogue: Reflection &amp; What Comes Next</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">What I Would Do Differently</span></span></a>
   </div>
 </li>
     </ul>
@@ -327,7 +327,7 @@ window.Quarto = {
 </section>
 <section id="why-spread-modeling-matters" class="level2" data-number="5.2">
 <h2 data-number="5.2" class="anchored" data-anchor-id="why-spread-modeling-matters"><span class="header-section-number">5.2</span> Why Spread Modeling Matters</h2>
-<p>Detection alone is reactive: “We found this false story.”</p>
+<p>Detection alone is reactive: “I found this false story.”</p>
 <p>Spread modeling is <em>predictive</em>: “If we do nothing, it reaches 40% of the network. If we add fact-checks in hour 2, it only reaches 15%.”</p>
 <p><strong>Real-world implication</strong>: Platform teams need to know: - ✅ How fast does this spread? - ✅ Who gets exposed first? - ✅ What interventions actually work? - ✅ When do we need to act?</p>
 <hr>
@@ -440,7 +440,7 @@ dR/dt = γ × I  (Recovered/immune)</code></pre>
 </section>
 <section id="calibration-to-fakenewsnet-data" class="level3" data-number="5.6.4">
 <h3 data-number="5.6.4" class="anchored" data-anchor-id="calibration-to-fakenewsnet-data"><span class="header-section-number">5.6.4</span> Calibration to FakeNewsNet Data</h3>
-<p>We estimate parameters from real cascade data:</p>
+<p>I estimated parameters from real cascade data:</p>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 23%">
@@ -601,7 +601,7 @@ dR/dt = γ × I  (Recovered/immune)</code></pre>
 <h2 data-number="5.8" class="anchored" data-anchor-id="part-c2-multi-modal-spread-signals"><span class="header-section-number">5.8</span> Part C2: Multi-Modal Spread Signals</h2>
 <section id="cross-modal-feature-correlations" class="level3" data-number="5.8.1">
 <h3 data-number="5.8.1" class="anchored" data-anchor-id="cross-modal-feature-correlations"><span class="header-section-number">5.8.1</span> Cross-Modal Feature Correlations</h3>
-<p>Spread dynamics are not driven by text content alone. We extracted three modality groups—behavioral proxies, NLP embeddings, and network-derived signals—and measured their pairwise correlation structure:</p>
+<p>Spread dynamics are not driven by text content alone. I extracted three modality groups—behavioral proxies, NLP embeddings, and network-derived signals—and measured their pairwise correlation structure:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="../images/cross_modal_correlations.png" class="img-fluid figure-img" style="width:85.0%" alt="Heatmap showing correlations between behavioral, NLP, and network features across real and fake articles"></p>
@@ -612,7 +612,7 @@ dR/dt = γ × I  (Recovered/immune)</code></pre>
 </section>
 <section id="modality-ablation-which-signals-drive-detection" class="level3" data-number="5.8.2">
 <h3 data-number="5.8.2" class="anchored" data-anchor-id="modality-ablation-which-signals-drive-detection"><span class="header-section-number">5.8.2</span> Modality Ablation: Which Signals Drive Detection?</h3>
-<p>We trained the fusion model removing one modality at a time to measure each modality’s unique contribution:</p>
+<p>I trained the fusion model removing one modality at a time to measure each modality’s unique contribution:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="../images/ablation_modality.png" class="img-fluid figure-img" style="width:85.0%" alt="Bar chart showing AUC degradation when each modality (NLP, behavioral, network) is removed from the fusion model"></p>
@@ -683,23 +683,36 @@ dR/dt = γ × I  (Recovered/immune)</code></pre>
 <p></p><figure class="figure"><p></p>
 <div>
 <pre class="mermaid mermaid-js">graph LR
-    S["📍 Susceptible"]
-    E["⏳ Exposed"]
-    I["😷 Infected"]
-    R["✅ Recovered"]
-    
-    S --&gt;|β (baseline 0.0153)| E
-    E --&gt;|σ (0.3193)| I
-    E --&gt;|skepticism| R
-    I --&gt;|γ (0.0870)| R
-    
-    S --&gt;|β-20% = 0.0122| E
-    E --&gt;|γ+30% = 1.131| R
-    
-    style S fill:#e3f2fd
-    style E fill:#fff3e0
-    style I fill:#ffebee
-    style R fill:#e8f5e9
+    subgraph baseline["Baseline SEIR"]
+        S1["📍 Susceptible"]
+        E1["⏳ Exposed"]
+        I1["😷 Infected"]
+        R1["✅ Recovered"]
+        S1 --&gt;|"β = 0.0153"| E1
+        E1 --&gt;|"σ = 0.3193"| I1
+        E1 --&gt;|"skepticism"| R1
+        I1 --&gt;|"γ = 0.0870"| R1
+    end
+
+    subgraph intervention["Combined Intervention"]
+        S2["📍 Susceptible"]
+        E2["⏳ Exposed"]
+        I2["😷 Infected"]
+        R2["✅ Recovered"]
+        S2 --&gt;|"β = 0.0122 ↓20%"| E2
+        E2 --&gt;|"σ = 0.3193"| I2
+        E2 --&gt;|"skepticism ↑"| R2
+        I2 --&gt;|"γ = 0.1131 ↑30%"| R2
+    end
+
+    style S1 fill:#e3f2fd
+    style E1 fill:#fff3e0
+    style I1 fill:#ffebee
+    style R1 fill:#e8f5e9
+    style S2 fill:#e3f2fd
+    style E2 fill:#fff3e0
+    style I2 fill:#ffebee
+    style R2 fill:#e8f5e9
 </pre>
 </div>
 <p></p></figure><p></p>

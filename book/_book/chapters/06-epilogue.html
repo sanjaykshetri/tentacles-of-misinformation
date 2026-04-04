@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>8&nbsp; Epilogue: Reflection &amp; What Comes Next – The Tentacles of Misinformation</title>
+<title>8&nbsp; What I Would Do Differently – The Tentacles of Misinformation</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -69,6 +69,13 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script type="module">
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+  document.addEventListener('DOMContentLoaded', function() {
+    mermaid.initialize({ startOnLoad: false, theme: 'neutral' });
+    mermaid.run({ querySelector: '.mermaid' });
+  });
+</script>
 
 
 </head>
@@ -82,7 +89,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/06-epilogue.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Epilogue: Reflection &amp; What Comes Next</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/06-epilogue.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">What I Would Do Differently</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -154,7 +161,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../chapters/06-epilogue.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Epilogue: Reflection &amp; What Comes Next</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">What I Would Do Differently</span></span></a>
   </div>
 </li>
     </ul>
@@ -167,69 +174,26 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#what-i-would-do-differently-honest-take" id="toc-what-i-would-do-differently-honest-take" class="nav-link active" data-scroll-target="#what-i-would-do-differently-honest-take"><span class="header-section-number">8.1</span> What I Would Do Differently (Honest Take)</a>
+  <li><a href="#epilogue-what-i-built-what-i-learned-what-comes-next" id="toc-epilogue-what-i-built-what-i-learned-what-comes-next" class="nav-link active" data-scroll-target="#epilogue-what-i-built-what-i-learned-what-comes-next"><span class="header-section-number">9</span> Epilogue: What I Built, What I Learned, What Comes Next</a>
   <ul class="collapse">
-  <li><a href="#behavioral-science-was-worth-it" id="toc-behavioral-science-was-worth-it" class="nav-link" data-scroll-target="#behavioral-science-was-worth-it"><span class="header-section-number">8.1.1</span> 1. Behavioral Science Was Worth It</a></li>
-  <li><a href="#baselines-are-underrated-and-underused" id="toc-baselines-are-underrated-and-underused" class="nav-link" data-scroll-target="#baselines-are-underrated-and-underused"><span class="header-section-number">8.1.2</span> 2. Baselines Are Underrated (and Underused)</a></li>
-  <li><a href="#production-thinking-should-come-earlier" id="toc-production-thinking-should-come-earlier" class="nav-link" data-scroll-target="#production-thinking-should-come-earlier"><span class="header-section-number">8.1.3</span> 3. Production Thinking Should Come Earlier</a></li>
-  <li><a href="#fairness-isnt-optionalits-iterative" id="toc-fairness-isnt-optionalits-iterative" class="nav-link" data-scroll-target="#fairness-isnt-optionalits-iterative"><span class="header-section-number">8.1.4</span> 4. Fairness Isn’t Optional—It’s Iterative</a></li>
-  <li><a href="#communication-matters-as-much-as-accuracy" id="toc-communication-matters-as-much-as-accuracy" class="nav-link" data-scroll-target="#communication-matters-as-much-as-accuracy"><span class="header-section-number">8.1.5</span> 5. Communication Matters as Much as Accuracy</a></li>
-  </ul></li>
-  <li><a href="#where-this-system-still-fails" id="toc-where-this-system-still-fails" class="nav-link" data-scroll-target="#where-this-system-still-fails"><span class="header-section-number">8.2</span> Where This System Still Fails</a>
+  <li><a href="#start-with-behavioral-science-not-as-an-afterthought" id="toc-start-with-behavioral-science-not-as-an-afterthought" class="nav-link" data-scroll-target="#start-with-behavioral-science-not-as-an-afterthought"><span class="header-section-number">9.0.1</span> 1. Start with behavioral science — not as an afterthought</a></li>
+  <li><a href="#baselines-are-undervalued-everywhere" id="toc-baselines-are-undervalued-everywhere" class="nav-link" data-scroll-target="#baselines-are-undervalued-everywhere"><span class="header-section-number">9.0.2</span> 2. Baselines are undervalued — everywhere</a></li>
+  <li><a href="#production-thinking-belongs-at-the-start-not-the-end" id="toc-production-thinking-belongs-at-the-start-not-the-end" class="nav-link" data-scroll-target="#production-thinking-belongs-at-the-start-not-the-end"><span class="header-section-number">9.0.3</span> 3. Production thinking belongs at the start, not the end</a></li>
+  <li><a href="#fairness-is-iterative-not-a-final-audit" id="toc-fairness-is-iterative-not-a-final-audit" class="nav-link" data-scroll-target="#fairness-is-iterative-not-a-final-audit"><span class="header-section-number">9.0.4</span> 4. Fairness is iterative, not a final audit</a></li>
+  <li><a href="#communication-multiplies-every-insight" id="toc-communication-multiplies-every-insight" class="nav-link" data-scroll-target="#communication-multiplies-every-insight"><span class="header-section-number">9.0.5</span> 5. Communication multiplies every insight</a></li>
+  <li><a href="#where-this-system-still-falls-short" id="toc-where-this-system-still-falls-short" class="nav-link" data-scroll-target="#where-this-system-still-falls-short"><span class="header-section-number">9.1</span> Where This System Still Falls Short</a></li>
+  <li><a href="#what-comes-next" id="toc-what-comes-next" class="nav-link" data-scroll-target="#what-comes-next"><span class="header-section-number">9.2</span> What Comes Next</a>
   <ul class="collapse">
-  <li><a href="#cross-domain-transfer" id="toc-cross-domain-transfer" class="nav-link" data-scroll-target="#cross-domain-transfer"><span class="header-section-number">8.2.1</span> ❌ Cross-Domain Transfer</a></li>
-  <li><a href="#visual-misinformation" id="toc-visual-misinformation" class="nav-link" data-scroll-target="#visual-misinformation"><span class="header-section-number">8.2.2</span> ❌ Visual Misinformation</a></li>
-  <li><a href="#latent-misinformation" id="toc-latent-misinformation" class="nav-link" data-scroll-target="#latent-misinformation"><span class="header-section-number">8.2.3</span> ❌ Latent Misinformation</a></li>
-  <li><a href="#adversarial-robustness" id="toc-adversarial-robustness" class="nav-link" data-scroll-target="#adversarial-robustness"><span class="header-section-number">8.2.4</span> ❌ Adversarial Robustness</a></li>
+  <li><a href="#for-the-research" id="toc-for-the-research" class="nav-link" data-scroll-target="#for-the-research"><span class="header-section-number">9.2.1</span> For the research</a></li>
+  <li><a href="#for-builders" id="toc-for-builders" class="nav-link" data-scroll-target="#for-builders"><span class="header-section-number">9.2.2</span> For builders</a></li>
+  <li><a href="#for-policy" id="toc-for-policy" class="nav-link" data-scroll-target="#for-policy"><span class="header-section-number">9.2.3</span> For policy</a></li>
   </ul></li>
-  <li><a href="#what-comes-next-if-youre-building-on-this" id="toc-what-comes-next-if-youre-building-on-this" class="nav-link" data-scroll-target="#what-comes-next-if-youre-building-on-this"><span class="header-section-number">8.3</span> What Comes Next (If You’re Building On This)</a>
-  <ul class="collapse">
-  <li><a href="#for-researchers" id="toc-for-researchers" class="nav-link" data-scroll-target="#for-researchers"><span class="header-section-number">8.3.1</span> For Researchers</a></li>
-  <li><a href="#for-platform-teams" id="toc-for-platform-teams" class="nav-link" data-scroll-target="#for-platform-teams"><span class="header-section-number">8.3.2</span> For Platform Teams</a></li>
-  <li><a href="#for-policy" id="toc-for-policy" class="nav-link" data-scroll-target="#for-policy"><span class="header-section-number">8.3.3</span> For Policy</a></li>
+  <li><a href="#the-lessons-that-actually-stuck" id="toc-the-lessons-that-actually-stuck" class="nav-link" data-scroll-target="#the-lessons-that-actually-stuck"><span class="header-section-number">9.3</span> The Lessons That Actually Stuck</a></li>
+  <li><a href="#a-personal-note" id="toc-a-personal-note" class="nav-link" data-scroll-target="#a-personal-note"><span class="header-section-number">9.4</span> A Personal Note</a></li>
+  <li><a href="#the-frontier" id="toc-the-frontier" class="nav-link" data-scroll-target="#the-frontier"><span class="header-section-number">9.5</span> The Frontier</a></li>
+  <li><a href="#stay-in-touch" id="toc-stay-in-touch" class="nav-link" data-scroll-target="#stay-in-touch"><span class="header-section-number">9.6</span> Stay in Touch</a></li>
+  <li><a href="#acknowledgments" id="toc-acknowledgments" class="nav-link" data-scroll-target="#acknowledgments"><span class="header-section-number">9.7</span> Acknowledgments</a></li>
   </ul></li>
-  <li><a href="#the-technical-stack-if-youre-reproducing-this" id="toc-the-technical-stack-if-youre-reproducing-this" class="nav-link" data-scroll-target="#the-technical-stack-if-youre-reproducing-this"><span class="header-section-number">8.4</span> The Technical Stack (If You’re Reproducing This)</a></li>
-  <li><a href="#this-is-a-portfolio.-heres-why-it-worked." id="toc-this-is-a-portfolio.-heres-why-it-worked." class="nav-link" data-scroll-target="#this-is-a-portfolio.-heres-why-it-worked."><span class="header-section-number">8.5</span> This Is a Portfolio. Here’s Why It Worked.</a>
-  <ul class="collapse">
-  <li><a href="#as-a-hiring-signal" id="toc-as-a-hiring-signal" class="nav-link" data-scroll-target="#as-a-hiring-signal"><span class="header-section-number">8.5.1</span> As a Hiring Signal</a></li>
-  <li><a href="#as-a-research-contribution" id="toc-as-a-research-contribution" class="nav-link" data-scroll-target="#as-a-research-contribution"><span class="header-section-number">8.5.2</span> As a Research Contribution</a></li>
-  <li><a href="#as-a-learning-experience" id="toc-as-a-learning-experience" class="nav-link" data-scroll-target="#as-a-learning-experience"><span class="header-section-number">8.5.3</span> As a Learning Experience</a></li>
-  </ul></li>
-  <li><a href="#for-the-hiring-conversation" id="toc-for-the-hiring-conversation" class="nav-link" data-scroll-target="#for-the-hiring-conversation"><span class="header-section-number">8.6</span> For The Hiring Conversation</a></li>
-  <li><a href="#the-personal-reflection" id="toc-the-personal-reflection" class="nav-link" data-scroll-target="#the-personal-reflection"><span class="header-section-number">8.7</span> The Personal Reflection</a></li>
-  <li><a href="#final-thought" id="toc-final-thought" class="nav-link" data-scroll-target="#final-thought"><span class="header-section-number">8.8</span> Final Thought</a></li>
-  <li><a href="#how-to-use-this-as-a-template" id="toc-how-to-use-this-as-a-template" class="nav-link" data-scroll-target="#how-to-use-this-as-a-template"><span class="header-section-number">8.9</span> How to Use This as a Template</a>
-  <ul class="collapse">
-  <li><a href="#for-academics-researchers" id="toc-for-academics-researchers" class="nav-link" data-scroll-target="#for-academics-researchers"><span class="header-section-number">8.9.1</span> For Academics &amp; Researchers</a></li>
-  <li><a href="#for-learners-career-changers" id="toc-for-learners-career-changers" class="nav-link" data-scroll-target="#for-learners-career-changers"><span class="header-section-number">8.9.2</span> For Learners &amp; Career-Changers</a></li>
-  </ul></li>
-  <li><a href="#how-to-navigate-this-work" id="toc-how-to-navigate-this-work" class="nav-link" data-scroll-target="#how-to-navigate-this-work"><span class="header-section-number">8.10</span> How to Navigate This Work</a>
-  <ul class="collapse">
-  <li><a href="#for-hiring-managers-collaborators" id="toc-for-hiring-managers-collaborators" class="nav-link" data-scroll-target="#for-hiring-managers-collaborators"><span class="header-section-number">8.10.1</span> For Hiring Managers &amp; Collaborators</a></li>
-  <li><a href="#for-academics-researchers-1" id="toc-for-academics-researchers-1" class="nav-link" data-scroll-target="#for-academics-researchers-1"><span class="header-section-number">8.10.2</span> For Academics &amp; Researchers</a></li>
-  <li><a href="#for-learners-career-changers-1" id="toc-for-learners-career-changers-1" class="nav-link" data-scroll-target="#for-learners-career-changers-1"><span class="header-section-number">8.10.3</span> For Learners &amp; Career-Changers</a></li>
-  </ul></li>
-  <li><a href="#frontier-challenges" id="toc-frontier-challenges" class="nav-link" data-scroll-target="#frontier-challenges"><span class="header-section-number">8.11</span> Frontier Challenges</a>
-  <ul class="collapse">
-  <li><a href="#unit-1-extensions-measuring-vulnerability" id="toc-unit-1-extensions-measuring-vulnerability" class="nav-link" data-scroll-target="#unit-1-extensions-measuring-vulnerability"><span class="header-section-number">8.11.1</span> Unit 1 Extensions: Measuring Vulnerability</a></li>
-  <li><a href="#unit-2-extensions-detecting-narratives" id="toc-unit-2-extensions-detecting-narratives" class="nav-link" data-scroll-target="#unit-2-extensions-detecting-narratives"><span class="header-section-number">8.11.2</span> Unit 2 Extensions: Detecting Narratives</a></li>
-  <li><a href="#unit-3-extensions-modeling-spread" id="toc-unit-3-extensions-modeling-spread" class="nav-link" data-scroll-target="#unit-3-extensions-modeling-spread"><span class="header-section-number">8.11.3</span> Unit 3 Extensions: Modeling Spread</a></li>
-  <li><a href="#unit-4-extensions-fusion-scale" id="toc-unit-4-extensions-fusion-scale" class="nav-link" data-scroll-target="#unit-4-extensions-fusion-scale"><span class="header-section-number">8.11.4</span> Unit 4 Extensions: Fusion &amp; Scale</a></li>
-  </ul></li>
-  <li><a href="#short-term-roadmap-next-12-months" id="toc-short-term-roadmap-next-12-months" class="nav-link" data-scroll-target="#short-term-roadmap-next-12-months"><span class="header-section-number">8.12</span> Short-Term Roadmap (Next 12 Months)</a></li>
-  <li><a href="#long-term-vision" id="toc-long-term-vision" class="nav-link" data-scroll-target="#long-term-vision"><span class="header-section-number">8.13</span> Long-Term Vision</a></li>
-  <li><a href="#lessons-learned" id="toc-lessons-learned" class="nav-link" data-scroll-target="#lessons-learned"><span class="header-section-number">8.14</span> Lessons Learned</a>
-  <ul class="collapse">
-  <li><a href="#rigor-compounds" id="toc-rigor-compounds" class="nav-link" data-scroll-target="#rigor-compounds"><span class="header-section-number">8.14.1</span> 1. Rigor Compounds</a></li>
-  <li><a href="#reproducibility-is-a-love-letter-to-future-you" id="toc-reproducibility-is-a-love-letter-to-future-you" class="nav-link" data-scroll-target="#reproducibility-is-a-love-letter-to-future-you"><span class="header-section-number">8.14.2</span> 2. Reproducibility is a Love Letter to Future You</a></li>
-  <li><a href="#communicate-to-different-audiences" id="toc-communicate-to-different-audiences" class="nav-link" data-scroll-target="#communicate-to-different-audiences"><span class="header-section-number">8.14.3</span> 3. Communicate to Different Audiences</a></li>
-  <li><a href="#ethics-isnt-a-checkbox" id="toc-ethics-isnt-a-checkbox" class="nav-link" data-scroll-target="#ethics-isnt-a-checkbox"><span class="header-section-number">8.14.4</span> 4. Ethics Isn’t a Checkbox</a></li>
-  <li><a href="#collaborate-across-disciplines" id="toc-collaborate-across-disciplines" class="nav-link" data-scroll-target="#collaborate-across-disciplines"><span class="header-section-number">8.14.5</span> 5. Collaborate Across Disciplines</a></li>
-  </ul></li>
-  <li><a href="#staying-in-touch" id="toc-staying-in-touch" class="nav-link" data-scroll-target="#staying-in-touch"><span class="header-section-number">8.15</span> Staying in Touch</a></li>
-  <li><a href="#one-more-thing" id="toc-one-more-thing" class="nav-link" data-scroll-target="#one-more-thing"><span class="header-section-number">8.16</span> One More Thing</a></li>
-  <li><a href="#acknowledgments" id="toc-acknowledgments" class="nav-link" data-scroll-target="#acknowledgments"><span class="header-section-number">8.17</span> Acknowledgments</a></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">8.18</span> References</a></li>
   </ul>
 </nav>
     </div>
@@ -238,7 +202,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Epilogue: Reflection &amp; What Comes Next</span></h1>
+<h1 class="title"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">What I Would Do Differently</span></h1>
 </div>
 
 
@@ -255,381 +219,138 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="what-i-would-do-differently-honest-take" class="level2" data-number="8.1">
-<h2 data-number="8.1" class="anchored" data-anchor-id="what-i-would-do-differently-honest-take"><span class="header-section-number">8.1</span> What I Would Do Differently (Honest Take)</h2>
-<p>Looking back at this project, here’s what I learned:</p>
-<section id="behavioral-science-was-worth-it" class="level3" data-number="8.1.1">
-<h3 data-number="8.1.1" class="anchored" data-anchor-id="behavioral-science-was-worth-it"><span class="header-section-number">8.1.1</span> 1. Behavioral Science Was Worth It</h3>
-<p><strong>The move</strong>: Combining cognitive science with ML.</p>
-<p><strong>The payoff</strong>: 4-5% accuracy improvement sounds small. But it’s the <em>difference</em> between a model that works consistently and one that fails on edge cases.</p>
-<p><strong>Next time</strong>: I’d integrate behavioral features <em>earlier</em> in the pipeline, not as a fusion layer. Start with: “What are the cognitive mechanisms?” then “What features capture those?”</p>
+<section id="epilogue-what-i-built-what-i-learned-what-comes-next" class="level1" data-number="9">
+<h1 data-number="9"><span class="header-section-number">9</span> Epilogue: What I Built, What I Learned, What Comes Next</h1>
+<p>This started as a Master’s thesis question: <em>why do smart people believe false things?</em></p>
+<p>It became a two-year journey through cognitive psychology, NLP, epidemiological modeling, and production engineering. By the end I had something I didn’t expect—not just a system that detects misinformation, but a clear-eyed view of how hard the problem really is, and a sharper sense of what it means to build things that matter.</p>
+<p>This epilogue is my honest reflection on what worked, what failed, what I understand now that I didn’t at the start, and where I think this work goes next.</p>
 <hr>
+<section id="start-with-behavioral-science-not-as-an-afterthought" class="level3" data-number="9.0.1">
+<h3 data-number="9.0.1" class="anchored" data-anchor-id="start-with-behavioral-science-not-as-an-afterthought"><span class="header-section-number">9.0.1</span> 1. Start with behavioral science — not as an afterthought</h3>
+<p>The 4–5% accuracy gain from behavioral features sounds modest. But it was the hardest part to earn and the most intellectually interesting part of the project. Understanding <em>why</em> people fall for misinformation—emotional triggers, false certainty, artificial simplicity—changed how I looked at every downstream decision.</p>
+<p>Next time, I’d make cognitive mechanisms the foundation, not the fusion layer. Before asking “what model should I use?”, I’d ask “what does the cognitive science tell me about what to measure?”</p>
 </section>
-<section id="baselines-are-underrated-and-underused" class="level3" data-number="8.1.2">
-<h3 data-number="8.1.2" class="anchored" data-anchor-id="baselines-are-underrated-and-underused"><span class="header-section-number">8.1.2</span> 2. Baselines Are Underrated (and Underused)</h3>
-<p><strong>The mistake</strong>: The impulse is always to jump to transformers.</p>
-<p><strong>The lesson</strong>: TF-IDF at 81.2% was more valuable than DistilBERT at 85.75% because: - ✅ It proved the problem was learnable - ✅ It exposed data leakage that deep learning hid - ✅ It runs on CPU, not GPU (20x cheaper) - ✅ It’s debuggable (you can see which words matter)</p>
-<p><strong>Next time</strong>: I’d spend 40% of the time on baselines, 30% on deep learning, 30% on production systems. Currently most teams do: 10% baselines, 70% deep learning, 20% production (in a rush).</p>
-<hr>
-</section>
-<section id="production-thinking-should-come-earlier" class="level3" data-number="8.1.3">
-<h3 data-number="8.1.3" class="anchored" data-anchor-id="production-thinking-should-come-earlier"><span class="header-section-number">8.1.3</span> 3. Production Thinking Should Come Earlier</h3>
-<p><strong>The mistake</strong>: I built the system <em>after</em> the research was done.</p>
-<p><strong>The lesson</strong>: Production constraints (speed, monitoring, fairness) should inform model choice from day one.</p>
-<p><strong>Example</strong>: If I’d known early that I needed &lt;50ms latency per article, I’d have invested in caching, quantization, and lightweight models much earlier.</p>
-<p><strong>Next time</strong>: Model selection framework: What’s the latency target? What’s the budget? What’s the fairness bar? <em>Then</em> choose your model.</p>
-<hr>
-</section>
-<section id="fairness-isnt-optionalits-iterative" class="level3" data-number="8.1.4">
-<h3 data-number="8.1.4" class="anchored" data-anchor-id="fairness-isnt-optionalits-iterative"><span class="header-section-number">8.1.4</span> 4. Fairness Isn’t Optional—It’s Iterative</h3>
-<p><strong>The mistake</strong>: I measured fairness <em>after</em> shipping.</p>
-<p><strong>The lesson</strong>: It should be part of every model iteration: - Does this change fix bias for Group A but hurt Group B? - Is that acceptable? - Who decides?</p>
-<p><strong>Next time</strong>: Build fairness dashboards alongside accuracy dashboards.</p>
-<hr>
-</section>
-<section id="communication-matters-as-much-as-accuracy" class="level3" data-number="8.1.5">
-<h3 data-number="8.1.5" class="anchored" data-anchor-id="communication-matters-as-much-as-accuracy"><span class="header-section-number">8.1.5</span> 5. Communication Matters as Much as Accuracy</h3>
-<p><strong>The move</strong>: This whole book.</p>
-<p><strong>The payoff</strong>: 85% accuracy helps nobody if nobody understands what the model does.</p>
-<p><strong>Next time</strong>: Invest in explaining <em>why</em>, not just proving <em>what works</em>.</p>
-<hr>
-</section>
-</section>
-<section id="where-this-system-still-fails" class="level2" data-number="8.2">
-<h2 data-number="8.2" class="anchored" data-anchor-id="where-this-system-still-fails"><span class="header-section-number">8.2</span> Where This System Still Fails</h2>
-<p>Being honest about limitations is your best credibility signal:</p>
-<section id="cross-domain-transfer" class="level3" data-number="8.2.1">
-<h3 data-number="8.2.1" class="anchored" data-anchor-id="cross-domain-transfer"><span class="header-section-number">8.2.1</span> ❌ Cross-Domain Transfer</h3>
-<p>Trained on political/entertainment misinformation. How does it work on: - Health misinformation? (different language patterns) - Financial fraud? (different intent) - Scientific disinformation? (requires domain expertise to verify)</p>
-<p><strong>Answer</strong>: Probably 50-70% accuracy. Needs fine-tuning on new domains.</p>
-</section>
-<section id="visual-misinformation" class="level3" data-number="8.2.2">
-<h3 data-number="8.2.2" class="anchored" data-anchor-id="visual-misinformation"><span class="header-section-number">8.2.2</span> ❌ Visual Misinformation</h3>
-<p>This system sees text. It doesn’t see: - Doctored images - Deepfakes - Misleading infographics</p>
-<p><strong>Answer</strong>: Needs multimodal models (vision + text). That’s a different system.</p>
-</section>
-<section id="latent-misinformation" class="level3" data-number="8.2.3">
-<h3 data-number="8.2.3" class="anchored" data-anchor-id="latent-misinformation"><span class="header-section-number">8.2.3</span> ❌ Latent Misinformation</h3>
-<p>The system catches explicit falsehoods. It misses: - True claims + false implications (“I got vaccinated and then I got sick” ≠ causation) - Out-of-context facts - Omitted context</p>
-<p><strong>Answer</strong>: Requires stronger reasoning, fact-checking systems, linked data. Harder problem.</p>
-</section>
-<section id="adversarial-robustness" class="level3" data-number="8.2.4">
-<h3 data-number="8.2.4" class="anchored" data-anchor-id="adversarial-robustness"><span class="header-section-number">8.2.4</span> ❌ Adversarial Robustness</h3>
-<p>What if someone knows the model and deliberately writes around it?</p>
-<p><strong>Answer</strong>: This is an open research problem. My system is not robust to adversarial misinformation designed for it.</p>
-<hr>
-</section>
-</section>
-<section id="what-comes-next-if-youre-building-on-this" class="level2" data-number="8.3">
-<h2 data-number="8.3" class="anchored" data-anchor-id="what-comes-next-if-youre-building-on-this"><span class="header-section-number">8.3</span> What Comes Next (If You’re Building On This)</h2>
-<section id="for-researchers" class="level3" data-number="8.3.1">
-<h3 data-number="8.3.1" class="anchored" data-anchor-id="for-researchers"><span class="header-section-number">8.3.1</span> For Researchers</h3>
+<section id="baselines-are-undervalued-everywhere" class="level3" data-number="9.0.2">
+<h3 data-number="9.0.2" class="anchored" data-anchor-id="baselines-are-undervalued-everywhere"><span class="header-section-number">9.0.2</span> 2. Baselines are undervalued — everywhere</h3>
+<p>The instinct is to jump to transformers. I felt it too.</p>
+<p>But TF-IDF at 81.2% was, in many ways, the most valuable result in this project:</p>
 <ul>
-<li>✅ Multimodal models (image + audio + text)</li>
-<li>✅ Cross-lingual transfer (does this work in non-English?)</li>
-<li>✅ Temporal dynamics (can we predict virality <em>before</em> it spreads?)</li>
-<li>✅ Causal inference (what <em>causes</em> susceptibility?)</li>
+<li>It proved the problem was learnable from text alone</li>
+<li>It exposed a data leakage bug that DistilBERT silently absorbed</li>
+<li>It runs on a laptop CPU in milliseconds</li>
+<li>It tells you <em>exactly</em> which words matter — no black box</li>
+</ul>
+<p>DistilBERT at 85.75% is impressive. But if I hadn’t built the baseline first, I wouldn’t have known what 4.5% accuracy actually cost.</p>
+</section>
+<section id="production-thinking-belongs-at-the-start-not-the-end" class="level3" data-number="9.0.3">
+<h3 data-number="9.0.3" class="anchored" data-anchor-id="production-thinking-belongs-at-the-start-not-the-end"><span class="header-section-number">9.0.3</span> 3. Production thinking belongs at the start, not the end</h3>
+<p>I built the research system first and bolted on production thinking afterward. That was backwards.</p>
+<p>If I’d known early that the deployment target was &lt;50ms on CPU with explainability requirements, I would have made different model choices, built the monitoring infrastructure earlier, and spared myself a significant rewrite. <strong>Latency, fairness, and interpretability aren’t post-launch concerns — they’re design constraints.</strong></p>
+</section>
+<section id="fairness-is-iterative-not-a-final-audit" class="level3" data-number="9.0.4">
+<h3 data-number="9.0.4" class="anchored" data-anchor-id="fairness-is-iterative-not-a-final-audit"><span class="header-section-number">9.0.4</span> 4. Fairness is iterative, not a final audit</h3>
+<p>I measured fairness after the system was “done.” That’s the wrong frame. Every model update changes the fairness landscape. False positive rates shift by domain, language, source credibility, and demographic group. The right approach is continuous measurement — a fairness dashboard that lives next to the accuracy dashboard and gets reviewed at every iteration.</p>
+</section>
+<section id="communication-multiplies-every-insight" class="level3" data-number="9.0.5">
+<h3 data-number="9.0.5" class="anchored" data-anchor-id="communication-multiplies-every-insight"><span class="header-section-number">9.0.5</span> 5. Communication multiplies every insight</h3>
+<p>An 86% accurate model sitting in a notebook helps nobody. This book exists because I believe that clearly explaining <em>why</em> something works — not just proving <em>that</em> it works — is what transforms research into something other people can use, extend, and improve on.</p>
+<hr>
+</section>
+<section id="where-this-system-still-falls-short" class="level2" data-number="9.1">
+<h2 data-number="9.1" class="anchored" data-anchor-id="where-this-system-still-falls-short"><span class="header-section-number">9.1</span> Where This System Still Falls Short</h2>
+<p>Being honest about limitations is the most important credibility signal a researcher can offer. Here’s where the system genuinely struggles:</p>
+<p><strong>Cross-domain transfer.</strong> I trained on political news (PolitiFact) and entertainment (GossipCop). Apply this to health misinformation, financial fraud, or scientific disinformation and accuracy likely drops to 50–70%. Different domains have different linguistic fingerprints, and the model doesn’t know what it doesn’t know.</p>
+<p><strong>Visual and multimodal misinformation.</strong> The system sees text. Deepfakes, manipulated images, misleading infographics — this entire category is invisible to every model in this book. That’s a separate, harder problem that requires vision + text + reasoning.</p>
+<p><strong>Latent falsehoods.</strong> The system catches explicit false claims reasonably well. It misses subtler manipulation: true facts presented out of context, correct statistics with misleading frames, real quotes re-attributed to wrong speakers. These require world knowledge, fact-checking infrastructure, and reasoning the current system doesn’t have.</p>
+<p><strong>Adversarial robustness.</strong> If someone knows this model exists and deliberately writes around it — synonyms, paraphrasing, obfuscation — it will fail. This is an open research problem, and I make no claim to have solved it.</p>
+<hr>
+</section>
+<section id="what-comes-next" class="level2" data-number="9.2">
+<h2 data-number="9.2" class="anchored" data-anchor-id="what-comes-next"><span class="header-section-number">9.2</span> What Comes Next</h2>
+<section id="for-the-research" class="level3" data-number="9.2.1">
+<h3 data-number="9.2.1" class="anchored" data-anchor-id="for-the-research"><span class="header-section-number">9.2.1</span> For the research</h3>
+<p>The most important extensions are:</p>
+<ul>
+<li><strong>Multimodal detection</strong>: image + audio + text together, which is where most modern disinformation already lives</li>
+<li><strong>Cross-lingual transfer</strong>: does a model trained on English detect Arabic, Hindi, or Nepali misinformation? The answer is probably not, and that’s a serious equity problem</li>
+<li><strong>Longitudinal dynamics</strong>: susceptibility isn’t static. Does the same person become more or less vulnerable over time? The behavioral study was cross-sectional; a longitudinal design would be far more powerful</li>
+<li><strong>Intervention evaluation</strong>: the SEIR model shows <em>what could work</em>; the harder question is running real experiments on platforms to find out <em>what actually does</em></li>
 </ul>
 </section>
-<section id="for-platform-teams" class="level3" data-number="8.3.2">
-<h3 data-number="8.3.2" class="anchored" data-anchor-id="for-platform-teams"><span class="header-section-number">8.3.2</span> For Platform Teams</h3>
+<section id="for-builders" class="level3" data-number="9.2.2">
+<h3 data-number="9.2.2" class="anchored" data-anchor-id="for-builders"><span class="header-section-number">9.2.2</span> For builders</h3>
+<p>If you’re implementing something similar:</p>
 <ul>
-<li>✅ Real-time filtering (current system is batch)</li>
-<li>✅ Explainability at scale (how to explain 1M decisions/day?)</li>
-<li>✅ Appeal workflows (how do creators contest flags?)</li>
-<li>✅ Intervention testing (A/B testing for fact-checks, warnings, labels)</li>
+<li>Instrument your pipeline for fairness from day one — measure false positive rate by domain, source, and demographic group</li>
+<li>Build the explanation layer alongside the model, not after</li>
+<li>Version your models and your predictions — you’ll need to audit decisions that were made months ago</li>
+<li>Design an appeal process; if your system can flag content, creators need a way to contest that flag</li>
 </ul>
 </section>
-<section id="for-policy" class="level3" data-number="8.3.3">
-<h3 data-number="8.3.3" class="anchored" data-anchor-id="for-policy"><span class="header-section-number">8.3.3</span> For Policy</h3>
+<section id="for-policy" class="level3" data-number="9.2.3">
+<h3 data-number="9.2.3" class="anchored" data-anchor-id="for-policy"><span class="header-section-number">9.2.3</span> For policy</h3>
 <ul>
-<li>✅ Audit standards (what should we measure?)</li>
-<li>✅ Transparency requirements (what must be disclosed?)</li>
-<li>✅ Liability frameworks (who’s responsible if the model fails?)</li>
-<li>✅ International coordination (misinformation spreads across borders)</li>
+<li>Audit standards: what should be measured, by whom, and how often?</li>
+<li>Transparency requirements: what must platforms disclose about their detection systems?</li>
+<li>Liability: who is responsible when the model makes a consequential error?</li>
+<li>International coordination: misinformation doesn’t respect borders; detection systems that work in one country often fail in another</li>
 </ul>
 <hr>
 </section>
 </section>
-<section id="the-technical-stack-if-youre-reproducing-this" class="level2" data-number="8.4">
-<h2 data-number="8.4" class="anchored" data-anchor-id="the-technical-stack-if-youre-reproducing-this"><span class="header-section-number">8.4</span> The Technical Stack (If You’re Reproducing This)</h2>
-<p><strong>Languages</strong>: Python 3.9+, R (for behavioral analysis), Quarto (for docs)</p>
-<p><strong>ML</strong>: scikit-learn, PyTorch, transformers, statsmodels</p>
-<p><strong>Data Processing</strong>: pandas, polars, parquet</p>
-<p><strong>Tracking</strong>: MLflow + local fallback</p>
-<p><strong>Infrastructure</strong>: GitHub Actions, Docker (optional), Google Colab compatible</p>
-<p><strong>Testing</strong>: pytest, mypy strict mode, 46+ unit tests in external repos</p>
+<section id="the-lessons-that-actually-stuck" class="level2" data-number="9.3">
+<h2 data-number="9.3" class="anchored" data-anchor-id="the-lessons-that-actually-stuck"><span class="header-section-number">9.3</span> The Lessons That Actually Stuck</h2>
+<p><strong>Rigor compounds.</strong> The investment in careful data cleaning, reliable measurement, and reproducible code paid off every time I revisited the work six months later. Shortcuts in the foundation cost three times as much downstream.</p>
+<p><strong>Reproducibility is a letter to your future self.</strong> Six months from now I won’t remember why I chose a particular regularization parameter. The code annotation and this book are the explanation that lets me — and anyone else — pick this up without starting from scratch.</p>
+<p><strong>Communicate to multiple audiences.</strong> The same finding needs different frames for an academic, a platform engineer, and a policymaker. Learning to translate across those frames is its own skill, and it matters as much as the technical work.</p>
+<p><strong>Ethics is ongoing.</strong> It’s not a checkbox that gets completed and filed. Every design decision — what data to collect, which errors are acceptable, what counts as explainability — has ethical weight. The only honest position is continuous scrutiny, not a one-time audit.</p>
+<p><strong>The best insights came from across disciplines.</strong> My clearest thinking happened in conversations with psychologists, journalists, and platform safety researchers — not data scientists. The people who understand the human problem, the content problem, and the deployment problem respectively see different parts of the system. Alone, I only see one.</p>
 <hr>
 </section>
-<section id="this-is-a-portfolio.-heres-why-it-worked." class="level2" data-number="8.5">
-<h2 data-number="8.5" class="anchored" data-anchor-id="this-is-a-portfolio.-heres-why-it-worked."><span class="header-section-number">8.5</span> This Is a Portfolio. Here’s Why It Worked.</h2>
-<section id="as-a-hiring-signal" class="level3" data-number="8.5.1">
-<h3 data-number="8.5.1" class="anchored" data-anchor-id="as-a-hiring-signal"><span class="header-section-number">8.5.1</span> As a Hiring Signal</h3>
-<ul>
-<li>✅ <strong>End-to-end ownership</strong>: Not “I wrote a model,” but “I built a system that ships”</li>
-<li>✅ <strong>Behavioral + Technical</strong>: Rare combination</li>
-<li>✅ <strong>Honest about limitations</strong>: “This works here, fails here” is trustworthy</li>
-<li>✅ <strong>Reproducible</strong>: Someone else can run this and get the same results</li>
-<li>✅ <strong>Ethical reflection</strong>: I’m not just optimizing metrics</li>
-</ul>
-</section>
-<section id="as-a-research-contribution" class="level3" data-number="8.5.2">
-<h3 data-number="8.5.2" class="anchored" data-anchor-id="as-a-research-contribution"><span class="header-section-number">8.5.2</span> As a Research Contribution</h3>
-<ul>
-<li>✅ <strong>Empirical rigor</strong>: Real data, proper validation, statistical significance</li>
-<li>✅ <strong>Methodological transparency</strong>: You know exactly what I did and why</li>
-<li>✅ <strong>Open source</strong>: Can be replicated, extended, critiqued</li>
-</ul>
-</section>
-<section id="as-a-learning-experience" class="level3" data-number="8.5.3">
-<h3 data-number="8.5.3" class="anchored" data-anchor-id="as-a-learning-experience"><span class="header-section-number">8.5.3</span> As a Learning Experience</h3>
-<ul>
-<li>✅ <strong>Shows progression</strong>: Simple → complex, local → scale</li>
-<li>✅ <strong>Embedded lessons</strong>: Each chapter has gotchas, trade-offs, real insights</li>
-<li>✅ <strong>Practical focus</strong>: Everything here actually works</li>
-</ul>
+<section id="a-personal-note" class="level2" data-number="9.4">
+<h2 data-number="9.4" class="anchored" data-anchor-id="a-personal-note"><span class="header-section-number">9.4</span> A Personal Note</h2>
+<p>This project taught me something I didn’t expect: the technical and the human are not separate problems. The reason behavioral features improve accuracy isn’t because they’re clever features — it’s because misinformation is designed, by humans, to exploit other humans. Understanding that design requires taking psychology seriously, not just feature-engineering it.</p>
+<p>I came into this work thinking about classifiers. I’m leaving it thinking about trust — how it’s built, how it’s broken, and what it actually takes to earn it.</p>
+<p>If there’s a through-line in everything I built here, it’s this: <strong>good systems are honest about what they can’t do.</strong> The 86.1% model is useful because I know where the other 13.9% goes wrong. The SEIR simulation is useful because I know which assumptions it’s making. The behavioral profiler is useful because it comes with a disclaimer about what susceptibility scores actually mean.</p>
+<p>Honesty about limitations isn’t weakness. It’s the foundation that makes everything else trustworthy.</p>
 <hr>
 </section>
-</section>
-<section id="for-the-hiring-conversation" class="level2" data-number="8.6">
-<h2 data-number="8.6" class="anchored" data-anchor-id="for-the-hiring-conversation"><span class="header-section-number">8.6</span> For The Hiring Conversation</h2>
-<p>If you’re reading this as a portfolio project, here’s what you should know:</p>
-<p><strong>This person can:</strong> - Combine cognitive science + machine learning (synthesizing different domains) - Build end-to-end systems (not just models, but infrastructure) - Communicate to multiple audiences (code, visualizations, narratives) - Grapple with ethics (not as an afterthought) - Ship production code with monitoring and reproducibility</p>
-<p><strong>This person understands:</strong> - Trade-offs (accuracy vs.&nbsp;speed vs.&nbsp;fairness vs.&nbsp;cost) - Baselines matter (the first instinct to reach for transformers is wrong) - Domain matters (this system works here, might not work there) - Limitations are features, not bugs (honesty is credibility)</p>
-<hr>
-</section>
-<section id="the-personal-reflection" class="level2" data-number="8.7">
-<h2 data-number="8.7" class="anchored" data-anchor-id="the-personal-reflection"><span class="header-section-number">8.7</span> The Personal Reflection</h2>
-<p>This started as a Master’s thesis on cognitive vulnerability. It became: - An exploration of how ML can solve real behavioral problems - A deep dive into misinformation dynamics - A portfolio of systems thinking and ethical reasoning - Practice in communicating complex work clearly</p>
-<p><strong>What I’m still learning</strong>: - How to scale from “works great on my machine” to “works for millions” - How to ship with uncertainty (vs.&nbsp;waiting for perfect models) - How to collaborate across disciplines (psychologists + engineers)</p>
-<hr>
-</section>
-<section id="final-thought" class="level2" data-number="8.8">
-<h2 data-number="8.8" class="anchored" data-anchor-id="final-thought"><span class="header-section-number">8.8</span> Final Thought</h2>
+<section id="the-frontier" class="level2" data-number="9.5">
+<h2 data-number="9.5" class="anchored" data-anchor-id="the-frontier"><span class="header-section-number">9.5</span> The Frontier</h2>
 <p>Misinformation is a systems problem, not a classifier problem.</p>
-<p>The classifier is one tool among many: - Design literacy (teach people to think critically) - Platform affordances (design for truth) - Community norms (trust networks matter) - Institutional responsibility (platforms, policy, media)</p>
-<p>This project shows one piece of that system.</p>
-<p>The next challenge is integration—bringing behavioral science, ML, platform design, policy, and ethics <em>together</em>.</p>
-<p>That’s the frontier.</p>
-<hr>
-</section>
-<section id="how-to-use-this-as-a-template" class="level2" data-number="8.9">
-<h2 data-number="8.9" class="anchored" data-anchor-id="how-to-use-this-as-a-template"><span class="header-section-number">8.9</span> How to Use This as a Template</h2>
-<p>If you’re building a similar portfolio project:</p>
-<ol type="1">
-<li><strong>Start with a real problem</strong> (not a Kaggle dataset)</li>
-<li><strong>Combine domains</strong> (don’t just do ML; add behavioral science, policy, ethics)</li>
-<li><strong>Show the complete arc</strong> (hypothesis → testing → implementation → ethics → reflection)</li>
-<li><strong>Be honest about limitations</strong> (credibility &gt; perfection)</li>
-<li><strong>Make it reproducible</strong> (someone else should be able to run this)</li>
-<li><strong>Document your thinking</strong> (not just your code)</li>
-<li><strong>Ship something</strong> (the difference between “I wrote code” and “I built a system”)</li>
-</ol>
-<hr>
-<p><strong>Built</strong>: 2025-2026<br>
-<strong>Status</strong>: Production ready, actively maintained<br>
-<strong>Last Updated</strong>: April 2, 2026</p>
-<p>Let’s go build something that matters. 🐙</p>
-<p><strong>Relevant roles</strong>: Data Scientist, ML Engineer, Analytics Engineer, Research Scientist</p>
-<section id="for-academics-researchers" class="level3" data-number="8.9.1">
-<h3 data-number="8.9.1" class="anchored" data-anchor-id="for-academics-researchers"><span class="header-section-number">8.9.1</span> For Academics &amp; Researchers</h3>
+<p>The classifier is one tool among many:</p>
 <ul>
-<li><strong>Chapter 1-2</strong>: Statistical methodology and open science practices</li>
-<li><strong>Chapter 4</strong>: NLP for linguistic theory</li>
-<li><strong>Chapter 5</strong>: Causal and simulation modeling</li>
-<li><strong>Chapter 7</strong>: Ethics in computational social science</li>
+<li><strong>Design literacy</strong> — teach people to think critically before they share</li>
+<li><strong>Platform affordances</strong> — design for truth, not just engagement</li>
+<li><strong>Community norms</strong> — trust networks shape what travels</li>
+<li><strong>Institutional responsibility</strong> — platforms, policy, media each carry a share</li>
 </ul>
-<p><strong>Relevant venues</strong>: Conference talks, journal submissions, collaborative research</p>
+<p>The next challenge is integration: bringing behavioral science, ML, platform design, policy, and ethics <em>together</em> into systems that actually reduce harm without creating new kinds of it.</p>
+<p>That’s the frontier. And there’s a lot of frontier to cover.</p>
+<hr>
 </section>
-<section id="for-learners-career-changers" class="level3" data-number="8.9.2">
-<h3 data-number="8.9.2" class="anchored" data-anchor-id="for-learners-career-changers"><span class="header-section-number">8.9.2</span> For Learners &amp; Career-Changers</h3>
+<section id="stay-in-touch" class="level2" data-number="9.6">
+<h2 data-number="9.6" class="anchored" data-anchor-id="stay-in-touch"><span class="header-section-number">9.6</span> Stay in Touch</h2>
+<p>I’m genuinely interested in:</p>
 <ul>
-<li><strong>Start here</strong>: Chapters 1-2 (foundation + tooling)</li>
-<li><strong>Apply next</strong>: Chapters 3-5 (ML pipelines, real data)</li>
-<li><strong>Think holistically</strong>: Chapters 6-7 (systems thinking + ethics)</li>
-<li><strong>Build your own</strong>: Fork this repo, adapt the structure for your domain</li>
+<li>Collaborations on misinformation detection, behavioral research, or responsible AI</li>
+<li>Feedback on this work — what I got wrong, what could be extended, what you’d build differently</li>
+<li>Conversations about how to deploy these ideas responsibly at scale</li>
 </ul>
-<hr>
-<p>Data science interviews often ask: “Tell us about a project you’re proud of.”</p>
-<p>This book IS that answer. It demonstrates:</p>
-<ol type="1">
-<li><strong>End-to-end ownership</strong>: From behavioral research to production deployment</li>
-<li><strong>Methodological rigor</strong>: Research standards across psychology, CS, and epidemiology</li>
-<li><strong>Communication</strong>: Code, visuals, narrative for different audiences</li>
-<li><strong>Values</strong>: Ethics, limitations, responsible AI practices</li>
-<li><strong>Growth</strong>: Masters thesis → scalable research platform → publishable portfolio</li>
-</ol>
+<p><strong>GitHub</strong>: <a href="https://github.com/sanjaykshetri">github.com/sanjaykshetri</a><br>
+<strong>Email</strong>: <a href="mailto:sanjaykshetri@gmail.com">sanjaykshetri@gmail.com</a></p>
+<p>If you fork this, improve it, or build something inspired by it — I’d love to know.</p>
 <hr>
 </section>
-</section>
-<section id="how-to-navigate-this-work" class="level2" data-number="8.10">
-<h2 data-number="8.10" class="anchored" data-anchor-id="how-to-navigate-this-work"><span class="header-section-number">8.10</span> How to Navigate This Work</h2>
-<section id="for-hiring-managers-collaborators" class="level3" data-number="8.10.1">
-<h3 data-number="8.10.1" class="anchored" data-anchor-id="for-hiring-managers-collaborators"><span class="header-section-number">8.10.1</span> For Hiring Managers &amp; Collaborators</h3>
-<ul>
-<li><strong>Unit 1</strong>: I can design rigorous behavioral studies and analyze causal mechanisms</li>
-<li><strong>Unit 2</strong>: I implement ML pipelines from classical to transformer-based methods</li>
-<li><strong>Unit 3</strong>: I build mathematical models and reason about population-level dynamics</li>
-<li><strong>Unit 4</strong>: I deploy models responsibly, monitor in production, and think about ethics</li>
-<li><strong>This epilogue</strong>: I can articulate growth and learn from iterating on complex problems</li>
-</ul>
-<p><strong>Relevant roles</strong>: Data Scientist, ML Engineer, Analytics Engineer, Research Scientist</p>
-</section>
-<section id="for-academics-researchers-1" class="level3" data-number="8.10.2">
-<h3 data-number="8.10.2" class="anchored" data-anchor-id="for-academics-researchers-1"><span class="header-section-number">8.10.2</span> For Academics &amp; Researchers</h3>
-<ul>
-<li><strong>Unit 1</strong>: Behavioral survey methodology, mediation analysis, measurement theory</li>
-<li><strong>Unit 2</strong>: NLP baselines and deep learning for text classification</li>
-<li><strong>Unit 3</strong>: Epidemiological modeling applied to information diffusion</li>
-<li><strong>Unit 4</strong>: Responsible AI, model cards, ethical frameworks for deployment</li>
-</ul>
-<p><strong>Relevant venues</strong>: Conference talks, journal submissions, collaborative research</p>
-</section>
-<section id="for-learners-career-changers-1" class="level3" data-number="8.10.3">
-<h3 data-number="8.10.3" class="anchored" data-anchor-id="for-learners-career-changers-1"><span class="header-section-number">8.10.3</span> For Learners &amp; Career-Changers</h3>
-<ul>
-<li><strong>Start here</strong>: Unit 1 (behavioral foundations + research design)</li>
-<li><strong>Build skill next</strong>: Units 2-3 (ML pipelines, mathematical modeling)</li>
-<li><strong>Think systemically</strong>: Unit 4 (ethics, production, stakeholders)</li>
-<li><strong>Build your own</strong>: Fork this repo, adapt the structure for your domain</li>
-</ul>
+<section id="acknowledgments" class="level2" data-number="9.7">
+<h2 data-number="9.7" class="anchored" data-anchor-id="acknowledgments"><span class="header-section-number">9.7</span> Acknowledgments</h2>
+<p>To the researchers whose work on cognitive vulnerability, NLP, and information epidemiology created the ground this project stands on. To the fact-checkers at PolitiFact and GossipCop whose careful labor produced the datasets this system rests on. To my advisors and mentors for the push toward rigor and the patience with iteration. And to anyone reading this far — you’re exactly the kind of person this work was written for.</p>
 <hr>
-</section>
-</section>
-<section id="frontier-challenges" class="level2" data-number="8.11">
-<h2 data-number="8.11" class="anchored" data-anchor-id="frontier-challenges"><span class="header-section-number">8.11</span> Frontier Challenges</h2>
-<p>Misinformation research is evolving rapidly. This book represents one approach; the next frontier challenges include:</p>
-<section id="unit-1-extensions-measuring-vulnerability" class="level3" data-number="8.11.1">
-<h3 data-number="8.11.1" class="anchored" data-anchor-id="unit-1-extensions-measuring-vulnerability"><span class="header-section-number">8.11.1</span> Unit 1 Extensions: Measuring Vulnerability</h3>
-<ul>
-<li><strong>Cross-cultural psychology</strong>: Do CRT, need for cognition, conspiracy beliefs predict susceptibility similarly across cultures?</li>
-<li><strong>Longitudinal dynamics</strong>: How do susceptibility factors change over time? Life-course developments?</li>
-<li><strong>Neurobiological foundations</strong>: Can we use fMRI or eye-tracking to validate psychological measures?</li>
-</ul>
-</section>
-<section id="unit-2-extensions-detecting-narratives" class="level3" data-number="8.11.2">
-<h3 data-number="8.11.2" class="anchored" data-anchor-id="unit-2-extensions-detecting-narratives"><span class="header-section-number">8.11.2</span> Unit 2 Extensions: Detecting Narratives</h3>
-<ul>
-<li><strong>Multimodal detection</strong>: Images + text + video (not just text titles)</li>
-<li><strong>Real-time detection</strong>: Current models operate on historical FakeNewsNet; can they catch emerging misinformation before it spreads?</li>
-<li><strong>Adversarial robustness</strong>: Can models withstand intentional attacks (rewording, paraphrasing)?</li>
-<li><strong>Cross-lingual transfer</strong>: German, Arabic, Hindi detection from English training data?</li>
-</ul>
-</section>
-<section id="unit-3-extensions-modeling-spread" class="level3" data-number="8.11.3">
-<h3 data-number="8.11.3" class="anchored" data-anchor-id="unit-3-extensions-modeling-spread"><span class="header-section-number">8.11.3</span> Unit 3 Extensions: Modeling Spread</h3>
-<ul>
-<li><strong>Network heterogeneity</strong>: Real cascades aren’t well-mixed; explicit social graphs needed</li>
-<li><strong>Temporal resolution</strong>: Current model uses aggregate parameters; can we model day-by-day dynamics?</li>
-<li><strong>Intervention evaluation</strong>: What interventions actually work? Education, friction, counter-narratives?</li>
-</ul>
-</section>
-<section id="unit-4-extensions-fusion-scale" class="level3" data-number="8.11.4">
-<h3 data-number="8.11.4" class="anchored" data-anchor-id="unit-4-extensions-fusion-scale"><span class="header-section-number">8.11.4</span> Unit 4 Extensions: Fusion &amp; Scale</h3>
-<ul>
-<li><strong>Real-world deployment</strong>: Move from research dashboards to production systems at platform scale</li>
-<li><strong>Fairness &amp; bias</strong>: Ensure models don’t disproportionately label marginalized groups’ content as misinformation</li>
-<li><strong>Explainability</strong>: SHAP plots for research; what explanations do end-users understand?</li>
-<li><strong>Regulatory alignment</strong>: GDPR, DSA, and emerging AI regulations—how to comply while maintaining effectiveness?</li>
-</ul>
-<hr>
-</section>
-</section>
-<section id="short-term-roadmap-next-12-months" class="level2" data-number="8.12">
-<h2 data-number="8.12" class="anchored" data-anchor-id="short-term-roadmap-next-12-months"><span class="header-section-number">8.12</span> Short-Term Roadmap (Next 12 Months)</h2>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Goal</th>
-<th>Unit(s)</th>
-<th>Status</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Publish Unit 1 findings</td>
-<td>Unit 1</td>
-<td>🟡 In progress</td>
-</tr>
-<tr class="even">
-<td>Cross-validate Units 2-3</td>
-<td>Units 2, 3</td>
-<td>🟡 In progress</td>
-</tr>
-<tr class="odd">
-<td>Deploy Unit 4 dashboard</td>
-<td>Unit 4</td>
-<td>✅ Complete (external repo)</td>
-</tr>
-<tr class="even">
-<td>Expand to Nepal 2024 election data</td>
-<td>All units</td>
-<td>🔴 Not started</td>
-</tr>
-<tr class="odd">
-<td>Document API for external researchers</td>
-<td>Unit 4</td>
-<td>🔴 Not started</td>
-</tr>
-</tbody>
-</table>
-<hr>
-</section>
-<section id="long-term-vision" class="level2" data-number="8.13">
-<h2 data-number="8.13" class="anchored" data-anchor-id="long-term-vision"><span class="header-section-number">8.13</span> Long-Term Vision</h2>
-<p>Make data science education more rigorous, inclusive, and ethical through: - <strong>Teaching</strong>: Courses on responsible AI, reproducible research, research design - <strong>Collaboration</strong>: Partner with fact-checking orgs, academic labs, policy makers - <strong>Policy</strong>: Contribute evidence to inform regulation of social media and AI systems</p>
-<hr>
-</section>
-<section id="lessons-learned" class="level2" data-number="8.14">
-<h2 data-number="8.14" class="anchored" data-anchor-id="lessons-learned"><span class="header-section-number">8.14</span> Lessons Learned</h2>
-<section id="rigor-compounds" class="level3" data-number="8.14.1">
-<h3 data-number="8.14.1" class="anchored" data-anchor-id="rigor-compounds"><span class="header-section-number">8.14.1</span> 1. Rigor Compounds</h3>
-<p>Starting with careful data cleaning and measurement validation saves enormous time downstream.</p>
-</section>
-<section id="reproducibility-is-a-love-letter-to-future-you" class="level3" data-number="8.14.2">
-<h3 data-number="8.14.2" class="anchored" data-anchor-id="reproducibility-is-a-love-letter-to-future-you"><span class="header-section-number">8.14.2</span> 2. Reproducibility is a Love Letter to Future You</h3>
-<p>Six months from now, you won’t remember why you chose this parameter. Document it.</p>
-</section>
-<section id="communicate-to-different-audiences" class="level3" data-number="8.14.3">
-<h3 data-number="8.14.3" class="anchored" data-anchor-id="communicate-to-different-audiences"><span class="header-section-number">8.14.3</span> 3. Communicate to Different Audiences</h3>
-<p>The same finding needs different frames: - <strong>Academics</strong>: Effect sizes, confidence intervals, theoretical implications - <strong>Practitioners</strong>: Actionable thresholds, business impact, failure modes - <strong>Public</strong>: Intuitive narrative, why it matters to everyday life</p>
-</section>
-<section id="ethics-isnt-a-checkbox" class="level3" data-number="8.14.4">
-<h3 data-number="8.14.4" class="anchored" data-anchor-id="ethics-isnt-a-checkbox"><span class="header-section-number">8.14.4</span> 4. Ethics Isn’t a Checkbox</h3>
-<p>It’s not “complete” and then done. It’s ongoing: Design → Build → Deploy → Monitor → Reflect.</p>
-</section>
-<section id="collaborate-across-disciplines" class="level3" data-number="8.14.5">
-<h3 data-number="8.14.5" class="anchored" data-anchor-id="collaborate-across-disciplines"><span class="header-section-number">8.14.5</span> 5. Collaborate Across Disciplines</h3>
-<p>My best insights came from talking with psychologists, journalists, and platform safety teams—not just data scientists.</p>
-<hr>
-</section>
-</section>
-<section id="staying-in-touch" class="level2" data-number="8.15">
-<h2 data-number="8.15" class="anchored" data-anchor-id="staying-in-touch"><span class="header-section-number">8.15</span> Staying in Touch</h2>
-<p>I’m always interested in: - Collaborations on misinformation research - Speaking opportunities and teaching - Feedback on this work - Directions you take it in (fork it, improve it, make it your own!)</p>
-<ul>
-<li><strong>GitHub</strong>: https://github.com/sanjaykshetri</li>
-<li><strong>Email</strong>: <a href="mailto:sanjaykshetri@gmail.com">sanjaykshetri@gmail.com</a></li>
-</ul>
-<hr>
-</section>
-<section id="one-more-thing" class="level2" data-number="8.16">
-<h2 data-number="8.16" class="anchored" data-anchor-id="one-more-thing"><span class="header-section-number">8.16</span> One More Thing</h2>
-<p>Misinformation is a hard problem. It won’t be “solved” by a single model or dataset.</p>
-<p>But by combining behavioral insight, statistical rigor, technical skill, and ethical reasoning, we can make incremental progress. We can help people think more clearly. We can build systems that are more transparent and just.</p>
-<p>That’s why this book exists. That’s why I do this work.</p>
-<hr>
-</section>
-<section id="acknowledgments" class="level2" data-number="8.17">
-<h2 data-number="8.17" class="anchored" data-anchor-id="acknowledgments"><span class="header-section-number">8.17</span> Acknowledgments</h2>
-<p>[Placeholder: Thank advisors, collaborators, mentors, family]</p>
-<hr>
-</section>
-<section id="references" class="level2" data-number="8.18">
-<h2 data-number="8.18" class="anchored" data-anchor-id="references"><span class="header-section-number">8.18</span> References</h2>
-<p>[Full bibliography of chapters synthesized here]</p>
+<p><em>Built: 2024–2026 · Status: Production-ready, actively maintained</em><br>
+<em>Sanjay Kumar Chhetri · <a href="mailto:sanjaykshetri@gmail.com">sanjaykshetri@gmail.com</a></em></p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

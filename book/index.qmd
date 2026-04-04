@@ -331,7 +331,7 @@ Data Scientist | Behavioral Researcher | Builder
 
 - **Background**: Psychology (MSc focus on cognitive vulnerability) + Data Science (Springboard capstone)
 - **Why this**: Misinformation + responsible AI + population-level thinking
-- **Contact**: [@sanjaykshetri](https://github.com/sanjaykshetri)
+- **Contact**: [@sanjaykshetri](https://github.com/sanjaykshetri) · [sanjaykshetri@gmail.com](mailto:sanjaykshetri@gmail.com)
 
 This project taught me: Combine domains. Understand humans. Ship systems. Think ethics first.
 

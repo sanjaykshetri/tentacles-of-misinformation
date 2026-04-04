@@ -207,7 +207,7 @@ Before shipping misinformation detection, ask:
 
 ### Fusion Architecture Comparison
 
-We evaluated four fusion strategies: early fusion (concatenated raw features), late fusion (averaged logits), intermediate fusion (shared representation layer), and stacking (meta-learner on model outputs). The following figure summarizes ROC-AUC, training time, and interpretability trade-offs:
+I evaluated four fusion strategies: early fusion (concatenated raw features), late fusion (averaged logits), intermediate fusion (shared representation layer), and stacking (meta-learner on model outputs). The following figure summarizes ROC-AUC, training time, and interpretability trade-offs:
 
 ![Fusion Architectures Comparison](../images/fusion_architectures_comparison.png){width=90% fig-alt="Bar chart comparing early, late, intermediate, and stacking fusion architectures on ROC-AUC and training time"}
 
@@ -293,7 +293,7 @@ Each waterfall plot answers: *"Why did the model assign this credibility score t
 
 ### Nested Cross-Validation
 
-Standard k-fold CV is optimistically biased when hyperparameters are tuned on the same folds used for evaluation. We used nested CV (outer 5-fold, inner 3-fold) for unbiased generalization estimates:
+Standard k-fold CV is optimistically biased when hyperparameters are tuned on the same folds used for evaluation. I used nested CV (outer 5-fold, inner 3-fold) for unbiased generalization estimates:
 
 ![Nested Cross-Validation Results](../images/validation_nested_cv.png){width=85% fig-alt="Box plots showing AUC distribution across 5 outer folds for each model, demonstrating variance and stability"}
 

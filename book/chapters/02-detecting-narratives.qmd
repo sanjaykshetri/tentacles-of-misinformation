@@ -384,7 +384,7 @@ for col in df_final.columns[:8]:
 
 ### Feature Engineering
 
-We extracted 11 psycholinguistic features from article titles:
+I extracted 11 psycholinguistic features from article titles:
 
 **1. Sentiment & Emotion**:
 

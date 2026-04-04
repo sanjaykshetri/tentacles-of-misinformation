@@ -16,7 +16,7 @@ A mathematical model and simulation showing how misinformation spreads through p
 
 ## Why Spread Modeling Matters
 
-Detection alone is reactive: "We found this false story."
+Detection alone is reactive: "I found this false story."
 
 Spread modeling is *predictive*: "If we do nothing, it reaches 40% of the network. If we add fact-checks in hour 2, it only reaches 15%."
 
@@ -127,7 +127,7 @@ dR/dt = γ × I  (Recovered/immune)
 
 ### Calibration to FakeNewsNet Data
 
-We estimate parameters from real cascade data:
+I estimated parameters from real cascade data:
 
 | Parameter | Estimate | 95% CI | Interpretation |
 |-----------|----------|--------|-----------------|
@@ -204,7 +204,7 @@ Comparing SEIR-informed fusion models against text-only baselines validates that
 
 ### Cross-Modal Feature Correlations
 
-Spread dynamics are not driven by text content alone. We extracted three modality groups—behavioral proxies, NLP embeddings, and network-derived signals—and measured their pairwise correlation structure:
+Spread dynamics are not driven by text content alone. I extracted three modality groups—behavioral proxies, NLP embeddings, and network-derived signals—and measured their pairwise correlation structure:
 
 ![Cross-Modal Feature Correlations](../images/cross_modal_correlations.png){width=85% fig-alt="Heatmap showing correlations between behavioral, NLP, and network features across real and fake articles"}
 
@@ -215,7 +215,7 @@ Spread dynamics are not driven by text content alone. We extracted three modalit
 
 ### Modality Ablation: Which Signals Drive Detection?
 
-We trained the fusion model removing one modality at a time to measure each modality's unique contribution:
+I trained the fusion model removing one modality at a time to measure each modality's unique contribution:
 
 ![Modality Ablation Study](../images/ablation_modality.png){width=85% fig-alt="Bar chart showing AUC degradation when each modality (NLP, behavioral, network) is removed from the fusion model"}
 
@@ -268,23 +268,36 @@ Extend SEIR to a simulated population with:
 
 ```{mermaid}
 graph LR
-    S["📍 Susceptible"]
-    E["⏳ Exposed"]
-    I["😷 Infected"]
-    R["✅ Recovered"]
-    
-    S -->|β (baseline 0.0153)| E
-    E -->|σ (0.3193)| I
-    E -->|skepticism| R
-    I -->|γ (0.0870)| R
-    
-    S -->|β-20% = 0.0122| E
-    E -->|γ+30% = 1.131| R
-    
-    style S fill:#e3f2fd
-    style E fill:#fff3e0
-    style I fill:#ffebee
-    style R fill:#e8f5e9
+    subgraph baseline["Baseline SEIR"]
+        S1["📍 Susceptible"]
+        E1["⏳ Exposed"]
+        I1["😷 Infected"]
+        R1["✅ Recovered"]
+        S1 -->|"β = 0.0153"| E1
+        E1 -->|"σ = 0.3193"| I1
+        E1 -->|"skepticism"| R1
+        I1 -->|"γ = 0.0870"| R1
+    end
+
+    subgraph intervention["Combined Intervention"]
+        S2["📍 Susceptible"]
+        E2["⏳ Exposed"]
+        I2["😷 Infected"]
+        R2["✅ Recovered"]
+        S2 -->|"β = 0.0122 ↓20%"| E2
+        E2 -->|"σ = 0.3193"| I2
+        E2 -->|"skepticism ↑"| R2
+        I2 -->|"γ = 0.1131 ↑30%"| R2
+    end
+
+    style S1 fill:#e3f2fd
+    style E1 fill:#fff3e0
+    style I1 fill:#ffebee
+    style R1 fill:#e8f5e9
+    style S2 fill:#e3f2fd
+    style E2 fill:#fff3e0
+    style I2 fill:#ffebee
+    style R2 fill:#e8f5e9
 ```
 
 **Three intervention levers**:
