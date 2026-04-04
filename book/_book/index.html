@@ -109,6 +109,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-diagram/mermaid.min.js"></script>
 <script src="site_libs/quarto-diagram/mermaid-init.js"></script>
 <link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
+<script type="module">
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+  document.addEventListener('DOMContentLoaded', function() {
+    mermaid.initialize({ startOnLoad: false, theme: 'neutral' });
+    mermaid.run({ querySelector: '.mermaid' });
+  });
+</script>
 
 
 </head>
@@ -386,6 +393,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>✅ <strong>Hybrid wins</strong>: Best accuracy + practical speed</li>
 <li>✅ <strong>Generalization holds</strong>: Production ≈ Test (84-86%)</li>
 </ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/model_comparison_roc.png" class="img-fluid figure-img" style="width:85.0%" alt="ROC curves comparing TF-IDF Logistic Regression, TF-IDF SVM, SBERT LR, SBERT SVM, and the stacking fusion ensemble. All models shown on a single axis with AUC values annotated."></p>
+<figcaption>All-model ROC comparison — TF-IDF, SBERT, and fusion variants</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/model_comparison.png" class="img-fluid figure-img" style="width:85.0%" alt="Bar chart comparing accuracy, precision, recall, and F1 for every trained model from TF-IDF baseline through the hybrid fusion ensemble"></p>
+<figcaption>Model comparison — accuracy, precision, recall across all approaches</figcaption>
+</figure>
+</div>
 <hr>
 </section><section id="read-the-book-its-structured-for-learning" class="level2" data-number="1.5">
 <h2 data-number="1.5" class="anchored" data-anchor-id="read-the-book-its-structured-for-learning"><span class="header-section-number">1.5</span> 🧭 Read the Book (It’s Structured for Learning)</h2>

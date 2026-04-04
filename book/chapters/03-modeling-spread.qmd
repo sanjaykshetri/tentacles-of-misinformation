@@ -176,28 +176,27 @@ How sensitive is outbreak outcome to each parameter?
 
 ### Visualizations
 
-**Interactive plots and comprehensive analysis available in the external repository:**
+**Interactive plots and full simulation notebooks available in the external repository:**
 
 ```bash
 git clone https://github.com/sanjaykshetri/misinformation-epidemic-model.git
-cd misinformation-epidemic-model
-jupyter notebook notebooks/baseline_vs_interventions.ipynb
 ```
 
-**Key visualizations you can generate:**
-- **Baseline dynamics**: SEIR compartments over time with population trajectories
-- **Sensitivity heatmap**: β × γ parameter space colored by peak infection rate
-- **Intervention scenarios**: 4 plots showing baseline vs. 3 intervention strategies
-- **Confidence bands**: Parameter uncertainty visualization with credible intervals
-- **Cascade distributions**: Real FakeNewsNet cascade structure histograms (cascade depths, widths)
-- **Model diagnostics**: Residual plots and goodness-of-fit checks
+### Empirical Model Validation
 
-**Run locally:**
-```python
-from seir_model import calibrate_from_cascades, plot_dynamics
-params = calibrate_from_cascades('fakenewsnet.csv')
-plot_dynamics(params)  # Creates baseline trajectory
-```
+The SEIR parameters were calibrated against FakeNewsNet cascade data. The figures below confirm that the calibrated model generalises beyond the training sample.
+
+**ROC-AUC Comparison — All Model Variants**
+
+Comparing SEIR-informed fusion models against text-only baselines validates that spread-signal features add predictive power beyond content alone:
+
+![Model Comparison: ROC Curves](../images/model_comparison_roc.png){width=88% fig-alt="ROC curves for TF-IDF LR, TF-IDF SVM, SBERT LR, SBERT SVM, and stacking ensemble models, calibrated with SEIR spread features"}
+
+**Bootstrap Confidence Intervals — AUC Stability**
+
+1,000-sample bootstrap CI estimates show the fusion model's improvement over baselines is statistically robust (non-overlapping intervals):
+
+![Bootstrap Confidence Intervals](../images/validation_bootstrap_ci.png){width=85% fig-alt="Forest plot of 95% bootstrap confidence intervals for ROC-AUC across all model types, showing the stacking ensemble is significantly better than single-modality baselines"}
 
 ---
 

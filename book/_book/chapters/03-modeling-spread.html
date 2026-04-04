@@ -108,6 +108,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-diagram/mermaid.min.js"></script>
 <script src="../site_libs/quarto-diagram/mermaid-init.js"></script>
 <link href="../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
+<script type="module">
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+  document.addEventListener('DOMContentLoaded', function() {
+    mermaid.initialize({ startOnLoad: false, theme: 'neutral' });
+    mermaid.run({ querySelector: '.mermaid' });
+  });
+</script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -257,6 +264,7 @@ window.Quarto = {
   <li><a href="#single-parameter-sensitivity" id="toc-single-parameter-sensitivity" class="nav-link" data-scroll-target="#single-parameter-sensitivity"><span class="header-section-number">5.7.1</span> Single-Parameter Sensitivity</a></li>
   <li><a href="#two-way-sensitivity-β-γ-interaction" id="toc-two-way-sensitivity-β-γ-interaction" class="nav-link" data-scroll-target="#two-way-sensitivity-β-γ-interaction"><span class="header-section-number">5.7.2</span> Two-Way Sensitivity: β × γ Interaction</a></li>
   <li><a href="#visualizations" id="toc-visualizations" class="nav-link" data-scroll-target="#visualizations"><span class="header-section-number">5.7.3</span> Visualizations</a></li>
+  <li><a href="#empirical-model-validation" id="toc-empirical-model-validation" class="nav-link" data-scroll-target="#empirical-model-validation"><span class="header-section-number">5.7.4</span> Empirical Model Validation</a></li>
   </ul></li>
   <li><a href="#part-c2-multi-modal-spread-signals" id="toc-part-c2-multi-modal-spread-signals" class="nav-link" data-scroll-target="#part-c2-multi-modal-spread-signals"><span class="header-section-number">5.8</span> Part C2: Multi-Modal Spread Signals</a>
   <ul class="collapse">
@@ -564,15 +572,28 @@ dR/dt = γ × I  (Recovered/immune)</code></pre>
 </section>
 <section id="visualizations" class="level3" data-number="5.7.3">
 <h3 data-number="5.7.3" class="anchored" data-anchor-id="visualizations"><span class="header-section-number">5.7.3</span> Visualizations</h3>
-<p><strong>Interactive plots and comprehensive analysis available in the external repository:</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/sanjaykshetri/misinformation-epidemic-model.git</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> misinformation-epidemic-model</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="ex">jupyter</span> notebook notebooks/baseline_vs_interventions.ipynb</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><strong>Key visualizations you can generate:</strong> - <strong>Baseline dynamics</strong>: SEIR compartments over time with population trajectories - <strong>Sensitivity heatmap</strong>: β × γ parameter space colored by peak infection rate - <strong>Intervention scenarios</strong>: 4 plots showing baseline vs.&nbsp;3 intervention strategies - <strong>Confidence bands</strong>: Parameter uncertainty visualization with credible intervals - <strong>Cascade distributions</strong>: Real FakeNewsNet cascade structure histograms (cascade depths, widths) - <strong>Model diagnostics</strong>: Residual plots and goodness-of-fit checks</p>
-<p><strong>Run locally:</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> seir_model <span class="im">import</span> calibrate_from_cascades, plot_dynamics</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>params <span class="op">=</span> calibrate_from_cascades(<span class="st">'fakenewsnet.csv'</span>)</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>plot_dynamics(params)  <span class="co"># Creates baseline trajectory</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Interactive plots and full simulation notebooks available in the external repository:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/sanjaykshetri/misinformation-epidemic-model.git</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="empirical-model-validation" class="level3" data-number="5.7.4">
+<h3 data-number="5.7.4" class="anchored" data-anchor-id="empirical-model-validation"><span class="header-section-number">5.7.4</span> Empirical Model Validation</h3>
+<p>The SEIR parameters were calibrated against FakeNewsNet cascade data. The figures below confirm that the calibrated model generalises beyond the training sample.</p>
+<p><strong>ROC-AUC Comparison — All Model Variants</strong></p>
+<p>Comparing SEIR-informed fusion models against text-only baselines validates that spread-signal features add predictive power beyond content alone:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/model_comparison_roc.png" class="img-fluid figure-img" style="width:88.0%" alt="ROC curves for TF-IDF LR, TF-IDF SVM, SBERT LR, SBERT SVM, and stacking ensemble models, calibrated with SEIR spread features"></p>
+<figcaption>Model Comparison: ROC Curves</figcaption>
+</figure>
+</div>
+<p><strong>Bootstrap Confidence Intervals — AUC Stability</strong></p>
+<p>1,000-sample bootstrap CI estimates show the fusion model’s improvement over baselines is statistically robust (non-overlapping intervals):</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/validation_bootstrap_ci.png" class="img-fluid figure-img" style="width:85.0%" alt="Forest plot of 95% bootstrap confidence intervals for ROC-AUC across all model types, showing the stacking ensemble is significantly better than single-modality baselines"></p>
+<figcaption>Bootstrap Confidence Intervals</figcaption>
+</figure>
+</div>
 <hr>
 </section>
 </section>

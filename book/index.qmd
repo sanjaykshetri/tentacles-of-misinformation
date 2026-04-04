@@ -123,6 +123,10 @@ This is what "production-ready" actually means.
 - ✅ **Hybrid wins**: Best accuracy + practical speed
 - ✅ **Generalization holds**: Production ≈ Test (84-86%)
 
+![All-model ROC comparison — TF-IDF, SBERT, and fusion variants](images/model_comparison_roc.png){width=85% fig-alt="ROC curves comparing TF-IDF Logistic Regression, TF-IDF SVM, SBERT LR, SBERT SVM, and the stacking fusion ensemble. All models shown on a single axis with AUC values annotated."}
+
+![Model comparison — accuracy, precision, recall across all approaches](images/model_comparison.png){width=85% fig-alt="Bar chart comparing accuracy, precision, recall, and F1 for every trained model from TF-IDF baseline through the hybrid fusion ensemble"}
+
 ---
 
 ## 🧭 Read the Book (It's Structured for Learning)
